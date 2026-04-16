@@ -252,8 +252,8 @@ Además, UrbamVoice ofrece una función adicional: compartir la ubicación en ti
 </tr>
 <tr class="even">
 <td><p><strong>Nombre:</strong> Jeremy Quijada Magro (U202219657)</p>
-<p><strong> Contenido </strong></p></td>
-<td><img src="assets/"/></td>
+<p><strong> Mi nombre es Jeremy, me gusta el analisis de sistemas  y me gustaria especializarme en el area de calidad. </strong></p></td>
+<td><img src="assets/Jeremy.jpeg"/></td>
 </tr>
 <tr class="even">
 <td><p><strong>Nombre:</strong> Integrante</p>
