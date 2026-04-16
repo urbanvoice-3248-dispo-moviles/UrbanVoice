@@ -776,6 +776,12 @@ realmente los ayuden.
 
 ### 2.3.5. Big Picture EventStorming
 
+Para la definición del ecosistema de UrbanVoice, el equipo llevó a cabo una sesión colaborativa de Big Picture Event Storming, un método visual que nos permitió mapear de extremo a extremo el dominio del negocio.
+
+![EventStorming](assets/EventStoarming%20-%20UrbanVoice.jpg)
+
+Puedes explorar el flujo completo, los eventos de dominio y las definiciones técnicas en tiempo real a través de nuestro tablero de Miro en el siguiente enlace:
+https://miro.com/app/board/uXjVGhQGySg=/?share_link_id=739088953987
 
 ### 2.3.6. Ubiquitous Language
 En esta sección se definen los términos clave del dominio de negocio. Estas definiciones eliminan ambigüedades y aseguran que todos los involucrados compartan una comprensión común de los conceptos de seguridad ciudadana.
