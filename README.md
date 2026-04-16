@@ -85,8 +85,39 @@
             - [1.2.3.3. Lean UX Hypothesis Statements](#1233-lean-ux-hypothesis-statements)
             - [1.2.3.4. Lean UX Canvas](#1234-lean-ux-canvas)
     - [1.3. Segmentos Objetivo](#13-segmentos-objetivo)
- 
 
+- [Capítulo II: Requirements & Analysis](#capítulo-ii-requirements--analysis)
+   - [2.1. Competidores](#21-competidores)
+   - [2.1.1 Analisis competitivo](#211-analisis-competitivo)
+   - [2.1.2 Estrategias y tacticas frente a competidores](#212-estrategias-y-tacticas-frente-a-competidores)
+   - [2.2. Entrevistas](#22-entrevistas)
+   - [2.2.1 Diseño de entrevistas](#221-diseño-de-entrevistas)
+   - [2.2.2 Registro de entrevistas](#222-registro-de-entrevistas)
+   - [2.2.3 Análisis de entrevistas](#223-análisis-de-entrevistas)
+   - [2.3. Needfinding](#23-needfinding)
+      - [2.3.1. User Personas](#231-user-personas)
+      - [2.3.2. User Task Matrix](#232-user-task-matrix)
+      - [2.3.3. User Journey Map](#233-user-journey-map)
+      - [2.3.4. Empathy Mapping](#234-empathy-mapping)
+      - [2.3.5. Big Picture EventStorming ](#235-big-picture-eventstorming)
+      - [2.3.6. Ubiquitous Language](#236-ubiquitous-language)
+   - [2.4. Requirements specification](#24-requirements-specification)
+      - [2.4.1. User Stories](#241-user-stories)
+      - [2.4.2. Impact Mapping](#242-impact-mapping)
+      - [2.4.3. Product Backlog](#243-product-backlog)
+   - [2.5. Strategic-Level Domain-Driven Design](#25-strategic-level-domain-driven-design)
+      - [2.5.1. EventStorming](#251-eventstorming)
+         - [2.5.1.1. Candidate Context Discovery](#2511-candidate-context-discovery)
+         - [2.5.1.2. Domain Message Flows Modeling](#2512-domain-message-flows-modeling)
+         - [2.5.1.3. Bounded Context Canvases](#2513-bounded-context-canvases)
+      - [2.5.2. Context Mapping](#252-context-mapping)
+      - [2.5.3. Software Architecture](#253-software-architecture)
+         - [2.5.3.1. Software Architecture Context Level Diagrams](#2531-software-architecture-context-level-diagrams)
+         - [2.5.3.2. Software Architecture Container Level Diagrams](#2532-software-architecture-container-level-diagrams)
+         - [2.5.3.3. Software Architecture Deployment Diagrams](#2533-software-architecture-deployment-diagrams)
+      - [2.6 Tactical-Level Domain-Driven Design](#26-technical-level-domain-driven-design)
+  
+      
 # Student Outcome
 
 **Criterio:** La capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de
@@ -193,7 +224,7 @@ soluciones de software.</td>
 
 ### 1.1.1 Descripción de la Startup
 
-En respuesta al aumento de la inseguridad ciudadana en el Perú, PeaceApp surge como una propuesta innovadora orientada a fortalecer la seguridad en las calles. En Lima Metropolitana, el 89,9% de los ciudadanos percibe su entorno como inseguro (INEI, 2024), una realidad preocupante que requiere atención inmediata.  
+En respuesta al aumento de la inseguridad ciudadana en el Perú, UrbanVoice surge como una propuesta innovadora orientada a fortalecer la seguridad en las calles. En Lima Metropolitana, el 89,9% de los ciudadanos percibe su entorno como inseguro (INEI, 2024), una realidad preocupante que requiere atención inmediata.  
 
 **Misión:**  
 Nuestra misión es brindar seguridad a nuestros usuarios, permitiéndoles desplazarse con confianza por las distintas calles del Perú.  
@@ -220,7 +251,7 @@ Además, UrbamVoice ofrece una función adicional: compartir la ubicación en ti
 <td><img src="assets/"/></td>
 </tr>
 <tr class="even">
-<td><p><strong>Nombre:</strong> Integrante</p>
+<td><p><strong>Nombre:</strong> Jeremy Quijada Magro (U202219657)</p>
 <p><strong> Contenido </strong></p></td>
 <td><img src="assets/"/></td>
 </tr>
@@ -448,3 +479,318 @@ ahora que hemos analizado la problemática y contamos con una visión clara de c
 
 </tbody>
 </table>
+
+# Capítulo II: Requirements Elicitation & Analysis
+
+## 2.1. Competidores
+
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 29%" />
+<col style="width: 30%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Principales Competidores</strong></th>
+<th><strong>Características</strong></th>
+<th><strong>Diferencias</strong></th>
+<th><strong>Limitaciones</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SafeCity</td>
+<td><p>Reportes Anónimos: Permite a los usuarios reportar incidentes de manera completamente anónima.</p>
+<p>Mapeo de Seguridad: Los datos se usan para crear mapas interactivos que muestran las áreas donde se reportan más incidentes.</p>
+<p>Colaboración con ONG: SafeCity colabora con organizaciones no gubernamentales para utilizar los datos recopilados en campañas de concientización y políticas públicas.</p></td>
+<td><p>Foco en el Acoso: Mientras que UrbanVoice abarca una amplia gama de incidentes, SafeCity se especializa en el reporte y la prevención del acoso.</p>
+<p>Análisis de Datos: SafeCity ofrece un análisis más profundo de los datos para propósitos educativos y de políticas públicas.</p></td>
+<td><p>Especificidad: El enfoque en el acoso puede limitar su utilidad para usuarios que buscan una herramienta más general de seguridad.</p>
+<p>Cobertura Limitada: SafeCity no está disponible en todas las ciudades, a diferencia de UrbanVoice que se enfoca en Lima Metropolitana.</p></td>
+</tr>
+<tr class="even">
+<td>Nextdoor</td>
+<td><p>Foros Comunitarios: Espacios donde los vecinos pueden discutir temas de seguridad, reportar incidentes, y organizar eventos.</p>
+<p>Alertas de Seguridad: Los usuarios pueden recibir notificaciones sobre incidentes de seguridad en su área.</p>
+<p>Redes de Vecindario: Permite la creación de grupos privados basados en la ubicación del usuario.</p></td>
+<td><p>Enfoque en la Comunidad: Nextdoor es más una red social con un enfoque amplio, mientras que UrbanVoice está específicamente diseñada para la seguridad ciudadana.</p>
+<p>Cobertura: Disponible en varias ciudades a nivel internacional, no se limita solo a Lima.</p></td>
+<td><p>No Específica de Seguridad: Aunque tiene funcionalidades de seguridad, Nextdoor es una plataforma de propósito general, no una aplicación de seguridad dedicada.</p>
+<p>Privacidad: La naturaleza social de la plataforma puede plantear preocupaciones sobre la privacidad, especialmente en temas de seguridad.</p></td>
+</tr>
+<tr class="odd">
+<td>Waze</td>
+<td><p>Alcance: Aunque es principalmente una aplicación de navegación, Waze permite reportar incidentes en la vía pública, incluyendo accidentes y peligros.</p>
+<p>Interacción: Los usuarios pueden reportar incidentes que otros conductores verán en tiempo real.</p>
+<p>Popularidad: Amplia base de usuarios, lo que incrementa la cantidad de reportes en tiempo real.</p></td>
+<td><p>Waze no está específicamente diseñada para la seguridad personal o la prevención de delitos, sino para la navegación y tráfico.</p>
+<p>Su comunidad está más orientada a conductores que a peatones o personas que transitan a pie.</p></td>
+<td><p>No está enfocada en la seguridad ciudadana de forma específica.</p>
+<p>La información sobre incidentes podría no ser tan detallada ni orientada a la prevención de delitos.</p></td>
+</tr>
+</tbody>
+</table>
+
+### 2.1.1. Análisis Competitivo 
+
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 11%" />
+<col style="width: 21%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="6"><strong>Competitive Analysis Landscape</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td colspan="6"><em>¿Por qué llevar al cabo este análisis</em>? Para conocer a nuestros competidores, conocer sus estrategias y poder aprender de estos.</td>
+</tr>
+<tr class="even">
+<td colspan="2">Empresas (Aplicación)</td>
+<td><p>SafeCity</p></td>
+<td><p>Nextdoor</p></td>
+<td><p>Waze</p></td>
+<td>UrbanVoice</td>
+</tr>
+<tr class="odd">
+<td rowspan="2"><strong>Perfil</strong></td>
+<td>Overview</td>
+<td>SafeCity es una aplicación que permite a los usuarios reportar incidentes de acoso y violencia en tiempo real, principalmente enfocada en la seguridad de las mujeres. Utiliza los reportes para crear mapas de calor y prevenir riesgos.</td>
+<td>Nextdoor es una red social privada para vecindarios, que conecta a residentes para discutir temas locales, compartir recomendaciones y alertas de seguridad en su entorno inmediato.</td>
+<td>Waze es una aplicación de navegación que utiliza crowdsourcing para ofrecer rutas en tiempo real, evitando tráfico, accidentes y obstáculos viales.</td>
+<td>UrbanVoice es una aplicación móvil enfocada en mejorar la seguridad ciudadana en Lima Metropolitana, proporcionando información y alertas de riesgo en tiempo real mediante colaboración ciudadana.</td>
+</tr>
+<tr class="even">
+<td>¿Qué valor ofrece los clientes?</td>
+<td><p>Seguridad y prevención: Identificación de áreas peligrosas.</p>
+<p>Empoderamiento: Plataforma para denunciar incidentes de acoso.</p>
+<p>Anonimato: Reportes seguros sin temor a represalias.</p></td>
+<td><p>Conexión comunitaria: Facilita la interacción vecinal.</p>
+<p>Vigilancia vecinal: Red de apoyo para reportar incidentes locales.</p>
+<p>Recursos locales: Recomendaciones de servicios cercanos.</p></td>
+<td><p>Eficiencia: Rutas optimizadas en tiempo real.</p>
+<p>Seguridad vial: Información sobre peligros en carretera.</p>
+<p>Comunidad activa: Datos precisos gracias a la contribución de usuarios.</p></td>
+<td><p>Seguridad en tiempo real: Alertas inmediatas de situaciones de riesgo.</p>
+<p>Colaboración: Nexo entre ciudadanos y autoridades.</p>
+<p>Prevención: Información accionable para evitar áreas de alta criminalidad.</p></td>
+</tr>
+<tr class="odd">
+<td rowspan="2"><strong>Perfil de Marketing</strong></td>
+<td>Mercado objetivo</td>
+<td>Mujeres en áreas urbanas preocupadas por el acoso y la seguridad de género.</td>
+<td>Adultos y residentes locales interesados en la vida comunitaria y seguridad del vecindario.</td>
+<td>Conductores que buscan optimizar sus tiempos de viaje en zonas urbanas congestionadas.</td>
+<td>Ciudadanos de Lima Metropolitana que buscan herramientas proactivas para su seguridad personal y comunitaria.</td>
+</tr>
+<tr class="even">
+<td>Estrategias de Marketing</td>
+<td>Campañas con ONGs, movimientos sociales y marketing comunitario enfocado en género.</td>
+<td>Marketing de boca en boca, publicidad en redes sociales segmentada por vecindarios y alianzas vecinales.</td>
+<td>Alianzas con empresas automotrices, publicidad geolocalizada y programas de incentivos para colaboradores.</td>
+<td>Campañas de concienciación en Lima, publicidad digital segmentada y relaciones públicas en medios locales.</td>
+</tr>
+<tr class="odd">
+<td rowspan="3"><strong>Perfil del producto</strong></td>
+<td>Producto &amp; Servicios</td>
+<td>App móvil (iOS/Android) y plataforma de datos agregados para organizaciones de seguridad.</td>
+<td>Red social vecinal, alertas de seguridad y servicios de anuncios locales para negocios.</td>
+<td>Navegación GPS, alertas de tráfico en tiempo real e integración con servicios de música/mapas.</td>
+<td>App móvil con mapas interactivos de seguridad, alertas basadas en ubicación y plataforma de datos para análisis criminalístico local.</td>
+</tr>
+<tr class="even">
+<td>Precios &amp; Costos</td>
+<td>Modelo freemium: Gratis para usuarios; suscripciones para acceso a analítica de datos avanzada.</td>
+<td>Gratuito para usuarios; ingresos mediante publicidad pagada de empresas y servicios locales.</td>
+<td>Gratuito; ingresos generados por publicidad geolocalizada dentro de la interfaz.</td>
+<td>Modelo freemium: Gratis para ciudadanos; suscripción para empresas o entidades que requieran análisis de datos detallados.</td>
+</tr>
+<tr class="odd">
+<td>Canales de distribución</td>
+<td>Móvil (App Store/Play Store) y plataforma Web complementaria.</td>
+<td>Móvil y plataforma Web para acceso desde escritorio.</td>
+<td>Principalmente Móvil; herramientas de planificación vía Web.</td>
+<td>Móvil (Android/iOS) y plataforma Web interactiva para mapas de riesgo.</td>
+</tr>
+<tr class="even">
+<td rowspan="4"><strong>Análisis SWOT</strong></td>
+<td>Fortalezas</td>
+<td>Especialización en seguridad personal y fuerte impacto social positivo.</td>
+<td>Red hiperlocal consolidada y gran base de usuarios internacionales.</td>
+<td>Líder en navegación en tiempo real con integración tecnológica avanzada.</td>
+<td>Enfoque específico en la problemática de Lima y colaboración directa con autoridades locales.</td>
+</tr>
+<tr class="odd">
+<td>Debilidades</td>
+<td>Alcance limitado fuera de áreas urbanas; dependencia total de los reportes.</td>
+<td>Problemas de privacidad de datos y complejidad en la moderación de contenido.</td>
+<td>Alto consumo de batería y datos; no orientado a la seguridad criminal personal.</td>
+<td>Focalización geográfica inicial limitada; costos operativos de mantenimiento tecnológico.</td>
+</tr>
+<tr class="even">
+<td>Oportunidades</td>
+<td>Expansión geográfica a nuevas ciudades con crisis de seguridad.</td>
+<td>Integración de nuevas funciones de Marketplace y eventos comunitarios.</td>
+<td>Colaboración con gobiernos para Smart Cities y gestión de tráfico masivo.</td>
+<td>Escalabilidad a otras capitales de Latinoamérica con desafíos similares de inseguridad.</td>
+</tr>
+<tr class="odd">
+<td>Amenazas</td>
+<td>Nuevas regulaciones de datos y competencia de apps de seguridad generalistas.</td>
+<td>Competencia de grandes plataformas (Facebook/Nextdoor clones) y saturación.</td>
+<td>Mejoras constantes en Google Maps y Apple Maps que absorben sus funciones.</td>
+<td>Cambios normativos de privacidad en Perú y competencia de aplicaciones estatales.</td>
+</tr>
+</tbody>
+</table>
+
+### 2.1.2. Estrategias y tácticas frente a competidores 
+
+**1. Diferenciación por Especialización Local:**
+
+ El valor principal de UrbanVoice reside en su enfoque exclusivo en Lima Metropolitana. A diferencia de competidores globales que manejan datos genéricos, nosotros nos enfocamos en entender la dinámica de seguridad de cada distrito limeño. La idea es posicionarnos como la herramienta que mejor conoce la realidad de nuestras calles, logrando una relevancia que aplicaciones más grandes no pueden alcanzar por su falta de contexto local.
+
+**2. Fomento de la Participación Ciudadana:**
+
+Para que la aplicación sea útil, necesitamos que la comunidad sea el motor de la información. No se trata solo de que los usuarios miren el mapa, sino de incentivarlos a ser parte activa del cambio. Implementaremos dinámicas que reconozcan el compromiso de los ciudadanos que reportan, creando un sentido de pertenencia y asegurando que la información siempre esté actualizada y sea confiable para todos.
+
+**3. Alianzas Estratégicas:**
+
+ Buscamos que UrbanVoice no sea una isla, sino un puente entre el ciudadano y las instituciones de seguridad. El objetivo es trabajar de la mano con serenazgos, ONGs y juntas vecinales para que los reportes de la app tengan un respaldo real. Estas alianzas nos darán la credibilidad necesaria para que el usuario sienta que su participación realmente contribuye a una respuesta efectiva en su seguridad.
+
+**4. Expansión Geográfica Controlada:**
+
+ Nuestra visión a largo plazo es llevar este modelo a otras ciudades del Perú que enfrentan desafíos similares. Una vez que hayamos perfeccionado el sistema en Lima, replicaremos la estrategia en regiones clave, adaptando la comunicación y el análisis a las necesidades específicas de cada ciudad para asegurar que el impacto sea igual de positivo que en la capital.
+
+**5. Innovación en Funcionalidades:**
+
+ Para mantenernos un paso adelante de la competencia, UrbanVoice integrará funciones diseñadas específicamente para situaciones críticas de seguridad ciudadana. Esto incluye desde alertas personalizadas según la ubicación del usuario hasta botones de asistencia rápida. Queremos ofrecer una herramienta integral que no solo informe, sino que brinde soluciones prácticas y directas cuando el usuario más lo necesita.
+
+## 2.2. Entrevistas
+
+El propósito de estas entrevistas es profundizar en las preocupaciones, necesidades y expectativas reales de nuestro segmento objetivo: ciudadanos que transitan por espacios públicos y priorizan su seguridad personal. A través de este diálogo, buscamos identificar patrones de comportamiento y oportunidades de solución que validen la propuesta de valor de UrbanVoice.
+
+### 2.2.1. Diseño de entrevistas
+
+Para el registro inicial y perfilamiento del entrevistado, se solicitarán los siguientes datos:
+*Nombres y Apellidos, edad, ocupación y pasatiempos.*
+
+**Segmento Objetivo: Ciudadanos preocupados por su seguridad en espacios públicos**
+
+1. ¿Podría describir alguna situación reciente en la que se haya sentido vulnerable o preocupado por su integridad en un espacio público?
+*Objetivo: Identificar contextos específicos y factores detonantes de la sensación de inseguridad.*
+
+2. ¿Qué medidas o precauciones toma habitualmente para mitigar riesgos cuando se desplaza por la ciudad?
+*Objetivo: Conocer los métodos preventivos y herramientas actuales que utiliza el usuario.*
+
+3. ¿Qué elementos del entorno (falta de iluminación, escasa vigilancia, zonas desoladas, etc.) influyen más en su percepción de peligro?
+*Objetivo: Determinar los factores del entorno urbano que UrbanVoice debería priorizar en sus reportes.*
+
+4. Ante un incidente de inseguridad (como testigo o víctima), ¿cuál suele ser su reacción inmediata y qué dificultades encuentra para actuar?
+*Objetivo: Entender la respuesta emocional y operativa del ciudadano frente al riesgo.*
+
+5. ¿Qué información o alertas específicas consideraría indispensables recibir en su celular para sentirse más protegido mientras transita?
+*Objetivo: Definir las funcionalidades críticas y el tipo de contenido más valioso para la app.*
+
+6. ¿Cuál es su nivel de confianza al usar herramientas digitales para reportar delitos o recibir alertas de seguridad?
+*Objetivo: Medir la disposición tecnológica y posibles barreras de adopción.*
+
+7. ¿Ha tenido experiencia previa con aplicaciones de seguridad? Si es así, ¿qué aspectos resultaron útiles y cuáles fueron frustrantes?
+*Objetivo: Analizar la competencia desde la experiencia del usuario para evitar errores de diseño.*
+
+8. ¿Considera que compartir su ubicación en tiempo real con sus contactos de confianza es una función esencial o secundaria para su tranquilidad?
+*Objetivo: Validar el interés en herramientas de monitoreo preventivo.*
+
+9. Más allá de las alertas, ¿qué otra funcionalidad creativa o herramienta adicional cree que le daría un mayor control sobre su seguridad diaria?
+*Objetivo: Explorar ideas innovadoras que puedan diferenciar a UrbanVoice en el mercado.*
+
+### 2.2.2. Registro de entrevistas 
+
+**URL de todas las entrevistas:** 
+
+**Entrevista N°1:**
+
+
+**Timing:** 
+
+**Nombre:** 
+
+**Edad:** 
+
+**Pasatiempos:** 
+
+**Ocupación:** 
+
+Resumen . 
+
+### 2.2.3. Análisis de entrevistas
+
+
+## 2.3. Needfinding
+
+### 2.3.1. User Personas 
+
+![](assets/Adriana%20Valdivia.png)
+
+
+### 2.3.2. User Task Matrix
+
+La siguiente matriz detalla las tareas y acciones que el segmento objetivo realiza actualmente para gestionar su seguridad. Esto nos permite identificar los "gaps" donde la app puede intervenir para mejorar la experiencia del usuario.
+
+| Categoría de Tarea | Tareas Específicas del Usuario | Frecuencia | Importancia |
+| :--- | :--- | :--- | :--- |
+| **Prevención y Planificación** | Consultar con familiares o amigos sobre la seguridad de una ruta o zona antes de visitarla. | Siempre | Alta |
+| | Evitar desplazamientos en horarios nocturnos o por lugares con reputación de peligrosidad. | Siempre | Alta |
+| | Buscar noticias sobre incidentes recientes en redes sociales (Facebook, grupos de WhatsApp). | A veces | Media |
+| **Acción y Respuesta** | Contactar a la policía o servicios de emergencia (105 / Serenazgo) ante una amenaza directa. | Casi nunca | Alta |
+| | Organizarse activamente con vecinos o juntas locales para mejorar la seguridad comunitaria. | Nunca | Media |
+| | Portar objetos de autodefensa personal (gas pimienta, alarmas sonoras, etc.). | Nunca | Media |
+| **Uso de Tecnología** | Utilizar aplicaciones de mapas (Google Maps/Waze) específicamente para evadir zonas peligrosas. | Nunca | Media |
+| | Reportar incidentes en tiempo real a través de plataformas digitales o aplicaciones móviles. | Nunca | Media |
+
+---
+
+#### Análisis de la Matriz
+* Los usuarios dependen casi exclusivamente de su red de contactos directa y de evitar el peligro físicamente, lo que indica una falta de herramientas digitales confiables.
+* Aunque llamar a la policía es de alta importancia, la frecuencia es "Casi nunca", lo que sugiere desconfianza en los tiempos de respuesta o dificultad para realizar la llamada en una emergencia.
+* Existe un uso nulo ("Nunca") de aplicaciones para reportar o evadir zonas peligrosas, lo que representa un océano azul para UrbanVoice si logra simplificar esta tarea.
+
+### 2.3.3. Empathy Journey Mappping
+
+![Empathy Journey Mappping](assets/Matrix.png)
+
+### 2.3.4. Empathy Mappping
+
+![Empathy Journey Mappping](assets//Empathy%20map.png)
+
+Con ayuda del gráfico Empathy Mapping podemos conocer las necesidades, frustraciones de nuestro segmento objetivo: **Ciudadanos preocupados por su seguridad en espacios públicos**. Esto nos ofrece una comprensión más profunda de cómo se siente nuestro usuario y abordar una solución que
+realmente los ayuden.
+
+### 2.3.5. Big Picture EventStorming
+
+
+### 2.3.6. Ubiquitous Language
+En esta sección se definen los términos clave del dominio de negocio. Estas definiciones eliminan ambigüedades y aseguran que todos los involucrados compartan una comprensión común de los conceptos de seguridad ciudadana.
+
+| Término | Definición |
+| :--- | :--- |
+| **Seguridad Ciudadana** | Acción integrada que desarrolla el Estado, con la colaboración de la ciudadanía, para asegurar su convivencia pacífica, la erradicación de la violencia y la utilización pacífica de las vías y espacios públicos. |
+| **Incidente** | Cualquier evento o suceso que represente un riesgo para la integridad física o patrimonial del ciudadano, incluyendo robos, hurtos, acoso o actos vandálicos. |
+| **Punto Crítico** | Zona geográfica específica dentro de la ciudad que presenta una alta recurrencia o densidad de incidentes reportados en un periodo determinado. |
+| **Alerta en Tiempo Real** | Notificación inmediata enviada a los usuarios sobre un peligro o incidente que está ocurriendo o acaba de ocurrir en su cercanía geográfica. |
+| **Ruta Segura** | Trayecto sugerido entre dos puntos que prioriza vías con menor índice de criminalidad, mejor iluminación y mayor presencia de autoridades. |
+| **Reporte Ciudadano** | Acto voluntario de un usuario de registrar y compartir información sobre un incidente presenciado o experimentado para alertar a la comunidad. |
+| **Mapa de Riesgo** | Representación visual interactiva que utiliza datos históricos y en tiempo real para mostrar los niveles de inseguridad en diferentes sectores de la ciudad. |
+| **Acoso Callejero** | Prácticas de naturaleza sexual no consentidas que ocurren en espacios públicos, que afectan la dignidad y el derecho a la libre circulación de las personas. |
+| **Botón de Pánico** | Funcionalidad de emergencia que permite al usuario enviar una señal de auxilio inmediata a sus contactos de confianza y a las autoridades competentes. |
+| **Círculo de Confianza** | Grupo selecto de contactos (familiares o amigos) con los cuales el usuario decide compartir su ubicación o recibir notificaciones de emergencia. |
+| **Espacio Público** | Áreas de la ciudad de libre acceso y circulación, como calles, parques, paraderos y plazas, donde se desarrolla la vida comunitaria. |
+| **Tiempo de Respuesta** | Intervalo que transcurre desde que se reporta una emergencia hasta que las autoridades (Serenazgo o Policía) intervienen en el lugar del suceso. |
