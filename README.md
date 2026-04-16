@@ -384,3 +384,67 @@ ahora que hemos analizado la problemática y contamos con una visión clara de c
 
 ![](assets/LeanUXCanvas.jpg)
 
+## 1.3. Segmentos Objetivo
+
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr>
+<th rowspan="2"><strong>Variables</strong></th>
+<th><strong>Segmento</strong></th>
+</tr>
+<tr>
+<th>Personas que buscan mayor seguridad al movilizarse en espacios públicos</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td><strong>Geográfica</strong></td>
+<td>
+<ul>
+<li>Ubicación: Lima Metropolitana, priorizando zonas con alta incidencia delictiva y gran flujo de personas.</li>
+<li>Alcance: Distritos urbanos y zonas concurridas dentro de Lima.</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>Demográfica</strong></td>
+<td>
+<ul>
+<li>Edad: Personas entre 18 y 65 años.</li>
+<li>Género: Público masculino y femenino.</li>
+<li>Nivel socioeconómico: Sectores C1, C2 y C3 que se movilizan constantemente por trabajo, estudios u otras actividades.</li>
+<li>Ocupación: Incluye estudiantes, trabajadores dependientes e independientes, y amas de casa.</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>Psicológica</strong></td>
+<td>
+<ul>
+<li>Actitudes y valores: Individuos que valoran su seguridad y la de su entorno, atentos a situaciones de riesgo.</li>
+<li>Motivaciones: Desean sentirse más tranquilos al desplazarse y contar con información confiable para tomar decisiones.</li>
+<li>Estilo de vida: Personas dinámicas que se movilizan con frecuencia dentro de la ciudad.</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><strong>Función de comportamiento</strong></td>
+<td>
+<ul>
+<li>Necesidades: Información actualizada sobre niveles de seguridad en las zonas que transitan.</li>
+<li>Comportamiento de uso: Usuarios que utilizan aplicaciones móviles para informarse y que están abiertos a usar tecnología para mejorar su seguridad.</li>
+<li>Lealtad: Prefieren plataformas confiables donde puedan informarse y también aportar con reportes a la comunidad.</li>
+</ul>
+</td>
+</tr>
+
+</tbody>
+</table>
