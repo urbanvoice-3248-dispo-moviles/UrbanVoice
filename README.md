@@ -800,3 +800,18 @@ En esta sección se definen los términos clave del dominio de negocio. Estas de
 | **Círculo de Confianza** | Grupo selecto de contactos (familiares o amigos) con los cuales el usuario decide compartir su ubicación o recibir notificaciones de emergencia. |
 | **Espacio Público** | Áreas de la ciudad de libre acceso y circulación, como calles, parques, paraderos y plazas, donde se desarrolla la vida comunitaria. |
 | **Tiempo de Respuesta** | Intervalo que transcurre desde que se reporta una emergencia hasta que las autoridades (Serenazgo o Policía) intervienen en el lugar del suceso. |
+
+## 2.4. Requirements specification
+### 2.4.1. User Stories
+### 2.4.2. Impact Mapping
+### 2.4.3. Product Backlog
+## 2.5. Strategic-Level Domain-Driven Design
+### 2.5.1. EventStorming
+### 2.5.1.1. Candidate Context Discovery
+### 2.5.1.2. Domain Message Flows Modeling
+### 2.5.1.3. Bounded Context Canvases
+### 2.5.2. Context Mapping
+### 2.5.3. Software Architecture
+### 2.5.3.1. Software Architecture Context Level Diagrams
+### 2.5.3.2. Software Architecture Container Level Diagrams
+### 2.5.3.3. Software Architecture Deployment Diagrams
