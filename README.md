@@ -25,7 +25,7 @@
   <p> Relación de Integrantes: </p>
   <p>  - . </p>
   <p>  - . </p>
-  <p>  - . </p>
+  <p>  - Ruiz Madrid, Billy Jake (u202116401) </p>
   <p>  - Gordillo Ramos, Santiago Alonso (u202215160) </p>
   <p>  - . </p>
   <br>
@@ -256,9 +256,9 @@ Además, UrbamVoice ofrece una función adicional: compartir la ubicación en ti
 <td><img src="assets/Jeremy.jpeg"/></td>
 </tr>
 <tr class="even">
-<td><p><strong>Nombre:</strong> Integrante</p>
-<p><strong> Contenido </strong></p></td>
-<td><img src="assets/"/></td>
+<td><p><strong>Nombre:</strong> Billy Jake Ruiz Madrid (U202116401)</p>
+<p><strong> Tengo 22 años, soy una persona tranquila, colaborativa y adaptable. Me gusta trabajar en equipo, aportando ideas y soluciones. Cuento con conocimientos en C++ y Python y siempre busco formas de hacer las cosas de manera eficiente. </strong></p></td>
+<td><img src="assets/Billy.jpg"/></td>
 </tr>
 <tr class="even">
 <td><p><strong>Nombre:</strong> Santiago Alonso Gordillo Ramos (U202215160)</p>
