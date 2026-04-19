@@ -895,6 +895,15 @@ El equipo empezó a analizar el modelo completo (basado en la interacción entre
 
 Trazamos fronteras alrededor de los grupos funcionales y asignamos a cada bounded context un nombre que reflejara su función principal. Como resultado de los flujos diseñados, identificamos las siguientes 6 áreas clave (Bounded Contexts) para nuestra solución:
 
+<td><img src="assets/Step 8 - Aggregates.jpg"/></td>
+
+- IAM
+- Profile
+- Space & Planning
+- Resource & Asset
+- Booking Execution
+- Payment Management
+
 ### 2.5.1.2. Domain Message Flows Modeling
 ### 2.5.1.3. Bounded Context Canvases
 ### 2.5.2. Context Mapping
