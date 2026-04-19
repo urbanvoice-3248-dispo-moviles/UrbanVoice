@@ -904,7 +904,28 @@ Trazamos fronteras alrededor de los grupos funcionales y asignamos a cada bounde
 - Booking Execution
 - Payment Management
 
-### 2.5.1.2. Domain Message Flows Modeling
+### 2.5.1.2 Domain Message Flows Modeling
+
+Los Domain Message Flows (o Domain Storytelling) representan cómo se comunican nuestros bounded contexts. A continuación, se detallan los flujos de comunicación para tres escenarios importantes de nuestra aplicación que involucran a nuestros actores (Propietario y Freelancer).
+
+#### Scenario 1: Publish Property (Propietario)
+
+Este escenario ilustra el proceso mediante el cual un propietario ingresa a la plataforma y publica un nuevo espacio para que esté disponible.
+
+<td><img src="assets/Scenario 1 Publish Property.jpg"/></td>
+
+#### Scenario 2: Reserve Space (Freelancer)
+
+Este escenario detalla cómo un freelancer interactúa con el sistema para encontrar un local disponible y solicitar una reserva para una fecha específica.
+
+<td><img src="assets/Scenario 2 Reserve Space.jpg"/></td>
+
+#### Scenario 3: Process Payment (Freelancer)
+
+Este escenario cubre el flujo crítico donde el freelancer efectúa el pago de la reserva previamente solicitada, interactuando con los contextos de pagos y reservas.
+
+<td><img src="assets/Scenario 3 Process Payment.jpg"/></td>
+
 ### 2.5.1.3. Bounded Context Canvases
 ### 2.5.2. Context Mapping
 ### 2.5.3. Software Architecture
