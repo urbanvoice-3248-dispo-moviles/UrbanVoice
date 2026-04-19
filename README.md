@@ -805,9 +805,96 @@ En esta sección se definen los términos clave del dominio de negocio. Estas de
 ### 2.4.1. User Stories
 ### 2.4.2. Impact Mapping
 ### 2.4.3. Product Backlog
+
 ## 2.5. Strategic-Level Domain-Driven Design
-### 2.5.1. EventStorming
-### 2.5.1.1. Candidate Context Discovery
+
+Esta sección explica cómo dividimos nuestro software en bounded contexts usando las herramientas de EventStorming y Bounded Context Canvas. Este enfoque nos permite gestionar la complejidad del dominio de la plataforma (conectando a Propietarios y Freelancers) y estructurar nuestra solución de manera modular y escalable.
+
+### 2.5.1 EventStorming
+
+Para la elaboración del EventStorming, el equipo organizó una primera aproximación al modelo del dominio de nuestro proyecto. Durante este proceso colaborativo se realizaron una serie de 9 pasos.
+
+#### Paso 1: Collect Domain Events
+
+En este primer paso, se identificaron todos los eventos relevantes para el dominio de nuestro sistema. Estos eventos representan hechos importantes que suceden en el proceso de negocio, como la creación de una cuenta, la publicación de un local o la confirmación de un pago, y los recopilamos utilizando post-its de color naranja.
+
+<td><img src="assets/Step 1 - Collect Domain Events.jpg"/></td>
+
+#### Paso 2: Timeline
+
+En este paso organizamos los eventos identificados en una línea temporal, colocándolos en orden cronológico para visualizar mejor el flujo del proceso (por ejemplo, desde que el Propietario publica un local hasta que el Freelancer lo reserva y lo paga) y entender la secuencia natural de acciones en el sistema.
+
+<td><img src="assets/Step 2 - Timeline.jpg"/></td>
+
+#### Paso 3: Pain and Pivotal Points
+
+En este paso se identificaron los pain points y los pivotal points del proceso. Esto significa que se encontraron las partes que necesitan mayor atención o que son cruciales para que el sistema funcione correctamente, como la validación de pagos o la correcta sincronización de la disponibilidad de los locales.
+
+<td><img src="assets/Step 3 - Pain and Pivotal points.jpg"/></td>
+
+#### Paso 4: Commands
+
+En este paso se agregaron comandos (los post-its azules) para representar las acciones de los usuarios o sistemas que inician un cambio en el sistema. Ejemplos de estos incluyen "Publicar nueva Propiedad", "Reservar un local", "Añadir Servicios" o "Procesar Pago".
+
+<td><img src="assets/Step 4 - Commands.jpg"/></td>
+
+#### Paso 5: Policies
+
+En este paso se definieron reglas de negocio (los post-its lila/morados) que responden a ciertos eventos y generan nuevos comandos o eventos. Básicamente, estas reglas automatizan decisiones basadas en lo que sucedió antes.
+
+<td><img src="assets/Step 5 - Policies.jpg"/></td>
+
+#### Paso 6: Read Models
+
+En este paso se identificaron las vistas o modelos de lectura que los usuarios necesitan (post-its verdes). Esto se refiere a la información específica que debe estar accesible en ciertos momentos, como "Visualizar lista de locales disponibles", "Ver propiedades pausadas" o "Ver recibo del Pago".
+
+<td><img src="assets/Step 6 - Read Models.jpg"/></td>
+
+#### Paso 7: External System
+
+En este paso se identificaron los sistemas externos (post-its rosados) que se conectan con nuestra solución. Estos son elementos que no controlamos directamente, pero que influyen en el proceso, como las pasarelas de pago externas.
+
+<td><img src="assets/Step 7 - External Systems.jpg"/></td>
+
+#### Paso 8: Aggregates
+
+En este paso se organizaron los comandos y eventos relacionados en grupos lógicos llamados agregados (los post-its amarillos claros). Cada grupo reúne un conjunto de funciones y entidades que trabajan juntas de manera coherente.
+
+<td><img src="assets/Step 8 - Aggregates.jpg"/></td>
+
+#### Paso 9: Bounded Context
+
+Al final, definimos las áreas de responsabilidad del sistema, agrupando los agregados y procesos afines, también conocidas como bounded contexts.
+
+Bounded context: Identity and Access Management
+<td><img src="assets/Identity and Access Managment.jpg"/></td>
+
+Bounded context: Profile and Preferences Management
+<td><img src="assets/Profile and Preferences Managment.jpg"/></td>
+
+Bounded context: Space and Planning Management
+<td><img src="assets/Space and Planing Managment.jpg"/></td>
+
+Bounded context: Resource and Asset Management
+<td><img src="assets/Resource and Asset Management.jpg"/></td>
+
+Bounded context: Booking Execution and Monitoring
+<td><img src="assets/Booking Execution and Monitoring.jpg"/></td>
+
+Bounded context: Payment Management
+<td><img src="assets/Payment Management.jpg"/></td>
+
+
+### 2.5.1.1 Candidate Context Discovery
+
+Después de la sesión de EventStorming, nuestro equipo se enfocó en encontrar los bounded contexts de la solución. Para lograrlo, aplicamos técnicas que nos ayudaron a identificar los look-for-pivotal-events (eventos pivotales) en nuestro proceso.
+
+**Proceso de identificación:**
+
+El equipo empezó a analizar el modelo completo (basado en la interacción entre el Propietario y el Freelancer), centrándose en los eventos clave como la publicación de un espacio o la confirmación de una reserva.
+
+Trazamos fronteras alrededor de los grupos funcionales y asignamos a cada bounded context un nombre que reflejara su función principal. Como resultado de los flujos diseñados, identificamos las siguientes 6 áreas clave (Bounded Contexts) para nuestra solución:
+
 ### 2.5.1.2. Domain Message Flows Modeling
 ### 2.5.1.3. Bounded Context Canvases
 ### 2.5.2. Context Mapping
