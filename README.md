@@ -46,19 +46,19 @@
   <tr>
     <td align="center">TB1</td>
     <td>//2026</td>
-    <td> Integrante <br> Integrante <br> Integrante <br> Santiago Gordillo <br> Integrante </td>
-    <td> Realizamos los capítulos 1, 2 y 3 según la rúbrica de manera conjunta y eficiente.  </td>
+    <td> Integrante <br> Integrante <br> Billy Ruiz <br> Santiago Gordillo <br> Integrante </td>
+    <td> Realizamos los capítulos 1 y 2 según la rúbrica de manera conjunta y eficiente.  </td>
   </tr>
   <tr>
     <td align="center">TB2</td>
     <td>//2026</td>
-    <td> Integrante <br> Integrante <br> Integrante <br> Santiago Gordillo <br> Integrante </td>
+    <td> Integrante <br> Integrante <br> Billy Ruiz <br> Santiago Gordillo <br> Integrante </td>
     <td> descripción </td>
   </tr>
   <tr>
     <td align="center">TP1</td>
     <td>//2026</td>
-    <td> Integrante <br> Integrante <br> Integrante <br> Santiago Gordillo <br> Integrante </td>
+    <td> Integrante <br> Integrante <br> Billy Ruiz <br> Santiago Gordillo <br> Integrante </td>
     <td> descripción </td>
   </tr>
 </table>
@@ -154,7 +154,7 @@ software.</td>
             TB1 <br> Contenido <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
-            <strong>Integrante</strong> <br>
+            <strong>Ruiz Madrid, Billy Jake</strong> <br>
             TB1 <br> Contenido <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>         
@@ -192,7 +192,7 @@ soluciones de software.</td>
             TB1 <br> Contenido <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
-            <strong>Integrante</strong> <br>
+            <strong>Ruiz Madrid, Billy Jake</strong> <br>
             TB1 <br> Contenido <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
