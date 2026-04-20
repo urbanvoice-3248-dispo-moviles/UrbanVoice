@@ -803,8 +803,42 @@ En esta sección se definen los términos clave del dominio de negocio. Estas de
 
 ## 2.4. Requirements specification
 ### 2.4.1. User Stories
+| ID | User Story | Prioridad | Criterios de aceptación |
+|---|---|---|---|
+| US01 | Como ciudadano, quiero visualizar en un mapa las zonas con mayor nivel de riesgo para evitar transitar por lugares peligrosos. | Alta | El sistema muestra un mapa interactivo con zonas clasificadas por nivel de riesgo y permite ver la ubicación actual del usuario. |
+| US02 | Como ciudadano, quiero reportar un incidente de inseguridad con ubicación para alertar a otros usuarios cercanos. | Alta | El sistema permite registrar tipo de incidente, descripción y ubicación geográfica del reporte. |
+| US03 | Como ciudadano, quiero adjuntar evidencia multimedia (foto, audio o video) a un reporte para darle mayor credibilidad a la información compartida. | Alta | El sistema permite adjuntar archivos multimedia al momento de crear un reporte. |
+| US04 | Como ciudadano, quiero realizar reportes de forma anónima para proteger mi identidad al informar sobre un incidente. | Alta | El sistema ofrece la opción de publicar el reporte con identidad visible o anónima. |
+| US05 | Como ciudadano, quiero recibir alertas de incidentes cercanos a mi ubicación para tomar decisiones preventivas durante mi desplazamiento. | Alta | El sistema envía notificaciones cuando se detectan incidentes recientes dentro de un radio determinado. |
+| US06 | Como ciudadano, quiero consultar rutas más seguras entre dos puntos para reducir mi exposición a zonas de riesgo. | Alta | El sistema propone trayectos priorizando calles con menor nivel de incidentes reportados. |
+| US07 | Como ciudadano, quiero compartir mi ubicación en tiempo real con contactos de confianza para sentirme más seguro durante un trayecto. | Alta | El sistema permite activar el seguimiento en tiempo real y compartirlo con contactos seleccionados. |
+| US08 | Como contacto de confianza, quiero recibir la ubicación en tiempo real de un usuario para poder monitorear su trayecto y reaccionar ante una emergencia. | Media | El contacto recibe acceso temporal a la ubicación compartida del usuario. |
+| US09 | Como ciudadano, quiero visualizar el detalle de los incidentes reportados en una zona para comprender mejor el nivel de riesgo. | Media | El sistema permite abrir cada reporte y visualizar tipo, fecha, descripción y evidencia disponible. |
+| US10 | Como ciudadano, quiero filtrar incidentes por tipo, fecha o zona para consultar información relevante según mi necesidad. | Media | El sistema permite aplicar filtros y actualizar los resultados en el mapa o lista de reportes. |
+| US11 | Como administrador, quiero revisar y moderar los reportes enviados por los usuarios para evitar información falsa, ofensiva o duplicada. | Alta | El sistema permite aprobar, rechazar o eliminar reportes desde un panel de moderación. |
+| US12 | Como administrador, quiero gestionar categorías de incidentes para mantener organizado el registro de reportes en la plataforma. | Media | El sistema permite crear, editar o desactivar categorías de incidentes. |
+
 ### 2.4.2. Impact Mapping
+
+
 ### 2.4.3. Product Backlog
+| ID | Ítem del Backlog | Descripción | Prioridad | Relación |
+|---|---|---|---|---|
+| PB01 | Visualización de mapa de riesgo | Implementar un mapa interactivo que muestre las zonas según nivel de peligrosidad. | Alta | US01 |
+| PB02 | Registro de incidentes | Permitir al usuario crear reportes con tipo de incidente, descripción y ubicación. | Alta | US02 |
+| PB03 | Adjuntar evidencia multimedia | Permitir incluir fotos, audios o videos dentro de los reportes. | Alta | US03 |
+| PB04 | Reporte anónimo | Incorporar opción para ocultar la identidad del usuario al publicar un incidente. | Alta | US04 |
+| PB05 | Alertas geolocalizadas | Enviar notificaciones sobre incidentes cercanos a la ubicación del usuario. | Alta | US05 |
+| PB06 | Consulta de rutas seguras | Generar rutas que eviten las zonas con mayor concentración de reportes. | Alta | US06 |
+| PB07 | Compartir ubicación en tiempo real | Permitir al usuario compartir su recorrido en tiempo real con contactos seleccionados. | Alta | US07 |
+| PB08 | Vista para contacto de confianza | Implementar acceso para que el contacto pueda monitorear la ubicación compartida. | Media | US08 |
+| PB09 | Detalle de incidentes | Mostrar información ampliada de cada incidente registrado en el mapa. | Media | US09 |
+| PB10 | Filtros de búsqueda | Incorporar filtros por tipo de incidente, fecha, distrito o nivel de riesgo. | Media | US10 |
+| PB11 | Panel de moderación | Crear una interfaz administrativa para validar, rechazar o eliminar reportes. | Alta | US11 |
+| PB12 | Gestión de categorías de incidentes | Permitir administrar los tipos de incidentes disponibles en la plataforma. | Media | US12 |
+| PB13 | Historial de reportes del usuario | Permitir al usuario revisar sus reportes realizados anteriormente. | Media | Complementario |
+| PB14 | Sistema de autenticación | Implementar registro e inicio de sesión para usuarios de la aplicación. | Alta | Base del sistema |
+| PB15 | Gestión de contactos de confianza | Permitir agregar, editar o eliminar contactos autorizados para recibir ubicación y alertas. | Media | US07, US08 |
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
