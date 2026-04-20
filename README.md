@@ -927,6 +927,28 @@ Este escenario cubre el flujo crítico donde el freelancer efectúa el pago de l
 <td><img src="assets/Scenario 3 Process Payment.jpg"/></td>
 
 ### 2.5.1.3. Bounded Context Canvases
+
+En esta sección, el equipo diseña sus candidate bounded contexts detallando los criterios de diseño estratégicos y tácticos. Para cada Bounded Context, se ha elaborado un Bounded Context Canvas utilizando la plantilla estándar, siguiendo un proceso iterativo que incluye la definición del propósito, la destilación del Lenguaje Ubicuo, las reglas de negocio, los mensajes consumidos/producidos y el análisis de dependencias.
+A continuación, se presentan los lineamientos para los 6 contextos principales de la plataforma:
+
+1. Bounded Context Canvas: Identity and Access Management (IAM)
+<td><img src="assets/IAM-canvas.jpg"/></td>
+
+2. Bounded Context Canvas: Profile and Preferences Management
+<td><img src="assets/Profile and Preferences Managemen-canvas.jpg"/></td>
+
+3. Bounded Context Canvas: Space and Planning Management
+<td><img src="assets/Space and Planning Management-canvas.jpg"/></td>
+
+4. Bounded Context Canvas: Resource and Asset Management
+<td><img src="assets/Resource and Asset Management-canvas.jpg"/></td>
+
+5. Bounded Context Canvas: Booking Execution and Monitoring
+<td><img src="assets/Booking Execution and Monitoring-canvas.jpg"/></td>
+
+6. Bounded Context Canvas: Payment Management
+<td><img src="assets/Payment Management-canvas.jpg"/></td>
+
 ### 2.5.2. Context Mapping
 ### 2.5.3. Software Architecture
 ### 2.5.3.1. Software Architecture Context Level Diagrams
