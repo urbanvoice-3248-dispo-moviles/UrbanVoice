@@ -266,9 +266,9 @@ Además, UrbamVoice ofrece una función adicional: compartir la ubicación en ti
 <td><img src="assets/Santiago.jpg"/></td>
 </tr>
 <tr class="even">
-<td><p><strong>Nombre:</strong> Integrante</p>
-<p><strong> Contenido </strong></p></td>
-<td><img src="assets/"/></td>
+<td><p><strong>Nombre:</strong> Ivan Jeanpierre La Madrid Lozano (u202113432)</p>
+<p><strong> Me llamo Ivan La Madrid, tengo 22 años, me gusta el desarrollo de software. Últimamente me inclino más al desarrollo backend con frameworks como .NET </strong></p></td>
+<td><img src="assets/ivan.jpeg"/></td>
 </tr>
 
 </table>
@@ -819,7 +819,7 @@ En esta sección se definen los términos clave del dominio de negocio. Estas de
 | US12 | Como administrador, quiero gestionar categorías de incidentes para mantener organizado el registro de reportes en la plataforma. | Media | El sistema permite crear, editar o desactivar categorías de incidentes. |
 
 ### 2.4.2. Impact Mapping
-
+<td><img src="assets/impact-mapping.png"/></td>
 
 ### 2.4.3. Product Backlog
 | ID | Ítem del Backlog | Descripción | Prioridad | Relación |
