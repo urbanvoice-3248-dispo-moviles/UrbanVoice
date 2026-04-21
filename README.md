@@ -982,13 +982,20 @@ A continuación, se presentan los lineamientos para los 6 contextos principales 
 
 ### 2.5.2. Context Mapping
 Este diagrama define las relaciones y fronteras entre los diferentes dominios (Agregados) identificados en el Event Storming. Establece cómo interactúan los contextos de Access, User, Incident, Spacial y Alert, detallando la naturaleza de sus integraciones y el flujo de información entre ellos para garantizar la integridad del sistema.
+<td><img src="assets//Mapping.jpeg"/></td>
 
 ### 2.5.3. Software Architecture
 En esta sección se describe la estructura técnica de la solución. Se detalla la organización de los componentes, sus responsabilidades y cómo se articulan para satisfacer los requerimientos funcionales de participación ciudadana y seguridad urbana de UrbanVoice.
 
 ### 2.5.3.1. Software Architecture Context Level Diagrams
+<td><img src="assets/structurizr-97259-SystemContext.png"/></td>
+
 
 ### 2.5.3.2. Software Architecture Container Level Diagrams
+<td><img src="assets/structurizr-97259-Containers.png"/></td>
+
 
 ### 2.5.3.3. Software Architecture Deployment Diagrams
+<td><img src="assets/structurizr-97259-ProductionDeployment.png"/></td>
+
 
