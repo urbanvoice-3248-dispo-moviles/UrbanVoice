@@ -852,49 +852,50 @@ Para la elaboración del EventStorming, el equipo organizó una primera aproxima
 
 En este primer paso, se identificaron todos los eventos relevantes para el dominio de nuestro sistema. Estos eventos representan hechos importantes que suceden en el proceso de negocio, como la creación de una cuenta, la publicación de un local o la confirmación de un pago, y los recopilamos utilizando post-its de color naranja.
 
-<td><img src="assets/Step 1 - Collect Domain Events.jpg"/></td>
+<td><img src="assets/Step 1.jpg"/></td>
+
 
 #### Paso 2: Timeline
 
 En este paso organizamos los eventos identificados en una línea temporal, colocándolos en orden cronológico para visualizar mejor el flujo del proceso (por ejemplo, desde que el Propietario publica un local hasta que el Freelancer lo reserva y lo paga) y entender la secuencia natural de acciones en el sistema.
 
-<td><img src="assets/Step 2 - Timeline.jpg"/></td>
+<td><img src="assets/Step 2.jpg"/></td>
 
 #### Paso 3: Pain and Pivotal Points
 
-En este paso se identificaron los pain points y los pivotal points del proceso. Esto significa que se encontraron las partes que necesitan mayor atención o que son cruciales para que el sistema funcione correctamente, como la validación de pagos o la correcta sincronización de la disponibilidad de los locales.
+En este paso se identificaron los pain points y los pivotal points del proceso. Esto significa que se encontraron las partes que necesitan mayor atención o que son cruciales para que el sistema funcione correctamente.
 
-<td><img src="assets/Step 3 - Pain and Pivotal points.jpg"/></td>
+<td><img src="assets/Step 3.jpg"/></td>
 
 #### Paso 4: Commands
 
-En este paso se agregaron comandos (los post-its azules) para representar las acciones de los usuarios o sistemas que inician un cambio en el sistema. Ejemplos de estos incluyen "Publicar nueva Propiedad", "Reservar un local", "Añadir Servicios" o "Procesar Pago".
+En este paso se agregaron comandos (los post-its azules) para representar las acciones de los usuarios o sistemas que inician un cambio en el sistema.
 
-<td><img src="assets/Step 4 - Commands.jpg"/></td>
+<td><img src="assets/Step 4.jpg"/></td>
 
 #### Paso 5: Policies
 
 En este paso se definieron reglas de negocio (los post-its lila/morados) que responden a ciertos eventos y generan nuevos comandos o eventos. Básicamente, estas reglas automatizan decisiones basadas en lo que sucedió antes.
 
-<td><img src="assets/Step 5 - Policies.jpg"/></td>
+<td><img src="assets/Step 5.jpg"/></td>
 
 #### Paso 6: Read Models
 
-En este paso se identificaron las vistas o modelos de lectura que los usuarios necesitan (post-its verdes). Esto se refiere a la información específica que debe estar accesible en ciertos momentos, como "Visualizar lista de locales disponibles", "Ver propiedades pausadas" o "Ver recibo del Pago".
+En este paso se identificaron las vistas o modelos de lectura que los usuarios necesitan (post-its verdes). Esto se refiere a la información específica que debe estar accesible en ciertos momentos.
 
-<td><img src="assets/Step 6 - Read Models.jpg"/></td>
+<td><img src="assets/Step 6.jpg"/></td>
 
 #### Paso 7: External System
 
-En este paso se identificaron los sistemas externos (post-its rosados) que se conectan con nuestra solución. Estos son elementos que no controlamos directamente, pero que influyen en el proceso, como las pasarelas de pago externas.
+En este paso se identificaron los sistemas externos (post-its rosados) que se conectan con nuestra solución. Estos son elementos que no controlamos directamente, pero que influyen en el proceso.
 
-<td><img src="assets/Step 7 - External Systems.jpg"/></td>
+<td><img src="assets/Step 7.jpg"/></td>
 
 #### Paso 8: Aggregates
 
 En este paso se organizaron los comandos y eventos relacionados en grupos lógicos llamados agregados (los post-its amarillos claros). Cada grupo reúne un conjunto de funciones y entidades que trabajan juntas de manera coherente.
 
-<td><img src="assets/Step 8 - Aggregates.jpg"/></td>
+<td><img src="assets/Step 8.jpg"/></td>
 
 #### Paso 9: Bounded Context
 
@@ -906,17 +907,14 @@ Bounded context: Identity and Access Management
 Bounded context: Profile and Preferences Management
 <td><img src="assets/Profile and Preferences Managment.jpg"/></td>
 
-Bounded context: Space and Planning Management
-<td><img src="assets/Space and Planing Managment.jpg"/></td>
+Bounded context: Location Managment
+<td><img src="assets/Location Managment.jpg"/></td>
 
-Bounded context: Resource and Asset Management
-<td><img src="assets/Resource and Asset Management.jpg"/></td>
+Bounded context: Report Managment
+<td><img src="assets/Report Managment.jpg"/></td>
 
-Bounded context: Booking Execution and Monitoring
-<td><img src="assets/Booking Execution and Monitoring.jpg"/></td>
-
-Bounded context: Payment Management
-<td><img src="assets/Payment Management.jpg"/></td>
+Bounded context: Notification Managment
+<td><img src="assets/Notification Managment.jpg"/></td>
 
 
 ### 2.5.1.1 Candidate Context Discovery
@@ -929,14 +927,13 @@ El equipo empezó a analizar el modelo completo (basado en la interacción entre
 
 Trazamos fronteras alrededor de los grupos funcionales y asignamos a cada bounded context un nombre que reflejara su función principal. Como resultado de los flujos diseñados, identificamos las siguientes 6 áreas clave (Bounded Contexts) para nuestra solución:
 
-<td><img src="assets/Step 8 - Aggregates.jpg"/></td>
+<td><img src="assets/Step 8.jpg"/></td>
 
 - IAM
 - Profile
-- Space & Planning
-- Resource & Asset
-- Booking Execution
-- Payment Management
+- Location
+- Report 
+- Notification
 
 ### 2.5.1.2 Domain Message Flows Modeling
 
@@ -984,7 +981,14 @@ A continuación, se presentan los lineamientos para los 6 contextos principales 
 <td><img src="assets/Payment Management-canvas.jpg"/></td>
 
 ### 2.5.2. Context Mapping
+Este diagrama define las relaciones y fronteras entre los diferentes dominios (Agregados) identificados en el Event Storming. Establece cómo interactúan los contextos de Access, User, Incident, Spacial y Alert, detallando la naturaleza de sus integraciones y el flujo de información entre ellos para garantizar la integridad del sistema.
+
 ### 2.5.3. Software Architecture
+En esta sección se describe la estructura técnica de la solución. Se detalla la organización de los componentes, sus responsabilidades y cómo se articulan para satisfacer los requerimientos funcionales de participación ciudadana y seguridad urbana de UrbanVoice.
+
 ### 2.5.3.1. Software Architecture Context Level Diagrams
+
 ### 2.5.3.2. Software Architecture Container Level Diagrams
+
 ### 2.5.3.3. Software Architecture Deployment Diagrams
+
