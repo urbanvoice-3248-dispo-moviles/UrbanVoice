@@ -27,6 +27,7 @@
   <p>  - . </p>
   <p>  - Ruiz Madrid, Billy Jake (u202116401) </p>
   <p>  - Gordillo Ramos, Santiago Alonso (u202215160) </p>
+    <p>  - Awad Vargas, Giorgio Marzouk (u202324041) </p>
   <p>  - . </p>
   <br>
   <p> Mes y Año: Abril del 2026 </p>
@@ -46,7 +47,7 @@
   <tr>
     <td align="center">TB1</td>
     <td>//2026</td>
-    <td> Integrante <br> Integrante <br> Billy Ruiz <br> Santiago Gordillo <br> Integrante </td>
+    <td> Giorgio Marzouk Awad Vargas <br> Integrante <br> Billy Ruiz <br> Santiago Gordillo <br> Integrante </td>
     <td> Realizamos los capítulos 1 y 2 según la rúbrica de manera conjunta y eficiente.  </td>
   </tr>
   <tr>
@@ -191,8 +192,8 @@ desarrollo profesional y en especial
 para su proyecto en soluciones de
 software.</td>
 <td>
-            <strong>Integrante</strong> <br>
-            TB1 <br> Contenido <br>
+            <strong>Giorgio Marzouk Awad Vargas</strong> <br>
+            TB1 <br> Investigó y aplicó conceptos de Domain-Driven Design, C4 Model, Structurizr y PlantUML para documentar el Context Mapping, la arquitectura de software y el bounded context Report Management del proyecto. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
             <strong>Integrante</strong> <br>
@@ -214,7 +215,7 @@ software.</td>
 </td>
 <td>
 <em><strong>TB1</strong></em>
-<br>Contenido
+<br>Durante TB1 se fortaleció la capacidad de incorporar nuevos conocimientos sobre DDD, modelado arquitectónico y documentación técnica para estructurar mejor el proyecto UrbanVoice.
 <br>
 
 <em><strong>TB2</strong></em>
@@ -229,8 +230,8 @@ desempeño profesional y el
 desarrollo de proyectos en
 soluciones de software.</td>
 <td>
-            <strong>Integrante</strong> <br>
-            TB1 <br> Contenido <br>
+            <strong>Giorgio Marzouk Awad Vargas</strong> <br>
+            TB1 <br> Identificó la necesidad de aprender nuevas herramientas de modelado y documentación arquitectónica para representar correctamente los bounded contexts, diagramas de componentes, dominio y base de datos de UrbanVoice. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
             <strong>Integrante</strong> <br>
@@ -252,7 +253,7 @@ soluciones de software.</td>
 </td>
 <td>
 <em><strong>TB1</strong></em>
-<br>Contenido<br>
+<br>Durante TB1 se evidenció que el aprendizaje continuo es clave para adoptar herramientas como Structurizr y PlantUML y traducir requerimientos del dominio en artefactos técnicos claros.<br>
 <br>
 <em><strong>TB2</strong></em>
 <br>Contenido<br>
@@ -314,6 +315,11 @@ Además, UrbamVoice ofrece una función adicional: compartir la ubicación en ti
 <td><p><strong>Nombre:</strong> Ivan Jeanpierre La Madrid Lozano (u202113432)</p>
 <p><strong> Me llamo Ivan La Madrid, tengo 22 años, me gusta el desarrollo de software. Últimamente me inclino más al desarrollo backend con frameworks como .NET </strong></p></td>
 <td><img src="assets/ivan.jpeg"/></td>
+<tr class="even">
+
+<td><p><strong>Nombre:</strong> Giorgio Marzouk Awad Vargas (u202324041)</p>
+<p><strong> Mi nombre es Giorgio Awad, tengo 23 años y estudio la carrera de Ingeniería de Software. Me gustaría especializarme en Análisis de Datos y en buscar soluciones a empresas através de los conocimientos adquiridos en la Ingeniería de Software. </strong></p></td>
+<td><img src="assets/giorgio.jpeg"/></td>
 </tr>
 
 </table>
@@ -1073,14 +1079,297 @@ En esta sección se describe la estructura técnica de la solución. Se detalla 
 ##### 2.6.3.6.2.  Bounded Context Database Design Diagram
 
 ### 2.6.4 Bounded Context:Report Managment
+
+El Bounded Context **Report Management** es uno de los contextos core de UrbanVoice y concentra la mayor parte del valor diferencial de la plataforma. Este contexto es responsable de todo el ciclo de vida de un reporte de incidente de seguridad: su creación por parte de un ciudadano, la incorporación de evidencia multimedia, la consulta y filtrado de reportes existentes, la edición por parte del autor original y la exposición de los datos necesarios para que otros contextos, como Geospatial Intelligence y Notifications, puedan reaccionar ante la aparición de nuevos reportes.
+
+El modelo de dominio presentado en esta sección es consistente con lo identificado en el Design-Level EventStorming elaborado por el equipo para este contexto, donde se establecieron los commands principales, como generar un reporte, adjuntar evidencia, editar reporte y filtrar reportes; los domain events asociados, como Reporte Generado, Evidencia Adjuntada y Reporte Editado; y los read models que requieren las vistas del usuario, como lista de reportes, detalle de reporte y lista filtrada de reportes.
+
+A continuación se presenta el diseño del contexto organizado en las cuatro capas estándar de una arquitectura hexagonal u onion aplicada a DDD: Domain Layer, Interface Layer, Application Layer e Infrastructure Layer. Para cada capa se explican las clases consideradas junto con su propósito, responsabilidades y relaciones. Posteriormente se documenta, de forma textual, la arquitectura a nivel de componente y a nivel de código, sin incluir gráficos ni diagramas en esta versión del informe.
+
 #### 2.6.4.1. Domain Layer
+
+La Domain Layer concentra el modelo del dominio del contexto Report Management. Aquí se ubican las clases que representan los conceptos del negocio, sus reglas y sus invariantes, sin dependencia alguna hacia frameworks, bases de datos, servicios externos ni tecnologías específicas. Esta capa es el corazón del Bounded Context y cualquier otra capa del contexto depende de ella, nunca al revés.
+
+**Aggregate Root: `Report`**
+
+La entidad `Report` es el aggregate root del contexto. Un reporte es la unidad de consistencia transaccional: cuando un ciudadano crea un reporte, adjunta evidencia o lo edita, todas esas operaciones atraviesan necesariamente al aggregate root para garantizar que las invariantes del reporte se mantengan en todo momento. Por ejemplo, un reporte no puede existir sin una ubicación válida, un reporte publicado anónimamente no puede exponer el id del autor, y solo el autor original puede editar un reporte.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `ReportId` (VO) | Identificador único del reporte |
+| `authorId` | `UserId` (VO) | Identificador del ciudadano autor (referencia cruzada a User Profile) |
+| `category` | `IncidentCategory` (VO) | Tipo de incidente reportado |
+| `location` | `IncidentLocation` (VO) | Coordenadas geográficas del incidente |
+| `content` | `ReportContent` (VO) | Título y descripción del reporte |
+| `anonymity` | `AnonymityLevel` (Enum) | Nivel de anonimato: PUBLIC o ANONYMOUS |
+| `status` | `ReportStatus` (Enum) | Estado del reporte: DRAFT, PUBLISHED, UNDER_REVIEW, APPROVED, REJECTED |
+| `evidence` | `List<MediaEvidence>` | Colección de evidencias multimedia adjuntadas |
+| `reportedAt` | `DateTime` | Fecha y hora en que ocurrió el incidente |
+| `createdAt` | `DateTime` | Fecha y hora de creación del reporte en el sistema |
+| `updatedAt` | `DateTime` | Fecha y hora de la última modificación |
+
+**Métodos principales**
+
+| Método | Visibilidad | Descripción |
+|---|---|---|
+| `publish()` | public | Publica el reporte (pasa de DRAFT a PUBLISHED). Emite el evento `ReportPublished` |
+| `attachEvidence(media: MediaEvidence)` | public | Adjunta una evidencia al reporte. Emite el evento `EvidenceAttached` |
+| `removeEvidence(evidenceId: EvidenceId)` | public | Remueve una evidencia del reporte (solo permitido en DRAFT o si el autor es quien edita) |
+| `editContent(content: ReportContent, editor: UserId)` | public | Edita el contenido. Invariante: solo el autor puede editarlo. Emite `ReportEdited` |
+| `changeAnonymity(level: AnonymityLevel, editor: UserId)` | public | Cambia el nivel de anonimato. Invariante: solo el autor puede cambiarlo |
+| `submitForReview()` | public | Cambia el estado a UNDER_REVIEW para moderación |
+| `approve(moderator: UserId)` | public | Aprueba el reporte. Emite `ReportApproved` |
+| `reject(moderator: UserId, reason: string)` | public | Rechaza el reporte. Emite `ReportRejected` |
+| `isEditableBy(userId: UserId)` | public | Retorna `true` si el usuario puede editar el reporte |
+
+**Entidad interna: `MediaEvidence`**
+
+`MediaEvidence` es una entidad interna del aggregate `Report`. No es un aggregate root porque su ciclo de vida depende completamente del reporte al que pertenece; no tiene sentido que exista una evidencia sin un reporte asociado.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `EvidenceId` (VO) | Identificador único de la evidencia |
+| `mediaType` | `MediaType` (Enum) | Tipo: IMAGE, AUDIO, VIDEO |
+| `storageUrl` | `StorageUrl` (VO) | URL del archivo almacenado en Cloud Storage |
+| `fileSize` | `FileSize` (VO) | Tamaño del archivo en bytes |
+| `uploadedAt` | `DateTime` | Fecha y hora en que se subió la evidencia |
+
+**Value Objects**
+
+Los value objects encapsulan conceptos del dominio que se identifican por su valor y no por identidad. Son inmutables y contienen las validaciones intrínsecas del concepto que representan.
+
+| Value Object | Propósito |
+|---|---|
+| `ReportId` | Identificador único del reporte (UUID v4). Inmutable |
+| `EvidenceId` | Identificador único de una evidencia multimedia |
+| `UserId` | Referencia al autor del reporte (compartido con otros contextos) |
+| `IncidentLocation` | Encapsula latitud y longitud validadas. Miembro del Shared Kernel con Geospatial Intelligence |
+| `IncidentCategory` | Categoría del incidente (robo, asalto, vandalismo, etc.). Miembro del Shared Kernel con Geospatial Intelligence |
+| `ReportContent` | Encapsula título (3-100 caracteres) y descripción (10-1000 caracteres). Valida que no esté vacío |
+| `StorageUrl` | URL válida hacia el archivo en Cloud Storage. Valida formato URL |
+| `FileSize` | Tamaño del archivo en bytes. Invariante: máximo 10 MB por archivo |
+
+**Enumerations**
+
+| Enum | Valores | Propósito |
+|---|---|---|
+| `ReportStatus` | DRAFT, PUBLISHED, UNDER_REVIEW, APPROVED, REJECTED | Estado del reporte en su ciclo de vida |
+| `AnonymityLevel` | PUBLIC, ANONYMOUS | Nivel de exposición de la identidad del autor |
+| `MediaType` | IMAGE, AUDIO, VIDEO | Tipo de evidencia multimedia |
+
+**Domain Services**
+
+Los domain services encapsulan lógica de dominio que no pertenece naturalmente a una entidad o value object.
+
+| Domain Service | Responsabilidad |
+|---|---|
+| `ReportFilterService` | Aplica criterios de filtrado complejos sobre una colección de reportes (por categoría, por radio geográfico, por rango de fechas, por nivel de riesgo asociado) |
+| `ReportVisibilityPolicy` | Determina qué campos de un reporte son visibles para un usuario dado, considerando el nivel de anonimato y el rol del solicitante |
+
+**Repository Interfaces (abstracciones)**
+
+Las interfaces de repositorio se declaran en el Domain Layer. Su implementación vive en el Infrastructure Layer siguiendo el Dependency Inversion Principle.
+
+| Interface | Operaciones principales |
+|---|---|
+| `ReportRepository` | `save(report: Report)`, `findById(id: ReportId)`, `findByAuthor(authorId: UserId)`, `findByFilters(criteria: ReportFilterCriteria)`, `delete(id: ReportId)` |
+
+**Domain Events**
+
+Los domain events representan hechos relevantes que ocurrieron en el dominio. Son inmutables y se publican cuando las invariantes del aggregate lo permiten.
+
+| Domain Event | Cuándo se emite | Consumidores |
+|---|---|---|
+| `ReportPublished` | Cuando un reporte pasa de DRAFT a PUBLISHED | Geospatial Intelligence, Notifications |
+| `EvidenceAttached` | Cuando se adjunta una evidencia a un reporte | Interno del contexto |
+| `ReportEdited` | Cuando el autor edita el contenido del reporte | Notifications |
+| `ReportApproved` | Cuando un moderador aprueba el reporte | Geospatial Intelligence, Notifications |
+| `ReportRejected` | Cuando un moderador rechaza el reporte | Notifications |
+| `IncidentReportedNearby` | Policy derivada de `ReportPublished` para ciudadanos cercanos | Notifications |
+
+**Factories**
+
+| Factory | Propósito |
+|---|---|
+| `ReportFactory` | Centraliza la creación de reportes válidos a partir de un `SubmitReportCommand`. Valida todas las precondiciones antes de instanciar el aggregate |
+
 #### 2.6.4.2. Interface Layer
+
+La Interface Layer es la capa más externa del Bounded Context del lado entrante. Su responsabilidad es exponer las capabilities del contexto al mundo exterior, como aplicaciones móviles, web admin y otros servicios, y traducir los requests entrantes al modelo de la Application Layer. En esta capa residen los controllers REST y los consumers de eventos asíncronos.
+
+**Controllers REST**
+
+Los controllers son la puerta de entrada HTTP al contexto. Siguen el patrón thin controller: reciben el request, lo traducen a un command o query, delegan en el Application Layer y retornan el DTO de respuesta. No contienen lógica de negocio.
+
+| Controller | Endpoints | Capabilities soportadas |
+|---|---|---|
+| `ReportController` | `POST /api/v1/reports` (crear), `GET /api/v1/reports/{id}` (detalle), `PUT /api/v1/reports/{id}` (editar), `DELETE /api/v1/reports/{id}` (eliminar), `GET /api/v1/reports` (listar con filtros) | CRUD completo de reportes, alineado con US01, US02, US04, US09, US10 y US13 |
+| `EvidenceController` | `POST /api/v1/reports/{id}/evidence` (adjuntar), `DELETE /api/v1/reports/{id}/evidence/{evidenceId}` (remover) | Gestión de evidencia multimedia, alineado con US03 |
+| `ModerationController` | `POST /api/v1/reports/{id}/moderation/approve`, `POST /api/v1/reports/{id}/moderation/reject`, `GET /api/v1/reports/moderation/queue` | Panel de moderación, alineado con US11 |
+
+**Resources / DTOs**
+
+Cada endpoint trabaja con DTOs en lugar de exponer directamente las clases del Domain Layer. Esto evita acoplar la API pública a la estructura interna del dominio.
+
+| DTO | Tipo | Uso |
+|---|---|---|
+| `SubmitReportResource` | Input | Payload del request `POST` para crear un reporte |
+| `EditReportResource` | Input | Payload del request `PUT` para editar un reporte |
+| `AttachEvidenceResource` | Input | Payload para adjuntar evidencia (contiene metadata y URL prefirmada) |
+| `ReportSummaryResource` | Output | Versión reducida del reporte para listados |
+| `ReportDetailResource` | Output | Versión completa del reporte para vista de detalle |
+| `ReportFilterResource` | Input (query params) | Criterios de filtrado para listados |
+
+**Assemblers**
+
+Los assemblers convierten entre DTOs de la Interface Layer y objetos del Application Layer o Domain Layer.
+
+| Assembler | Transformación |
+|---|---|
+| `FromSubmitReportResourceAssembler` | `SubmitReportResource` a `SubmitReportCommand` |
+| `FromEditReportResourceAssembler` | `EditReportResource` a `EditReportCommand` |
+| `ReportResourceFromEntityAssembler` | `Report` a `ReportDetailResource` |
+
+**Event Consumers**
+
+| Consumer | Evento escuchado | Acción |
+|---|---|---|
+| `UserRegisteredConsumer` | `UserRegistered` (publicado por IAM) | Preparar cache local de `UserId` válidos para validación rápida al recibir nuevos reportes |
+
 #### 2.6.4.3. Application Layer
+
+La Application Layer orquesta los flujos de proceso del negocio que involucran al Bounded Context. Aquí viven las clases responsables de recibir commands y queries, coordinar con el Domain Layer, gestionar la transaccionalidad y publicar los domain events hacia el resto del sistema. Esta capa no contiene reglas de negocio; solo coordinación.
+
+Se adopta el patrón **CQRS** (Command Query Responsibility Segregation) ligero: los flujos de escritura pasan por Command Handlers y los flujos de lectura por Query Services. Esta separación permite optimizar cada ruta independientemente.
+
+**Command Handlers**
+
+Cada command representa una intención del usuario o del sistema de cambiar el estado del dominio.
+
+| Command Handler | Command procesado | Flujo |
+|---|---|---|
+| `SubmitReportCommandHandler` | `SubmitReportCommand` | Valida el command, invoca al `ReportFactory` para crear el aggregate, persiste vía `ReportRepository` y publica `ReportPublished` |
+| `AttachEvidenceCommandHandler` | `AttachEvidenceCommand` | Recupera el aggregate, invoca `report.attachEvidence()`, persiste y publica `EvidenceAttached` |
+| `EditReportCommandHandler` | `EditReportCommand` | Recupera el aggregate, valida que el editor sea el autor, invoca `report.editContent()`, persiste y publica `ReportEdited` |
+| `ApproveReportCommandHandler` | `ApproveReportCommand` | Recupera el aggregate, invoca `report.approve()`, persiste y publica `ReportApproved` |
+| `RejectReportCommandHandler` | `RejectReportCommand` | Recupera el aggregate, invoca `report.reject()`, persiste y publica `ReportRejected` |
+
+**Query Services**
+
+Los query services manejan las operaciones de lectura. Retornan DTOs directamente sin pasar por aggregates completos cuando es posible, optimizando para el caso de uso de consulta.
+
+| Query Service | Query soportada | Retorno |
+|---|---|---|
+| `GetReportByIdQueryService` | `GetReportByIdQuery(id)` | `ReportDetailResource` |
+| `ListReportsByAuthorQueryService` | `ListReportsByAuthorQuery(authorId)` | `List<ReportSummaryResource>` |
+| `SearchReportsQueryService` | `SearchReportsQuery(criteria)` | `Page<ReportSummaryResource>` filtrada y paginada |
+| `GetModerationQueueQueryService` | `GetModerationQueueQuery()` | Cola de reportes en estado `UNDER_REVIEW` |
+
+**Event Handlers**
+
+Los event handlers reaccionan a domain events propios o externos al contexto.
+
+| Event Handler | Evento | Acción |
+|---|---|---|
+| `ReportPublishedEventHandler` | `ReportPublished` | Publica el evento en el message broker para que Geospatial Intelligence y Notifications reaccionen |
+| `EvidenceAttachedEventHandler` | `EvidenceAttached` | Actualiza el modelo de lectura del reporte |
+
+**Application Services**
+
+| Application Service | Responsabilidad |
+|---|---|
+| `ReportApplicationService` | Fachada del contexto que coordina Command Handlers y Query Services. Es el punto de entrada unificado desde la Interface Layer |
+| `EvidenceUploadService` | Coordina el proceso de generación de URL prefirmada para que el cliente suba directamente a Cloud Storage y luego registre la evidencia en el reporte |
+
 #### 2.6.4.4 Infrastructure Layer
+
+La Infrastructure Layer provee implementaciones concretas de las abstracciones definidas en el Domain Layer y gestiona la integración con tecnologías externas al contexto: base de datos, message broker, servicios de almacenamiento en la nube, entre otros. Esta capa es la única que depende directamente de frameworks específicos como Spring Data JPA, Spring AMQP o los SDKs de cloud providers.
+
+**Repository Implementations**
+
+Implementan las interfaces declaradas en el Domain Layer.
+
+| Implementación | Interface que implementa | Tecnología |
+|---|---|---|
+| `JpaReportRepository` | `ReportRepository` | Spring Data JPA sobre PostgreSQL |
+
+**JPA Entities**
+
+Las JPA entities son el equivalente técnico de las domain entities, decoradas con anotaciones de persistencia. Se mantienen separadas de las domain entities para no contaminar el modelo de dominio con preocupaciones de infraestructura.
+
+| JPA Entity | Mapeo |
+|---|---|
+| `ReportJpaEntity` | Tabla `reports` |
+| `MediaEvidenceJpaEntity` | Tabla `media_evidence` |
+| `ReportCategoryJpaEntity` | Tabla de lookup `incident_categories` |
+
+**Mappers Domain a JPA**
+
+| Mapper | Transformación |
+|---|---|
+| `ReportJpaMapper` | `Report` (domain) a `ReportJpaEntity` (JPA) y viceversa |
+| `MediaEvidenceJpaMapper` | `MediaEvidence` (domain) a `MediaEvidenceJpaEntity` (JPA) y viceversa |
+
+**External Service Adapters**
+
+Implementan puertos de salida hacia servicios externos.
+
+| Adapter | Servicio externo | Responsabilidad |
+|---|---|---|
+| `CloudStorageAdapter` | AWS S3 o Firebase Storage | Genera URLs prefirmadas para upload directo y URLs de lectura con expiración |
+| `EventPublisherAdapter` | RabbitMQ (vía Spring AMQP) | Publica los domain events en el exchange correspondiente |
+| `UserProfileClientAdapter` | Profile Service (vía REST) | Consulta información pública del autor cuando se requiere mostrar un reporte no anónimo |
+
+**Configuration**
+
+| Clase de configuración | Propósito |
+|---|---|
+| `ReportingContextConfig` | Registra los beans de Spring del contexto, configura transacciones y wiring de handlers |
+| `RabbitMqConfig` | Declara exchanges, queues y bindings del contexto |
+
 #### 2.6.4.5 Bounded Context Software Architecture Component Level Diagrams
+
+En esta subsección se documenta de forma textual la arquitectura a nivel de componentes del Bounded Context Report Management. La descomposición parte del container `Incident Service` o `Report Service`, que implementa este contexto, y lo organiza en componentes principales agrupados por capas. Cada componente representa una agrupación coherente de clases que colaboran para proveer una capability específica del negocio.
+
+La arquitectura evidencia una separación estricta entre las cuatro capas del contexto. La Interface Layer, compuesta por `ReportController`, `EvidenceController`, `ModerationController` y `UserRegisteredConsumer`, solo conoce a la Application Layer. La Application Layer coordina el flujo mediante `ReportApplicationService`, `EvidenceUploadService`, los distintos Command Handlers y los Query Services. A su vez, estos componentes interactúan con el Domain Layer, donde residen el aggregate `Report`, la factory `ReportFactory`, los domain services `ReportFilterService` y `ReportVisibilityPolicy`, además de la abstracción `ReportRepository`.
+
+Siguiendo el Dependency Inversion Principle, el Domain Layer declara el puerto `ReportRepository` como interface, mientras que en tiempo de ejecución la Infrastructure Layer provee la implementación concreta `JpaReportRepository`. Del mismo modo, la integración con servicios externos se encapsula mediante adapters como `CloudStorageAdapter`, `EventPublisherAdapter` y `UserProfileClientAdapter`, evitando que el dominio dependa directamente de detalles de infraestructura.
+
+Los domain events emitidos por el aggregate son interceptados por event handlers de la Application Layer, que luego los publican al broker correspondiente para que otros bounded contexts, como Geospatial Intelligence y Notifications, reaccionen sin acoplamiento directo. Esta organización permite mantener un modelo de dominio limpio, cohesionando la lógica del reporte y dejando las preocupaciones técnicas en la capa de infraestructura.
+
+<td><img src="assets/ReportManagementComponents.png"/></td>
+
 #### 2.6.4.6 Bounded Context Software Architecture Code Level Diagrams
+
+En esta subsección se describe, de manera textual, la arquitectura a nivel de código del Bounded Context Report Management. El objetivo es dejar documentados los dos artefactos principales del diseño detallado: el modelo de clases del Domain Layer y el diseño de persistencia relacional que soporta al contexto, sin insertar diagramas visuales en esta versión.
+
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+El modelo de clases del Domain Layer gira alrededor del aggregate root `Report`, que concentra la consistencia transaccional del contexto. Dentro de este aggregate se encuentra la entidad interna `MediaEvidence`, cuya existencia depende completamente del reporte al que pertenece. La relación entre ambas clases es de composición, ya que una evidencia no puede existir fuera del ciclo de vida del reporte.
+
+Los value objects, como `ReportId`, `EvidenceId`, `UserId`, `IncidentLocation`, `IncidentCategory`, `ReportContent`, `StorageUrl` y `FileSize`, forman parte integral del aggregate y encapsulan las validaciones propias del dominio. Estos objetos son inmutables y se modelan por valor, no por identidad, reforzando la semántica del dominio y reduciendo inconsistencias en las reglas de negocio.
+
+Las enumeraciones `ReportStatus`, `AnonymityLevel` y `MediaType` permiten representar estados y categorías cerradas del dominio de forma explícita. Sobre este núcleo trabajan los domain services `ReportFilterService`, `ReportVisibilityPolicy` y `ReportFactory`, que operan sobre el aggregate sin formar parte estructural de él. Finalmente, la interface `ReportRepository` abstrae la persistencia del aggregate, cumpliendo con el principio de inversión de dependencias y manteniendo al dominio desacoplado de la infraestructura.
+
+<td><img src="assets/Report Management Domain Layer.png"/></td>
+
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
+
+El diseño de base de datos relacional que soporta el Bounded Context Report Management sigue el principio de database-per-service: el servicio responsable del contexto mantiene su propia instancia de PostgreSQL y ningún otro servicio accede directamente a estas tablas. La tabla central es `reports`, donde se materializa el aggregate root `Report`. Allí se descomponen en columnas planas los value objects del dominio, como el contenido del reporte, la ubicación del incidente, el nivel de anonimato y el estado del flujo de vida.
+
+En `reports` se emplean restricciones `CHECK` para reforzar a nivel de base de datos las mismas invariantes ya protegidas en el Domain Layer. Por ejemplo, se valida que `status` solo acepte los cinco estados permitidos, que `anonymity_level` solo reciba valores válidos y que las coordenadas geográficas se mantengan dentro de los rangos correctos. Esta estrategia implementa defense-in-depth y reduce la posibilidad de que datos inválidos ingresen al sistema.
+
+La tabla `media_evidence` representa la entidad interna `MediaEvidence` y se relaciona con `reports` en una cardinalidad uno a muchos. Esta tabla almacena únicamente metadatos de los archivos, como tipo, URL y tamaño, mientras que el contenido real vive en Cloud Storage. Debido a que las evidencias no tienen sentido fuera del reporte, esta relación se modela con borrado en cascada.
+
+La tabla `incident_categories` funciona como lookup table para las categorías predefinidas del sistema, tales como robo, asalto o vandalismo. En lugar de eliminar físicamente una categoría, se usa el flag `is_active`, lo que permite mantener consistencia histórica sobre reportes ya emitidos que referencian categorías descontinuadas.
+
+Por su parte, `moderation_log` mantiene la trazabilidad del proceso de moderación. Cada aprobación o rechazo genera una entrada asociada al reporte y al moderador que tomó la decisión, permitiendo auditoría completa y análisis posterior del desempeño del flujo de moderación.
+
+La tabla `report_filter_presets` permite almacenar filtros frecuentes definidos por los usuarios. El uso de un campo `JSONB` para `criteria_json` facilita la evolución del modelo de búsqueda sin requerir migraciones constantes del esquema. Este enfoque da flexibilidad a la personalización de consultas y soporta mejor la ampliación futura de criterios.
+
+En cuanto al desempeño, los índices priorizan tres patrones de acceso críticos: búsqueda por autor para la vista de "mis reportes", búsqueda por estado para la cola de moderación y búsqueda geográfica para escenarios de heatmap y alertas por proximidad. Finalmente, la columna `version` en `reports` habilita optimistic locking a nivel de JPA, evitando conflictos cuando dos actores intentan modificar simultáneamente el mismo reporte.
+
+<td><img src="assets/Report Management Database.png"/></td>
 
 ### 2.6.5 Bounded Context:Notification Managment
 #### 2.6.5.1. Domain Layer
@@ -1091,4 +1380,3 @@ En esta sección se describe la estructura técnica de la solución. Se detalla 
 #### 2.6.5.6 Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
-
