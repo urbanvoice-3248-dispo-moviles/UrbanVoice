@@ -1513,9 +1513,38 @@ La Infrastructure Layer provee implementaciones concretas de las abstracciones d
 | `DatabaseConfig` | Configura la conexión a la base de datos PostgreSQL específica para este contexto |
 
 #### 2.6.1.5 Bounded Context Software Architecture Component Level Diagrams
+
+En esta subsección se documenta de forma textual y visual la arquitectura a nivel de componentes del Bounded Context Identity and Access Management (IAM). La descomposición parte del contenedor `Identity Service`, que implementa este contexto, y lo organiza en componentes principales agrupados por capas. Cada componente representa una agrupación coherente de clases que colaboran para proveer el ciclo de vida de la cuenta de usuario.
+
+La arquitectura evidencia una separación estricta entre las cuatro capas. La Interface Layer, compuesta por `AccountRegistrationController`, `AccountLoginController` y `PasswordResetController`, recibe las peticiones HTTP y delega en la Application Layer. Esta capa coordina el flujo mediante `AccountApplicationService`, Command Handlers específicos (como `RegisterAccountCommandHandler` y `LoginUserCommandHandler`) y Query Services.
+
+Estos componentes interactúan con el Domain Layer, el núcleo del contexto, donde residen el aggregate root `UserAccount`, la factory `UserAccountFactory` y servicios de dominio puros como `PasswordResetService`. Siguiendo el Dependency Inversion Principle, la Infrastructure Layer provee las implementaciones técnicas a través de `JpaUserAccountRepository`, y delega la complejidad técnica externa a adapters como `JwtSessionServiceAdapter` (para tokens) y `BCryptPasswordAdapter` (para encriptación).
+
+<td><img src="assets/IAMComponents.png"/></td>
+
 #### 2.6.1.6 Bounded Context Software Architecture Code Level Diagrams
+
+En esta subsección se describe la arquitectura a nivel de código del Bounded Context Identity and Access Management (IAM). Se documentan los dos artefactos principales del diseño detallado: el modelo de clases del Domain Layer, garantizando las reglas de negocio de autenticación y registro, y el diseño de persistencia relacional que soporta al contexto.
+
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+El modelo de clases del Domain Layer gira alrededor del aggregate root UserAccount, que concentra la consistencia transaccional del contexto de identidad. Dentro de este aggregate se encuentra la entidad interna Session, cuya existencia depende de un inicio de sesión exitoso asociado a una cuenta activa.
+
+Los value objects, como AccountId, AccountCredentials (que encapsula email y hash), UserProfileInfo y SessionToken, forman parte integral del modelo. Estos objetos inmutables refuerzan validaciones intrínsecas, por ejemplo, asegurando que un correo tenga el formato correcto antes de ser evaluado por el sistema. Las enumeraciones como AccountStatus dictan las invariantes del estado de la cuenta (CREATED, VERIFIED, LOCKED).
+
+Sobre este núcleo actúan las interfaces abstractas UserAccountRepository y PasswordHashingService, manteniendo al dominio completamente ignorante de las librerías de persistencia o los algoritmos criptográficos específicos utilizados en producción.
+
+<td><img src="assets/IAMDomainLayer.png"/></td>
+
 ##### 2.6.1.6.2.  Bounded Context Database Design Diagram   
+
+El diseño de base de datos relacional que soporta el Bounded Context IAM sigue el principio de database-per-service. La tabla central es accounts, donde se materializa el aggregate root UserAccount. Esta tabla contiene los identificadores únicos, los datos del perfil del usuario (descompuestos en columnas) y las credenciales cifradas.
+
+Para garantizar la integridad y la seguridad a nivel de base de datos, se utiliza un índice UNIQUE sobre la columna email, previniendo de forma estricta que dos usuarios se registren con el mismo correo. Asimismo, se implementan restricciones CHECK para asegurar que la columna status solo contenga valores válidos.
+
+La tabla sessions representa la entidad interna del dominio y se relaciona con accounts mediante una foreign key. Esta tabla maneja la persistencia de los tokens de sesión activos y sus fechas de expiración, con un borrado en cascada (ON DELETE CASCADE) si la cuenta madre es eliminada. Finalmente, una columna version en la tabla accounts habilita el optimistic locking, evitando condiciones de carrera si el usuario intenta modificar su perfil desde dos dispositivos simultáneamente.
+
+<td><img src="assets/IAMDatabase.png"/></td>
 
 ### 2.6.2 Bounded Context:Profile and Preferences Management
 El Bounded Context Profile and Preferences Management es el encargado de gestionar la identidad social y la configuración de seguridad personalizada de cada ciudadano en UrbanVoice. Mientras que el contexto IAM se ocupa de la "cuenta" y el "acceso", este contexto se centra en el "sujeto": quién es el usuario, cómo desea ser notificado y, fundamentalmente, quiénes integran su red de apoyo inmediata.
