@@ -23,7 +23,7 @@
   <p> Nombre del Producto: UrbanVoice </p>
   <br>
   <p> Relación de Integrantes: </p>
-  <p>  - . </p>
+  <p>  - Giorgio Marzouk Awad Vargas - (u). </p>
   <p>  - Quijada Magro, Jeremy Alexander (u202219657). </p>
   <p>  - Ruiz Madrid, Billy Jake (u202116401) </p>
   <p>  - Gordillo Ramos, Santiago Alonso (u202215160) </p>
@@ -45,20 +45,20 @@
   </tr>
   <tr>
     <td align="center">TB1</td>
-    <td>//2026</td>
-    <td> Giorgio Marzouk Awad Vargas <br> Integrante <br> Billy Ruiz <br> Santiago Gordillo <br> Integrante </td>
+    <td>22/04/2026</td>
+    <td> Giorgio Marzouk Awad Vargas <br> Quijada Magro Jeremy <br> Billy Ruiz <br> Santiago Gordillo <br> Ivan La Madrid </td>
     <td> Realizamos los capítulos 1 y 2 según la rúbrica de manera conjunta y eficiente.  </td>
   </tr>
   <tr>
     <td align="center">TB2</td>
     <td>//2026</td>
-    <td> Integrante <br> Integrante <br> Billy Ruiz <br> Santiago Gordillo <br> Integrante </td>
+    <td> Giorgio Marzouk Awad Vargas <br> Quijada Magro Jeremy <br> Billy Ruiz <br> Santiago Gordillo <br> Ivan La Madrid </td>
     <td> descripción </td>
   </tr>
   <tr>
     <td align="center">TP1</td>
     <td>//2026</td>
-    <td> Integrante <br> Integrante <br> Billy Ruiz <br> Santiago Gordillo <br> Integrante </td>
+    <td> Giorgio Marzouk Awad Vargas <br> Quijada Magro Jeremy <br> Billy Ruiz <br> Santiago Gordillo <br> Ivan La Madrid </td>
     <td> descripción </td>
   </tr>
 </table>
@@ -203,29 +203,29 @@ para su proyecto en soluciones de
 software.</td>
 <td>
             <strong>Giorgio Marzouk Awad Vargas</strong> <br>
-            TB1 <br> Investigó y aplicó conceptos de Domain-Driven Design, C4 Model, Structurizr y PlantUML para documentar el Context Mapping, la arquitectura de software y el bounded context Report Management del proyecto. <br>
+            TB1 <br> Durante la fase de la entrega TB1, el equipo llevó a cabo la investigación y delimitación de la problemática de inseguridad ciudadana en Lima Metropolitana mediante la aplicación de la técnica 5W2H y el marco de trabajo Lean UX, lo que permitió definir una solución centrada en el ciudadano. Se desarrollaron sesiones de diseño estratégico aplicando la metodología EventStorming para identificar los Bounded Contexts y el lenguaje ubicuo del sistema, complementando esta labor con el modelado de la arquitectura de software utilizando el modelo C4 en sus niveles de contexto y contenedor. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
-            <strong>Integrante</strong> <br>
-            TB1 <br> Contenido <br>
+            <strong> Giorgio Marzouk Awad Vargas</strong> <br>
+            TB1 <br> Durante la fase de la entrega TB1, el equipo llevó a cabo la investigación y delimitación de la problemática de inseguridad ciudadana en Lima Metropolitana mediante la aplicación de la técnica 5W2H y el marco de trabajo Lean UX, lo que permitió definir una solución centrada en el ciudadano. Se desarrollaron sesiones de diseño estratégico aplicando la metodología EventStorming para identificar los Bounded Contexts y el lenguaje ubicuo del sistema, complementando esta labor con el modelado de la arquitectura de software utilizando el modelo C4 en sus niveles de contexto y contenedor. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
             <strong>Ruiz Madrid, Billy Jake</strong> <br>
-            TB1 <br> Contenido <br>
+            TB1 <br> Durante la fase de la entrega TB1, el equipo llevó a cabo la investigación y delimitación de la problemática de inseguridad ciudadana en Lima Metropolitana mediante la aplicación de la técnica 5W2H y el marco de trabajo Lean UX, lo que permitió definir una solución centrada en el ciudadano. Se desarrollaron sesiones de diseño estratégico aplicando la metodología EventStorming para identificar los Bounded Contexts y el lenguaje ubicuo del sistema, complementando esta labor con el modelado de la arquitectura de software utilizando el modelo C4 en sus niveles de contexto y contenedor. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>         
             <strong>Gordillo Ramos, Santiago Alonso</strong> <br>
-            TB1 <br> Contenido <br>
+            TB1 <br> Durante la fase de la entrega TB1, el equipo llevó a cabo la investigación y delimitación de la problemática de inseguridad ciudadana en Lima Metropolitana mediante la aplicación de la técnica 5W2H y el marco de trabajo Lean UX, lo que permitió definir una solución centrada en el ciudadano. Se desarrollaron sesiones de diseño estratégico aplicando la metodología EventStorming para identificar los Bounded Contexts y el lenguaje ubicuo del sistema, complementando esta labor con el modelado de la arquitectura de software utilizando el modelo C4 en sus niveles de contexto y contenedor. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
-            <strong>Integrante</strong> <br>
-            TB1 <br> Contenido <br>
+            <strong>Quijada Magro, Jeremy</strong> <br>
+            TB1 <br> Durante la fase de la entrega TB1, el equipo llevó a cabo la investigación y delimitación de la problemática de inseguridad ciudadana en Lima Metropolitana mediante la aplicación de la técnica 5W2H y el marco de trabajo Lean UX, lo que permitió definir una solución centrada en el ciudadano. Se desarrollaron sesiones de diseño estratégico aplicando la metodología EventStorming para identificar los Bounded Contexts y el lenguaje ubicuo del sistema, complementando esta labor con el modelado de la arquitectura de software utilizando el modelo C4 en sus niveles de contexto y contenedor. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
 </td>
 <td>
 <em><strong>TB1</strong></em>
-<br>Durante TB1 se fortaleció la capacidad de incorporar nuevos conocimientos sobre DDD, modelado arquitectónico y documentación técnica para estructurar mejor el proyecto UrbanVoice.
+<br>El desarrollo de esta entrega permitió al equipo adquirir y aplicar conocimientos avanzados en diseño orientado al dominio (DDD) y patrones arquitectónicos modernos, validando la capacidad de aprendizaje autónomo para integrar herramientas de geolocalización y servicios en la nube.
 <br>
 
 <em><strong>TB2</strong></em>
@@ -244,20 +244,20 @@ soluciones de software.</td>
             TB1 <br> Identificó la necesidad de aprender nuevas herramientas de modelado y documentación arquitectónica para representar correctamente los bounded contexts, diagramas de componentes, dominio y base de datos de UrbanVoice. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
-            <strong>Integrante</strong> <br>
-            TB1 <br> Contenido <br>
+            <strong>Giorgio Marzouk Awad Vargas</strong> <br>
+            TB1 <br> Identificó la necesidad de aprender nuevas herramientas de modelado y documentación arquitectónica para representar correctamente los bounded contexts, diagramas de componentes, dominio y base de datos de UrbanVoice. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
             <strong>Ruiz Madrid, Billy Jake</strong> <br>
-            TB1 <br> Contenido <br>
+            TB1 <br> Identificó la necesidad de aprender nuevas herramientas de modelado y documentación arquitectónica para representar correctamente los bounded contexts, diagramas de componentes, dominio y base de datos de UrbanVoice. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
             <strong>Gordillo Ramos, Santiago Alonso</strong> <br>
-            TB1 <br> Contenido <br>
+            TB1 <br> Identificó la necesidad de aprender nuevas herramientas de modelado y documentación arquitectónica para representar correctamente los bounded contexts, diagramas de componentes, dominio y base de datos de UrbanVoice. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
-            <strong>Integrante</strong> <br>
-            TB1 <br> Contenido <br>
+            <strong>Quijada Magro, Jeremy Alexander</strong> <br>
+            TB1 <br> Identificó la necesidad de aprender nuevas herramientas de modelado y documentación arquitectónica para representar correctamente los bounded contexts, diagramas de componentes, dominio y base de datos de UrbanVoice. <br>
             TB2 <br> Contenido <br>
             TP1 <br> Contenido <br>
 </td>
