@@ -1757,10 +1757,6 @@ Provee el motor de base de datos espacial y la integración con proveedores de m
 
 El Bounded Context **Report Management** es uno de los contextos core de UrbanVoice y concentra la mayor parte del valor diferencial de la plataforma. Este contexto es responsable de todo el ciclo de vida de un reporte de incidente de seguridad: su creación por parte de un ciudadano, la incorporación de evidencia multimedia, la consulta y filtrado de reportes existentes, la edición por parte del autor original y la exposición de los datos necesarios para que otros contextos, como Geospatial Intelligence y Notifications, puedan reaccionar ante la aparición de nuevos reportes.
 
-El modelo de dominio presentado en esta sección es consistente con lo identificado en el Design-Level EventStorming elaborado por el equipo para este contexto, donde se establecieron los commands principales, como generar un reporte, adjuntar evidencia, editar reporte y filtrar reportes; los domain events asociados, como Reporte Generado, Evidencia Adjuntada y Reporte Editado; y los read models que requieren las vistas del usuario, como lista de reportes, detalle de reporte y lista filtrada de reportes.
-
-A continuación se presenta el diseño del contexto organizado en las cuatro capas estándar de una arquitectura hexagonal u onion aplicada a DDD: Domain Layer, Interface Layer, Application Layer e Infrastructure Layer. Para cada capa se explican las clases consideradas junto con su propósito, responsabilidades y relaciones. Posteriormente se documenta, de forma textual, la arquitectura a nivel de componente y a nivel de código, sin incluir gráficos ni diagramas en esta versión del informe.
-
 #### 2.6.4.1. Domain Layer
 
 La Domain Layer concentra el modelo del dominio del contexto Report Management. Aquí se ubican las clases que representan los conceptos del negocio, sus reglas y sus invariantes, sin dependencia alguna hacia frameworks, bases de datos, servicios externos ni tecnologías específicas. Esta capa es el corazón del Bounded Context y cualquier otra capa del contexto depende de ella, nunca al revés.
@@ -2047,10 +2043,138 @@ En cuanto al desempeño, los índices priorizan tres patrones de acceso crítico
 <td><img src="assets/Report Management Database.png"/></td>
 
 ### 2.6.5 Bounded Context:Notification Managment
+El Bounded Context Notification Management es el componente de soporte crítico encargado de la orquestación, despacho y seguimiento de todas las comunicaciones asíncronas de la plataforma UrbanVoice. Su misión fundamental es garantizar que la información de seguridad llegue al destinatario correcto, por el canal adecuado y con la prioridad que el incidente demanda. Este contexto actúa como el puente reactivo entre los eventos del dominio (como un nuevo reporte de peligro o una activación de auxilio) y el usuario final.
+
 #### 2.6.5.1. Domain Layer
+
+La Domain Layer de Notification Management encapsula la lógica de comunicación y las reglas de despacho. Es agnóstica a si el mensaje se envía por Firebase, Twilio o correo electrónico; se centra en el "qué" y el "para quién".
+
+**Aggregate Root: `Notification`**
+
+El aggregate root `Notification` representa una unidad de comunicación enviada por el sistema. Es el encargado de mantener la consistencia del estado del mensaje, desde su creación como borrador hasta su confirmación de entrega o fallo definitivo.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `NotificationId` (VO) | Identificador único de la notificación (UUID) |
+| `recipientId` | `UserId` (VO) | Referencia al usuario destinatario |
+| `content` | `NotificationContent` (VO) | Título, cuerpo del mensaje y metadatos adicionales |
+| `type` | `NotificationType` (Enum) | Categoría: INFORMATIONAL, WARNING, EMERGENCY |
+| `status` | `DeliveryStatus` (Enum) | Estado: PENDING, DISPATCHED, DELIVERED, FAILED |
+| `channels` | `List<NotificationChannel>` | Canales por los que se debe enviar (Push, SMS, etc.) |
+| `scheduledAt` | `DateTime` | Fecha y hora programada para el envío |
+| `deliveredAt` | `DateTime` | Fecha y hora de confirmación de entrega |
+
+**Métodos principales**
+
+| Método | Visibilidad | Descripción |
+|---|---|---|
+| `dispatch(dispatcher: NotificationDispatcher)` | public | Inicia el proceso de envío a través de los canales configurados. |
+| `markAsDelivered()` | public | Cambia el estado a DELIVERED y registra la marca de tiempo. |
+| `markAsFailed(reason: string)` | public | Registra el error y determina si amerita un reintento según la política. |
+| `addChannel(channel: NotificationChannel)` | public | Vincula un canal específico a la notificación según las preferencias del usuario. |
+
+**Value Objects**
+
+| Value Object | Propósito |
+|---|---|
+| `NotificationId` | Identificador inmutable. |
+| `NotificationContent` | Encapsula el texto del mensaje y permite la interpolación de variables (ej. "Robo reportado a {distancia} metros"). |
+| `DeliveryStatus` | Gestiona la máquina de estados de la notificación. |
+| `UrgencyLevel` | Determina si el mensaje debe saltar la cola de procesamiento (Alertas de pánico). |
+
+**Domain Services**
+
+| Domain Service | Responsabilidad |
+|---|---|
+| `ChannelSelectionPolicy` | Determina automáticamente qué canal usar según el tipo de notificación y la disponibilidad de red del usuario (ej. Si es emergencia y no hay Push, enviar SMS). |
+| `NotificationThrottlingService` | Evita el spam de notificaciones al usuario en un corto periodo de tiempo para no degradar la experiencia. |
+
+**Repository Interfaces**
+
+| Interface | Operaciones principales |
+|---|---|
+| `NotificationRepository` | `save(notification: Notification)`, `findById(id: NotificationId)`, `findPending()` |
+
+**Domain Events**
+
+| Domain Event | Cuándo se emite | Consumidores |
+|---|---|---|
+| `NotificationSent` | Al confirmar la entrega exitosa por el proveedor. | Analytics / Logging |
+| `EmergencyAlertDispatched` | Al enviar una alerta de pánico al círculo de confianza. | Auditoría de Seguridad |
+| `NotificationDeliveryFailed` | Cuando todos los reintentos fallan. | Monitoring / Soporte técnico |
+
 #### 2.6.5.2. Interface Layer
+
+Esta capa recibe los eventos del sistema y expone endpoints para que la aplicación móvil consulte el historial de alertas recibidas.
+
+**Controllers REST**
+
+| Controller | Endpoints | Capabilities soportadas |
+|---|---|---|
+| `NotificationHistoryController` | `GET /api/v1/notifications` <br> `PATCH /api/v1/notifications/{id}/read` | Consulta del centro de notificaciones de la App y marcado de lectura. |
+| `NotificationSettingsController` | `PUT /api/v1/notifications/tokens` | Registro y actualización del Device Token de Firebase para notificaciones push. |
+
+**Event Consumers**
+
+| Consumer | Evento escuchado | Acción |
+|---|---|---|
+| `IncidentPublishedConsumer` | `IncidentReported` (de Report Context) | Evalúa usuarios cercanos y genera notificaciones de advertencia. |
+| `PanicButtonPressedConsumer` | `EmergencyTriggered` (de Profile Context) | Dispara el flujo de máxima prioridad para alertas al círculo de confianza. |
+
+**Resources / DTOs**
+
+| DTO | Uso |
+|---|---|
+| `NotificationSummaryResource` | Versión ligera del mensaje para la lista del historial. |
+| `RegisterDeviceTokenResource` | Payload para vincular el token de FCM con el `UserId`. |
+
 #### 2.6.5.3. Application Layer
+
+La capa de aplicación orquesta el proceso de envío y la gestión de fallos. Implementa el patrón **CQRS** para separar la lectura del historial de la escritura de envíos masivos.
+
+**Command Handlers**
+
+| Command Handler | Flujo |
+|---|---|
+| `DispatchAlertCommandHandler` | Recibe la orden de alertar, recupera preferencias del usuario, crea la `Notification` y delega el envío a los adaptadores. |
+| `MarkNotificationAsReadHandler` | Actualiza el estado de lectura del mensaje para limpiar el contador de la App. |
+
+**Query Services**
+
+| Query Service | Responsabilidad |
+|---|---|
+| `GetUnreadNotificationsQueryService` | Retorna el conteo y la lista de mensajes no leídos para el badge de la aplicación. |
+
+**Application Services**
+
+| Application Service | Responsabilidad |
+|---|---|
+| `NotificationOrchestrator` | Servicio central que escucha eventos externos, coordina con el contexto de perfiles para obtener los teléfonos de emergencia y manda a persistir la notificación. |
+
 #### 2.6.5.4 Infrastructure Layer
+
+Aquí se gestionan las conexiones con proveedores externos de mensajería y la persistencia de alto volumen.
+
+**External Service Adapters**
+
+| Adapter | Servicio Externo | Responsabilidad |
+|---|---|---|
+| `FirebaseNotificationAdapter` | Firebase Cloud Messaging (FCM) | Envío de notificaciones push nativas a Android e iOS. |
+| `TwilioSmsAdapter` | Twilio API | Envío de mensajes de texto (SMS) críticos para el Círculo de Confianza. |
+
+**Persistence**
+
+| Componente | Tecnología | Propósito |
+|---|---|---|
+| `JpaNotificationRepository` | Spring Data JPA / PostgreSQL | Registro histórico de todas las notificaciones para auditoría y consulta. |
+| `RedisNotificationCache` | Redis | Almacena las notificaciones más recientes en memoria para que la carga del "Notification Center" en el móvil sea instantánea. |
+
+**Mappers**
+
+| Mapper | Transformación |
+|---|---|
+| `NotificationJpaMapper` | Convierte entre el modelo de persistencia y el Aggregate Root de dominio, manejando los estados de entrega. |
+
 #### 2.6.5.5 Bounded Context Software Architecture Component Level Diagrams
 #### 2.6.5.6 Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
