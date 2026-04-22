@@ -2088,140 +2088,210 @@ En cuanto al desempeño, los índices priorizan tres patrones de acceso crítico
 
 <td><img src="assets/Report Management Database.png"/></td>
 
-### 2.6.5 Bounded Context:Notification Managment
-El Bounded Context Notification Management es el componente de soporte crítico encargado de la orquestación, despacho y seguimiento de todas las comunicaciones asíncronas de la plataforma UrbanVoice. Su misión fundamental es garantizar que la información de seguridad llegue al destinatario correcto, por el canal adecuado y con la prioridad que el incidente demanda. Este contexto actúa como el puente reactivo entre los eventos del dominio (como un nuevo reporte de peligro o una activación de auxilio) y el usuario final.
+### 2.6.5 Bounded Context: Notification Management
+
+El Bounded Context **Notification Management** es un componente vital para la propuesta de valor proactiva de UrbanVoice. Este contexto es responsable de mantener al ciudadano informado y seguro en tiempo real. Se encarga de gestionar el ciclo de vida de las alertas emitidas por el sistema, notificar al usuario cuando ingresa a una zona de riesgo (geofencing), avisarle cuando se crea un nuevo reporte de incidente cerca de su ubicación, y gestionar las sesiones de "compartir ubicación" (Live Tracking) entre usuarios mediante códigos de acceso.
+
+El modelo de dominio presentado en esta sección es consistente con lo identificado en el Design-Level EventStorming. Se establecieron commands principales como generar alerta de proximidad, marcar notificación como leída y unirse a una sesión de ubicación compartida; los domain events asociados como Alerta Emitida, Zona Peligrosa Detectada y Ubicación Compartida; y los read models necesarios como la bandeja de notificaciones, el detalle de la alerta y la vista en vivo del mapa compartido.
+
+A continuación, se presenta el diseño del contexto organizado en las cuatro capas estándar de una arquitectura hexagonal o aplicada a DDD. Posteriormente se documenta, de forma textual, la arquitectura a nivel de componente y a nivel de código.
 
 #### 2.6.5.1. Domain Layer
 
-La Domain Layer de Notification Management encapsula la lógica de comunicación y las reglas de despacho. Es agnóstica a si el mensaje se envía por Firebase, Twilio o correo electrónico; se centra en el "qué" y el "para quién".
+La Domain Layer concentra el modelo del dominio del contexto Notification Management. Aquí se ubican las clases que representan las alertas, las sesiones de ubicación compartida y sus reglas de negocio, manteniendo total independencia de frameworks, bases de datos o servicios de mensajería externos (como Firebase Cloud Messaging).
 
-**Aggregate Root: `Notification`**
+**Aggregate Root: `SecurityAlert` (Notificación)**
 
-El aggregate root `Notification` representa una unidad de comunicación enviada por el sistema. Es el encargado de mantener la consistencia del estado del mensaje, desde su creación como borrador hasta su confirmación de entrega o fallo definitivo.
+La entidad `SecurityAlert` es el aggregate root principal para el flujo de notificaciones. Representa una alerta individual despachada a un ciudadano específico. Toda transición de estado (por ejemplo, de "no leída" a "leída" o "descartada") debe pasar por este aggregate.
 
 | Atributo | Tipo | Descripción |
 |---|---|---|
-| `id` | `NotificationId` (VO) | Identificador único de la notificación (UUID) |
-| `recipientId` | `UserId` (VO) | Referencia al usuario destinatario |
-| `content` | `NotificationContent` (VO) | Título, cuerpo del mensaje y metadatos adicionales |
-| `type` | `NotificationType` (Enum) | Categoría: INFORMATIONAL, WARNING, EMERGENCY |
-| `status` | `DeliveryStatus` (Enum) | Estado: PENDING, DISPATCHED, DELIVERED, FAILED |
-| `channels` | `List<NotificationChannel>` | Canales por los que se debe enviar (Push, SMS, etc.) |
-| `scheduledAt` | `DateTime` | Fecha y hora programada para el envío |
-| `deliveredAt` | `DateTime` | Fecha y hora de confirmación de entrega |
+| `id` | `AlertId` (VO) | Identificador único de la alerta |
+| `recipientId` | `UserId` (VO) | Identificador del ciudadano receptor de la notificación |
+| `type` | `AlertType` (Enum) | Tipo de alerta: PROXIMITY_WARNING, NEW_INCIDENT, SYSTEM_UPDATE |
+| `content` | `AlertContent` (VO) | Título, mensaje detallado y severidad de la alerta |
+| `referenceLocation` | `LocationCoordinates` (VO) | Coordenadas asociadas a la alerta (opcional) |
+| `status` | `AlertStatus` (Enum) | Estado actual: UNREAD, READ, DISMISSED |
+| `issuedAt` | `DateTime` | Fecha y hora en que el sistema generó la alerta |
+| `readAt` | `DateTime` | Fecha y hora en que el usuario leyó la alerta (nullable) |
 
 **Métodos principales**
 
 | Método | Visibilidad | Descripción |
 |---|---|---|
-| `dispatch(dispatcher: NotificationDispatcher)` | public | Inicia el proceso de envío a través de los canales configurados. |
-| `markAsDelivered()` | public | Cambia el estado a DELIVERED y registra la marca de tiempo. |
-| `markAsFailed(reason: string)` | public | Registra el error y determina si amerita un reintento según la política. |
-| `addChannel(channel: NotificationChannel)` | public | Vincula un canal específico a la notificación según las preferencias del usuario. |
+| `markAsRead()` | public | Cambia el estado de UNREAD a READ y registra la fecha. Emite `AlertRead` |
+| `dismiss()` | public | Cambia el estado a DISMISSED ocultándola de la bandeja activa |
+| `isUrgent()` | public | Retorna `true` si el nivel de severidad en el contenido es HIGH o CRITICAL |
+
+**Aggregate Root: `LocationShareSession`**
+
+Este segundo aggregate root maneja el flujo de "compartir ubicación" evidenciado en el EventStorming. Gestiona el código de acceso temporal y los usuarios que tienen permiso para visualizar la ubicación del emisor.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `SessionId` (VO) | Identificador único de la sesión de rastreo |
+| `ownerId` | `UserId` (VO) | Identificador del ciudadano que comparte su ubicación |
+| `accessCode` | `ShareCode` (VO) | Código alfanumérico único para unirse a la sesión |
+| `status` | `TrackingStatus` (Enum) | Estado: ACTIVE, PAUSED, EXPIRED |
+| `viewers` | `List<UserId>` | Lista de usuarios que han ingresado el código exitosamente |
+| `expiresAt` | `DateTime` | Fecha y hora de caducidad automática de la sesión |
+
+**Métodos principales**
+
+| Método | Visibilidad | Descripción |
+|---|---|---|
+| `addViewer(viewerId: UserId, code: ShareCode)` | public | Invariante: Verifica que el código coincida y la sesión esté activa. Emite `ViewerJoined` |
+| `terminate()` | public | Cambia el estado a EXPIRED, cerrando el acceso. Emite `SessionTerminated` |
 
 **Value Objects**
 
 | Value Object | Propósito |
 |---|---|
-| `NotificationId` | Identificador inmutable. |
-| `NotificationContent` | Encapsula el texto del mensaje y permite la interpolación de variables (ej. "Robo reportado a {distancia} metros"). |
-| `DeliveryStatus` | Gestiona la máquina de estados de la notificación. |
-| `UrgencyLevel` | Determina si el mensaje debe saltar la cola de procesamiento (Alertas de pánico). |
+| `AlertId` | Identificador único de la notificación (UUID v4) |
+| `UserId` | Identificador del usuario (Shared Kernel) |
+| `AlertContent` | Encapsula el título (ej. "¡Peligro! Zona Insegura"), mensaje y el nivel de Severity |
+| `ShareCode` | Código seguro de 6 dígitos autogenerado para compartir ubicación |
+| `LocationCoordinates` | Encapsula latitud y longitud. Usado para mostrar la alerta en el mapa |
+
+**Enumerations**
+
+| Enum | Valores | Propósito |
+|---|---|---|
+| `AlertStatus` | UNREAD, READ, DISMISSED | Ciclo de vida de visualización de la alerta |
+| `AlertType` | PROXIMITY_WARNING, NEW_INCIDENT, SYSTEM_UPDATE | Clasifica el motivo de la notificación |
+| `TrackingStatus` | ACTIVE, PAUSED, EXPIRED | Controla si la ubicación sigue siendo visible |
 
 **Domain Services**
 
 | Domain Service | Responsabilidad |
 |---|---|
-| `ChannelSelectionPolicy` | Determina automáticamente qué canal usar según el tipo de notificación y la disponibilidad de red del usuario (ej. Si es emergencia y no hay Push, enviar SMS). |
-| `NotificationThrottlingService` | Evita el spam de notificaciones al usuario en un corto periodo de tiempo para no degradar la experiencia. |
+| `ProximityAlertService` | Evalúa si las coordenadas actuales del usuario intersectan con un área de riesgo (Geofence) para emitir un PROXIMITY_WARNING |
 
-**Repository Interfaces**
+**Repository Interfaces (abstracciones)**
 
 | Interface | Operaciones principales |
 |---|---|
-| `NotificationRepository` | `save(notification: Notification)`, `findById(id: NotificationId)`, `findPending()` |
+| `SecurityAlertRepository` | `save(alert: SecurityAlert)`, `findUnreadByUserId(userId: UserId)`, `markAllAsRead(userId: UserId)` |
+| `LocationShareRepository` | `save(session: LocationShareSession)`, `findByAccessCode(code: ShareCode)`, `findActiveByOwnerId(ownerId: UserId)` |
 
 **Domain Events**
 
 | Domain Event | Cuándo se emite | Consumidores |
 |---|---|---|
-| `NotificationSent` | Al confirmar la entrega exitosa por el proveedor. | Analytics / Logging |
-| `EmergencyAlertDispatched` | Al enviar una alerta de pánico al círculo de confianza. | Auditoría de Seguridad |
-| `NotificationDeliveryFailed` | Cuando todos los reintentos fallan. | Monitoring / Soporte técnico |
+| `AlertIssued` | Cuando se crea y despacha una nueva alerta | Interno (para enviar Push Notification) |
+| `AlertRead` | Cuando el usuario visualiza la alerta | Interno |
+| `LocationShareCreated` | Cuando se genera un nuevo código de ubicación | Externo (notificar a contactos sugeridos) |
+| `ViewerJoined` | Cuando alguien ingresa el código correctamente | Interno (notifica al owner que alguien lo está viendo) |
 
 #### 2.6.5.2. Interface Layer
 
-Esta capa recibe los eventos del sistema y expone endpoints para que la aplicación móvil consulte el historial de alertas recibidas.
+La Interface Layer expone los endpoints para que la aplicación móvil consulte sus notificaciones y gestione las sesiones de mapa. También contiene los consumidores de eventos asíncronos provenientes de otros contextos (como Report Management).
 
 **Controllers REST**
 
 | Controller | Endpoints | Capabilities soportadas |
 |---|---|---|
-| `NotificationHistoryController` | `GET /api/v1/notifications` <br> `PATCH /api/v1/notifications/{id}/read` | Consulta del centro de notificaciones de la App y marcado de lectura. |
-| `NotificationSettingsController` | `PUT /api/v1/notifications/tokens` | Registro y actualización del Device Token de Firebase para notificaciones push. |
+| `AlertsController` | `GET /api/v1/notifications`, `PATCH /api/v1/notifications/{id}/read` | Bandeja de entrada de alertas y actualización de estado |
+| `LocationSharingController` | `POST /api/v1/location-share` (crear), `POST /api/v1/location-share/join` (ingresar código) | Flujo para compartir ubicación y visualizar a otros |
+
+**Resources / DTOs**
+
+| DTO | Tipo | Uso |
+|---|---|---|
+| `JoinSessionRequest` | Input | Contiene el `accessCode` ingresado por el usuario para ver un mapa |
+| `AlertSummaryResponse` | Output | Lista de notificaciones para la bandeja de la app |
+| `LocationSessionResponse` | Output | Devuelve el estado de la sesión y el código generado |
 
 **Event Consumers**
 
 | Consumer | Evento escuchado | Acción |
 |---|---|---|
-| `IncidentPublishedConsumer` | `IncidentReported` (de Report Context) | Evalúa usuarios cercanos y genera notificaciones de advertencia. |
-| `PanicButtonPressedConsumer` | `EmergencyTriggered` (de Profile Context) | Dispara el flujo de máxima prioridad para alertas al círculo de confianza. |
-
-**Resources / DTOs**
-
-| DTO | Uso |
-|---|---|
-| `NotificationSummaryResource` | Versión ligera del mensaje para la lista del historial. |
-| `RegisterDeviceTokenResource` | Payload para vincular el token de FCM con el `UserId`. |
+| `IncidentReportedConsumer` | `ReportPublished` (desde Report Management) | Desencadena el cálculo de usuarios cercanos para emitirles un `SecurityAlert` de tipo NEW_INCIDENT |
 
 #### 2.6.5.3. Application Layer
 
-La capa de aplicación orquesta el proceso de envío y la gestión de fallos. Implementa el patrón **CQRS** para separar la lectura del historial de la escritura de envíos masivos.
+Esta capa orquesta los casos de uso, suscribiéndose a eventos externos y despachando commands hacia el Domain Layer. Gestiona el patrón CQRS para separar la consulta de alertas de la generación de las mismas.
 
 **Command Handlers**
 
-| Command Handler | Flujo |
-|---|---|
-| `DispatchAlertCommandHandler` | Recibe la orden de alertar, recupera preferencias del usuario, crea la `Notification` y delega el envío a los adaptadores. |
-| `MarkNotificationAsReadHandler` | Actualiza el estado de lectura del mensaje para limpiar el contador de la App. |
+| Command Handler | Command procesado | Flujo |
+|---|---|---|
+| `DispatchAlertCommandHandler` | `DispatchAlertCommand` | Instancia un `SecurityAlert`, persiste en base de datos y publica `AlertIssued` para que la infraestructura envíe la Push Notification |
+| `MarkAlertReadCommandHandler` | `MarkAlertReadCommand` | Recupera el aggregate, invoca `markAsRead()`, y persiste |
+| `CreateShareSessionCommandHandler` | `CreateShareSessionCommand` | Invoca factory para generar `LocationShareSession` con código único, persiste y publica evento |
+| `JoinShareSessionCommandHandler` | `JoinShareSessionCommand` | Busca sesión por código, invoca `session.addViewer()`, autoriza acceso al socket de ubicación y persiste |
 
 **Query Services**
 
-| Query Service | Responsabilidad |
+| Query Service | Query soportada | Retorno |
+|---|---|---|
+| `GetUserAlertsQueryService` | `GetUserAlertsQuery(userId)` | `List<AlertSummaryResponse>` ordenado por fecha |
+| `GetActiveSessionQueryService` | `GetActiveSessionQuery(code)` | `LocationSessionResponse` |
+
+**Event Handlers**
+
+| Event Handler | Evento | Acción |
+|---|---|---|
+| `AlertIssuedEventHandler` | `AlertIssued` | Delega al `PushNotificationAdapter` el envío a dispositivos iOS/Android |
+| `NewIncidentEventHandler` | `ReportPublished` | Llama al `ProximityAlertService` para buscar usuarios en un radio de X km e invocar el `DispatchAlertCommand` |
+
+#### 2.6.5.4. Infrastructure Layer
+
+La Infrastructure Layer conecta el modelo del dominio con las tecnologías reales: bases de datos, WebSockets para el mapa en vivo y Firebase para notificaciones push.
+
+**Repository Implementations**
+
+| Implementación | Interface que implementa | Tecnología |
+|---|---|---|
+| `JpaSecurityAlertRepository` | `SecurityAlertRepository` | Spring Data JPA sobre PostgreSQL |
+| `JpaLocationShareRepository` | `LocationShareRepository` | Spring Data JPA sobre PostgreSQL |
+
+**JPA Entities y Mappers**
+
+| JPA Entity / Mapper | Mapeo |
 |---|---|
-| `GetUnreadNotificationsQueryService` | Retorna el conteo y la lista de mensajes no leídos para el badge de la aplicación. |
-
-**Application Services**
-
-| Application Service | Responsabilidad |
-|---|---|
-| `NotificationOrchestrator` | Servicio central que escucha eventos externos, coordina con el contexto de perfiles para obtener los teléfonos de emergencia y manda a persistir la notificación. |
-
-#### 2.6.5.4 Infrastructure Layer
-
-Aquí se gestionan las conexiones con proveedores externos de mensajería y la persistencia de alto volumen.
+| `SecurityAlertJpaEntity` | Tabla `security_alerts`. Índices en `recipient_id` y `status` para consultas rápidas |
+| `LocationShareJpaEntity` | Tabla `location_share_sessions`. Índice UNIQUE en `access_code` |
+| `NotificationJpaMapper` | Transforma `SecurityAlert` (domain) a `SecurityAlertJpaEntity` y viceversa |
 
 **External Service Adapters**
 
-| Adapter | Servicio Externo | Responsabilidad |
+| Adapter | Servicio externo | Responsabilidad |
 |---|---|---|
-| `FirebaseNotificationAdapter` | Firebase Cloud Messaging (FCM) | Envío de notificaciones push nativas a Android e iOS. |
-| `TwilioSmsAdapter` | Twilio API | Envío de mensajes de texto (SMS) críticos para el Círculo de Confianza. |
-
-**Persistence**
-
-| Componente | Tecnología | Propósito |
-|---|---|---|
-| `JpaNotificationRepository` | Spring Data JPA / PostgreSQL | Registro histórico de todas las notificaciones para auditoría y consulta. |
-| `RedisNotificationCache` | Redis | Almacena las notificaciones más recientes en memoria para que la carga del "Notification Center" en el móvil sea instantánea. |
-
-**Mappers**
-
-| Mapper | Transformación |
-|---|---|
-| `NotificationJpaMapper` | Convierte entre el modelo de persistencia y el Aggregate Root de dominio, manejando los estados de entrega. |
+| `FcmPushNotificationAdapter` | Firebase Cloud Messaging (FCM) | Toma el evento `AlertIssued` y envía un Push Notification real al token del smartphone del usuario |
+| `WebSocketLocationAdapter` | Spring WebSocket / STOMP | Mantiene el canal abierto y emite las coordenadas en tiempo real a los viewers autorizados en el `LocationShareSession` |
 
 #### 2.6.5.5 Bounded Context Software Architecture Component Level Diagrams
+
+En esta subsección se documenta la arquitectura a nivel de componentes del Bounded Context Notification Management. La descomposición parte del contenedor Notification Service, organizándolo por capas.
+
+La Interface Layer expone los endpoints a través de `AlertsController` y `LocationSharingController`, mientras el `IncidentReportedConsumer` escucha activamente el Message Broker (RabbitMQ/Kafka). Estos componentes derivan el tráfico hacia la Application Layer, donde los Command Handlers (como `DispatchAlertCommandHandler` y `JoinShareSessionCommandHandler`) coordinan la lógica.
+
+El Domain Layer encapsula el core con los aggregates `SecurityAlert` y `LocationShareSession`, protegiendo invariantes como la validación del código de acceso temporal. Finalmente, la Infrastructure Layer provee la persistencia mediante `JpaSecurityAlertRepository` y ejecuta las acciones externas mediante adaptadores especializados: `FcmPushNotificationAdapter` para emitir las alertas visuales en el dispositivo y `WebSocketLocationAdapter` para el streaming de coordenadas en vivo durante la compartición de ubicación.
+
+<td><img src="assets/Component-Notification-Managment.svg"/></td>
+
 #### 2.6.5.6 Bounded Context Software Architecture Code Level Diagrams
+
+En esta subsección se describe la arquitectura a nivel de código del Bounded Context Notification Management, detallando su modelo de clases y diseño de persistencia relacional.
+
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+El modelo de clases del Domain Layer presenta dos aggregates independientes. El primero es `SecurityAlert`, que centraliza el estado de las notificaciones (UNREAD, READ) y su contenido (encapsulado en el VO `AlertContent`). Incluye un VO `LocationCoordinates` para alertas vinculadas a eventos geográficos.
+
+El segundo aggregate es `LocationShareSession`, diseñado para gestionar la característica de "compartir ubicación". Sus atributos incluyen el `ShareCode` autogenerado, el `ownerId` y la lista de viewers (espectadores). Este aggregate expone métodos como `addViewer(code)` que validan internamente si la sesión sigue activa y si el código ingresado coincide antes de permitir que un ciudadano monitoree a otro, asegurando la privacidad en todo momento.
+
+<td><img src="assets/Class-Diagram-Notification-Managment.png"/></td>
+
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
+
+El diseño relacional para el Bounded Context Notification Management consta de dos tablas principales bajo el esquema database-per-service. La tabla `security_alerts` persiste las notificaciones. Se optimiza el acceso de lectura masiva creando un índice compuesto en las columnas `recipient_id` y `status`, lo que garantiza que la consulta para contar "notificaciones no leídas" en la aplicación móvil responda en milisegundos.
+
+Por otro lado, la tabla `location_share_sessions` persiste los datos de tracking. Posee una restricción UNIQUE en la columna `access_code` para garantizar que no existan colisiones cuando dos usuarios generen un código de vinculación. Una tabla intermedia `session_viewers` almacena la relación de qué usuarios (`viewer_id`) se han unido exitosamente a qué sesión (`session_id`), utilizando borrado en cascada para evitar registros huérfanos una vez que la sesión de emergencia expira.
+
+
+<br>
+<p align="center">
+  <td><img src="assets/Data-Base-Notification-Managment.jpeg"/></td>
+</p>
+<br>
