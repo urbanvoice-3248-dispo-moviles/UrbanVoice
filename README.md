@@ -793,6 +793,23 @@ Para el registro inicial y perfilamiento del entrevistado, se solicitarán los s
 
 Resumen . 
 
+
+**Entrevista N°3:**
+
+![Entrevista3](assets/Entrevista3.png)
+
+**Timing:** 19:27
+
+**Nombre**: Marcia Mascco  
+
+**Edad:** 21 años
+
+**Pasatiempos:** Jugar videojuegos con su enamorado o amigos
+
+**Ocupación:** Estudiante de la carrera de Administración y Marketing
+
+La entrevistada no se siente segura en lugares donde no hay mucha iluminación ya que, como menciona, habia una zona por su residencia que estaba totalmente oscura y era zona donde robaban mucho. Afortunadamente, no ha sido victima de algún robo o alguna situación peligrosa, pero ante situaciones peligrosas ella indica que auxiliaria al afectado, dando su celular para llamar o bloquear dependiendo de lo que le hayan robado. Ella se siente cómoda y segura recibiendo alertas en su celuar, argumenta que revisa cada tanto algunas situaciones con alertas como, por ejemplo, google maps que manda alertas de tráfico o accidentes en alguna carretera. No ha usado apps de seguridad antes pero esta abierta a recibir una que le permita sentirse más segura en la vía pública y valora mucho las funcionalidades de alertas y de compartir ubicación en tiempo real.
+
 ### 2.2.3. Análisis de entrevistas
 
 Los entrevistados, expresan una profunda preocupación por la inseguridad en sus entornos diarios, especialmente en áreas cercanas a su universidad y en espacios públicos como parques y calles con poca iluminación. Esta sensación de inseguridad está influenciada por la falta de vigilancia, la deficiente iluminación en las zonas que frecuentan, y la frecuencia con la que han sido testigos de actos delictivos, lo que genera una necesidad apremiante de soluciones tecnológicas que puedan mitigar estos riesgos.
