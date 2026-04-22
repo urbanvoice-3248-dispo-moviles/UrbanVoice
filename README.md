@@ -1049,10 +1049,211 @@ En esta sección se describe la estructura técnica de la solución. Se detalla 
 ## 2.6 Tactical-Level Domain-Driven Design
 
 ### 2.6.1 Bounded Context:Identity and Access Managment
-#### 2.6.1.1. Domain Layer 
+
+El Bounded Context de **Identity and Access Management (IAM)** es fundamental para la seguridad y la experiencia del usuario de la plataforma. Este contexto es responsable de todo el ciclo de vida de una cuenta de usuario y de su sesión: desde su creación por parte de un propietario o freelancer, pasando por la autenticación segura, hasta el manejo de errores de inicio de sesión, el flujo de recuperación de contraseña y el cierre explícito de la sesión.
+
+El modelo de dominio presentado en esta sección es consistente con lo identificado en el Design-Level EventStorming elaborado por el equipo para este contexto, donde se establecieron los commands principales, como registrar un usuario, iniciar sesión y recuperar contraseña; los domain events asociados, como Usuario Registrado, Inicio de Sesión Exitoso y Sesión Cerrada; y los read models que requieren las vistas del usuario, como el formulario de registro y el formulario de inicio de sesión.
+
+A continuación, se presenta el diseño detallado del contexto, estructurado para reflejar el flujo de usuario detallado, organizado en las cuatro capas estándar de una arquitectura hexagonal o aplicadas a DDD.
+
+#### 2.6.1.1. Domain Layer
+
+La Domain Layer concentra el modelo del dominio del contexto IAM. Aquí se ubican las clases que representan los conceptos del negocio, sus reglas y sus invariantes, sin dependencia alguna hacia frameworks, bases de datos ni servicios externos.
+
+**Aggregate Root: `UserAccount`**
+
+La entidad `UserAccount` es el aggregate root del contexto IAM. Esta entidad es la unidad de consistencia transaccional y concentra toda la lógica relacionada con el estado de un usuario registrado en el sistema: cuando un propietario o freelancer crea su cuenta, cuando se valida que su correo electrónico es único o cuando se restablece su contraseña, todas esas operaciones pasan necesariamente por este aggregate root.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `AccountId` (VO) | Identificador único de la cuenta de usuario |
+| `name` | `UserProfileInfo` (VO) | Información del perfil del usuario (nombre y edad) |
+| `credentials` | `AccountCredentials` (VO) | Credenciales de acceso (correo electrónico y hash de contraseña) |
+| `status` | `AccountStatus` (Enum) | Estado actual de la cuenta (e.g., CREATED, VERIFIED, LOCKED) |
+| `session` | `Session` (Entity) | Entidad interna que representa la sesión activa (opcional) |
+| `createdAt` | `DateTime` | Fecha y hora de creación de la cuenta |
+| `updatedAt` | `DateTime` | Fecha y hora de la última actualización |
+
+**Métodos principales**
+
+| Método | Visibilidad | Descripción |
+|---|---|---|
+| `changeCredentials(credentials: AccountCredentials)` | public | Cambia las credenciales de acceso. Emite `PasswordChanged` |
+| `isLoginAllowed()` | public | Invariante: Retorna `true` si el estado de la cuenta y los intentos fallidos permiten el inicio de sesión |
+| `lock()` | public | Bloquea la cuenta por seguridad (e.g., tras múltiples fallos de login) |
+| `validateProfileInfo()` | public | Valida que la información de nombre y edad cumpla con las reglas de negocio |
+| `validatePasswordResetPolicy(policy: PasswordResetPolicy)` | public | Valida que un nuevo password cumpla con la política de seguridad |
+| `updateProfileInfo(profileInfo: UserProfileInfo)` | public | Actualiza el nombre y la edad del usuario |
+
+**Entidad interna: `Session`**
+
+`Session` es una entidad interna del aggregate root `UserAccount`. Su ciclo de vida está ligado a la cuenta; representa una instancia de autenticación exitosa.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `token` | `SessionToken` (VO) | Token criptográfico que identifica la sesión |
+| `startedAt` | `DateTime` | Fecha y hora de inicio de la sesión |
+| `expiresAt` | `DateTime` | Fecha y hora de expiración del token |
+
+**Value Objects**
+
+| Value Object | Propósito |
+|---|---|
+| `AccountId` | Identificador único de la cuenta de usuario (e.g., UUID) |
+| `Name` | Encapsula el nombre del usuario (e.g., longitud mínima 2) |
+| `Age` | Encapsula la edad validada |
+| `EmailAddress` | Encapsula el correo electrónico del usuario, validando su formato y asegurando que sea único en el sistema |
+| `Password` | Encapsula la contraseña compleja, pero solo como una abstracción antes de ser hasheada |
+| `AccountCredentials` | Encapsula el correo electrónico y el hash de la contraseña. Es inmutable y se modela por valor |
+| `SessionToken` | Token único y seguro de sesión |
+
+**Enumerations**
+
+| Enum | Valores | Propósito |
+|---|---|---|
+| `AccountStatus` | CREATED, VERIFIED, LOCKED, DELETED | Representa el estado actual de la cuenta de usuario |
+
+**Domain Services**
+
+| Domain Service | Responsabilidad |
+|---|---|
+| `PasswordHashingService` | Provee una abstracción para el hasheo seguro de contraseñas. Su implementación vive en infraestructura |
+| `PasswordResetService` | Coordina el proceso de validación y generación de tokens para la recuperación de contraseña |
+| `EmailUniquenessChecker` | Servicio para verificar que un correo electrónico no esté ya registrado en el sistema |
+
+**Repository Interfaces (abstracciones)**
+
+| Interface | Operaciones principales |
+|---|---|
+| `UserAccountRepository` | `save(account: UserAccount)`, `findById(id: AccountId)`, `findByEmail(email: EmailAddress)` |
+
+**Domain Events**
+
+| Domain Event | Cuándo se emite | Consumidores |
+|---|---|---|
+| `UserAccountCreated` | Cuando se crea exitosamente un nuevo `UserAccount` | Interno y externo |
+| `LoginSuccessful` | Cuando un usuario inicia sesión con credenciales válidas | Interno y externo |
+| `LoginFailed` | Cuando un intento de inicio de sesión falla | Interno (e.g., para audit-log y bloqueo) |
+| `PasswordResetInitiated` | Cuando se solicita un cambio de contraseña | Interno y externo |
+| `PasswordChanged` | Cuando se completa exitosamente el cambio de contraseña | Interno y externo |
+| `SessionEnded` | Cuando un usuario cierra sesión explícitamente | Interno y externo |
+
+**Factories**
+
+| Factory | Propósito |
+|---|---|
+| `UserAccountFactory` | Centraliza la creación de nuevos `UserAccount` válidos a partir de un command, asegurando que se cumplan todas las precondiciones |
+
 #### 2.6.1.2. Interface Layer
+
+La Interface Layer es la capa más externa del Bounded Context del lado entrante. Su responsabilidad es exponer las capabilities del contexto y traducir los requests entrantes al modelo de la Application Layer.
+
+**Controllers REST**
+
+| Controller | Endpoints | Capabilities soportadas |
+|---|---|---|
+| `AccountRegistrationController` | `POST /api/v1/accounts` | Creación de cuenta y completado de registro |
+| `AccountLoginController` | `POST /api/v1/login`, `POST /api/v1/logout` | Inicio y cierre de sesión |
+| `PasswordResetController` | `POST /api/v1/password-reset/initiate`, `POST /api/v1/password-reset/complete` | Solicitud y cambio de contraseña |
+
+**Resources / DTOs**
+
+| DTO | Tipo | Uso |
+|---|---|---|
+| `RegisterAccountRequest` | Input | Payload del request `POST` para crear una cuenta |
+| `LoginRequest` | Input | Payload del request `POST` para iniciar sesión |
+| `InitiatePasswordResetRequest` | Input | Payload para solicitar la recuperación de contraseña |
+| `CompletePasswordResetRequest` | Input | Payload para establecer la nueva contraseña |
+| `AccountSummaryResponse` | Output | Versión reducida de la cuenta para listados rápidos |
+| `LoginResponse` | Output | Respuesta exitosa del login (e.g., con token de sesión) |
+| `AccountStatusResponse` | Output | Respuesta detallada del estado de la cuenta |
+
+**Assemblers**
+
+| Assembler | Transformación |
+|---|---|
+| `FromRegisterAccountRequestAssembler` | `RegisterAccountRequest` a `RegisterAccountCommand` |
+| `FromLoginRequestAssembler` | `LoginRequest` a `LoginUserCommand` |
+
 #### 2.6.1.3. Application Layer
+
+La Application Layer orquesta los flujos de proceso del negocio que involucran al Bounded Context. Aquí viven las clases responsables de recibir commands y queries, coordinar con el Domain Layer, gestionar la transaccionalidad y publicar los domain events. Se adopta el patrón CQRS ligero.
+
+**Command Handlers**
+
+| Command Handler | Command procesado | Flujo |
+|---|---|---|
+| `RegisterAccountCommandHandler` | `RegisterAccountCommand` | Valida el command, invoca al `UserAccountFactory` para crear el aggregate, persiste vía `UserAccountRepository` y publica `UserAccountCreated` |
+| `LoginUserCommandHandler` | `LoginUserCommand` | Recupera el aggregate por correo, valida credenciales, invoca `account.startSession()`, persiste y publica `LoginSuccessful` |
+| `InitiatePasswordResetCommandHandler` | `InitiatePasswordResetCommand` | Recupera el aggregate, invoca el `PasswordResetService` para generar token, persiste y publica `PasswordResetInitiated` |
+| `CompletePasswordResetCommandHandler` | `CompletePasswordResetCommand` | Valida el token, recupera el aggregate, invoca `account.changeCredentials()`, persiste y publica `PasswordChanged` |
+| `LogoutUserCommandHandler` | `LogoutUserCommand` | Recupera el aggregate, invoca `account.endSession()`, persiste y publica `SessionEnded` |
+
+**Query Services**
+
+| Query Service | Query soportada | Retorno |
+|---|---|---|
+| `GetRegistrationFormQueryService` | `GetRegistrationFormQuery` | `RegisterAccountRequest` (vacío) |
+| `GetLoginFormQueryService` | `GetLoginFormQuery` | `LoginRequest` (vacío) |
+| `GetAccountStatusQueryService` | `GetAccountStatusQuery(accountId)` | `AccountStatusResponse` |
+| `GetAccountSummaryQueryService` | `GetAccountSummaryQuery(accountId)` | `AccountSummaryResponse` |
+
+**Event Handlers**
+
+| Event Handler | Evento | Acción |
+|---|---|---|
+| `UserAccountCreatedEventHandler` | `UserAccountCreated` | Publica el evento en el message broker para que otros contexts reaccionen |
+| `LoginFailedEventHandler` | `LoginFailed` | Actualiza un read-model específico o genera una entrada de audit-log |
+
+**Application Services**
+
+| Application Service | Responsabilidad |
+|---|---|
+| `AccountApplicationService` | Fachada del contexto que coordina Command Handlers y Query Services |
+
 #### 2.6.1.4 Infrastructure Layer
+
+La Infrastructure Layer provee implementaciones concretas de las abstracciones definidas en el Domain Layer y gestiona la integración con tecnologías externas.
+
+**Repository Implementations**
+
+| Implementación | Interface que implementa | Tecnología |
+|---|---|---|
+| `JpaUserAccountRepository` | `UserAccountRepository` | Spring Data JPA sobre PostgreSQL |
+
+**JPA Entities**
+
+| JPA Entity | Mapeo |
+|---|---|
+| `UserAccountJpaEntity` | Tabla `accounts` |
+| `UserProfileInfoJpaEntity` | Tabla `user_profiles` o descomposición en la tabla `accounts` |
+| `SessionJpaEntity` | Tabla `sessions` |
+
+**Mappers Domain a JPA**
+
+| Mapper | Transformación |
+|---|---|
+| `UserAccountJpaMapper` | `UserAccount` a `UserAccountJpaEntity` y viceversa |
+| `SessionJpaMapper` | `Session` a `SessionJpaEntity` y viceversa |
+
+**External Service Adapters**
+
+| Adapter | Servicio externo | Responsabilidad |
+|---|---|---|
+| `BCryptPasswordAdapter` | `PasswordHashingService` | Provee la implementación de hasheo seguro utilizando BCrypt |
+| `JwtSessionServiceAdapter` | `SessionTokenGenerator` | Genera y valida tokens de sesión seguros utilizando JSON Web Tokens (JWT) |
+| `MailgunServiceAdapter` | `EmailService` | Implementación externa para enviar correos electrónicos para la recuperación de contraseña |
+| `EventPublisherAdapter` | RabbitMQ (vía Spring AMQP) | Publica los domain events en el exchange correspondiente |
+
+**Configuration**
+
+| Clase de configuración | Propósito |
+|---|---|
+| `IamContextConfig` | Registra los beans de Spring del contexto, configura transacciones y wiring de handlers |
+| `SpringSecurityConfig` | Configura el framework de seguridad (e.g., filtros JWT, autenticación de endpoints) |
+| `RabbitMqConfig` | Declara exchanges, queues y bindings del contexto |
+| `DatabaseConfig` | Configura la conexión a la base de datos PostgreSQL específica para este contexto |
+
 #### 2.6.1.5 Bounded Context Software Architecture Component Level Diagrams
 #### 2.6.1.6 Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
