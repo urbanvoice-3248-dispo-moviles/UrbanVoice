@@ -24,11 +24,10 @@
   <br>
   <p> Relación de Integrantes: </p>
   <p>  - . </p>
-  <p>  - . </p>
+  <p>  - Quijada Magro, Jeremy Alexander (u202219657). </p>
   <p>  - Ruiz Madrid, Billy Jake (u202116401) </p>
   <p>  - Gordillo Ramos, Santiago Alonso (u202215160) </p>
-    <p>  - Awad Vargas, Giorgio Marzouk (u202324041) </p>
-  <p>  - . </p>
+  <p>  - Awad Vargas, Giorgio Marzouk (u202324041) </p>
   <br>
   <p> Mes y Año: Abril del 2026 </p>
 </div>
@@ -163,6 +162,17 @@
             - [2.6.5.6.1. Bounded Context Domain Layer Class Diagrams](#26561-bounded-context-domain-layer-class-diagrams)
             - [2.6.5.6.2. Bounded Context Database Design Diagram](#26562-bounded-context-database-design-diagram)
 
+---
+
+# Project Report Collaboration Insights
+En esta sección se detalla el proceso de colaboración para la elaboración del informe en el repositorio de GitHub.
+
+**URL del repositorio:** https://github.com/urbanvoice-3248-dispo-moviles/UrbanVoice
+
+   - Se realizaron commits individuales para las secciones de perfiles y descripción de la startup.
+   - Se coordinó de forma sincrónica la definición de las hipótesis de Lean UX y el análisis de la problemática.
+
+---
 
 # Student Outcome
 
@@ -270,7 +280,7 @@ soluciones de software.</td>
 
 ### 1.1.1 Descripción de la Startup
 
-En respuesta al aumento de la inseguridad ciudadana en el Perú, UrbanVoice surge como una propuesta innovadora orientada a fortalecer la seguridad en las calles. En Lima Metropolitana, el 89,9% de los ciudadanos percibe su entorno como inseguro (INEI, 2024), una realidad preocupante que requiere atención inmediata.  
+UrbanVoice es una iniciativa tecnológica enfocada en fortalecer la seguridad ciudadana en Lima Metropolitana. Ante la percepción de inseguridad del 89.9%, nuestra plataforma permite a los ciudadanos consultar niveles de riesgo en tiempo real y reportar incidentes de manera colaborativa.  
 
 **Misión:**  
 Nuestra misión es brindar seguridad a nuestros usuarios, permitiéndoles desplazarse con confianza por las distintas calles del Perú.  
@@ -331,6 +341,8 @@ Además, UrbamVoice ofrece una función adicional: compartir la ubicación en ti
 UrbanVoice, una aplicación móvil orientada a la seguridad ciudadana. Su propósito es brindar a los usuarios información en tiempo real sobre incidentes y zonas de riesgo en Lima Metropolitana, permitiendo tomar decisiones más seguras en sus desplazamientos y fomentando la colaboración entre ciudadanos y autoridades.
 
 ### 1.2.2. Antecedentes y problemática
+
+La inseguridad ciudadana es la principal preocupación en Lima. Aplicamos la técnica 5W's y 2H's para analizar el entorno:
 
 **What (Qué):** UrbanVoice es una aplicación diseñada para empoderar a los usuarios en su vida diaria, ayudándolos a navegar de manera más segura por las calles de Lima Metropolitana. UrbanVoice garantiza el acceso a información detallada y confiable sobre la seguridad en tiempo real, fomentando una red de colaboración que beneficia a todos.
 
@@ -468,6 +480,8 @@ ahora que hemos analizado la problemática y contamos con una visión clara de c
 
 ## 1.3. Segmentos Objetivo
 
+Nuestro público objetivo son personas de 18 a 65 años que residen o trabajan en Lima Metropolitana y se movilizan frecuentemente por la ciudad. Estos usuarios valoran su seguridad y están dispuestos a usar tecnología para mitigar riesgos.
+
 <table>
 <colgroup>
 <col style="width: 22%" />
@@ -475,10 +489,7 @@ ahora que hemos analizado la problemática y contamos con una visión clara de c
 </colgroup>
 <thead>
 <tr>
-<th rowspan="2"><strong>Variables</strong></th>
-<th><strong>Segmento</strong></th>
-</tr>
-<tr>
+<th><strong>Variables</strong></th>
 <th>Personas que buscan mayor seguridad al movilizarse en espacios públicos</th>
 </tr>
 </thead>
@@ -784,6 +795,20 @@ Resumen .
 
 ### 2.2.3. Análisis de entrevistas
 
+Los entrevistados, expresan una profunda preocupación por la inseguridad en sus entornos diarios, especialmente en áreas cercanas a su universidad y en espacios públicos como parques y calles con poca iluminación. Esta sensación de inseguridad está influenciada por la falta de vigilancia, la deficiente iluminación en las zonas que frecuentan, y la frecuencia con la que han sido testigos de actos delictivos, lo que genera una necesidad apremiante de soluciones tecnológicas que puedan mitigar estos riesgos.
+
+##### Intereses y Requerimientos Principales:
+
+1. **Reportes en Tiempo Real**:
+
+Interés en una aplicación que les permita reportar incidencias de forma inmediata. Esta funcionalidad es vista como un mecanismo para alertar a otros usuarios y facilitar la intervención de las autoridades en casos de emergencia.
+2. **Alertas en Tiempo Real**:
+
+La capacidad de recibir notificaciones sobre áreas peligrosas es una función altamente valorada. Estas alertas podrían ayudar a los usuarios a evitar situaciones riesgosas al informarles sobre robos recientes u otros incidentes delictivos en su entorno.
+3. **Compartir Ubicación**:
+
+Ambos usuarios consideran útil compartir su ubicación en tiempo real, pero hay una fuerte preferencia por hacerlo de manera anónima para evitar posibles represalias o problemas de privacidad. Esto sugiere la necesidad de implementar medidas robustas de protección de datos y opciones para mantener el anonimato.
+
 
 ## 2.3. Needfinding
 
@@ -854,50 +879,282 @@ En esta sección se definen los términos clave del dominio de negocio. Estas de
 
 ## 2.4. Requirements specification
 ### 2.4.1. User Stories
-| ID | User Story | Prioridad | Criterios de aceptación |
-|---|---|---|---|
-| US01 | Como ciudadano, quiero visualizar en un mapa las zonas con mayor nivel de riesgo para evitar transitar por lugares peligrosos. | Alta | El sistema muestra un mapa interactivo con zonas clasificadas por nivel de riesgo y permite ver la ubicación actual del usuario. |
-| US02 | Como ciudadano, quiero reportar un incidente de inseguridad con ubicación para alertar a otros usuarios cercanos. | Alta | El sistema permite registrar tipo de incidente, descripción y ubicación geográfica del reporte. |
-| US03 | Como ciudadano, quiero adjuntar evidencia multimedia (foto, audio o video) a un reporte para darle mayor credibilidad a la información compartida. | Alta | El sistema permite adjuntar archivos multimedia al momento de crear un reporte. |
-| US04 | Como ciudadano, quiero realizar reportes de forma anónima para proteger mi identidad al informar sobre un incidente. | Alta | El sistema ofrece la opción de publicar el reporte con identidad visible o anónima. |
-| US05 | Como ciudadano, quiero recibir alertas de incidentes cercanos a mi ubicación para tomar decisiones preventivas durante mi desplazamiento. | Alta | El sistema envía notificaciones cuando se detectan incidentes recientes dentro de un radio determinado. |
-| US06 | Como ciudadano, quiero consultar rutas más seguras entre dos puntos para reducir mi exposición a zonas de riesgo. | Alta | El sistema propone trayectos priorizando calles con menor nivel de incidentes reportados. |
-| US07 | Como ciudadano, quiero compartir mi ubicación en tiempo real con contactos de confianza para sentirme más seguro durante un trayecto. | Alta | El sistema permite activar el seguimiento en tiempo real y compartirlo con contactos seleccionados. |
-| US08 | Como contacto de confianza, quiero recibir la ubicación en tiempo real de un usuario para poder monitorear su trayecto y reaccionar ante una emergencia. | Media | El contacto recibe acceso temporal a la ubicación compartida del usuario. |
-| US09 | Como ciudadano, quiero visualizar el detalle de los incidentes reportados en una zona para comprender mejor el nivel de riesgo. | Media | El sistema permite abrir cada reporte y visualizar tipo, fecha, descripción y evidencia disponible. |
-| US10 | Como ciudadano, quiero filtrar incidentes por tipo, fecha o zona para consultar información relevante según mi necesidad. | Media | El sistema permite aplicar filtros y actualizar los resultados en el mapa o lista de reportes. |
-| US11 | Como administrador, quiero revisar y moderar los reportes enviados por los usuarios para evitar información falsa, ofensiva o duplicada. | Alta | El sistema permite aprobar, rechazar o eliminar reportes desde un panel de moderación. |
-| US12 | Como administrador, quiero gestionar categorías de incidentes para mantener organizado el registro de reportes en la plataforma. | Media | El sistema permite crear, editar o desactivar categorías de incidentes. |
+A continuación se detalla la especificación de requisitos del sistema dividida en Épicas, Historias de Usuario y Criterios de Aceptación por escenarios .
+
+<table><tr><th style="text-align:center;">Story ID</th><th style="text-align:center;">Epic</th><th style="text-align:center;">Título</th><th style="text-align:center;">Descripción</th><th style="text-align:center;">Prioridad</th><th style="text-align:center;">Criterios de Aceptación</th></tr><tr><td align="center">US01</td><td align="center">EP03</td><td>Visualización de mapa de riesgo</td><td>Como ciudadano, deseo visualizar un mapa con zonas de riesgo para evitar transitar por lugares peligrosos.</td><td align="center">Alta</td><td><b>Escenario 1: Carga de mapa con incidentes.</b><b>Given</b> que el ciudadano se encuentra en la vista principal,<b>When</b> el sistema identifica reportes en la base de datos,<b>Then</b> el sistema renderiza capas de calor sobre las coordenadas afectadas.<b>
+Escenario 2: Actualización de mapa al mover la vista.</b><b>Given</b> que el usuario desplaza el mapa a un nuevo distrito,<b>When</b> el sistema detecta el cambio de coordenadas de visualización,
+<b>Then</b> el sistema actualiza dinámicamente los puntos críticos de esa zona.
+</td>
+</tr>
+<tr>
+<td align="center">US02</td>
+<td align="center">EP02</td>
+<td>Registro de incidente</td>
+<td>Como ciudadano, deseo reportar un incidente de inseguridad con mi ubicación para alertar a otros.</td>
+<td align="center">Alta</td>
+<td>
+<b>Escenario 1: Envío de reporte con GPS activo.</b><b>Given</b> que el ciudadano completa los campos del reporte,<b>When</b> selecciona la opción de publicar,<b>Then</b> el sistema almacena el incidente con su geolocalización precisa.
+<b>Escenario 2: Intento de envío sin permisos de GPS.</b><b>Given</b> que el ciudadano intenta realizar un reporte,<b>When</b> el sistema detecta que el GPS está desactivado,
+<b>Then</b> el sistema muestra un mensaje solicitando habilitar la ubicación.
+</td>
+</tr>
+<tr>
+<td align="center">US03</td>
+<td align="center">EP02</td>
+<td>Evidencia multimedia</td>
+<td>Como ciudadano, deseo adjuntar evidencia (foto, audio o video) para dar credibilidad al reporte.</td>
+<td align="center">Alta</td>
+<td>
+<b>Escenario 1: Carga de imagen desde cámara.</b><b>Given</b> que el usuario está en el formulario de reporte,<b>When</b> captura una fotografía mediante la cámara del dispositivo,<b>Then</b> el sistema adjunta el archivo al registro del incidente.<b>Escenario 2: Límite de tamaño de archivo superado.</b><b>Given</b> que el ciudadano intenta subir un video pesado,<b>When</b> el archivo excede los 10 MB permitidos,
+<b>Then</b> el sistema notifica que el tamaño máximo ha sido superado.
+</td>
+</tr>
+<tr>
+<td align="center">US04</td>
+<td align="center">EP02</td>
+<td>Reporte anónimo</td>
+<td>Como ciudadano, deseo realizar reportes de forma anónima para proteger mi identidad.</td>
+<td align="center">Alta</td>
+<td>
+<b>Escenario 1: Publicación con modo anónimo activado.</b><b>Given</b> que el ciudadano activa el switch de anonimato,<b>When</b> envía el reporte al sistema,<b>Then</b> el sistema oculta el nombre del autor en el mapa público.<b>Escenario 2: Publicación sin modo anónimo.</b><b>Given</b> que el usuario deja desactivada la opción de anonimato,<b>When</b> confirma el envío,
+<b>Then</b> el sistema muestra su nombre de perfil junto al incidente.
+</td>
+</tr>
+<tr>
+<td align="center">US05</td>
+<td align="center">EP04</td>
+<td>Alertas geolocalizadas</td>
+<td>Como ciudadano, deseo recibir alertas de incidentes cercanos para tomar decisiones preventivas.</td>
+<td align="center">Alta</td>
+<td>
+<b>Escenario 1: Alerta en radio de proximidad.</b><b>Given</b> que el sistema registra un nuevo incidente,<b>When</b> el usuario se encuentra en un radio determinado de cercanía,
+<b>Then</b> el sistema envía una notificación push de advertencia inmediata.
+</td>
+</tr>
+<tr>
+<td align="center">US06</td>
+<td align="center">EP03</td>
+<td>Consulta de rutas seguras</td>
+<td>Como ciudadano, deseo consultar rutas entre dos puntos para reducir exposición a riesgos.</td>
+<td align="center">Alta</td>
+<td>
+<b>Escenario 1: Cálculo de ruta evadiendo hotspots.</b><b>Given</b> que el ciudadano ingresa un punto de destino,<b>When</b> solicita el trazado de la ruta,<b>Then</b> el sistema propone trayectos priorizando calles con menor nivel de incidentes.
+</td>
+</tr>
+<tr>
+<td align="center">US07</td>
+<td align="center">EP04</td>
+<td>Compartir ubicación real</td>
+<td>Como ciudadano, deseo compartir mi ubicación con contactos de confianza para sentirme seguro.</td>
+<td align="center">Alta</td>
+<td>
+<b>Escenario 1: Envío de enlace de seguimiento.</b><b>Given</b> que el ciudadano selecciona un contacto de su lista,<b>When</b> activa el seguimiento en tiempo real,<b>Then</b> el sistema permite compartir el seguimiento con los contactos seleccionados.
+</td>
+</tr>
+<tr>
+<td align="center">US08</td>
+<td align="center">EP04</td>
+<td>Vista para contacto</td>
+<td>Como contacto de confianza, deseo recibir la ubicación real de un usuario para monitorearlo.</td>
+<td align="center">Media</td>
+<td>
+<b>Escenario 1: Monitoreo sobre el mapa.</b><b>Given</b> que el contacto recibe acceso temporal a la ubicación,<b>When</b> el usuario se desplaza por la ciudad,
+<b>Then</b> el sistema muestra el marcador de posición moviéndose en tiempo real.
+</td>
+</tr>
+<tr>
+<td align="center">US09</td>
+<td align="center">EP02</td>
+<td>Detalle de incidentes</td>
+<td>Como ciudadano, deseo visualizar el detalle de los incidentes reportados en una zona.</td>
+<td align="center">Media</td>
+<td>
+<b>Escenario 1: Acceso a información ampliada.</b><b>Given</b> que el usuario selecciona un punto crítico en el mapa,<b>When</b> solicita ver más información,<b>Then</b> el sistema permite visualizar tipo, fecha, descripción y evidencia disponible.
+</td>
+</tr>
+<tr>
+<td align="center">US10</td>
+<td align="center">EP02</td>
+<td>Filtros de búsqueda</td>
+<td>Como ciudadano, deseo filtrar incidentes por tipo o fecha para mi consulta.</td>
+<td align="center">Media</td>
+<td>
+<b>Escenario 1: Filtrado personalizado.</b><b>Given</b> que el usuario accede a la lista de reportes,<b>When</b> aplica filtros de categoría o rango de fechas,<b>Then</b> el sistema actualiza los resultados en el mapa o lista según la necesidad.
+</td>
+</tr>
+<tr>
+<td align="center">US11</td>
+<td align="center">EP05</td>
+<td>Panel de moderación</td>
+<td>Como administrador, deseo moderar los reportes para evitar información falsa u ofensiva.</td>
+<td align="center">Alta</td>
+<td>
+<b>Escenario 1: Rechazo de reporte malicioso.</b><b>Given</b> que un administrador accede al panel de moderación,<b>When</b> detecta un reporte que infringe las normas,
+<b>Then</b> el sistema permite rechazar o eliminar dicho reporte de la plataforma.
+</td>
+</tr>
+<tr>
+<td align="center">US12</td>
+<td align="center">EP05</td>
+<td>Gestión de categorías</td>
+<td>Como administrador, deseo gestionar categorías de incidentes para organizar el registro.</td>
+<td align="center">Media</td>
+<td>
+<b>Escenario 1: Creación de nueva categoría.</b><b>Given</b> que el administrador requiere una nueva tipología de riesgo,<b>When</b> registra los datos en el sistema,<b>Then</b> el sistema permite crear, editar o desactivar categorías de incidentes.
+</td>
+</tr>
+<tr>
+<td align="center">US13</td>
+<td align="center">EP06</td>
+<td>Sección informativa</td>
+<td>Como visitante del Landing Page, deseo ver las funciones de UrbanVoice para conocer su valor.</td>
+<td align="center">Baja</td>
+<td>
+<b>Escenario 1: Navegación por beneficios.</b><b>Given</b> que el visitante carga la URL principal,<b>When</b> se desplaza a la sección de funcionalidades,<b>Then</b> el sistema muestra tarjetas interactivas con información de seguridad.
+</td>
+</tr>
+<tr>
+<td align="center">TS01</td>
+<td align="center">EP07</td>
+<td>Endpoints de REST API</td>
+<td>Como desarrollador, deseo crear los servicios web para el manejo de incidentes.</td>
+<td align="center">Alta</td>
+<td>
+<b>Escenario 1: Request de creación exitoso.</b><b>Given</b> que el cliente móvil envía un JSON válido,<b>When</b> el servidor procesa la solicitud,<b>Then</b> el sistema retorna un código 201 (Created) con el ID del reporte.
+</td>
+</tr>
+</table>
 
 ### 2.4.2. Impact Mapping
 <td><img src="assets/impact-mapping.png"/></td>
 
 ### 2.4.3. Product Backlog
-| ID | Ítem del Backlog | Descripción | Prioridad | Relación |
-|---|---|---|---|---|
-| PB01 | Visualización de mapa de riesgo | Implementar un mapa interactivo que muestre las zonas según nivel de peligrosidad. | Alta | US01 |
-| PB02 | Registro de incidentes | Permitir al usuario crear reportes con tipo de incidente, descripción y ubicación. | Alta | US02 |
-| PB03 | Adjuntar evidencia multimedia | Permitir incluir fotos, audios o videos dentro de los reportes. | Alta | US03 |
-| PB04 | Reporte anónimo | Incorporar opción para ocultar la identidad del usuario al publicar un incidente. | Alta | US04 |
-| PB05 | Alertas geolocalizadas | Enviar notificaciones sobre incidentes cercanos a la ubicación del usuario. | Alta | US05 |
-| PB06 | Consulta de rutas seguras | Generar rutas que eviten las zonas con mayor concentración de reportes. | Alta | US06 |
-| PB07 | Compartir ubicación en tiempo real | Permitir al usuario compartir su recorrido en tiempo real con contactos seleccionados. | Alta | US07 |
-| PB08 | Vista para contacto de confianza | Implementar acceso para que el contacto pueda monitorear la ubicación compartida. | Media | US08 |
-| PB09 | Detalle de incidentes | Mostrar información ampliada de cada incidente registrado en el mapa. | Media | US09 |
-| PB10 | Filtros de búsqueda | Incorporar filtros por tipo de incidente, fecha, distrito o nivel de riesgo. | Media | US10 |
-| PB11 | Panel de moderación | Crear una interfaz administrativa para validar, rechazar o eliminar reportes. | Alta | US11 |
-| PB12 | Gestión de categorías de incidentes | Permitir administrar los tipos de incidentes disponibles en la plataforma. | Media | US12 |
-| PB13 | Historial de reportes del usuario | Permitir al usuario revisar sus reportes realizados anteriormente. | Media | Complementario |
-| PB14 | Sistema de autenticación | Implementar registro e inicio de sesión para usuarios de la aplicación. | Alta | Base del sistema |
-| PB15 | Gestión de contactos de confianza | Permitir agregar, editar o eliminar contactos autorizados para recibir ubicación y alertas. | Media | US07, US08 |
+
+Para el proyecto UrbanVoice, el Product Backlog se ha organizado priorizando el valor de negocio y la necesidad de establecer una presencia digital.
+
+<table>
+<tr>
+<th style="text-align:center;"># Orden</th>
+<th style="text-align:center;">User Story ID</th>
+<th style="text-align:center;">Título</th>
+<th style="text-align:center;">Story Points</th>
+<th style="text-align:center;">Prioridad</th>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">US13</td>
+<td>Landing Page Informativo</td>
+<td align="center">2</td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">US01</td>
+<td>Visualización de mapa de riesgo</td>
+<td align="center">5</td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">US02</td>
+<td>Registro de incidentes ciudadanos</td>
+<td align="center">5</td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">US05</td>
+<td>Sistema de alertas geolocalizadas</td>
+<td align="center">8</td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">US03</td>
+<td>Gestión de evidencia multimedia</td>
+<td align="center">5</td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">TS01</td>
+<td>Endpoints de RESTful API (Arquitectura)</td>
+<td align="center">3</td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">US04</td>
+<td>Funcionalidad de reporte anónimo</td>
+<td align="center">3</td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">US07</td>
+<td>Compartir ubicación en tiempo real</td>
+<td align="center">8</td>
+<td align="center">Media</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">US14</td>
+<td>Enlaces de descarga (Landing Page)</td>
+<td align="center">1</td>
+<td align="center">Media</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">US09</td>
+<td>Visualización de detalle de incidentes</td>
+<td align="center">3</td>
+<td align="center">Media</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center">US11</td>
+<td>Panel de moderación para administradores</td>
+<td align="center">5</td>
+<td align="center">Media</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="center">US06</td>
+<td>Trazado y consulta de rutas seguras</td>
+<td align="center">8</td>
+<td align="center">Baja</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="center">US10</td>
+<td>Filtros avanzados de búsqueda</td>
+<td align="center">3</td>
+<td align="center">Baja</td>
+</tr>
+<tr>
+<td align="center">14</td>
+<td align="center">US08</td>
+<td>Interfaz para contactos de confianza</td>
+<td align="center">5</td>
+<td align="center">Baja</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="center">US12</td>
+<td>Gestión de categorías de riesgo</td>
+<td align="center">2</td>
+<td align="center">Baja</td>
+</tr>
+</table>
+
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
-Esta sección explica cómo dividimos nuestro software en bounded contexts usando las herramientas de EventStorming y Bounded Context Canvas. Este enfoque nos permite gestionar la complejidad del dominio de la plataforma (conectando a Propietarios y Freelancers) y estructurar nuestra solución de manera modular y escalable.
+Esta sección detalla la descomposición del sistema UrbanVoice en subdominios lógicos, permitiendo una arquitectura modular que responda a la complejidad de la seguridad urbana . Se emplean técnicas de diseño estratégico para asegurar que cada módulo tenga una responsabilidad clara y aislada.
 
 ### 2.5.1 EventStorming
 
-Para la elaboración del EventStorming, el equipo organizó una primera aproximación al modelo del dominio de nuestro proyecto. Durante este proceso colaborativo se realizaron una serie de 9 pasos.
+El equipo realizó una sesión colaborativa para modelar los procesos de negocio de UrbanVoice, identificando eventos de dominio, comandos y reglas .
 
 #### Paso 1: Collect Domain Events
 
@@ -970,48 +1227,36 @@ Bounded context: Notification Managment
 
 ### 2.5.1.1 Candidate Context Discovery
 
-Después de la sesión de EventStorming, nuestro equipo se enfocó en encontrar los bounded contexts de la solución. Para lograrlo, aplicamos técnicas que nos ayudaron a identificar los look-for-pivotal-events (eventos pivotales) en nuestro proceso.
+Tras analizar los eventos clave y los límites naturales del lenguaje, se identificaron los siguientes Bounded Contexts candidatos para UrbanVoice :
 
-**Proceso de identificación:**
-
-El equipo empezó a analizar el modelo completo (basado en la interacción entre el Propietario y el Freelancer), centrándose en los eventos clave como la publicación de un espacio o la confirmación de una reserva.
-
-Trazamos fronteras alrededor de los grupos funcionales y asignamos a cada bounded context un nombre que reflejara su función principal. Como resultado de los flujos diseñados, identificamos las siguientes 6 áreas clave (Bounded Contexts) para nuestra solución:
+- **Identity and Access Management**: Encargado de la seguridad, roles de usuario y sesiones.
+- **Profile Management**: Provee la funcionalidad de perfiles personales y preferencias.
+- **Report Management**: Maneja el ciclo de vida de los incidentes y la evidencia multimedia (Core Domain) .
+- **Location & Geospatial Intelligence**: Provee la lógica de mapas de calor, coordenadas y cálculo de rutas seguras.
+- **Notification Management:** Coordina el envío de alertas críticas y mensajes a contactos.
 
 <td><img src="assets/Step 8.jpg"/></td>
 
-- IAM
-- Profile
-- Location
-- Report 
-- Notification
-
 ### 2.5.1.2 Domain Message Flows Modeling
 
-Los Domain Message Flows (o Domain Storytelling) representan cómo se comunican nuestros bounded contexts. A continuación, se detallan los flujos de comunicación para tres escenarios importantes de nuestra aplicación que involucran a nuestros actores (Propietario y Freelancer).
+Se modelaron los flujos de comunicación entre contextos para los escenarios críticos de la aplicación .
 
-#### Scenario 1: Publish Property (Propietario)
+**Escenario 1: Reporte de Incidente Ciudadano**
 
-Este escenario ilustra el proceso mediante el cual un propietario ingresa a la plataforma y publica un nuevo espacio para que esté disponible.
+El Ciudadano registra un incidente mediante la app móvil. El contexto de Report almacena la data, el contexto de Location valida el punto crítico y el contexto de Notification dispara una alerta a los vecinos cercanos.
 
-<td><img src="assets/Scenario 1 Publish Property.jpg"/></td>
+<td><img src="assets/Scenario 3 Process Payment.jpg"/></td>
 
-#### Scenario 2: Reserve Space (Freelancer)
+**Escenario 2: Compartir Ubicación en Tiempo Real**
 
-Este escenario detalla cómo un freelancer interactúa con el sistema para encontrar un local disponible y solicitar una reserva para una fecha específica.
+El Ciudadano inicia un trayecto. El contexto de Profile identifica a los contactos de confianza y el contexto de Location emite las coordenadas constantes al contexto de Notification para que los contactos reciban el seguimiento.
 
-<td><img src="assets/Scenario 2 Reserve Space.jpg"/></td>
-
-#### Scenario 3: Process Payment (Freelancer)
-
-Este escenario cubre el flujo crítico donde el freelancer efectúa el pago de la reserva previamente solicitada, interactuando con los contextos de pagos y reservas.
 
 <td><img src="assets/Scenario 3 Process Payment.jpg"/></td>
 
 ### 2.5.1.3. Bounded Context Canvases
 
 En esta sección, el equipo diseña sus candidate bounded contexts detallando los criterios de diseño estratégicos y tácticos. Para cada Bounded Context, se ha elaborado un Bounded Context Canvas utilizando la plantilla estándar, siguiendo un proceso iterativo que incluye la definición del propósito, la destilación del Lenguaje Ubicuo, las reglas de negocio, los mensajes consumidos/producidos y el análisis de dependencias.
-A continuación, se presentan los lineamientos para los 6 contextos principales de la plataforma:
 
 1. Bounded Context Canvas: Identity and Access Management (IAM)
 <td><img src="assets/IAM-canvas.jpg"/></td>
@@ -1050,11 +1295,7 @@ En esta sección se describe la estructura técnica de la solución. Se detalla 
 
 ### 2.6.1 Bounded Context:Identity and Access Managment
 
-El Bounded Context de **Identity and Access Management (IAM)** es fundamental para la seguridad y la experiencia del usuario de la plataforma. Este contexto es responsable de todo el ciclo de vida de una cuenta de usuario y de su sesión: desde su creación por parte de un propietario o freelancer, pasando por la autenticación segura, hasta el manejo de errores de inicio de sesión, el flujo de recuperación de contraseña y el cierre explícito de la sesión.
-
-El modelo de dominio presentado en esta sección es consistente con lo identificado en el Design-Level EventStorming elaborado por el equipo para este contexto, donde se establecieron los commands principales, como registrar un usuario, iniciar sesión y recuperar contraseña; los domain events asociados, como Usuario Registrado, Inicio de Sesión Exitoso y Sesión Cerrada; y los read models que requieren las vistas del usuario, como el formulario de registro y el formulario de inicio de sesión.
-
-A continuación, se presenta el diseño detallado del contexto, estructurado para reflejar el flujo de usuario detallado, organizado en las cuatro capas estándar de una arquitectura hexagonal o aplicadas a DDD.
+El Bounded Context Identity and Access Management (IAM) es el pilar de seguridad de UrbanVoice. Su responsabilidad principal es gestionar el ciclo de vida de las identidades digitales, garantizando que solo los usuarios legítimos (ciudadanos y administradores) accedan a los recursos de la plataforma. Este contexto implementa la lógica de autenticación, autorización basada en roles (RBAC) y la gestión de sesiones mediante tokens de seguridad.
 
 #### 2.6.1.1. Domain Layer
 
@@ -1260,20 +1501,253 @@ La Infrastructure Layer provee implementaciones concretas de las abstracciones d
 ##### 2.6.1.6.2.  Bounded Context Database Design Diagram   
 
 ### 2.6.2 Bounded Context:Profile and Preferences Management
+El Bounded Context Profile and Preferences Management es el encargado de gestionar la identidad social y la configuración de seguridad personalizada de cada ciudadano en UrbanVoice. Mientras que el contexto IAM se ocupa de la "cuenta" y el "acceso", este contexto se centra en el "sujeto": quién es el usuario, cómo desea ser notificado y, fundamentalmente, quiénes integran su red de apoyo inmediata.
+
+Este contexto introduce el concepto crítico del Círculo de Confianza, una red de contactos que permite la reacción rápida ante situaciones de emergencia. La lógica de este contexto asegura que la información de contacto sea válida y que las preferencias de notificación respeten las invariantes de privacidad definidas por el usuario. El diseño táctico sigue los principios de segregación de responsabilidades para permitir que la gestión de perfiles escale independientemente del sistema de autenticación central.
 #### 2.6.2.1. Domain Layer
+
+La capa de dominio define la estructura y el comportamiento de la identidad del ciudadano y sus vínculos de seguridad. Es una capa pura que encapsula las reglas sobre cómo se construye una red de contactos confiable.
+
+**Aggregate Root: `Profile`**
+
+El aggregate root `Profile` es la entidad principal que orquesta la información del ciudadano y su círculo de confianza. Un perfil es el punto de consistencia para todas las configuraciones de seguridad personal; por ejemplo, no se puede activar una alerta de pánico si el perfil no tiene al menos un contacto de confianza validado.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `ProfileId` (VO) | Identificador único vinculado al `AccountId` del contexto IAM |
+| `fullName` | `PersonName` (VO) | Nombre y apellido con validaciones de longitud y caracteres |
+| `phoneNumber` | `Phone` (VO) | Número móvil validado para comunicaciones de emergencia |
+| `circleOfTrust` | `List<TrustedContact>` | Colección de entidades internas (contactos de apoyo) |
+| `preferences` | `UserPreferences` (VO) | Configuraciones de radio de alerta y categorías de interés |
+| `avatarUrl` | `StorageUrl` (VO) | Enlace a la imagen de perfil almacenada en la nube |
+| `createdAt` | `DateTime` | Fecha de creación del perfil |
+
+**Métodos principales**
+
+| Método | Visibilidad | Descripción |
+|---|---|---|
+| `addTrustedContact(name, phone, relationship)` | public | Agrega un nuevo contacto al círculo. Invariante: Máximo 5 contactos por perfil. Emite `ContactAddedToCircle`. |
+| `removeTrustedContact(contactId)` | public | Elimina un contacto de la red de apoyo. |
+| `updateEmergencySettings(radius, autoAlert)` | public | Modifica los umbrales de geofencing para alertas automáticas. |
+| `updateProfileInfo(name, phone)` | public | Actualiza datos básicos. Emite `ProfileUpdated`. |
+
+**Entidad interna: `TrustedContact`**
+
+`TrustedContact` es una entidad que solo existe dentro del ciclo de vida de un `Profile`. Representa a las personas externas (familiares, amigos) que recibirán notificaciones si el ciudadano se encuentra en peligro.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `ContactId` (VO) | Identificador único del contacto dentro del perfil |
+| `name` | `string` | Nombre del contacto |
+| `phoneNumber` | `Phone` (VO) | Número para recepción de SMS/Llamadas de alerta |
+| `relationship` | `string` | Vínculo (Padre, Amigo, etc.) para contextualizar la alerta |
+
+**Value Objects**
+
+| Value Object | Propósito |
+|---|---|
+| `ProfileId` | UUID inmutable que actúa como llave foránea lógica hacia IAM. |
+| `PersonName` | Valida que el nombre no contenga caracteres especiales y tenga una longitud mínima. |
+| `Phone` | Valida el formato internacional de número telefónico (E.164). |
+| `UserPreferences` | Encapsula el radio de acción (en metros) y los filtros de tipos de incidentes preferidos. |
+
+**Domain Services**
+
+| Domain Service | Responsabilidad |
+|---|---|
+| `CircleIntegrityService` | Valida que los números telefónicos en el Círculo de Confianza no estén duplicados y sean operables para servicios de SMS. |
+
+**Domain Events**
+
+| Domain Event | Cuándo se emite | Consumidores |
+|---|---|---|
+| `ProfileCreated` | Al instanciar un perfil nuevo tras el registro en IAM. | Notifications (para bienvenida). |
+| `ContactAddedToCircle` | Al registrar un nuevo contacto de emergencia. | Notifications (para solicitar confirmación al contacto). |
+| `EmergencyPreferencesChanged` | Al modificar radios de geofencing. | Location Management (para actualizar observadores). |
+
 #### 2.6.2.2. Interface Layer
+Expone las capacidades de gestión de identidad social y configuración a los clientes móviles y aplicaciones de administración.
+
+**Controllers REST**
+
+| Controller | Endpoints | Capabilities soportadas |
+|---|---|---|
+| `ProfileController` | `GET /api/v1/profiles/me` <br> `PATCH /api/v1/profiles/me` | Consulta y actualización del perfil del ciudadano autenticado. |
+| `TrustCircleController` | `POST /api/v1/profiles/me/contacts` <br> `DELETE /api/v1/profiles/me/contacts/{id}` | Gestión dinámica del Círculo de Confianza. |
+
+**Resources / DTOs**
+
+| DTO | Uso |
+|---|---|
+| `UpdateProfileResource` | Payload para modificar datos personales y preferencias. |
+| `TrustedContactResource` | Representación del contacto para ser mostrado en la App móvil. |
+| `ProfileDetailResource` | Vista completa del perfil incluyendo estadísticas de reportes realizados. |
+
 #### 2.6.2.3. Application Layer
+
+Gestiona los flujos de orquestación, asegurando que las acciones del usuario se traduzcan en cambios válidos en el dominio y se notifiquen a otros contextos.
+
+**Command Handlers**
+
+| Command Handler | Flujo |
+|---|---|
+| `CreateProfileCommandHandler` | Reacciona al evento `UserRegistered` de IAM para inicializar un perfil vacío con valores por defecto. |
+| `AddTrustedContactCommandHandler` | Recupera el perfil, invoca la lógica de negocio de `addTrustedContact` y persiste los cambios. |
+| `UpdatePreferencesCommandHandler` | Traduce los nuevos parámetros de alerta y los aplica al aggregate root. |
+
+**Query Services**
+
+| Query Service | Responsabilidad |
+|---|---|
+| `GetProfileDetailsQueryService` | Retorna la información extendida del ciudadano, integrando datos del modelo de lectura optimizado. |
+
 #### 2.6.2.4 Infrastructure Layer
+
+Provee la persistencia y la integración con servicios multimedia externos.
+
+**Persistence**
+
+| Componente | Tecnología | Mapeo |
+|---|---|---|
+| `JpaProfileRepository` | Spring Data JPA | Tabla `profiles` y `trusted_contacts` (relación One-to-Many). |
+
+**Adapters**
+
+| Adapter | Servicio Externo | Responsabilidad |
+|---|---|---|
+| `CloudinaryImageAdapter` | Cloudinary API | Gestiona el upload de fotos de perfil y retorna las URLs optimizadas con transformación de tamaño. |
+| `IamServiceClientAdapter` | IAM Context (REST/Internal) | Verifica la existencia de la cuenta antes de operaciones críticas de perfil. |
+
+**Mappers**
+
+| Mapper | Transformación |
+|---|---|
+| `ProfileMapper` | Convierte la entidad de persistencia `ProfileJpaEntity` al objeto de dominio `Profile` manteniendo la inmutabilidad de los Value Objects. |
+
 #### 2.6.2.5 Bounded Context Software Architecture Component Level Diagrams
+
 #### 2.6.2.6 Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
 ### 2.6.3 Bounded Context:Location Managment
+
+El Bounded Context Location Management representa el núcleo de inteligencia geoespacial de UrbanVoice. Su propósito es procesar, analizar y transformar los datos de ubicación crudos en información accionable sobre seguridad urbana. Mientras que otros contextos gestionan el "qué" (el incidente), este contexto se especializa en el "dónde": define las zonas de riesgo, calcula mapas de calor dinámicos y provee algoritmos para determinar la seguridad de los trayectos ciudadanos.
+
 #### 2.6.3.1. Domain Layer
+
+La capa de dominio de Location Management es responsable de la lógica espacial pura. No depende de proveedores de mapas específicos, sino que define cómo se modela el riesgo en el territorio.
+
+**Aggregate Root: `GeospatialZone`**
+
+La entidad `GeospatialZone` es el aggregate root. Representa un área geográfica delimitada (polígono o radio) que consolida múltiples reportes para determinar un nivel de riesgo específico. Es la unidad de consistencia para los mapas de calor.
+
+| Atributo | Tipo | Descripción |
+|---|---|---|
+| `id` | `ZoneId` (VO) | Identificador único de la zona espacial |
+| `boundary` | `GeoBoundary` (VO) | Polígono o radio que define la extensión de la zona |
+| `riskLevel` | `RiskIndex` (VO) | Valor numérico (0.0 a 1.0) que cuantifica el peligro |
+| `incidentCount` | `int` | Cantidad de reportes activos en la zona |
+| `lastActivity` | `DateTime` | Última actualización basada en nuevos incidentes |
+
+**Métodos principales**
+
+| Método | Visibilidad | Descripción |
+|---|---|---|
+| `recalculateRisk(incidents: List<IncidentData>)` | public | Actualiza el `RiskIndex` basándose en la densidad y gravedad de los sucesos. |
+| `isPointInside(point: Coordinates)` | public | Determina si una coordenada específica pertenece a esta zona de riesgo. |
+| `expireOldData(threshold: DateTime)` | public | Reduce el índice de riesgo si no se han reportado incidentes recientes (enfriamiento). |
+
+**Value Objects**
+
+| Value Object | Propósito |
+|---|---|
+| `Coordinates` | Encapsula Latitud y Longitud con validaciones de rango geográfico. |
+| `RiskIndex` | Objeto inmutable que valida que el nivel de riesgo esté en el rango permitido y define su semántica (BAJO, MEDIO, ALTO). |
+| `GeoBoundary` | Define la geometría de la zona (Círculo o Polígono). |
+
+**Domain Services**
+
+| Domain Service | Responsabilidad |
+|---|---|
+| `HeatmapCalculationService` | Ejecuta algoritmos de agrupación (clustering) para convertir puntos individuales en áreas de calor continuas. |
+| `RouteSafetyEvaluator` | Recibe una serie de puntos (polilínea) y retorna un reporte de seguridad comparándolo con las `GeospatialZones` activas. |
+
+**Repository Interfaces**
+
+| Interface | Operaciones principales |
+|---|---|
+| `GeospatialRepository` | `save(zone: GeospatialZone)`, `findZonesNear(point: Coordinates, radius: double)`, `findAllActiveZones()` |
+
+**Domain Events**
+
+| Domain Event | Cuándo se emite | Consumidores |
+|---|---|---|
+| `RiskLevelEscalated` | Cuando una zona supera un umbral crítico de peligro. | **Notifications** (para alertas críticas de área). |
+| `SafeRouteCalculated` | Al completar el análisis de un trayecto solicitado. | **Application Layer** (Auditoría). |
+
 #### 2.6.3.2. Interface Layer
+
+
+Se encarga de recibir las coordenadas de los usuarios y entregar los datos necesarios para el renderizado del mapa en la aplicación móvil.
+
+**Controllers REST**
+
+| Controller | Endpoints | Capabilities soportadas |
+|---|---|---|
+| `MapController` | `GET /api/v1/location/heatmap` | Provee la colección de puntos y pesos para el mapa de calor (US01). |
+| `GeofencingController` | `POST /api/v1/location/check-point` | Valida si la ubicación actual del usuario representa un riesgo (US05). |
+| `RouteController` | `POST /api/v1/location/safe-route` | Calcula el trayecto con menor exposición al riesgo (US06). |
+
+**DTOs / Resources**
+
+| DTO | Uso |
+|---|---|
+| `HeatmapPointResource` | Coordenada + Intensidad para el frontend de mapas. |
+| `RouteRequestResource` | Punto de origen y destino para el cálculo de ruta. |
+| `RiskAlertResource` | Información sobre la zona de riesgo detectada cerca del usuario. |
+
+
 #### 2.6.3.3. Application Layer
+
+Esta capa orquesta la interacción entre los reportes entrantes y la actualización de la inteligencia espacial.
+
+**Command Handlers**
+
+| Command Handler | Flujo |
+|---|---|
+| `UpdateHeatmapCommandHandler` | Reacciona a nuevos reportes de incidentes para disparar el recálculo de las zonas de riesgo afectadas. |
+| `EvaluateRouteSafetyCommandHandler` | Coordina con el servicio de dominio para analizar una ruta y retornar la mejor opción al ciudadano. |
+
+**Query Services**
+
+| Query Service | Responsabilidad |
+|---|---|
+| `GetNearbyRiskZonesQueryService` | Retorna las zonas peligrosas en el radio de visión actual del usuario para optimizar el rendimiento del mapa móvil. |
+
 #### 2.6.3.4 Infrastructure Layer
+
+Provee el motor de base de datos espacial y la integración con proveedores de mapas externos.
+
+**Persistence (Spatial DB)**
+
+| Componente | Tecnología | Responsabilidad |
+|---|---|---|
+| `PostGisGeospatialRepository` | PostgreSQL + PostGIS | Utiliza tipos de datos `GEOMETRY` y `GEOGRAPHY` para realizar cálculos espaciales (`ST_DWithin`, `ST_Contains`) a nivel de base de datos. |
+
+**Adapters**
+
+| Adapter | Servicio Externo | Responsabilidad |
+|---|---|---|
+| `GoogleMapsApiAdapter` | Google Maps Platform | Provee servicios de Geocodificación (direcciones a coordenadas) y trazado inicial de rutas de tráfico. |
+| `MatrixDistanceAdapter` | MapBox / Google | Calcula distancias y tiempos estimados para las rutas sugeridas. |
+
+**Mappers Espaciales**
+
+| Mapper | Transformación |
+|---|---|
+| `GeoJsonMapper` | Convierte los objetos de dominio `Coordinates` y `GeospatialZone` al estándar GeoJSON para facilitar la interoperabilidad con clientes móviles y web. |
+
 #### 2.6.3.5 Bounded Context Software Architecture Component Level Diagrams
 #### 2.6.3.6 Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
