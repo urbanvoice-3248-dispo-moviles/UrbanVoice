@@ -1843,12 +1843,22 @@ Provee el motor de base de datos espacial y la integración con proveedores de m
 
 #### 2.6.3.5 Bounded Context Software Architecture Component Level Diagrams
 
+Esta sección presenta una vista a nivel de componentes del Bounded Context Location Management, mostrando cómo interactúan las diferentes capas (Interface, Application, Domain e Infrastructure) y cómo se coordinan los elementos principales para procesar información geoespacial. El diagrama permite visualizar el flujo de datos desde la entrada de coordenadas del usuario hasta la generación de mapas de calor y evaluaciones de rutas seguras, evidenciando la separación de responsabilidades y el desacoplamiento entre lógica de dominio y dependencias externas.
+
 <td><img src="assets/structurizr-92879-LocationManagement-Components.png"/></td>
 
-
 #### 2.6.3.6 Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se detallan los diagramas a nivel de código del Bounded Context Location Management, proporcionando una representación más granular de las estructuras internas del sistema. Se incluyen tanto los diagramas de clases del dominio como el diseño de base de datos, permitiendo entender cómo se implementan los conceptos definidos en el modelo de dominio y cómo se persisten los datos geoespaciales.
+
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+Este diagrama describe la estructura interna de la capa de dominio, incluyendo el aggregate root `GeospatialZone`, los value objects asociados y los servicios de dominio. Su propósito es evidenciar las relaciones entre entidades, la encapsulación de reglas de negocio y la independencia de frameworks externos, siguiendo los principios de Domain-Driven Design.
+
 ##### 2.6.3.6.2.  Bounded Context Database Design Diagram
+
+Este diagrama presenta el diseño de la base de datos para el Bounded Context Location Management, enfocándose en cómo se almacenan y consultan los datos geoespaciales. Se incluyen estructuras optimizadas para consultas espaciales, índices y relaciones necesarias para soportar operaciones como detección de zonas de riesgo, cálculo de proximidad y generación de mapas de calor.
+
 
 ### 2.6.4 Bounded Context:Report Managment
 
