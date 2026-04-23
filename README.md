@@ -1843,7 +1843,18 @@ Provee el motor de base de datos espacial y la integración con proveedores de m
 
 #### 2.6.3.5 Bounded Context Software Architecture Component Level Diagrams
 
-Esta sección presenta una vista a nivel de componentes del Bounded Context Location Management, mostrando cómo interactúan las diferentes capas (Interface, Application, Domain e Infrastructure) y cómo se coordinan los elementos principales para procesar información geoespacial. El diagrama permite visualizar el flujo de datos desde la entrada de coordenadas del usuario hasta la generación de mapas de calor y evaluaciones de rutas seguras, evidenciando la separación de responsabilidades y el desacoplamiento entre lógica de dominio y dependencias externas.
+
+En esta subsección se documenta de forma textual la arquitectura a nivel de componentes del Bounded Context *Location Management*. La descomposición parte del container `Location Service`, responsable de la inteligencia geoespacial del sistema, y se organiza en componentes principales agrupados por capas siguiendo un enfoque de arquitectura limpia. Cada componente representa una unidad cohesionada de comportamiento encargada de procesar, transformar o exponer información espacial.
+
+La arquitectura evidencia una separación estricta entre las cuatro capas del contexto. La **Interface Layer**, compuesta por `MapController`, `GeofencingController` y `RouteController`, actúa como punto de entrada para las solicitudes de los clientes. Estos controladores no contienen lógica de negocio; únicamente validan, transforman y delegan las peticiones hacia la Application Layer mediante DTOs como `HeatmapPointResource`, `RouteRequestResource` y `RiskAlertResource`.
+
+La **Application Layer** orquesta los casos de uso del contexto a través de componentes como `UpdateHeatmapCommandHandler` y `EvaluateRouteSafetyCommandHandler`. Estos coordinan la ejecución de operaciones complejas, como la actualización de zonas de riesgo en respuesta a nuevos incidentes o el análisis de rutas seguras. Asimismo, servicios de consulta como `GetNearbyRiskZonesQueryService` optimizan la recuperación de datos geoespaciales según el contexto de visualización del usuario, evitando cargas innecesarias en dispositivos móviles.
+
+En el núcleo del sistema se encuentra la **Domain Layer**, donde reside el aggregate `GeospatialZone`, encargado de encapsular la consistencia del modelo de riesgo espacial. Este aggregate trabaja en conjunto con value objects como `Coordinates`, `GeoBoundary` y `RiskIndex`, que representan conceptos fundamentales del dominio. La lógica compleja se delega a domain services como `HeatmapCalculationService`, responsable de ejecutar algoritmos de clustering sobre datos de incidentes, y `RouteSafetyEvaluator`, que analiza trayectorias para determinar niveles de exposición al riesgo.
+
+Siguiendo el *Dependency Inversion Principle*, la capa de dominio define el puerto `GeospatialRepository` como una abstracción, mientras que la **Infrastructure Layer** provee su implementación concreta mediante `PostGisGeospatialRepository`. Esta implementación utiliza capacidades avanzadas de PostgreSQL con PostGIS para ejecutar operaciones espaciales eficientes como `ST_DWithin` y `ST_Contains`. Adicionalmente, la integración con servicios externos se encapsula a través de adapters como `GoogleMapsApiAdapter` y `MatrixDistanceAdapter`, los cuales permiten delegar tareas como geocodificación y cálculo de rutas sin acoplar el dominio a proveedores específicos.
+
+Los eventos de dominio, como `RiskLevelEscalated` y `SafeRouteCalculated`, son generados por el aggregate o los servicios de dominio cuando se detectan cambios significativos en el estado del sistema. Estos eventos son capturados por la Application Layer y publicados hacia un broker de mensajería, permitiendo que otros bounded contexts, como Notifications, reaccionen de manera desacoplada. Esta arquitectura garantiza un modelo de dominio limpio, altamente cohesivo y preparado para escalar en escenarios de procesamiento geoespacial en tiempo real.
 
 <td><img src="assets/structurizr-92879-LocationManagement-Components.png"/></td>
 
@@ -1853,12 +1864,29 @@ En esta sección se detallan los diagramas a nivel de código del Bounded Contex
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-Este diagrama describe la estructura interna de la capa de dominio, incluyendo el aggregate root `GeospatialZone`, los value objects asociados y los servicios de dominio. Su propósito es evidenciar las relaciones entre entidades, la encapsulación de reglas de negocio y la independencia de frameworks externos, siguiendo los principios de Domain-Driven Design.
+El modelo de clases del Domain Layer se centra en el aggregate root `GeospatialZone`, que representa la unidad de consistencia del modelo de riesgo espacial. Cada instancia de este aggregate define una región geográfica delimitada —ya sea mediante un polígono o un radio— y mantiene información agregada sobre la actividad delictiva en dicha zona, como el número de incidentes, el nivel de riesgo y la última actualización registrada.
+
+Dentro de este aggregate, los value objects juegan un rol fundamental en la definición del dominio. `Coordinates` encapsula la latitud y longitud asegurando que los valores se mantengan dentro de rangos geográficos válidos. `GeoBoundary` define la geometría de la zona y provee operaciones como la verificación de pertenencia de un punto dentro de sus límites. Por su parte, `RiskIndex` modela el nivel de peligro como un valor numérico acotado, incorporando además su interpretación semántica en términos de riesgo bajo, medio o alto.
+
+A diferencia de entidades tradicionales, estos value objects son inmutables y carecen de identidad propia, lo que refuerza la consistencia del modelo y evita efectos secundarios indeseados. La lógica de negocio compleja no se concentra exclusivamente en el aggregate, sino que se distribuye en domain services especializados. `HeatmapCalculationService` procesa colecciones de incidentes para generar agrupaciones espaciales coherentes, mientras que `RouteSafetyEvaluator` analiza trayectorias completas para producir reportes de seguridad basados en la intersección con zonas de riesgo.
+
+El acceso a los datos se abstrae mediante la interface `GeospatialRepository`, que define operaciones como la persistencia de zonas, la búsqueda por proximidad y la recuperación de zonas activas. Esta abstracción permite desacoplar completamente el dominio de cualquier tecnología de almacenamiento específica. Finalmente, los domain events `RiskLevelEscalated` y `SafeRouteCalculated` permiten comunicar cambios relevantes del dominio hacia otras partes del sistema, facilitando la integración basada en eventos y promoviendo una arquitectura reactiva.
+
+<td><img src="assets/Location Managment - UML.jpg"/></td>
 
 ##### 2.6.3.6.2.  Bounded Context Database Design Diagram
 
-Este diagrama presenta el diseño de la base de datos para el Bounded Context Location Management, enfocándose en cómo se almacenan y consultan los datos geoespaciales. Se incluyen estructuras optimizadas para consultas espaciales, índices y relaciones necesarias para soportar operaciones como detección de zonas de riesgo, cálculo de proximidad y generación de mapas de calor.
+El diseño de persistencia del Bounded Context *Location Management* se fundamenta en el uso de una base de datos espacial basada en PostgreSQL con la extensión PostGIS, siguiendo el principio de *database-per-service*. Esto garantiza que el servicio de ubicación mantenga control total sobre sus datos geoespaciales, evitando acoplamientos indebidos con otros contextos.
 
+La tabla principal, `geospatial_zones`, materializa el aggregate root `GeospatialZone`. En ella se almacenan tanto atributos descriptivos como el nivel de riesgo (`risk_level`), la cantidad de incidentes (`incident_count`) y la última actividad (`last_activity`), así como la geometría de la zona mediante el tipo `GEOMETRY`. Este enfoque permite delegar cálculos espaciales directamente a la base de datos, optimizando significativamente el rendimiento en operaciones de proximidad y contención.
+
+Para reforzar la integridad del sistema, el diseño incorpora restricciones a nivel de base de datos. Por ejemplo, el campo `risk_level` se valida para asegurar que su valor se mantenga dentro del rango permitido, mientras que las estructuras geométricas deben cumplir con formatos válidos definidos por PostGIS. Adicionalmente, se emplean índices espaciales del tipo GIST sobre el campo `boundary`, lo que permite ejecutar consultas como `ST_DWithin` y `ST_Contains` de manera eficiente incluso con grandes volúmenes de datos.
+
+La tabla `incidents_reference` actúa como una estructura de soporte para almacenar datos crudos de incidentes que alimentan los algoritmos de cálculo de mapas de calor. Esta separación entre datos agregados y datos base permite recalcular dinámicamente las zonas de riesgo sin comprometer la trazabilidad de la información original.
+
+En términos de rendimiento, el diseño prioriza consultas geoespaciales en tiempo real, especialmente aquellas relacionadas con la detección de zonas cercanas al usuario y el análisis de rutas. Finalmente, el modelo está preparado para escenarios de alta concurrencia mediante estrategias como el uso de timestamps y potencial integración futura de mecanismos de versionado, permitiendo mantener consistencia en un entorno altamente dinámico y orientado a eventos.
+
+<td><img src="assets/Location-database-uml.png"/></td>
 
 ### 2.6.4 Bounded Context:Report Managment
 
