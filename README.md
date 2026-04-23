@@ -23,7 +23,7 @@
   <p> Nombre del Producto: UrbanVoice </p>
   <br>
   <p> Relación de Integrantes: </p>
-  <p>  - Giorgio Marzouk Awad Vargas - (u). </p>
+  <p>  - Ivan La Madrid - (u). </p>
   <p>  - Quijada Magro, Jeremy Alexander (u202219657). </p>
   <p>  - Ruiz Madrid, Billy Jake (u202116401) </p>
   <p>  - Gordillo Ramos, Santiago Alonso (u202215160) </p>
@@ -47,7 +47,7 @@
     <td align="center">TB1</td>
     <td>22/04/2026</td>
     <td> Giorgio Marzouk Awad Vargas <br> Quijada Magro Jeremy <br> Billy Ruiz <br> Santiago Gordillo <br> Ivan La Madrid </td>
-    <td> Realizamos los capítulos 1 y 2 según la rúbrica de manera conjunta y eficiente.  </td>
+    <td> Hemos avanzado bastante en la estructuración del proyecto: ya tengo definidos los capítulos con la introducción de la startup, el perfil de la solución, los segmentos objetivo y un análisis completo de requerimientos. También incluimos entrevistas, user personas, mapas de tareas y journey maps, además de aplicar Lean UX y Domain-Driven Design en niveles estratégico y táctico. En resumen, logramos darle forma clara y ordenada al documento, con bases conceptuales y técnicas que sostienen el desarrollo. </td>
   </tr>
   <tr>
     <td align="center">TB2</td>
@@ -1795,6 +1795,10 @@ Provee el motor de base de datos espacial y la integración con proveedores de m
 | `GeoJsonMapper` | Convierte los objetos de dominio `Coordinates` y `GeospatialZone` al estándar GeoJSON para facilitar la interoperabilidad con clientes móviles y web. |
 
 #### 2.6.3.5 Bounded Context Software Architecture Component Level Diagrams
+
+<td><img src="assets/structurizr-92879-LocationManagement-Components.png"/></td>
+
+
 #### 2.6.3.6 Bounded Context Software Architecture Code Level Diagrams
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 ##### 2.6.3.6.2.  Bounded Context Database Design Diagram
