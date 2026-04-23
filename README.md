@@ -1672,9 +1672,56 @@ Provee la persistencia y la integración con servicios multimedia externos.
 
 #### 2.6.2.5 Bounded Context Software Architecture Component Level Diagrams
 
+En esta subsección se documenta la arquitectura a nivel de componentes del Bounded Context **Profile and Preferences Management**. La descomposición parte del contenedor **Profile Service**, el cual implementa este contexto y se organiza en componentes agrupados por capas. Cada componente representa una agrupación coherente de clases que colaboran para gestionar la información personal del ciudadano, sus preferencias de seguridad y su círculo de confianza.
+
+La **Interface Layer** expone las capacidades del contexto a través de `ProfileController` y `TrustCircleController`, los cuales reciben las solicitudes HTTP provenientes de la aplicación móvil y delegan su procesamiento a la **Application Layer**. Estos componentes permiten consultar y actualizar el perfil del usuario autenticado, así como registrar y eliminar contactos del círculo de confianza.
+
+La **Application Layer** coordina los casos de uso mediante `ProfileApplicationService`, los command handlers `CreateProfileCommandHandler`, `UpdateProfileCommandHandler`, `AddTrustedContactCommandHandler`, `RemoveTrustedContactCommandHandler` y `UpdatePreferencesCommandHandler`, además del `GetProfileDetailsQueryService` para las operaciones de consulta. Esta capa se encarga de orquestar el flujo entre la capa de entrada y el modelo de dominio, manteniendo separada la lógica de negocio de los detalles de transporte y persistencia.
+
+La **Domain Layer** concentra el núcleo del contexto. En ella residen el aggregate root `Profile`, la entidad interna `TrustedContact`, el value object `UserPreferences`, el servicio de dominio `CircleIntegrityService` y la abstracción `ProfileRepository`. Estas piezas encapsulan las reglas de negocio relacionadas con la actualización del perfil, la validación de contactos de confianza y la configuración de preferencias de seguridad. De esta manera, el dominio permanece independiente de frameworks y tecnologías externas.
+
+Siguiendo el principio de inversión de dependencias, la **Infrastructure Layer** provee las implementaciones técnicas necesarias para ejecutar el contexto en producción. En esta capa se ubican `JpaProfileRepository`, encargado de la persistencia relacional; `ProfileMapper`, responsable de transformar entidades de persistencia en objetos de dominio y viceversa; `CloudinaryImageAdapter`, para la gestión de imágenes de perfil; e `IamServiceClientAdapter`, que permite validar la existencia de la cuenta del usuario en el contexto IAM cuando sea necesario. Opcionalmente, el contexto también puede incorporar un `EventPublisherAdapter` para publicar eventos de dominio hacia otros bounded contexts.
+
+Esta organización por componentes evidencia una separación clara de responsabilidades, mejora la mantenibilidad del contexto y permite que la lógica del perfil evolucione de manera desacoplada de la infraestructura y del sistema de autenticación.
+
+<td><img src="assets/Component Level Diagram — Profile and Preferences Management.png"/></td>
+
 #### 2.6.2.6 Bounded Context Software Architecture Code Level Diagrams
+
+En esta subsección se describe la arquitectura a nivel de código del Bounded Context **Profile and Preferences Management**. Se documentan los dos artefactos principales del diseño detallado del contexto: el modelo de clases del **Domain Layer**, que concentra las reglas de negocio del perfil del ciudadano y su círculo de confianza, y el diseño de persistencia relacional que soporta dichas capacidades.
+
+El objetivo de esta vista es mostrar cómo los conceptos del dominio previamente identificados se traducen en estructuras de código concretas, preservando la separación entre la lógica de negocio, la persistencia y la integración con servicios externos. Para ello, se presenta primero el diagrama de clases del dominio y, posteriormente, el diagrama de diseño de base de datos asociado al contexto.
+
+
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+El modelo de clases del **Domain Layer** gira alrededor del aggregate root `Profile`, que concentra la consistencia transaccional del contexto. Este aggregate representa la identidad funcional del ciudadano dentro de UrbanVoice y centraliza la gestión de su información personal, sus preferencias de seguridad y su círculo de confianza.
+
+Dentro de este aggregate se encuentra la entidad interna `TrustedContact`, cuya existencia depende completamente del perfil al que pertenece. La relación entre ambas clases es de composición, ya que un contacto de confianza no tiene sentido fuera del ciclo de vida de un `Profile`. A través de esta estructura se modela la red de apoyo inmediata del ciudadano para escenarios de emergencia.
+
+El aggregate utiliza distintos **Value Objects** para encapsular validaciones y reforzar la semántica del dominio. Entre ellos destacan `ProfileId`, `ContactId`, `PersonName`, `Phone`, `UserPreferences` y `StorageUrl`. Estos objetos son inmutables y contienen reglas intrínsecas, como el formato válido del número telefónico, la estructura correcta del nombre y las configuraciones permitidas de seguridad personalizada.
+
+Sobre este núcleo actúa el servicio de dominio `CircleIntegrityService`, responsable de validar reglas que no pertenecen naturalmente a una sola entidad, como evitar la duplicidad de contactos dentro del círculo de confianza y verificar que los números registrados puedan ser utilizados para comunicaciones de emergencia. Asimismo, la abstracción `ProfileRepository` representa el puerto de persistencia del aggregate root, permitiendo almacenar y recuperar perfiles sin acoplar el dominio a una tecnología específica de base de datos.
+
+Este diseño mantiene al dominio limpio y cohesionado, reforzando las invariantes del contexto y preservando su independencia respecto de la infraestructura.
+
+<td><img src="assets/Domain Layer Class Diagram.png"/></td>
+
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
+
+El diseño de base de datos relacional que soporta el Bounded Context **Profile and Preferences Management** sigue el principio de **database-per-service**, de modo que este contexto administra de forma independiente la persistencia de los perfiles y sus contactos de confianza.
+
+La tabla central es `profiles`, donde se materializa el aggregate root `Profile`. En esta tabla se almacenan los atributos principales del perfil del ciudadano, tales como el identificador del perfil, la referencia lógica hacia la cuenta del contexto IAM (`account_id`), el nombre completo, el número telefónico, la URL del avatar y las preferencias de seguridad configuradas por el usuario, como el radio de alerta, la activación de alertas automáticas y las categorías preferidas de incidentes.
+
+Para garantizar integridad a nivel de base de datos, la tabla `profiles` incorpora una restricción `UNIQUE` sobre `account_id`, evitando que una misma cuenta tenga más de un perfil asociado. Asimismo, la columna `version` permite implementar **optimistic locking**, previniendo conflictos cuando múltiples operaciones intentan modificar el mismo perfil de forma concurrente.
+
+La tabla `trusted_contacts` representa la entidad interna `TrustedContact` y mantiene una relación de uno a muchos con `profiles`, ya que un perfil puede contener varios contactos de confianza. En esta tabla se almacenan el identificador del contacto, el identificador del perfil al que pertenece, el nombre del contacto, su número telefónico, el tipo de relación que mantiene con el usuario y la fecha de registro.
+
+La relación entre `profiles` y `trusted_contacts` se implementa mediante una **foreign key** sobre `profile_id`, acompañada de borrado en cascada (`ON DELETE CASCADE`), ya que un contacto de confianza no debe existir sin el perfil al que pertenece. Adicionalmente, se recomienda definir índices sobre `account_id` y `profile_id` para optimizar las consultas más frecuentes del contexto.
+
+Este diseño relacional permite representar adecuadamente las necesidades funcionales del bounded context y mantiene consistencia entre el modelo del dominio y la estructura de persistencia.
+
+<td><img src="assets/Database Design Diagram.png"/></td>
 
 ### 2.6.3 Bounded Context:Location Managment
 
