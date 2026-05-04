@@ -1044,8 +1044,6 @@ Escenario 2: Actualización de mapa al mover la vista.</b><b>Given</b> que el us
 
 ### 2.4.3. Spike Stories
 
-Las siguientes Spike Stories tienen como objetivo reducir incertidumbre técnica, validar decisiones de arquitectura y preparar la implementación de las funcionalidades principales de UrbanVoice. A diferencia de una User Story funcional, una Spike Story no entrega una funcionalidad final al usuario, sino un aprendizaje validado, una decisión técnica, una prueba de concepto o una recomendación documentada.
-
 | Spike ID | Epic relacionada | Título | Prioridad | Timebox sugerido |
 |---|---|---|---|---|
 | SPK01 | EP03 | Evaluación de SDK de mapas para UrbanVoice | Alta | 1-2 días |
@@ -1593,23 +1591,6 @@ Determinar la tecnología, hosting y estructura mínima para publicar la landing
 
 **Entregable esperado:**  
 Decisión técnica de hosting y prototipo básico de landing page.
-
----
-
-## Recomendación de priorización de Spike Stories
-
-Para la siguiente iteración, se recomienda priorizar las Spike Stories que desbloquean las funcionalidades centrales de UrbanVoice:
-
-1. SPK14 - Revisión de consistencia entre DDD, EventStorming y arquitectura.
-2. SPK01 - Evaluación de SDK de mapas para UrbanVoice.
-3. SPK02 - Validación de permisos de ubicación en dispositivos móviles.
-4. SPK03 - Prueba técnica de mapa de calor con datos georreferenciados.
-5. SPK05 - Validación de notificaciones push geolocalizadas.
-6. SPK07 - Evaluación de carga de evidencia multimedia.
-7. SPK08 - Validación de reporte anónimo y protección de identidad.
-8. SPK11 - Evaluación de comunicación entre bounded contexts.
-
-Estas Spike Stories deberían ejecutarse antes de comprometer la implementación completa de las User Stories US01, US02, US03, US04, US05, US06, US07, US08, US11 y TS01.
 
 ### 2.4.3. Impact Mapping
 <td><img src="assets/impact-mapping.png"/></td>
