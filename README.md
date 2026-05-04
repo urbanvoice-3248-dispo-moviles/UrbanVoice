@@ -1042,10 +1042,579 @@ Escenario 2: Actualización de mapa al mover la vista.</b><b>Given</b> que el us
 </tr>
 </table>
 
-### 2.4.2. Impact Mapping
+### 2.4.3. Spike Stories
+
+Las siguientes Spike Stories tienen como objetivo reducir incertidumbre técnica, validar decisiones de arquitectura y preparar la implementación de las funcionalidades principales de UrbanVoice. A diferencia de una User Story funcional, una Spike Story no entrega una funcionalidad final al usuario, sino un aprendizaje validado, una decisión técnica, una prueba de concepto o una recomendación documentada.
+
+| Spike ID | Epic relacionada | Título | Prioridad | Timebox sugerido |
+|---|---|---|---|---|
+| SPK01 | EP03 | Evaluación de SDK de mapas para UrbanVoice | Alta | 1-2 días |
+| SPK02 | EP03 / EP04 | Validación de permisos de ubicación en dispositivos móviles | Alta | 1-2 días |
+| SPK03 | EP03 | Prueba técnica de mapa de calor con datos georreferenciados | Alta | 2-3 días |
+| SPK04 | EP03 | Evaluación de cálculo de rutas seguras | Alta | 2-3 días |
+| SPK05 | EP04 | Validación de notificaciones push geolocalizadas | Alta | 1-2 días |
+| SPK06 | EP04 | Prueba de compartir ubicación en tiempo real | Alta | 2-3 días |
+| SPK07 | EP02 | Evaluación de carga de evidencia multimedia | Alta | 1-2 días |
+| SPK08 | EP02 | Validación de reporte anónimo y protección de identidad | Alta | 1-2 días |
+| SPK09 | EP05 | Evaluación del flujo de moderación de reportes | Media | 1-2 días |
+| SPK10 | EP07 | Validación de autenticación móvil con JWT | Alta | 1-2 días |
+| SPK11 | EP07 | Evaluación de comunicación entre bounded contexts | Alta | 2-3 días |
+| SPK12 | EP02 / EP03 | Validación de rendimiento del mapa y listado de incidentes | Media | 1-2 días |
+| SPK13 | EP02 / EP04 | Investigación de privacidad sobre datos de ubicación | Alta | 1-2 días |
+| SPK14 | EP07 | Revisión de consistencia entre DDD, EventStorming y arquitectura | Alta | 1 día |
+| SPK15 | EP06 | Validación técnica de landing page y enlaces de descarga | Baja | 1 día |
+
+---
+
+### SPK01 - Evaluación de SDK de mapas para UrbanVoice
+
+**Como** equipo de desarrollo,  
+**queremos** evaluar alternativas de SDK de mapas para la aplicación móvil,  
+**para** seleccionar la opción más adecuada para visualizar incidentes, zonas de riesgo y mapas de calor en UrbanVoice.
+
+**Objetivo de investigación:**  
+Determinar si conviene utilizar Google Maps, Mapbox, OpenStreetMap u otra alternativa compatible con el stack móvil del proyecto.
+
+**Alcance:**  
+- Revisar compatibilidad con la aplicación móvil.
+- Verificar soporte para marcadores, capas de calor y rutas.
+- Evaluar facilidad de integración.
+- Revisar costos o límites de uso.
+- Probar renderizado básico de mapa con puntos de incidentes.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Comparación de SDKs**
+  - **Given** que el equipo necesita seleccionar un proveedor de mapas,
+  - **When** se comparen al menos dos alternativas técnicas,
+  - **Then** se debe documentar ventajas, limitaciones, costos aproximados y recomendación final.
+
+- **Escenario 2: Prototipo mínimo de mapa**
+  - **Given** que se elija una alternativa candidata,
+  - **When** se implemente una prueba mínima,
+  - **Then** la aplicación debe mostrar un mapa con al menos tres puntos simulados de incidentes.
+
+**Entregable esperado:**  
+Documento corto de decisión técnica y prototipo mínimo funcional del mapa.
+
+---
+
+### SPK02 - Validación de permisos de ubicación en dispositivos móviles
+
+**Como** equipo de desarrollo,  
+**queremos** validar cómo funcionan los permisos de ubicación en Android e iOS,  
+**para** evitar errores al registrar incidentes, generar alertas cercanas y compartir ubicación en tiempo real.
+
+**Objetivo de investigación:**  
+Comprobar el comportamiento de permisos GPS en primer plano y, si aplica, en segundo plano.
+
+**Alcance:**  
+- Validar solicitud de permisos de ubicación.
+- Probar respuesta cuando el usuario rechaza permisos.
+- Probar respuesta cuando el GPS está desactivado.
+- Determinar si la app necesita ubicación en background.
+- Documentar restricciones técnicas por sistema operativo.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Permiso concedido**
+  - **Given** que el usuario acepta compartir su ubicación,
+  - **When** la aplicación solicite las coordenadas actuales,
+  - **Then** el sistema debe obtener latitud y longitud correctamente.
+
+- **Escenario 2: Permiso denegado**
+  - **Given** que el usuario rechaza el permiso de ubicación,
+  - **When** intente reportar un incidente o recibir alertas cercanas,
+  - **Then** la app debe mostrar un mensaje claro indicando que la ubicación es necesaria.
+
+- **Escenario 3: GPS desactivado**
+  - **Given** que el GPS del dispositivo está desactivado,
+  - **When** la app intente obtener la ubicación,
+  - **Then** debe mostrar una recomendación para activar la ubicación del dispositivo.
+
+**Entregable esperado:**  
+Prueba técnica documentada con capturas o evidencias del comportamiento en dispositivo/emulador.
+
+---
+
+### SPK03 - Prueba técnica de mapa de calor con datos georreferenciados
+
+**Como** equipo de desarrollo,  
+**queremos** validar una prueba de mapa de calor basada en incidentes simulados,  
+**para** determinar cómo representar visualmente las zonas de riesgo de UrbanVoice.
+
+**Objetivo de investigación:**  
+Evaluar si los incidentes reportados pueden transformarse en una capa visual de riesgo entendible para el usuario.
+
+**Alcance:**  
+- Crear dataset simulado de incidentes con coordenadas.
+- Agrupar incidentes por cercanía.
+- Representar intensidad o nivel de riesgo.
+- Validar si el mapa de calor es legible en móvil.
+- Identificar si se requiere backend geoespacial con PostGIS.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Dataset simulado**
+  - **Given** que existen incidentes simulados con latitud, longitud, categoría y fecha,
+  - **When** se carguen en el prototipo,
+  - **Then** el mapa debe mostrar zonas con diferente intensidad de riesgo.
+
+- **Escenario 2: Actualización de puntos**
+  - **Given** que se agregue un nuevo incidente simulado,
+  - **When** se recalcule la visualización,
+  - **Then** el mapa debe reflejar el nuevo punto o modificar la intensidad de la zona.
+
+**Entregable esperado:**  
+Prototipo de heatmap y breve explicación del algoritmo o librería usada.
+
+---
+
+### SPK04 - Evaluación de cálculo de rutas seguras
+
+**Como** equipo de desarrollo,  
+**queremos** investigar cómo calcular rutas seguras entre dos puntos,  
+**para** saber si UrbanVoice puede recomendar trayectos con menor exposición a zonas de riesgo.
+
+**Objetivo de investigación:**  
+Determinar si el cálculo de rutas seguras puede implementarse usando un proveedor externo de rutas más una ponderación propia de riesgo.
+
+**Alcance:**  
+- Evaluar si Google Maps, Mapbox u otra API permite obtener rutas alternativas.
+- Definir una fórmula inicial de riesgo por ruta.
+- Probar rutas simuladas cruzando zonas de riesgo.
+- Determinar limitaciones de costo, precisión y rendimiento.
+- Documentar si esta funcionalidad debe implementarse en una etapa posterior.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Obtención de rutas alternativas**
+  - **Given** un origen y destino simulados,
+  - **When** se consulte un proveedor de rutas,
+  - **Then** el sistema debe obtener al menos una ruta posible.
+
+- **Escenario 2: Evaluación de riesgo**
+  - **Given** una ruta que cruza zonas con incidentes,
+  - **When** se aplique una fórmula de riesgo,
+  - **Then** el sistema debe asignar un nivel de exposición a esa ruta.
+
+- **Escenario 3: Recomendación técnica**
+  - **Given** los resultados de la prueba,
+  - **When** se compare complejidad contra valor para el usuario,
+  - **Then** el equipo debe decidir si la funcionalidad se implementa en la primera versión o se posterga.
+
+**Entregable esperado:**  
+Documento de viabilidad técnica y pseudocódigo o prototipo simple del cálculo de riesgo.
+
+---
+
+### SPK05 - Validación de notificaciones push geolocalizadas
+
+**Como** equipo de desarrollo,  
+**queremos** probar el envío de notificaciones push ante incidentes cercanos,  
+**para** validar la viabilidad del sistema de alertas preventivas de UrbanVoice.
+
+**Objetivo de investigación:**  
+Comprobar si Firebase Cloud Messaging u otra alternativa permite enviar alertas oportunas a usuarios cercanos a un incidente.
+
+**Alcance:**  
+- Configurar prueba básica de notificación push.
+- Simular un incidente cercano.
+- Simular usuario dentro y fuera del radio de alerta.
+- Validar recepción de notificación.
+- Medir tiempo aproximado de entrega.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Usuario dentro del radio**
+  - **Given** que existe un usuario ubicado cerca de un incidente simulado,
+  - **When** el backend registre el incidente,
+  - **Then** el usuario debe recibir una notificación push de alerta.
+
+- **Escenario 2: Usuario fuera del radio**
+  - **Given** que existe un usuario fuera del radio definido,
+  - **When** se registre un incidente,
+  - **Then** el sistema no debe enviarle una alerta innecesaria.
+
+**Entregable esperado:**  
+Prueba técnica de notificación push y recomendación sobre proveedor de mensajería.
+
+---
+
+### SPK06 - Prueba de compartir ubicación en tiempo real
+
+**Como** equipo de desarrollo,  
+**queremos** validar una prueba de transmisión de ubicación en tiempo real,  
+**para** determinar cómo implementar la funcionalidad de compartir ubicación con contactos de confianza.
+
+**Objetivo de investigación:**  
+Evaluar si conviene usar WebSockets, Firebase Realtime Database, Supabase Realtime u otra solución para transmitir coordenadas en vivo.
+
+**Alcance:**  
+- Crear una sesión simulada de seguimiento.
+- Generar código o enlace temporal de acceso.
+- Transmitir coordenadas desde un dispositivo emisor.
+- Mostrar ubicación actualizada en un dispositivo receptor.
+- Evaluar latencia, consumo y complejidad.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Creación de sesión**
+  - **Given** que un ciudadano desea compartir su ubicación,
+  - **When** active la funcionalidad,
+  - **Then** el sistema debe generar una sesión temporal de seguimiento.
+
+- **Escenario 2: Visualización por contacto**
+  - **Given** que un contacto accede a la sesión,
+  - **When** el usuario se desplace,
+  - **Then** el contacto debe visualizar cambios de ubicación en el mapa.
+
+- **Escenario 3: Finalización de sesión**
+  - **Given** que el usuario decide dejar de compartir ubicación,
+  - **When** finalice la sesión,
+  - **Then** el contacto ya no debe recibir nuevas coordenadas.
+
+**Entregable esperado:**  
+Prototipo mínimo de tracking en tiempo real y decisión técnica sobre la tecnología a usar.
+
+---
+
+### SPK07 - Evaluación de carga de evidencia multimedia
+
+**Como** equipo de desarrollo,  
+**queremos** investigar cómo adjuntar fotos, audios o videos a un reporte,  
+**para** validar la viabilidad técnica de la evidencia multimedia en UrbanVoice.
+
+**Objetivo de investigación:**  
+Determinar cómo capturar, comprimir, limitar y almacenar archivos multimedia sin afectar el rendimiento de la app.
+
+**Alcance:**  
+- Probar captura de imagen desde cámara.
+- Probar selección de archivo desde galería.
+- Validar límite de tamaño máximo.
+- Evaluar almacenamiento en Firebase Storage, S3, Cloudinary u otra alternativa.
+- Definir estrategia de URLs seguras o prefirmadas.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Adjuntar imagen**
+  - **Given** que el ciudadano está creando un reporte,
+  - **When** capture o seleccione una imagen,
+  - **Then** la app debe adjuntarla correctamente al reporte.
+
+- **Escenario 2: Archivo excede el límite**
+  - **Given** que el usuario intenta subir un archivo mayor al límite definido,
+  - **When** el sistema valide el tamaño,
+  - **Then** debe mostrar un mensaje indicando que el archivo no puede ser cargado.
+
+- **Escenario 3: Carga hacia almacenamiento externo**
+  - **Given** que el archivo es válido,
+  - **When** se suba al servicio de almacenamiento,
+  - **Then** el sistema debe obtener una URL o identificador del archivo cargado.
+
+**Entregable esperado:**  
+Prueba de carga multimedia y recomendación de almacenamiento.
+
+---
+
+### SPK08 - Validación de reporte anónimo y protección de identidad
+
+**Como** equipo de desarrollo,  
+**queremos** investigar cómo implementar reportes anónimos,  
+**para** proteger la identidad del ciudadano sin perder trazabilidad interna del sistema.
+
+**Objetivo de investigación:**  
+Definir qué datos se ocultan al público y qué datos se mantienen internamente para auditoría, moderación o seguridad.
+
+**Alcance:**  
+- Definir campos visibles en modo público.
+- Definir campos ocultos en modo anónimo.
+- Evaluar si se debe ocultar nombre, foto, usuario, teléfono u otros metadatos.
+- Validar si las evidencias multimedia pueden contener metadatos sensibles.
+- Proponer política de visibilidad para reportes anónimos.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Reporte anónimo visible en mapa**
+  - **Given** que un ciudadano publica un reporte en modo anónimo,
+  - **When** otro usuario consulte el detalle,
+  - **Then** no debe visualizar el nombre, foto ni identificador público del autor.
+
+- **Escenario 2: Trazabilidad interna**
+  - **Given** que un administrador revisa un reporte anónimo,
+  - **When** acceda desde el panel autorizado,
+  - **Then** el sistema debe poder mantener trazabilidad interna sin exponerla al público.
+
+- **Escenario 3: Evidencia con metadatos**
+  - **Given** que una imagen contiene metadatos sensibles,
+  - **When** sea cargada como evidencia,
+  - **Then** el equipo debe definir si esos metadatos se eliminan, bloquean o ignoran.
+
+**Entregable esperado:**  
+Documento de política de anonimato y propuesta técnica de implementación.
+
+---
+
+### SPK09 - Evaluación del flujo de moderación de reportes
+
+**Como** equipo de desarrollo,  
+**queremos** investigar el flujo mínimo de moderación de reportes,  
+**para** reducir el riesgo de información falsa, ofensiva o malintencionada en UrbanVoice.
+
+**Objetivo de investigación:**  
+Definir si los reportes deben publicarse automáticamente, pasar por revisión previa o moderarse después de publicados.
+
+**Alcance:**  
+- Comparar moderación previa vs. posterior.
+- Definir estados del reporte.
+- Evaluar cola de moderación para administradores.
+- Definir motivos de rechazo.
+- Proponer flujo mínimo para la primera versión.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Reporte pendiente de revisión**
+  - **Given** que un usuario registra un incidente sensible,
+  - **When** el sistema aplique la política de moderación,
+  - **Then** el reporte debe quedar en un estado definido como PUBLISHED, UNDER_REVIEW, APPROVED o REJECTED.
+
+- **Escenario 2: Rechazo de reporte**
+  - **Given** que un administrador detecta un reporte falso u ofensivo,
+  - **When** seleccione rechazarlo,
+  - **Then** el sistema debe registrar el motivo de rechazo y ocultar el reporte de las vistas públicas.
+
+**Entregable esperado:**  
+Flujo de moderación definido y prototipo o mockup básico del panel de revisión.
+
+---
+
+### SPK10 - Validación de autenticación móvil con JWT
+
+**Como** equipo de desarrollo,  
+**queremos** validar un flujo de autenticación móvil usando JWT,  
+**para** asegurar que los usuarios puedan registrarse, iniciar sesión y consumir endpoints protegidos.
+
+**Objetivo de investigación:**  
+Comprobar la viabilidad del contexto Identity and Access Management en la aplicación móvil.
+
+**Alcance:**  
+- Probar login básico contra API.
+- Recibir token JWT.
+- Guardar token de forma segura en el dispositivo.
+- Consumir endpoint protegido.
+- Validar expiración o cierre de sesión.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Login exitoso**
+  - **Given** que el usuario ingresa credenciales válidas,
+  - **When** envíe la solicitud de inicio de sesión,
+  - **Then** el backend debe retornar un token válido.
+
+- **Escenario 2: Consumo de endpoint protegido**
+  - **Given** que el usuario tiene un token válido,
+  - **When** solicite un recurso protegido,
+  - **Then** el sistema debe permitir el acceso.
+
+- **Escenario 3: Token inválido**
+  - **Given** que el token está vencido o alterado,
+  - **When** el usuario intente acceder a un endpoint protegido,
+  - **Then** el backend debe rechazar la solicitud.
+
+**Entregable esperado:**  
+Prueba técnica de autenticación y recomendación de almacenamiento seguro del token.
+
+---
+
+### SPK11 - Evaluación de comunicación entre bounded contexts
+
+**Como** equipo de desarrollo,  
+**queremos** evaluar cómo se comunicarán los bounded contexts de UrbanVoice,  
+**para** decidir si se utilizará comunicación síncrona REST, eventos asíncronos o una combinación de ambos.
+
+**Objetivo de investigación:**  
+Validar la integración entre Report Management, Location Management y Notification Management.
+
+**Alcance:**  
+- Identificar eventos críticos del dominio.
+- Evaluar uso de REST para consultas directas.
+- Evaluar uso de eventos para acciones reactivas.
+- Probar flujo mínimo: ReportPublished -> Location -> Notification.
+- Documentar decisión arquitectónica.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Publicación de reporte**
+  - **Given** que un ciudadano registra un incidente,
+  - **When** el Report Service publique el evento ReportPublished,
+  - **Then** Location Management y Notification Management deben poder reaccionar de forma desacoplada.
+
+- **Escenario 2: Consulta directa**
+  - **Given** que un contexto necesita información inmediata de otro,
+  - **When** se evalúe la integración,
+  - **Then** el equipo debe decidir si conviene REST, eventos o read models duplicados.
+
+**Entregable esperado:**  
+ADR o documento de decisión arquitectónica sobre comunicación entre contextos.
+
+---
+
+### SPK12 - Validación de rendimiento del mapa y listado de incidentes
+
+**Como** equipo de desarrollo,  
+**queremos** probar el rendimiento del mapa y del listado de incidentes,  
+**para** asegurar que la aplicación sea fluida incluso con varios reportes cargados.
+
+**Objetivo de investigación:**  
+Identificar límites iniciales de rendimiento en móvil al cargar marcadores, filtros y puntos de riesgo.
+
+**Alcance:**  
+- Simular 100, 500 y 1000 incidentes.
+- Medir tiempo de carga aproximado.
+- Evaluar clustering de marcadores.
+- Evaluar paginación o carga por zona visible.
+- Documentar recomendaciones de optimización.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Carga de mapa con muchos incidentes**
+  - **Given** que existen múltiples incidentes simulados,
+  - **When** el usuario abra el mapa,
+  - **Then** la aplicación debe mantener una experiencia aceptable sin bloqueos evidentes.
+
+- **Escenario 2: Cambio de zona visible**
+  - **Given** que el usuario mueve el mapa hacia otro distrito,
+  - **When** cambie el área visible,
+  - **Then** el sistema debe cargar solo los incidentes relevantes para esa zona.
+
+**Entregable esperado:**  
+Reporte de rendimiento con recomendaciones para carga progresiva, clustering o paginación.
+
+---
+
+### SPK13 - Investigación de privacidad sobre datos de ubicación
+
+**Como** equipo de desarrollo,  
+**queremos** investigar los riesgos de privacidad asociados al uso de ubicación,  
+**para** diseñar UrbanVoice de forma responsable y segura para los ciudadanos.
+
+**Objetivo de investigación:**  
+Identificar qué datos de ubicación se almacenan, por cuánto tiempo y con qué nivel de precisión.
+
+**Alcance:**  
+- Definir si se guarda ubicación exacta o aproximada.
+- Determinar retención de datos de tracking.
+- Evaluar consentimiento explícito para ubicación en tiempo real.
+- Definir tratamiento de ubicación compartida con contactos.
+- Proponer mensajes de privacidad dentro de la app.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Consentimiento de ubicación**
+  - **Given** que la app solicita ubicación del usuario,
+  - **When** el usuario vea el permiso,
+  - **Then** la app debe explicar claramente para qué se usará la ubicación.
+
+- **Escenario 2: Ubicación compartida**
+  - **Given** que un usuario comparte su ubicación con contactos,
+  - **When** finalice la sesión,
+  - **Then** el sistema debe dejar de transmitir coordenadas y definir si se eliminan o conservan registros.
+
+- **Escenario 3: Precisión de ubicación**
+  - **Given** que un reporte puede exponer información sensible,
+  - **When** se muestre públicamente en el mapa,
+  - **Then** el equipo debe decidir si se muestra ubicación exacta o aproximada.
+
+**Entregable esperado:**  
+Documento de criterios de privacidad y recomendaciones para diseño seguro.
+
+---
+
+### SPK14 - Revisión de consistencia entre DDD, EventStorming y arquitectura
+
+**Como** equipo de desarrollo,  
+**queremos** revisar la consistencia entre los artefactos DDD, EventStorming, user stories y arquitectura,  
+**para** corregir contradicciones antes de continuar con la implementación.
+
+**Objetivo de investigación:**  
+Detectar inconsistencias conceptuales en el documento y asegurar que todos los artefactos hablen del mismo dominio de UrbanVoice.
+
+**Alcance:**  
+- Revisar nombres de bounded contexts.
+- Validar que los eventos correspondan a seguridad ciudadana.
+- Corregir referencias a dominios ajenos como locales, propietarios, freelancers, reservas o pagos.
+- Alinear user stories con bounded contexts.
+- Revisar nombres técnicos: Management en lugar de Managment.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Detección de inconsistencias**
+  - **Given** que el documento contiene artefactos de análisis y diseño,
+  - **When** se revise la trazabilidad entre EventStorming, DDD y user stories,
+  - **Then** se debe listar cada inconsistencia encontrada.
+
+- **Escenario 2: Propuesta de corrección**
+  - **Given** que se identifiquen conceptos ajenos al dominio de UrbanVoice,
+  - **When** se propongan correcciones,
+  - **Then** el documento debe quedar alineado con seguridad ciudadana, incidentes, ubicación, alertas y usuarios ciudadanos.
+
+**Entregable esperado:**  
+Lista de inconsistencias y propuesta de corrección para el informe.
+
+---
+
+### SPK15 - Validación técnica de landing page y enlaces de descarga
+
+**Como** equipo de desarrollo,  
+**queremos** validar la estructura técnica de la landing page de UrbanVoice,  
+**para** asegurar que pueda presentar el producto, sus beneficios y enlaces de descarga de forma clara.
+
+**Objetivo de investigación:**  
+Determinar la tecnología, hosting y estructura mínima para publicar la landing page informativa.
+
+**Alcance:**  
+- Definir stack de landing page.
+- Probar despliegue en hosting gratuito o económico.
+- Crear sección de beneficios principales.
+- Simular botones de descarga para App Store y Google Play.
+- Validar diseño responsive.
+
+**Criterios de aceptación:**
+
+- **Escenario 1: Landing responsive**
+  - **Given** que un visitante accede desde móvil o escritorio,
+  - **When** cargue la landing page,
+  - **Then** la página debe visualizarse correctamente en ambos formatos.
+
+- **Escenario 2: Enlaces de descarga**
+  - **Given** que la app aún no está publicada en tiendas,
+  - **When** el visitante vea los botones de descarga,
+  - **Then** estos deben mostrarse como enlaces simulados, deshabilitados o informativos hasta la publicación real.
+
+**Entregable esperado:**  
+Decisión técnica de hosting y prototipo básico de landing page.
+
+---
+
+## Recomendación de priorización de Spike Stories
+
+Para la siguiente iteración, se recomienda priorizar las Spike Stories que desbloquean las funcionalidades centrales de UrbanVoice:
+
+1. SPK14 - Revisión de consistencia entre DDD, EventStorming y arquitectura.
+2. SPK01 - Evaluación de SDK de mapas para UrbanVoice.
+3. SPK02 - Validación de permisos de ubicación en dispositivos móviles.
+4. SPK03 - Prueba técnica de mapa de calor con datos georreferenciados.
+5. SPK05 - Validación de notificaciones push geolocalizadas.
+6. SPK07 - Evaluación de carga de evidencia multimedia.
+7. SPK08 - Validación de reporte anónimo y protección de identidad.
+8. SPK11 - Evaluación de comunicación entre bounded contexts.
+
+Estas Spike Stories deberían ejecutarse antes de comprometer la implementación completa de las User Stories US01, US02, US03, US04, US05, US06, US07, US08, US11 y TS01.
+
+### 2.4.3. Impact Mapping
 <td><img src="assets/impact-mapping.png"/></td>
 
-### 2.4.3. Product Backlog
+### 2.4.4. Product Backlog
 
 Para el proyecto UrbanVoice, el Product Backlog se ha organizado priorizando el valor de negocio y la necesidad de establecer una presencia digital.
 
