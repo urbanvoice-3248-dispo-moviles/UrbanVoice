@@ -1094,6 +1094,44 @@ A continuación se detalla la especificación de requisitos del sistema dividida
     <th style="text-align:center;">Epic</th>
   </tr>
   <tr>
+    <td align="center">US06</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Alta</td>
+    <td align="center">EP03</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Consulta de rutas seguras</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, deseo consultar rutas entre dos puntos para reducir exposición a riesgos.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Evadir hotspots de riesgo.</b><br>
+      <b>Given</b> que el ciudadano ingresa un destino,<br>
+      <b>When</b> solicita el trazado de la ruta,<br>
+      <b>Then</b> el sistema propone trayectos priorizando calles con menor nivel de incidentes.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
     <td align="center">US07</td>
     <td align="center">Ciudadano</td>
     <td align="center">Alta</td>
@@ -1118,6 +1156,197 @@ A continuación se detalla la especificación de requisitos del sistema dividida
       <b>Given</b> que el ciudadano selecciona un contacto de su lista,<br>
       <b>When</b> activa el seguimiento en tiempo real,<br>
       <b>Then</b> el sistema genera un enlace de monitoreo compartido.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US08</td>
+    <td align="center">Contacto</td>
+    <td align="center">Media</td>
+    <td align="center">EP04</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Vista para contacto</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como contacto de confianza, deseo recibir la ubicación real de un usuario para monitorearlo.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Monitoreo en tiempo real.</b><br>
+      <b>Given</b> que el contacto recibe acceso a la ubicación del usuario,<br>
+      <b>When</b> el usuario se desplaza por la ciudad,<br>
+      <b>Then</b> el sistema muestra el marcador de posición moviéndose en tiempo real sobre el mapa.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US09</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Media</td>
+    <td align="center">EP02</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Detalle de incidentes</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, deseo visualizar el detalle de los incidentes reportados en una zona.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Visualización ampliada.</b><br>
+      <b>Given</b> que el usuario selecciona un punto crítico en el mapa,<br>
+      <b>When</b> solicita ver más información,<br>
+      <b>Then</b> el sistema permite visualizar tipo, fecha y evidencia disponible del incidente.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US10</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Media</td>
+    <td align="center">EP02</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Filtros de búsqueda</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, deseo filtrar incidentes por tipo o fecha para mi consulta.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Filtrado personalizado.</b><br>
+      <b>Given</b> que el usuario accede a la lista de reportes,<br>
+      <b>When</b> aplica filtros de categoría o fecha,<br>
+      <b>Then</b> el sistema actualiza los resultados mostrados en el mapa según la selección realizada.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US11</td>
+    <td align="center">Admin</td>
+    <td align="center">Alta</td>
+    <td align="center">EP05</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Panel de moderación</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como administrador, deseo moderar los reportes para evitar información falsa u ofensiva.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Rechazo de reporte malicioso.</b><br>
+      <b>Given</b> que el administrador detecta un reporte malicioso,<br>
+      <b>When</b> selecciona la opción de eliminar,<br>
+      <b>Then</b> el sistema retira el incidente de la plataforma pública.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US12</td>
+    <td align="center">Admin</td>
+    <td align="center">Media</td>
+    <td align="center">EP05</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Gestión de categorías</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como administrador, deseo gestionar categorías de incidentes para organizar el registro.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Creación de nueva categoría.</b><br>
+      <b>Given</b> que se requiere una nueva tipología de riesgo,<br>
+      <b>When</b> el administrador registra los datos correspondientes,<br>
+      <b>Then</b> el sistema permite crear y activar la nueva categoría.
     </td>
   </tr>
 </table>
@@ -1160,6 +1389,46 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
 </table>
 
+
+<br>
+
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US14</td>
+    <td align="center">Visitante institucional</td>
+    <td align="center">Media</td>
+    <td align="center">EP06</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Formulario de Alianzas</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como visitante institucional, deseo enviar una solicitud de contacto para proponer alianzas.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Envío exitoso de solicitud.</b><br>
+      <b>Given</b> que el visitante completa el formulario web,<br>
+      <b>When</b> presiona el botón de enviar,<br>
+      <b>Then</b> el sistema confirma la recepción del mensaje al equipo de soporte.
+    </td>
+  </tr>
+</table>
+
 <br>
 
 <table>
@@ -1194,6 +1463,44 @@ A continuación se detalla la especificación de requisitos del sistema dividida
       <b>Given</b> que el cliente móvil envía un JSON válido,<br>
       <b>When</b> el servidor procesa la solicitud POST,<br>
       <b>Then</b> el sistema retorna un código 201 (Created) con el ID del reporte.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">TS02</td>
+    <td align="center">Developer</td>
+    <td align="center">Alta</td>
+    <td align="center">EP07</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Integración de Seguridad JWT</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como desarrollador, deseo implementar autenticación basada en tokens JWT.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Validación de token JWT.</b><br>
+      <b>Given</b> que un request llega a un endpoint protegido,<br>
+      <b>When</b> el middleware valida la firma del token,<br>
+      <b>Then</b> el sistema permite el acceso al recurso solicitado.
     </td>
   </tr>
 </table>
@@ -1306,14 +1613,6 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
   </tr>
   <tr>
     <td align="center">4</td>
-    <td align="center">1</td>
-    <td align="center">TS02</td>
-    <td>Configurar Servicio de Autenticación JWT</td>
-    <td align="center">3</td>
-    <td align="center">Alta</td>
-  </tr>
-  <tr>
-    <td align="center">5</td>
     <td align="center">2</td>
     <td align="center">US01</td>
     <td>Visualizar mapa de riesgo interactivo</td>
@@ -1321,7 +1620,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">6</td>
+    <td align="center">5</td>
     <td align="center">2</td>
     <td align="center">US02</td>
     <td>Registrar incidentes ciudadanos</td>
@@ -1329,7 +1628,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">7</td>
+    <td align="center">6</td>
     <td align="center">2</td>
     <td align="center">US03</td>
     <td>Gestionar evidencia multimedia en reportes</td>
@@ -1337,7 +1636,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">8</td>
+    <td align="center">7</td>
     <td align="center">2</td>
     <td align="center">US04</td>
     <td>Permitir el envío de reportes anónimos</td>
@@ -1345,7 +1644,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">9</td>
+    <td align="center">8</td>
     <td align="center">3</td>
     <td align="center">US05</td>
     <td>Emitir alertas geolocalizadas mediante Push</td>
@@ -1353,7 +1652,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">10</td>
+    <td align="center">9</td>
     <td align="center">3</td>
     <td align="center">US07</td>
     <td>Compartir ubicación en tiempo real</td>
@@ -1361,7 +1660,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Media</td>
   </tr>
   <tr>
-    <td align="center">11</td>
+    <td align="center">10</td>
     <td align="center">3</td>
     <td align="center">US09</td>
     <td>Visualizar detalle de incidentes registrados</td>
@@ -1369,7 +1668,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Media</td>
   </tr>
   <tr>
-    <td align="center">12</td>
+    <td align="center">11</td>
     <td align="center">4</td>
     <td align="center">US11</td>
     <td>Moderar incidentes desde panel administrador</td>
@@ -1377,7 +1676,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Media</td>
   </tr>
   <tr>
-    <td align="center">13</td>
+    <td align="center">12</td>
     <td align="center">4</td>
     <td align="center">US06</td>
     <td>Trazar y consultar rutas seguras</td>
@@ -1385,7 +1684,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Baja</td>
   </tr>
   <tr>
-    <td align="center">14</td>
+    <td align="center">13</td>
     <td align="center">4</td>
     <td align="center">US10</td>
     <td>Filtrar búsquedas de forma avanzada</td>
@@ -1393,7 +1692,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Baja</td>
   </tr>
   <tr>
-    <td align="center">15</td>
+    <td align="center">14</td>
     <td align="center">4</td>
     <td align="center">US08</td>
     <td>Vincular contactos de confianza para monitoreo</td>
@@ -1401,12 +1700,20 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Baja</td>
   </tr>
   <tr>
-    <td align="center">16</td>
+    <td align="center">15</td>
     <td align="center">4</td>
     <td align="center">US12</td>
     <td>Gestionar categorías de riesgo del sistema</td>
     <td align="center">2</td>
     <td align="center">Baja</td>
+  </tr>
+    <tr>
+    <td align="center">16</td>
+    <td align="center">4</td>
+    <td align="center">TS02</td>
+    <td>Configurar Servicio de Autenticación JWT</td>
+    <td align="center">3</td>
+    <td align="center">Alta</td>
   </tr>
 </table>
 
