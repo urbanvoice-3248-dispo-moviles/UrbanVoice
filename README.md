@@ -342,33 +342,23 @@ UrbanVoice, una aplicación móvil orientada a la seguridad ciudadana. Su propó
 
 ### 1.2.2. Antecedentes y problemática
 
-La inseguridad ciudadana es la principal preocupación en Lima. Aplicamos la técnica 5W's y 2H's para analizar el entorno:
-
-**What (Qué):** UrbanVoice es una aplicación diseñada para empoderar a los usuarios en su vida diaria, ayudándolos a navegar de manera más segura por las calles de Lima Metropolitana. UrbanVoice garantiza el acceso a información detallada y confiable sobre la seguridad en tiempo real, fomentando una red de colaboración que beneficia a todos.
-
-**When (Cuándo):** UrbanVoice estará disponible la mayor parte del tiempo, ofreciendo asistencia continua y actualizada en cualquier momento que los usuarios lo necesiten.
-
-**Where (Dónde):** UrbanVoice puede ser utilizada en cualquier lugar y momento, siempre que el usuario cuente con una conexión a internet. La aplicación se adapta automáticamente a la ubicación del usuario, actualizando la información de seguridad local en tiempo real para brindar datos precisos y relevantes.
-
-**Who (Quién):** UrbanVoice está dirigida a los ciudadanos que transitan por las calles de Lima Metropolitana. Los usuarios no solo podrán beneficiarse de la información proporcionada, sino que también tendrán la capacidad de contribuir al bienestar de la comunidad al reportar incidentes y situaciones de riesgo.
-
-**Why (Por qué):** UrbanVoice surge como respuesta al preocupante aumento de la delincuencia en Lima y en todo el país. Nuestro objetivo es proporcionar a los ciudadanos una herramienta que les permita estar informados sobre los sucesos más recientes en su entorno, incrementando su seguridad personal y ayudando a otros transeúntes a evitar situaciones peligrosas.
-
-**How (Cómo):** UrbanVoice se mantiene actualizada gracias al constante aporte de los usuarios, quienes reportan incidentes y colaboran con la comunidad. Además, la aplicación utiliza tecnología avanzada de geolocalización y análisis de datos para ofrecer información precisa en tiempo real.
-
-**How Much (Cuánto):** UrbanVoice estará disponible de forma gratuita para todos los usuarios. Sin embargo, para sostener el desarrollo y mantenimiento de la plataforma, la aplicación incluirá anuncios integrados.
-
+* **Who (Quién):** Los ciudadanos residentes y transeúntes de Lima Metropolitana, especialmente aquellos que se movilizan por zonas con alta incidencia delictiva, falta de iluminación o escasa vigilancia. Asimismo, las víctimas directas e indirectas de robos, hurtos y acoso callejero.
+* **What (Qué):** El incremento exponencial de la percepción de inseguridad (89.9%) y de la victimización delictiva real (27.7% de la población). El problema radica en la vulnerabilidad del ciudadano al transitar por espacios públicos sin información preventiva confiable.
+* **Where (Dónde):** En las vías públicas, paraderos, parques y distritos de Lima Metropolitana con mayores índices de criminalidad. El peligro se agudiza en "puntos críticos" caracterizados por deficiencias en el diseño urbano y ausencia de autoridad.
+* **When (Cuándo):** El riesgo es constante, aunque se intensifica durante los horarios nocturnos y en momentos de mayor flujo peatonal. La falta de actualización inmediata sobre incidentes recientes impide que el ciudadano tome precauciones en el momento oportuno.
+* **Why (Por qué):** Debido a la ineficacia de los canales tradicionales de vigilancia y la desconfianza en los tiempos de respuesta de las autoridades. La ausencia de una red informativa colaborativa deja al ciudadano aislado y dependiente de métodos preventivos limitados a su entorno cercano.
+* **How (Cómo):** La inseguridad se manifiesta a través de hechos delictivos frecuentes que afectan la libre circulación y la integridad física. El ciudadano intenta mitigar el riesgo de forma empírica (evitando calles o consultando familiares), pero sin datos precisos que respalden su toma de decisiones.
+* **How Much (Cuánto):** Impacta negativamente en la calidad de vida de casi 10 millones de habitantes de la capital. Los costos se traducen en pérdidas económicas directas por robos, gastos en seguridad privada y, fundamentalmente, en un deterioro del bienestar emocional por el miedo constante al crimen.
 
 ### 1.2.3. Lean UX Process
 
 #### 1.2.3.1. Lean UX Problem Statements
 
-El objetivo de nuestro servicio es ayudar a las personas a desplazarse con mayor seguridad en su entorno. A través de nuestra aplicación, los usuarios pueden acceder a un mapa de calor que indica qué tan peligrosas son distintas zonas de Lima Metropolitana, basado en reportes en tiempo real hechos por otros usuarios.
+En la actualidad, Lima Metropolitana enfrenta una crisis de seguridad ciudadana que ha elevado la percepción de inseguridad al 89.9%, convirtiéndola en el principal problema para sus habitantes. Ante esta realidad, los ciudadanos se encuentran vulnerables al transitar por espacios públicos, especialmente en zonas con deficiente iluminación o escasa vigilancia, y dependen casi exclusivamente de redes de contacto directas o de evitar físicamente el peligro sin contar con información precisa sobre los riesgos en su entorno inmediato
 
 Hemos detectado que existe una fuerte preocupación por la inseguridad en las calles, ya que los robos y delitos son situaciones frecuentes. De acuerdo con los resultados más recientes de la ENAPRES (Ene-Jun 2024) del INEI, el 27.7% de las personas mayores de 15 años en Perú ha sido víctima de algún delito.
 
-Frente a esta realidad, surge la pregunta:  
-**¿cómo podemos cambiar la percepción de inseguridad en Lima y brindar a las personas una herramienta que realmente les sea útil en su día a día?**
+¿Cómo podríamos mejorar la seguridad personal y colectiva de los ciudadanos, logrando que cuenten con información detallada y confiable en tiempo real para navegar de manera más segura por las calles de Lima y se sientan satisfechos con la protección que brinda el sistema?.
 
 #### 1.2.3.2. Lean UX Assumptions
 
@@ -432,47 +422,30 @@ ahora que hemos analizado la problemática y contamos con una visión clara de c
 
 #### 1.2.3.3. Lean UX Hypothesis Statements
 
-- **Hypothesis Statement 01:**
+* **Hypothesis Statement 01:**
+    **Creemos que** los ciudadanos están dispuestos a colaborar activamente para mitigar la percepción de abandono en sus comunidades si cuentan con una herramienta de reporte directo. 
+    **Sabremos que funciona** cuando logremos una base de datos densa que permita identificar puntos críticos en tiempo real sin depender de fuentes oficiales lentas. 
+    **Cuando veamos** que el 30% de los usuarios activos en distritos con alta incidencia delictiva realiza al menos un reporte semanal detallado con evidencia multimedia.
 
-**Creemos que** UrbanVoice logrará crear una comunidad activa interesada en la seguridad.  
+* **Hypothesis Statement 02:**
+    **Creemos que** proporcionar un mapa de riesgo actualizado dinámicamente reducirá la exposición de los usuarios a hechos delictivos durante sus desplazamientos. 
+    **Sabremos que funciona** cuando los usuarios integren la consulta de la aplicación como un paso preventivo habitual en su rutina diaria. 
+    **Cuando veamos** que el flujo de "Consulta de Ruta Segura" sea utilizado por el 50% de nuestra base de usuarios antes de iniciar trayectos fuera de su zona de residencia habitual. 
 
-**Sabremos que funciona** cuando aumente el número de usuarios registrados y participen reportando incidentes.
+* **Hypothesis Statement 03:**
+    **Creemos que** la función de compartir la ubicación en tiempo real con contactos de confianza reducirá la ansiedad y sensación de vulnerabilidad del ciudadano al transitar por zonas desoladas. 
+    **Sabremos que funciona** cuando la herramienta se convierta en el mecanismo de seguridad preventivo preferido sobre los métodos tradicionales de comunicación. 
+    **Cuando veamos** que la funcionalidad "Live Tracking" se activa en promedio 5 veces por semana por cada usuario que se desplaza en horarios nocturnos. 
 
-- **Hypothesis Statement 02:**
-  
-**Creemos que** los usuarios valorarán poder reportar incidentes y ver información en tiempo real.  
+* **Hypothesis Statement 04:**
+    **Creemos que** emitir alertas geolocalizadas automáticas sobre incidentes recientes en el entorno inmediato permitirá a los transeúntes evitar situaciones de peligro inminente. 
+    **Sabremos que funciona** cuando los usuarios realicen cambios de ruta o tomen precauciones adicionales basándose exclusivamente en las notificaciones del sistema. 
+    **Cuando veamos** que el 70% de las alertas de proximidad enviadas son calificadas como "Útiles" o "Verídicas" por los receptores a través del sistema de validación rápida. 
 
-**Sabremos que funciona** cuando muchos usuarios utilicen el mapa y reporten de forma constante.
-
-- **Hypothesis Statement 03:**
-
-**Creemos que** UrbanVoice ayudará a reducir la sensación de inseguridad.  
-
-**Sabremos que funciona** cuando las encuestas reflejen menos miedo al crimen en zonas donde se usa la app.
-
-- **Hypothesis Statement 04:**
-
-**Creemos que** incluir anuncios en la versión gratuita no afectará la experiencia.  
-
-**Sabremos que funciona** si los usuarios siguen usando la app y se mantiene una buena retención.
-
-- **Hypothesis Statement 05:**
-
-**Creemos que** la aplicación será fácil de usar para todo tipo de personas.  
-
-**Sabremos que funciona** cuando los usuarios completen tareas sin dificultad en pruebas de uso.
-
-- **Hypothesis Statement 06:**
-
-**Creemos que** la geolocalización en tiempo real hará que la información sea más precisa.  
-
-**Sabremos que funciona** cuando los usuarios confíen en el mapa y lo usen para decidir sus rutas.
-
-- **Hypothesis Statement 07:**
-
-**Creemos que** compartir la ubicación con contactos aumentará la sensación de seguridad.  
-
-**Sabremos que funciona** cuando muchos usuarios utilicen esta función de forma frecuente.
+* **Hypothesis Statement 05:**
+    **Creemos que** al centralizar la información de seguridad y facilitar la colaboración ciudadana, lograremos reducir la brecha de desconfianza y el sentimiento de desprotección en Lima. 
+    **Sabremos que funciona** cuando los indicadores internos de satisfacción reflejen un cambio positivo en la experiencia de movilidad urbana del usuario. 
+    **Cuando veamos** una disminución del 20% en la tasa de "Sensación de Vulnerabilidad" reportada por los usuarios en sus encuestas mensuales de perfil dentro de la aplicación. 
 
 #### 1.2.3.4. Lean UX Canvas
 
@@ -794,7 +767,7 @@ Para el registro inicial y perfilamiento del entrevistado, se solicitarán los s
 Resumen . 
 
 
-**Entrevista N°3:**
+**Entrevista N°2:**
 
 ![Entrevista3](assets/Entrevista3.png)
 
@@ -812,20 +785,30 @@ La entrevistada no se siente segura en lugares donde no hay mucha iluminación y
 
 ### 2.2.3. Análisis de entrevistas
 
-Los entrevistados, expresan una profunda preocupación por la inseguridad en sus entornos diarios, especialmente en áreas cercanas a su universidad y en espacios públicos como parques y calles con poca iluminación. Esta sensación de inseguridad está influenciada por la falta de vigilancia, la deficiente iluminación en las zonas que frecuentan, y la frecuencia con la que han sido testigos de actos delictivos, lo que genera una necesidad apremiante de soluciones tecnológicas que puedan mitigar estos riesgos.
+A continuación, se presenta la síntesis de los datos obtenidos durante la fase de entrevistas, categorizando las preocupaciones principales, los factores del entorno y las funcionalidades priorizadas por el segmento objetivo.
 
-##### Intereses y Requerimientos Principales:
+#### Cuadro 1: Factores de Inseguridad Identificados
+| Categoría | Hallazgo del Usuario | Impacto en la Percepción |
+| :--- | :--- | :--- |
+| **Zonas Críticas** | Áreas cercanas a universidades y parques públicos. | Alta sensación de vulnerabilidad en trayectos cotidianos. |
+| **Entorno Físico** | Deficiente iluminación en calles residenciales y paraderos. | Factor determinante para evitar rutas específicas. |
+| **Vigilancia** | Escasa presencia de autoridades o seguridad privada. | Sensación de abandono ante posibles incidentes. |
+| **Experiencia Social** | Alta frecuencia como testigos de actos delictivos en su entorno. | Necesidad apremiante de soluciones tecnológicas de mitigación. |
 
-1. **Reportes en Tiempo Real**:
+#### Cuadro 2: Requerimientos y Funcionalidades Prioritarias
+| Requerimiento | Descripción Técnica / Interés del Usuario | Valor Agregado Identificado |
+| :--- | :--- | :--- |
+| **Reportes en Tiempo Real** | Capacidad de registrar incidencias de forma inmediata y sencilla. | Mecanismo de alerta ciudadana y facilitador para autoridades. |
+| **Alertas Geofencing** | Recepción de notificaciones automáticas al ingresar a áreas de riesgo. |Prevención activa ante robos o delitos recientes en el entorno. |
+| **Seguimiento en Vivo** |Compartir ubicación en tiempo real con red de contactos. | Incremento de la tranquilidad durante desplazamientos críticos. |
+| **Privacidad / Anonimato** | Opción de reportar y compartir ubicación sin revelar identidad. | Mitigación de temor a represalias y protección de datos. |
 
-Interés en una aplicación que les permita reportar incidencias de forma inmediata. Esta funcionalidad es vista como un mecanismo para alertar a otros usuarios y facilitar la intervención de las autoridades en casos de emergencia.
-2. **Alertas en Tiempo Real**:
-
-La capacidad de recibir notificaciones sobre áreas peligrosas es una función altamente valorada. Estas alertas podrían ayudar a los usuarios a evitar situaciones riesgosas al informarles sobre robos recientes u otros incidentes delictivos en su entorno.
-3. **Compartir Ubicación**:
-
-Ambos usuarios consideran útil compartir su ubicación en tiempo real, pero hay una fuerte preferencia por hacerlo de manera anónima para evitar posibles represalias o problemas de privacidad. Esto sugiere la necesidad de implementar medidas robustas de protección de datos y opciones para mantener el anonimato.
-
+#### Cuadro 3: Disposición Tecnológica y Barreras
+| Dimensión | Estado Actual | Observación de los Entrevistados |
+| :--- | :--- | :--- |
+| **Confianza Digital** | Media / Alta. | Los usuarios ya utilizan apps de mapas para informarse (tráfico/accidentes). |
+| **Experiencia Previa** |Baja. | La mayoría no ha utilizado aplicaciones dedicadas exclusivamente a seguridad. |
+| **Apertura al Cambio** | Muy Alta. | Existe una disposición inmediata a adoptar herramientas que mejoren la seguridad pública. |
 
 ## 2.3. Needfinding
 
@@ -898,392 +881,534 @@ En esta sección se definen los términos clave del dominio de negocio. Estas de
 ### 2.4.1. User Stories
 A continuación se detalla la especificación de requisitos del sistema dividida en Épicas, Historias de Usuario y Criterios de Aceptación por escenarios .
 
-<table><tr><th style="text-align:center;">Story ID</th><th style="text-align:center;">Epic</th><th style="text-align:center;">Título</th><th style="text-align:center;">Descripción</th><th style="text-align:center;">Prioridad</th><th style="text-align:center;">Criterios de Aceptación</th></tr><tr><td align="center">US01</td><td align="center">EP03</td><td>Visualización de mapa de riesgo</td><td>Como ciudadano, deseo visualizar un mapa con zonas de riesgo para evitar transitar por lugares peligrosos.</td><td align="center">Alta</td><td><b>Escenario 1: Carga de mapa con incidentes.</b><b>Given</b> que el ciudadano se encuentra en la vista principal,<b>When</b> el sistema identifica reportes en la base de datos,<b>Then</b> el sistema renderiza capas de calor sobre las coordenadas afectadas.<b>
-Escenario 2: Actualización de mapa al mover la vista.</b><b>Given</b> que el usuario desplaza el mapa a un nuevo distrito,<b>When</b> el sistema detecta el cambio de coordenadas de visualización,
-<b>Then</b> el sistema actualiza dinámicamente los puntos críticos de esa zona.
-</td>
-</tr>
-<tr>
-<td align="center">US02</td>
-<td align="center">EP02</td>
-<td>Registro de incidente</td>
-<td>Como ciudadano, deseo reportar un incidente de inseguridad con mi ubicación para alertar a otros.</td>
-<td align="center">Alta</td>
-<td>
-<b>Escenario 1: Envío de reporte con GPS activo.</b><b>Given</b> que el ciudadano completa los campos del reporte,<b>When</b> selecciona la opción de publicar,<b>Then</b> el sistema almacena el incidente con su geolocalización precisa.
-<b>Escenario 2: Intento de envío sin permisos de GPS.</b><b>Given</b> que el ciudadano intenta realizar un reporte,<b>When</b> el sistema detecta que el GPS está desactivado,
-<b>Then</b> el sistema muestra un mensaje solicitando habilitar la ubicación.
-</td>
-</tr>
-<tr>
-<td align="center">US03</td>
-<td align="center">EP02</td>
-<td>Evidencia multimedia</td>
-<td>Como ciudadano, deseo adjuntar evidencia (foto, audio o video) para dar credibilidad al reporte.</td>
-<td align="center">Alta</td>
-<td>
-<b>Escenario 1: Carga de imagen desde cámara.</b><b>Given</b> que el usuario está en el formulario de reporte,<b>When</b> captura una fotografía mediante la cámara del dispositivo,<b>Then</b> el sistema adjunta el archivo al registro del incidente.<b>Escenario 2: Límite de tamaño de archivo superado.</b><b>Given</b> que el ciudadano intenta subir un video pesado,<b>When</b> el archivo excede los 10 MB permitidos,
-<b>Then</b> el sistema notifica que el tamaño máximo ha sido superado.
-</td>
-</tr>
-<tr>
-<td align="center">US04</td>
-<td align="center">EP02</td>
-<td>Reporte anónimo</td>
-<td>Como ciudadano, deseo realizar reportes de forma anónima para proteger mi identidad.</td>
-<td align="center">Alta</td>
-<td>
-<b>Escenario 1: Publicación con modo anónimo activado.</b><b>Given</b> que el ciudadano activa el switch de anonimato,<b>When</b> envía el reporte al sistema,<b>Then</b> el sistema oculta el nombre del autor en el mapa público.<b>Escenario 2: Publicación sin modo anónimo.</b><b>Given</b> que el usuario deja desactivada la opción de anonimato,<b>When</b> confirma el envío,
-<b>Then</b> el sistema muestra su nombre de perfil junto al incidente.
-</td>
-</tr>
-<tr>
-<td align="center">US05</td>
-<td align="center">EP04</td>
-<td>Alertas geolocalizadas</td>
-<td>Como ciudadano, deseo recibir alertas de incidentes cercanos para tomar decisiones preventivas.</td>
-<td align="center">Alta</td>
-<td>
-<b>Escenario 1: Alerta en radio de proximidad.</b><b>Given</b> que el sistema registra un nuevo incidente,<b>When</b> el usuario se encuentra en un radio determinado de cercanía,
-<b>Then</b> el sistema envía una notificación push de advertencia inmediata.
-</td>
-</tr>
-<tr>
-<td align="center">US06</td>
-<td align="center">EP03</td>
-<td>Consulta de rutas seguras</td>
-<td>Como ciudadano, deseo consultar rutas entre dos puntos para reducir exposición a riesgos.</td>
-<td align="center">Alta</td>
-<td>
-<b>Escenario 1: Cálculo de ruta evadiendo hotspots.</b><b>Given</b> que el ciudadano ingresa un punto de destino,<b>When</b> solicita el trazado de la ruta,<b>Then</b> el sistema propone trayectos priorizando calles con menor nivel de incidentes.
-</td>
-</tr>
-<tr>
-<td align="center">US07</td>
-<td align="center">EP04</td>
-<td>Compartir ubicación real</td>
-<td>Como ciudadano, deseo compartir mi ubicación con contactos de confianza para sentirme seguro.</td>
-<td align="center">Alta</td>
-<td>
-<b>Escenario 1: Envío de enlace de seguimiento.</b><b>Given</b> que el ciudadano selecciona un contacto de su lista,<b>When</b> activa el seguimiento en tiempo real,<b>Then</b> el sistema permite compartir el seguimiento con los contactos seleccionados.
-</td>
-</tr>
-<tr>
-<td align="center">US08</td>
-<td align="center">EP04</td>
-<td>Vista para contacto</td>
-<td>Como contacto de confianza, deseo recibir la ubicación real de un usuario para monitorearlo.</td>
-<td align="center">Media</td>
-<td>
-<b>Escenario 1: Monitoreo sobre el mapa.</b><b>Given</b> que el contacto recibe acceso temporal a la ubicación,<b>When</b> el usuario se desplaza por la ciudad,
-<b>Then</b> el sistema muestra el marcador de posición moviéndose en tiempo real.
-</td>
-</tr>
-<tr>
-<td align="center">US09</td>
-<td align="center">EP02</td>
-<td>Detalle de incidentes</td>
-<td>Como ciudadano, deseo visualizar el detalle de los incidentes reportados en una zona.</td>
-<td align="center">Media</td>
-<td>
-<b>Escenario 1: Acceso a información ampliada.</b><b>Given</b> que el usuario selecciona un punto crítico en el mapa,<b>When</b> solicita ver más información,<b>Then</b> el sistema permite visualizar tipo, fecha, descripción y evidencia disponible.
-</td>
-</tr>
-<tr>
-<td align="center">US10</td>
-<td align="center">EP02</td>
-<td>Filtros de búsqueda</td>
-<td>Como ciudadano, deseo filtrar incidentes por tipo o fecha para mi consulta.</td>
-<td align="center">Media</td>
-<td>
-<b>Escenario 1: Filtrado personalizado.</b><b>Given</b> que el usuario accede a la lista de reportes,<b>When</b> aplica filtros de categoría o rango de fechas,<b>Then</b> el sistema actualiza los resultados en el mapa o lista según la necesidad.
-</td>
-</tr>
-<tr>
-<td align="center">US11</td>
-<td align="center">EP05</td>
-<td>Panel de moderación</td>
-<td>Como administrador, deseo moderar los reportes para evitar información falsa u ofensiva.</td>
-<td align="center">Alta</td>
-<td>
-<b>Escenario 1: Rechazo de reporte malicioso.</b><b>Given</b> que un administrador accede al panel de moderación,<b>When</b> detecta un reporte que infringe las normas,
-<b>Then</b> el sistema permite rechazar o eliminar dicho reporte de la plataforma.
-</td>
-</tr>
-<tr>
-<td align="center">US12</td>
-<td align="center">EP05</td>
-<td>Gestión de categorías</td>
-<td>Como administrador, deseo gestionar categorías de incidentes para organizar el registro.</td>
-<td align="center">Media</td>
-<td>
-<b>Escenario 1: Creación de nueva categoría.</b><b>Given</b> que el administrador requiere una nueva tipología de riesgo,<b>When</b> registra los datos en el sistema,<b>Then</b> el sistema permite crear, editar o desactivar categorías de incidentes.
-</td>
-</tr>
-<tr>
-<td align="center">US13</td>
-<td align="center">EP06</td>
-<td>Sección informativa</td>
-<td>Como visitante del Landing Page, deseo ver las funciones de UrbanVoice para conocer su valor.</td>
-<td align="center">Baja</td>
-<td>
-<b>Escenario 1: Navegación por beneficios.</b><b>Given</b> que el visitante carga la URL principal,<b>When</b> se desplaza a la sección de funcionalidades,<b>Then</b> el sistema muestra tarjetas interactivas con información de seguridad.
-</td>
-</tr>
-<tr>
-<td align="center">TS01</td>
-<td align="center">EP07</td>
-<td>Endpoints de REST API</td>
-<td>Como desarrollador, deseo crear los servicios web para el manejo de incidentes.</td>
-<td align="center">Alta</td>
-<td>
-<b>Escenario 1: Request de creación exitoso.</b><b>Given</b> que el cliente móvil envía un JSON válido,<b>When</b> el servidor procesa la solicitud,<b>Then</b> el sistema retorna un código 201 (Created) con el ID del reporte.
-</td>
-</tr>
+
+### 2.4.1. User Stories & Technical Stories
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US01</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Alta</td>
+    <td align="center">EP03</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Visualización de mapa de riesgo</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, deseo visualizar un mapa con zonas de riesgo para evitar transitar por lugares peligrosos.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Carga de mapa con incidentes.</b><br>
+      <b>Given</b> que el ciudadano se encuentra en la vista principal,<br>
+      <b>When</b> el sistema identifica reportes en la base de datos,<br>
+      <b>Then</b> el sistema renderiza capas de calor sobre las coordenadas afectadas.<br><br>
+      <b>Escenario 2: Actualización dinámica.</b><br>
+      <b>Given</b> que el usuario desplaza el mapa a un nuevo distrito,<br>
+      <b>When</b> el sistema detecta el cambio de coordenadas,<br>
+      <b>Then</b> el sistema actualiza dinámicamente los puntos críticos de esa zona.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US02</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Alta</td>
+    <td align="center">EP02</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Registro de incidente</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, deseo reportar un incidente de inseguridad con mi ubicación para alertar a otros.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Envío con GPS activo.</b><br>
+      <b>Given</b> que el ciudadano completa los campos del reporte,<br>
+      <b>When</b> selecciona la opción de publicar,<br>
+      <b>Then</b> el sistema almacena el incidente con su geolocalización precisa.<br><br>
+      <b>Escenario 2: Intento sin permisos de GPS.</b><br>
+      <b>Given</b> que el ciudadano intenta realizar un reporte,<br>
+      <b>When</b> el sistema detecta que el GPS está desactivado,<br>
+      <b>Then</b> el sistema muestra un mensaje solicitando habilitar la ubicación.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US03</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Alta</td>
+    <td align="center">EP02</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Evidencia multimedia</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, deseo adjuntar evidencia (foto, audio o video) para dar credibilidad al reporte.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Carga desde cámara.</b><br>
+      <b>Given</b> que el usuario está en el formulario de reporte,<br>
+      <b>When</b> captura una fotografía mediante la cámara,<br>
+      <b>Then</b> el sistema adjunta el archivo al registro del incidente.<br><br>
+      <b>Escenario 2: Límite de tamaño.</b><br>
+      <b>Given</b> que el ciudadano intenta subir un video pesado,<br>
+      <b>When</b> el archivo excede los 10 MB permitidos,<br>
+      <b>Then</b> el sistema notifica que el tamaño máximo ha sido superado.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US04</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Alta</td>
+    <td align="center">EP02</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Reporte anónimo</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, deseo realizar reportes de forma anónima para proteger mi identidad.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Publicación en modo anónimo.</b><br>
+      <b>Given</b> que el ciudadano activa el switch de anonimato,<br>
+      <b>When</b> envía el reporte al sistema,<br>
+      <b>Then</b> el sistema oculta el nombre del autor en el mapa público.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US05</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Alta</td>
+    <td align="center">EP04</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Alertas geolocalizadas</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, deseo recibir alertas de incidentes cercanos para tomar decisiones preventivas.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Alerta en radio de proximidad.</b><br>
+      <b>Given</b> que el sistema registra un nuevo incidente,<br>
+      <b>When</b> el usuario se encuentra en un radio de cercanía,<br>
+      <b>Then</b> el sistema envía una notificación push de advertencia inmediata.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US07</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Alta</td>
+    <td align="center">EP04</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Compartir ubicación real</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, deseo compartir mi ubicación con contactos de confianza para sentirme seguro.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Envío de seguimiento.</b><br>
+      <b>Given</b> que el ciudadano selecciona un contacto de su lista,<br>
+      <b>When</b> activa el seguimiento en tiempo real,<br>
+      <b>Then</b> el sistema genera un enlace de monitoreo compartido.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US13</td>
+    <td align="center">Visitante</td>
+    <td align="center">Baja</td>
+    <td align="center">EP06</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Sección informativa en Landing Page</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como visitante del Landing Page, deseo ver las funciones de UrbanVoice para conocer su valor.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Navegación por beneficios.</b><br>
+      <b>Given</b> que el visitante carga la URL principal,<br>
+      <b>When</b> se desplaza a la sección de funcionalidades,<br>
+      <b>Then</b> el sistema muestra tarjetas informativas sobre seguridad urbana.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">TS01</td>
+    <td align="center">Developer</td>
+    <td align="center">Alta</td>
+    <td align="center">EP07</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Endpoints de REST API</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como desarrollador, deseo crear los servicios web para el manejo de incidentes.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Request de creación exitoso.</b><br>
+      <b>Given</b> que el cliente móvil envía un JSON válido,<br>
+      <b>When</b> el servidor procesa la solicitud POST,<br>
+      <b>Then</b> el sistema retorna un código 201 (Created) con el ID del reporte.
+    </td>
+  </tr>
 </table>
 
 ### 2.4.3. Spike Stories
 
-### SPK01 - Evaluación de mapa y geolocalización
+#### **Spike 1: Investigación de Integración con Google Maps y Geolocalización**
 
-**Como** equipo de desarrollo,  
-**queremos** probar una librería o SDK de mapas,  
-**para** validar que la aplicación pueda mostrar la ubicación del usuario y zonas de riesgo en un mapa.
+**Contexto**
+La plataforma UrbanVoice requiere una visualización fluida de "capas de calor" (Heatmaps) para representar la densidad delictiva en Lima Metropolitana basándose en los reportes ciudadanos. Se utiliza un frontend móvil desarrollado en Kotlin para Android y Swift para iOS, integrado con un backend Spring Boot 3.5.5. El equipo necesita evaluar la viabilidad técnica de Google Maps SDK para manejar grandes volúmenes de coordenadas GPS en tiempo real sin degradar el rendimiento de la aplicación móvil y determinar las cuotas de consumo de la API de Maps y Geolocation.
 
-**Objetivo:**  
-Verificar si es posible mostrar un mapa, obtener la ubicación actual del usuario y colocar marcadores simulados de incidentes.
+**Spike Story**
+Como equipo de desarrollo (móvil y backend),
+quiero investigar y prototipar la integración del SDK de Google Maps en nuestros componentes móviles y servicios de geolocalización,
+para que podamos entender las implicaciones técnicas, el impacto en el rendimiento de renderizado y el esfuerzo requerido para la implementación de los mapas de riesgo dinámicos.
 
-**Criterios de aceptación:**
+**Criterios de Aceptación (en formato Given-When-Then)**
 
-- **Given** que el usuario abre la vista principal,
-- **When** la aplicación carga el mapa,
-- **Then** se debe visualizar un mapa funcional.
+1. **Revisa la Documentación de la API de Google Maps**
+   - Dado que el equipo necesita entender las capacidades de la biblioteca de utilidades para mapas,
+   - Cuando el desarrollador revisa la documentación técnica de Google (e.g., Maps SDK for Android/iOS, Maps Utils Heatmap Layer),
+   - Entonces el desarrollador identifica y documenta el flujo de integración más eficiente para procesar puntos de calor en un informe técnico compartido.
 
-- **Given** que existen incidentes simulados,
-- **When** se cargan en la aplicación,
-- **Then** deben mostrarse como marcadores o puntos de riesgo en el mapa.
+2. **Evaluación de Precisión de Geolocalización**
+   - Dado la necesidad de obtener la ubicación exacta del ciudadano para el reporte de incidentes,
+   - Cuando el desarrollador evalúa el impacto del uso de Fused Location Provider vs GPS nativo en el consumo de batería y precisión,
+   - Entonces el desarrollador documenta los hallazgos y la configuración recomendada en el informe.
 
-**Entregable esperado:**  
-Prototipo simple de mapa con ubicación actual y marcadores simulados.
+3. **Prototipa la Integración de Mapas y Marcadores**
+   - Dado la necesidad de validar la carga de incidentes sobre el mapa,
+   - Cuando el desarrollador construye un PoC (Proof of Concept) funcional que consume un endpoint JSON de prueba y renderiza marcadores agrupados y capas de calor,
+   - Entonces el PoC es funcional, se registra en una rama del repositorio y se referencia en el informe.
 
----
-
-### SPK02 - Prueba de registro de incidentes con ubicación
-
-**Como** equipo de desarrollo,  
-**queremos** validar el registro básico de incidentes,  
-**para** comprobar que un usuario pueda reportar una situación de inseguridad asociada a una ubicación.
-
-**Objetivo:**  
-Probar un formulario simple para registrar tipo de incidente, descripción y coordenadas.
-
-**Criterios de aceptación:**
-
-- **Given** que el usuario completa el formulario de reporte,
-- **When** presiona el botón de enviar,
-- **Then** el sistema debe guardar o simular el registro del incidente.
-
-- **Given** que la ubicación no está disponible,
-- **When** el usuario intenta enviar el reporte,
-- **Then** la aplicación debe mostrar un mensaje solicitando activar la ubicación.
-
-**Entregable esperado:**  
-Formulario funcional o mockup navegable para registrar incidentes con ubicación.
+**Definition of Done (DoD)**
+- El código del PoC de mapas está registrado en una rama del repositorio.
+- El informe técnico incluye una estimación de costos basada en la cuota de la consola de Google Cloud.
+- El Spike se completa dentro del límite de 16 horas establecido para el sprint.
 
 ---
 
-### SPK03 - Validación de alertas o notificaciones simuladas
+#### **Spike 2: Validación para Alertas Geolocalizadas y Notificaciones**
 
-**Como** equipo de desarrollo,  
-**queremos** probar alertas básicas para incidentes cercanos,  
-**para** demostrar la idea de prevención en tiempo real de UrbanVoice.
+**Contexto**
+Una de las funcionalidades críticas de UrbanVoice es la prevención activa mediante alertas de proximidad (US05). El sistema debe notificar al usuario cuando se encuentre cerca de una zona de riesgo reportada recientemente. El equipo necesita investigar el uso de servicios de fondo (Background Services) y Geofencing para determinar la viabilidad de emitir alertas sin que la aplicación esté necesariamente en primer plano, utilizando Firebase Cloud Messaging (FCM).
 
-**Objetivo:**  
-Validar una notificación simple o alerta visual cuando el usuario se encuentre cerca de una zona de riesgo simulada.
+**Spike Story**
+Como equipo de desarrollo,
+quiero investigar la implementación de notificaciones push geolocalizadas y la gestión de procesos en segundo plano,
+para que podamos asegurar que los ciudadanos reciban advertencias de peligro oportunas y minimizar los riesgos de latencia en la entrega de alertas críticas.
 
-**Criterios de aceptación:**
+**Criterios de Aceptación (en formato Given-When-Then)**
 
-- **Given** que existe un incidente cercano a la ubicación del usuario,
-- **When** el sistema detecta cercanía,
-- **Then** debe mostrarse una alerta o notificación indicando posible riesgo.
+1. **Evaluación de Capacidades de Geofencing**
+   - Dado el backend Spring Boot 3.5.5 y el cliente móvil,
+   - Cuando el desarrollador investiga las APIs de Geofencing nativas de Android e iOS para detectar la entrada a perímetros de riesgo,
+   - Entonces el desarrollador documenta los límites de regiones activas por dispositivo y los requisitos de permisos del sistema operativo.
 
-- **Given** que el usuario está lejos del incidente,
-- **When** se evalúa su ubicación,
-- **Then** no debe mostrarse ninguna alerta.
+2. **Validación de Notificaciones Push con FCM**
+   - Dado la necesidad de enviar alertas desde el servidor hacia los dispositivos cercanos,
+   - Cuando el desarrollador configura Firebase Cloud Messaging y realiza una prueba de envío de una notificación simulada de "Incidente Cercano",
+   - Entonces el dispositivo móvil recibe la alerta con el contenido correcto y la muestra en la barra de notificaciones del sistema.
 
-**Entregable esperado:**  
-Prueba simple de alerta visual o notificación simulada.
+3. **Prototipa el Flujo de Alerta por Proximidad**
+   - Dado un escenario donde el usuario se desplaza virtualmente hacia una coordenada de riesgo,
+   - Cuando el sistema detecta la coincidencia de ubicación y dispara la notificación simulada,
+   - Entonces el flujo es verificado exitosamente y se documenta el tiempo de respuesta entre la detección y la visualización de la alerta.
 
----
-
-### SPK04 - Prueba de evidencia multimedia en reportes
-
-**Como** equipo de desarrollo,  
-**queremos** probar la carga de una imagen como evidencia,  
-**para** validar que un reporte pueda incluir información adicional que le dé mayor credibilidad.
-
-**Objetivo:**  
-Comprobar si la aplicación puede adjuntar una foto tomada desde cámara o seleccionada desde galería.
-
-**Criterios de aceptación:**
-
-- **Given** que el usuario está creando un reporte,
-- **When** selecciona o toma una fotografía,
-- **Then** la imagen debe mostrarse como evidencia adjunta.
-
-- **Given** que el usuario elimina la imagen seleccionada,
-- **When** actualiza el formulario,
-- **Then** el reporte debe quedar sin evidencia adjunta.
-
-**Entregable esperado:**  
-Prueba simple de selección o captura de imagen dentro del formulario de reporte.
-
----
-
-### SPK05 - Revisión de consistencia del diseño DDD y arquitectura
-
-**Como** equipo de desarrollo,  
-**queremos** revisar que los bounded contexts, user stories y arquitectura estén alineados,  
-**para** evitar contradicciones en el informe del proyecto.
-
-**Objetivo:**  
-Corregir inconsistencias básicas del documento, especialmente nombres de contextos, funcionalidades y términos que no pertenecen al dominio de seguridad ciudadana.
-
-**Criterios de aceptación:**
-
-- **Given** que el documento contiene user stories, DDD y arquitectura,
-- **When** se revise la relación entre estos artefactos,
-- **Then** se deben identificar posibles inconsistencias.
-
-- **Given** que se encuentren términos ajenos al proyecto,
-- **When** se propongan correcciones,
-- **Then** el informe debe quedar alineado con UrbanVoice, incidentes, seguridad ciudadana, ubicación y alertas.
-
-**Entregable esperado:**  
-Lista breve de correcciones recomendadas para mejorar la coherencia del informe.
+**Definition of Done (DoD)**
+- El informe técnico incluye la recomendación sobre la frecuencia de actualización de ubicación para no agotar la batería.
+- Los hallazgos se utilizan para refinar la User Story US05 en el Product Backlog.
+- El informe se comparte y revisa en la sesión de equipo.
 
 ### 2.4.3. Impact Mapping
 <td><img src="assets/impact-mapping.png"/></td>
 
 ### 2.4.4. Product Backlog
 
-Para el proyecto UrbanVoice, el Product Backlog se ha organizado priorizando el valor de negocio y la necesidad de establecer una presencia digital.
-
 <table>
-<tr>
-<th style="text-align:center;"># Orden</th>
-<th style="text-align:center;">User Story ID</th>
-<th style="text-align:center;">Título</th>
-<th style="text-align:center;">Story Points</th>
-<th style="text-align:center;">Prioridad</th>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center">US13</td>
-<td>Landing Page Informativo</td>
-<td align="center">2</td>
-<td align="center">Alta</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">US01</td>
-<td>Visualización de mapa de riesgo</td>
-<td align="center">5</td>
-<td align="center">Alta</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">US02</td>
-<td>Registro de incidentes ciudadanos</td>
-<td align="center">5</td>
-<td align="center">Alta</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">US05</td>
-<td>Sistema de alertas geolocalizadas</td>
-<td align="center">8</td>
-<td align="center">Alta</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center">US03</td>
-<td>Gestión de evidencia multimedia</td>
-<td align="center">5</td>
-<td align="center">Alta</td>
-</tr>
-<tr>
-<td align="center">6</td>
-<td align="center">TS01</td>
-<td>Endpoints de RESTful API (Arquitectura)</td>
-<td align="center">3</td>
-<td align="center">Alta</td>
-</tr>
-<tr>
-<td align="center">7</td>
-<td align="center">US04</td>
-<td>Funcionalidad de reporte anónimo</td>
-<td align="center">3</td>
-<td align="center">Alta</td>
-</tr>
-<tr>
-<td align="center">8</td>
-<td align="center">US07</td>
-<td>Compartir ubicación en tiempo real</td>
-<td align="center">8</td>
-<td align="center">Media</td>
-</tr>
-<tr>
-<td align="center">9</td>
-<td align="center">US14</td>
-<td>Enlaces de descarga (Landing Page)</td>
-<td align="center">1</td>
-<td align="center">Media</td>
-</tr>
-<tr>
-<td align="center">10</td>
-<td align="center">US09</td>
-<td>Visualización de detalle de incidentes</td>
-<td align="center">3</td>
-<td align="center">Media</td>
-</tr>
-<tr>
-<td align="center">11</td>
-<td align="center">US11</td>
-<td>Panel de moderación para administradores</td>
-<td align="center">5</td>
-<td align="center">Media</td>
-</tr>
-<tr>
-<td align="center">12</td>
-<td align="center">US06</td>
-<td>Trazado y consulta de rutas seguras</td>
-<td align="center">8</td>
-<td align="center">Baja</td>
-</tr>
-<tr>
-<td align="center">13</td>
-<td align="center">US10</td>
-<td>Filtros avanzados de búsqueda</td>
-<td align="center">3</td>
-<td align="center">Baja</td>
-</tr>
-<tr>
-<td align="center">14</td>
-<td align="center">US08</td>
-<td>Interfaz para contactos de confianza</td>
-<td align="center">5</td>
-<td align="center">Baja</td>
-</tr>
-<tr>
-<td align="center">15</td>
-<td align="center">US12</td>
-<td>Gestión de categorías de riesgo</td>
-<td align="center">2</td>
-<td align="center">Baja</td>
-</tr>
+  <tr>
+    <th style="text-align:center;"># Orden</th>
+    <th style="text-align:center;">Sprint</th>
+    <th style="text-align:center;">User Story ID</th>
+    <th style="text-align:center;">Título</th>
+    <th style="text-align:center;">Story Points</th>
+    <th style="text-align:center;">Prioridad</th>
+  </tr>
+  <tr>
+    <td align="center">1</td>
+    <td align="center">1</td>
+    <td align="center">US13</td>
+    <td>Implementar Landing Page Informativo</td>
+    <td align="center">2</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">1</td>
+    <td align="center">TS01</td>
+    <td>Desarrollar Endpoints de RESTful API</td>
+    <td align="center">3</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">1</td>
+    <td align="center">US14</td>
+    <td>Habilitar enlaces de descarga en Landing Page</td>
+    <td align="center">1</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">4</td>
+    <td align="center">1</td>
+    <td align="center">TS02</td>
+    <td>Configurar Servicio de Autenticación JWT</td>
+    <td align="center">3</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">5</td>
+    <td align="center">2</td>
+    <td align="center">US01</td>
+    <td>Visualizar mapa de riesgo interactivo</td>
+    <td align="center">5</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">6</td>
+    <td align="center">2</td>
+    <td align="center">US02</td>
+    <td>Registrar incidentes ciudadanos</td>
+    <td align="center">5</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">7</td>
+    <td align="center">2</td>
+    <td align="center">US03</td>
+    <td>Gestionar evidencia multimedia en reportes</td>
+    <td align="center">5</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">8</td>
+    <td align="center">2</td>
+    <td align="center">US04</td>
+    <td>Permitir el envío de reportes anónimos</td>
+    <td align="center">3</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">9</td>
+    <td align="center">3</td>
+    <td align="center">US05</td>
+    <td>Emitir alertas geolocalizadas mediante Push</td>
+    <td align="center">8</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">10</td>
+    <td align="center">3</td>
+    <td align="center">US07</td>
+    <td>Compartir ubicación en tiempo real</td>
+    <td align="center">8</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">11</td>
+    <td align="center">3</td>
+    <td align="center">US09</td>
+    <td>Visualizar detalle de incidentes registrados</td>
+    <td align="center">3</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">12</td>
+    <td align="center">4</td>
+    <td align="center">US11</td>
+    <td>Moderar incidentes desde panel administrador</td>
+    <td align="center">5</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">13</td>
+    <td align="center">4</td>
+    <td align="center">US06</td>
+    <td>Trazar y consultar rutas seguras</td>
+    <td align="center">8</td>
+    <td align="center">Baja</td>
+  </tr>
+  <tr>
+    <td align="center">14</td>
+    <td align="center">4</td>
+    <td align="center">US10</td>
+    <td>Filtrar búsquedas de forma avanzada</td>
+    <td align="center">3</td>
+    <td align="center">Baja</td>
+  </tr>
+  <tr>
+    <td align="center">15</td>
+    <td align="center">4</td>
+    <td align="center">US08</td>
+    <td>Vincular contactos de confianza para monitoreo</td>
+    <td align="center">5</td>
+    <td align="center">Baja</td>
+  </tr>
+  <tr>
+    <td align="center">16</td>
+    <td align="center">4</td>
+    <td align="center">US12</td>
+    <td>Gestionar categorías de riesgo del sistema</td>
+    <td align="center">2</td>
+    <td align="center">Baja</td>
+  </tr>
 </table>
-
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
@@ -1402,13 +1527,13 @@ En esta sección, el equipo diseña sus candidate bounded contexts detallando lo
 <td><img src="assets/Profile and Preferences Managemen-canvas.jpg"/></td>
 
 3. Bounded Context Canvas: Location Managment
-<td><img src="assets/Space and Planning Management-canvas.jpg"/></td>
+<td><img src="assets/Location-Managment.jpg"/></td>
 
 4. Bounded Context Canvas: Report Managment
-<td><img src="assets/Resource and Asset Management-canvas.jpg"/></td>
+<td><img src="assets/Report-managment.png"/></td>
 
 5. Bounded Context Canvas: Notification Managment
-<td><img src="assets/Booking Execution and Monitoring-canvas.jpg"/></td>
+<td><img src="assets/Notification-Managment.jpg"/></td>
 
 ### 2.5.2. Context Mapping
 Este diagrama define las relaciones y fronteras entre los diferentes dominios (Agregados) identificados en el Event Storming. Establece cómo interactúan los contextos de Access, User, Incident, Spacial y Alert, detallando la naturaleza de sus integraciones y el flujo de información entre ellos para garantizar la integridad del sistema.
