@@ -2936,3 +2936,151 @@ Por otro lado, la tabla `location_share_sessions` persiste los datos de tracking
   <td><img src="assets/Data-Base-Notification-Managment.jpeg"/></td>
 </p>
 <br>
+
+# Capítulo III: Solution UX/UI Design
+
+## 3.1. Style Guidelines
+
+UrbanVoice es una plataforma de seguridad ciudadana para Lima Metropolitana, por lo que la identidad visual prioriza **confianza institucional** y **claridad operativa**. La paleta se construye sobre un azul institucional (`#0062FF`) que comunica seriedad y respaldo, complementado por una escala funcional de alertas: rojo (`#DC2626`) para riesgo alto, ámbar (`#F59E0B`) para advertencias y verde (`#10B981`) para zonas seguras y confirmaciones positivas. La tipografía combina Geist (headings, geométrica y técnica), Inter (body, alta legibilidad) y Geist Mono (datos y metadatos), todas sans-serif modernas. Los componentes usan radios suaves (8–20 px) para tarjetas y forma píldora para acciones primarias, con elevación sutil mediante sombras de baja intensidad.
+
+A continuación se muestra el design system base con los tokens de color y los nueve componentes reutilizables (StatusBar, TabBar, BtnPrimary, BtnSecondary, Input, IncidentCard, AlertBanner, FAB, Chip) que se aplican a todas las pantallas de la app móvil:
+
+<p align="center">
+  <img src="assets/ui/overview/00-design-system.png" alt="UrbanVoice — Design System" width="900"/>
+</p>
+
+### 3.1.3. Landing Page UI Design
+
+El Landing Page de UrbanVoice cubre las historias **US13 (Sección informativa)** y **US14 (Formulario de Alianzas)** del Product Backlog. Su objetivo es comunicar el valor de la plataforma a dos audiencias: ciudadanos visitantes que buscan descargar la app y visitantes institucionales (municipios, ONGs, medios) interesados en alianzas. La narrativa se construye en cinco zonas — Hero con CTA de descarga, Trust strip institucional, Features (cuatro pilares), Cómo funciona (tres pasos), Testimonios y CTA final con Footer — siguiendo un arco "promesa → prueba → acción" propio de un landing de conversión.
+
+#### 3.1.3.1. Landing Page Wireframe
+
+El wireframe en baja fidelidad (lo-fi) define la jerarquía estructural del landing antes de aplicar la identidad visual. Se decidieron las proporciones del hero (texto a la izquierda, mockup de app a la derecha), la grilla de features 2×2 para mostrar las cuatro funcionalidades clave (Mapa de riesgo, Reporte ciudadano, Alertas geolocalizadas, Red de confianza), la disposición horizontal de los tres pasos del flujo de uso, y el patrón de tres testimonios en línea. El footer agrupa enlaces en columnas estándar y termina con el CTA dual de descarga (App Store + Google Play).
+
+<p align="center">
+  <img src="assets/ui/landing/landing-lofi.png" alt="UrbanVoice Landing Page — Wireframe (Lo-fi)" width="900"/>
+</p>
+
+#### 3.1.3.2. Landing Page Mock-up
+
+El mockup en alta fidelidad (hi-fi) materializa el wireframe con la identidad visual completa de UrbanVoice. El hero usa un gradiente azul institucional profundo (`#0A1430` → `#1E40AF`) que evoca seriedad y respaldo cívico, contraste contra el cual la pill "En vivo · 1,247 reportes hoy" con punto rojo pulsante refuerza la sensación de plataforma activa en tiempo real. El mockup de la app a la derecha muestra el heatmap real con pins de incidente y un alert banner, comunicando inmediatamente qué hace el producto. Las cuatro tarjetas bento alternan superficies oscuras institucionales y claras tonales para crear ritmo visual; cada una incorpora un mini-componente de UI extraído de la app (banner de alerta, toggle de anonimato, avatares de la red) como prueba de funcionalidad. Los testimonios incluyen una tarjeta destacada en azul institucional, y el bloque CTA final cierra con descarga + tres tags de confianza (datos cifrados, modo anónimo, sin venta de datos).
+
+<p align="center">
+  <img src="assets/ui/landing/landing-hifi.jpeg" alt="UrbanVoice Landing Page — Mock-up (Hi-fi)" width="900"/>
+</p>
+
+### 3.1.4. Mobile Applications UX/UI Design
+
+La aplicación móvil cubre el flujo completo del ciudadano y del contacto de confianza para las historias **US01–US10**. Se diseñaron 15 pantallas organizadas en cuatro agrupaciones funcionales: **Onboarding y Autenticación** (Splash, 3 slides de walkthrough, Login, Registro, Recuperación de contraseña), **Núcleo Operativo** (Home con mapa de zonas de riesgo, Crear Reporte con evidencia multimedia, Detalle de Incidente con votación comunitaria), y **Configuración Personal** (Perfil, Edición de Perfil, Configuración de Alertas de Proximidad, Red de Confianza, Notificaciones). Todas las pantallas siguen las pautas de Material/iOS — status bar de 62 px, contenido en wrapper único con padding consistente y, donde aplique, una pill-style Tab Bar de 4 destinos como barra inferior persistente.
+
+#### 3.1.4.1. Mobile Applications Wireframes
+
+Los wireframes en baja fidelidad establecen estructura, jerarquía y zonas táctiles antes de aplicar la identidad visual. Cada pantalla se diseñó con un device frame de 320 × 680 px usando placeholders grises para áreas dinámicas y etiquetas monoespaciadas describiendo cada bloque. Los siguientes son los 15 wireframes agrupados por flujo:
+
+**Onboarding y Autenticación**
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-wireframes/01-splash.png" width="180"/><br/><sub>01 · Splash</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/02-onboarding-1.png" width="180"/><br/><sub>02 · Onboarding 1/3</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/03-onboarding-2.png" width="180"/><br/><sub>03 · Onboarding 2/3</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/04-onboarding-3.png" width="180"/><br/><sub>04 · Onboarding 3/3</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-wireframes/05-login.png" width="180"/><br/><sub>05 · Login</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/06-register.png" width="180"/><br/><sub>06 · Registro</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/07-recover.png" width="180"/><br/><sub>07 · Recuperar contraseña</sub></td>
+    <td align="center"></td>
+  </tr>
+</table>
+
+**Núcleo Operativo**
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-wireframes/08-home-map.png" width="180"/><br/><sub>08 · Home (Mapa de riesgo)</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/09-create-report.png" width="180"/><br/><sub>09 · Crear Reporte</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/10-incident-detail.png" width="180"/><br/><sub>10 · Detalle de Incidente</sub></td>
+  </tr>
+</table>
+
+**Configuración Personal**
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-wireframes/11-profile.png" width="180"/><br/><sub>11 · Perfil</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/12-edit-profile.png" width="180"/><br/><sub>12 · Editar Perfil</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/13-alerts-config.png" width="180"/><br/><sub>13 · Configurar Alertas</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/14-trust-network.png" width="180"/><br/><sub>14 · Red de Confianza</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/15-notifications.png" width="180"/><br/><sub>15 · Notificaciones</sub></td>
+  </tr>
+</table>
+
+**Mock-ups en alta fidelidad**
+
+A continuación se presentan las mismas 15 pantallas con la identidad visual completa aplicada (azul institucional, escala de alertas, tipografía Geist/Inter y componentes finales). Los mock-ups muestran detalles que en lo-fi quedan abstractos: el heatmap simulado en el Home con capas radiales de gradiente rojo/ámbar superpuestas a la cuadrícula vial, los pins diferenciados por color según tipo de incidente, el alert banner rojo de proximidad con micro-tipografía y la barra de votos comunitarios en el detalle de incidente.
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-mockups/01-splash.png" width="180"/><br/><sub>01 · Splash</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/02-onboarding-1.png" width="180"/><br/><sub>02 · Onboarding 1/3</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/03-onboarding-2.png" width="180"/><br/><sub>03 · Onboarding 2/3</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/04-onboarding-3.png" width="180"/><br/><sub>04 · Onboarding 3/3</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-mockups/05-login.png" width="180"/><br/><sub>05 · Login</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/06-register.png" width="180"/><br/><sub>06 · Registro</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/07-recover.png" width="180"/><br/><sub>07 · Recuperar contraseña</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/08-home-map.png" width="180"/><br/><sub>08 · Home (Mapa)</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-mockups/09-create-report.png" width="180"/><br/><sub>09 · Crear Reporte</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/10-incident-detail.png" width="180"/><br/><sub>10 · Detalle Incidente</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/11-profile.png" width="180"/><br/><sub>11 · Perfil</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/12-edit-profile.png" width="180"/><br/><sub>12 · Editar Perfil</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-mockups/13-alerts-config.png" width="180"/><br/><sub>13 · Config. Alertas</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/14-trust-network.png" width="180"/><br/><sub>14 · Red de Confianza</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/15-notifications.png" width="180"/><br/><sub>15 · Notificaciones</sub></td>
+    <td align="center"></td>
+  </tr>
+</table>
+
+#### 3.1.4.2. Mobile Applications Wireflow Diagrams
+
+Los Wireflow Diagrams documentan los cuatro flujos críticos de UrbanVoice mostrando la secuencia de pantallas que el usuario recorre, con anotaciones sobre los gestos o eventos que disparan cada transición (tap en FAB, submit de formulario, push notification, etc.). Cada nodo es una mini-representación de la pantalla involucrada y las flechas se codifican por color según el tipo de flujo: azul institucional para alta neutral, rojo para reporte de incidente, ámbar para alertas y verde para confirmaciones de configuración.
+
+**Flow 1 — Registro → Onboarding → Home**
+
+El nuevo ciudadano descarga la app, completa su registro, recorre el walkthrough de tres slides, otorga el permiso de ubicación y aterriza en el mapa de su zona. El flujo prioriza fricción mínima (registro de tres campos) y educación visual antes de pedir permisos sensibles.
+
+<p align="center">
+  <img src="assets/ui/wireflows/flow-1-registro-onboarding-home.png" alt="Flow 1 · Registro → Onboarding → Home" width="900"/>
+</p>
+
+**Flow 2 — Home → Reportar incidente → Confirmación**
+
+Cubre la historia US02 (Registro de incidente) y US03 (Evidencia multimedia). El ciudadano detecta un incidente, abre el formulario desde el FAB rojo del mapa, selecciona tipo, adjunta evidencia (foto/audio/video), confirma el modo anónimo (US04) y publica. El sistema valida la evidencia, encripta y muestra confirmación con CTA de "ver en mapa".
+
+<p align="center">
+  <img src="assets/ui/wireflows/flow-2-home-reportar-confirmacion.png" alt="Flow 2 · Home → Reportar → Confirmación" width="900"/>
+</p>
+
+**Flow 3 — Notificación de alerta → Detalle → Compartir con red**
+
+Cubre la historia US05 (Alertas geolocalizadas) y US07 (Compartir ubicación). El sistema detecta proximidad a un incidente reportado y emite push notification visible incluso desde lockscreen. Al abrirla, el ciudadano accede al detalle completo (mini-mapa, evidencia, votos comunitarios) y puede compartir la información y su ubicación con uno o varios contactos de su red de confianza.
+
+<p align="center">
+  <img src="assets/ui/wireflows/flow-3-alerta-detalle-compartir.png" alt="Flow 3 · Alerta → Detalle → Compartir" width="900"/>
+</p>
+
+**Flow 4 — Perfil → Configurar alertas → Guardar**
+
+Cubre la configuración granular de US05. Desde su perfil el usuario accede a la configuración de alertas, ajusta el radio de proximidad mediante slider visual (100m–2km), activa/desactiva tipos de incidente que le interesan (robos, acoso, vehículos sospechosos, emergencias) y guarda. La pantalla de éxito confirma la configuración aplicada y devuelve al perfil.
+
+<p align="center">
+  <img src="assets/ui/wireflows/flow-4-perfil-alertas-guardar.png" alt="Flow 4 · Perfil → Alertas → Guardar" width="900"/>
+</p>
+
+<br>
