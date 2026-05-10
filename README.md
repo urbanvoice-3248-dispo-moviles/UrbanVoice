@@ -2949,7 +2949,144 @@ A continuación se muestra el design system base con los tokens de color y los n
   <img src="assets/ui/overview/00-design-system.png" alt="UrbanVoice — Design System" width="900"/>
 </p>
 
-### 3.1.3. Landing Page UI Design
+### 3.1.1.1. General Style Guidelines 
+
+* **Branding:** Nuestro logo refleja de manera sencilla y memorable el espíritu de UrbanVoice. Buscamos que sea un distintivo fácil de recordar, que transmita la misma seguridad que ofrecemos en cada trayecto.
+* **Typography:** La jerarquía tipográfica está dividida funcionalmente:
+    * **Lora:** Utilizada para nuestro logotipo y encabezados principales (Headings). Es una fuente serif que refleja un estilo elegante, simple y moderno, promoviendo una atmósfera de innovación y seriedad.
+    * **Poppins:** Utilizada para el cuerpo de texto (Body), botones y el resto de la interfaz (UI). Es una fuente sans-serif geométrica que garantiza una alta legibilidad en pantallas móviles y web, facilitando la interacción rápida en momentos de estrés o urgencia.
+* **Colors:** Continuando con el objetivo de brindar una imagen que influya principalmente confianza y seguridad, hemos optado por una paleta de colores que transmite calma, estabilidad y profesionalismo.
+    * **Primary (Azules Institucionales):** Tonos de azul profundo hasta llegar a variantes más claras o blanco. Esta combinación manifiesta el objetivo de nuestro proyecto y crea una atmósfera de serenidad y sofisticación.
+    * **Semantic / Alerts:** Para el mapa y los incidentes, se integran colores funcionales universales: Rojo (Riesgo alto/Denuncias graves), Ámbar (Precaución/Zonas medias) y Verde (Zonas seguras/Acciones exitosas).
+
+---
+
+## 3.1.2. Information Architecture
+
+En nuestra aplicación UrbanVoice, buscamos ofrecer una interfaz interactiva que inspire confianza y seguridad a nuestros usuarios. Teniendo como enfoque principal la seguridad ciudadana del Perú, esta prioridad debe estar presente en cada paso de la experiencia de usuario. Una parte esencial es la correcta administración de la arquitectura de la información, estructurada de la siguiente manera:
+
+> **Página de Inicio (Home / Landing):**
+* **Mapa Interactivo:** Sección central que muestra un mapa con los niveles de seguridad en diferentes zonas, permitiendo a los usuarios identificar áreas seguras e inseguras a un solo vistazo.
+* **Opciones de Denuncia (CTA):** Enlace y acceso rápido a la funcionalidad de reporte, donde los usuarios pueden registrar crímenes o incidentes de manera pública o anónima.
+* **Información sobre la Plataforma:** Detalles institucionales sobre UrbanVoice (misión, visión, impacto esperado), además de enlaces de contacto para consultas y asistencia técnica.
+
+> **Mapa de Seguridad (Core Feature):**
+* **Categorías de Riesgo:** División del mapa mediante capas térmicas (Heatmap) categorizadas por niveles de seguridad (alto, medio, bajo) para una rápida identificación de áreas críticas.
+* **Filtros de Búsqueda:** Herramientas dinámicas para segmentar el mapa por tipos de incidentes reportados, rangos de fecha/hora y nivel de gravedad.
+* **Vista Detallada de Incidentes:** Páginas (o modales emergentes) individuales para cada incidente con descripciones completas, ubicación precisa, hora exacta y opciones para visualizar evidencias adjuntas.
+
+> **Denuncia de Crímenes (Reporting Flow):**
+* **Herramienta de Denuncia:** Interfaz intuitiva y guiada paso a paso para reportar incidentes. Permite seleccionar la categoría, adjuntar evidencia multimedia (fotos, videos, audios) y elegir la visibilidad.
+* **Vista Previa en Tiempo Real:** Pantalla de confirmación para previsualizar el reporte y validar que los datos y ubicación sean correctos antes de la publicación final.
+* **Geolocalización Automática:** Selección asistida de la ubicación del incidente mediante el GPS del dispositivo o marcación manual en el mapa interactivo.
+
+> **Registro y Perfil (User Onboarding):**
+* **Registro de Usuarios:** Formulario de fricción mínima para la creación de cuentas (nombre, correo electrónico, número de teléfono y contraseña).
+* **Registro de Contactos de Confianza:** Opción vital para que los usuarios vinculen a familiares o amigos con quienes compartirán su ubicación en tiempo real ante situaciones de riesgo.
+
+---
+
+### 3.1.2.1. Organization Systems 
+
+El sistema de organización se centrará en proporcionar la mejor experiencia al usuario en cuanto a la navegación y uso de las funcionalidades en momentos críticos. Nuestra plataforma está diseñada estructuralmente para evitar la sobrecarga cognitiva.
+
+> **Categorización de la Información:**
+* **Mapa de Seguridad:** Categorizado visualmente por niveles de riesgo (alto, medio, bajo) y agrupado por clústeres de incidentes (robos, agresiones, accidentes, etc.).
+* **Denuncias y Reportes:** Categorizado por tipología del crimen y nivel de urgencia, facilitando el triage visual y la respuesta rápida de la comunidad.
+
+> **Filtros y Búsqueda:**
+* **Filtros en el Mapa:** Permiten a los usuarios refinar la vista temporal y espacialmente (tipo de crimen, fecha, hora y nivel de riesgo).
+* **Búsqueda Avanzada:** Barra de búsqueda global para encontrar direcciones específicas, zonas críticas o cruzar variables de información.
+
+> **Interfaz de Usuario Intuitiva:**
+* **Menú Principal:** Navegación clara y persistente con acceso a las rutas principales (Mapa, Denunciar, Red de Confianza, Perfil).
+* **Submenús Contextuales:** Opciones secundarias que solo aparecen cuando son necesarias (ej. herramientas de dibujo en el mapa o filtros específicos al abrir la vista de reportes).
+
+> **Funcionalidades Específicas:**
+* **Información Detallada de Incidentes:** Tarjetas de contenido expansibles que muestran la anatomía completa de un reporte (descripción, validación de la comunidad, ubicación).
+
+---
+
+### 3.1.2.2. Labelling Systems 
+
+Consideramos que la mejor opción para reducir la curva de aprendizaje es a través de un sistema de etiquetado claro, universal y libre de ambigüedades. Utilizaremos etiquetas concisas para describir cada funcionalidad.
+
+Ejemplos de etiquetas clave incluirán:
+* **Mapa de zonas de riesgo** 
+* **Reportar Incidente** 
+* **Detalle del Reporte** 
+* **Mi Red de Confianza** 
+* **Compartir mi ubicación** 
+
+---
+
+### 3.1.2.3. SEO Tags and Meta Tags 
+
+Nuestros SEO Tags y Meta Tags están optimizados para el posicionamiento orgánico, asegurando que los ciudadanos encuentren la plataforma cuando busquen herramientas de seguridad en el Perú.
+
+> **Landing Page:**
+* **Title:** UrbanVoice — Tu ciudad más segura en tiempo real
+* **Description:** Descubre UrbanVoice, la red ciudadana que te permite visualizar mapas de riesgo, reportar incidentes y proteger a los tuyos con tu red de confianza.
+* **Keywords:** Seguridad ciudadana, Mapa de calor, Incidentes, Policía, Prevención, App de seguridad, Perú.
+* **Authors:** UrbanVoice Team
+
+> **Web Application:**
+* **Title:** UrbanVoice | Mapa de Seguridad
+* **Description:** Plataforma oficial de UrbanVoice. Monitorea alertas geolocalizadas y reportes ciudadanos en tiempo real para planificar rutas seguras.
+* **Keywords:** Mapa interactivo, Zonas seguras, Accidentes, Denuncias anónimas, Lima, Seguridad.
+* **Authors:** UrbanVoice Team
+
+---
+
+### 3.1.2.4. Searching Systems 
+
+El sistema de búsqueda (Search Engine interno) permitirá a los usuarios encontrar y filtrar información relevante de manera granular, adaptándose a diferentes escenarios de uso:
+
+> **Búsqueda por Incidente:**
+* Los usuarios pueden realizar consultas de texto libre como "robos en Miraflores" o "agresiones en San Isidro".
+* Se proporcionan operadores de búsqueda avanzada para filtrar de inmediato por fecha, hora, tipo de crimen y nivel de riesgo asociado.
+
+> **Búsqueda por Ubicación (Geospatial Search):**
+* Consultas basadas en puntos de interés  o direcciones exactas, como "incidentes en el centro de Lima".
+* Integración de geocodificación para centrar el mapa automáticamente en el distrito o calle buscada.
+
+> **Búsqueda por Nivel de Seguridad:**
+* Los usuarios pueden buscar clústeres según su nivel de seguridad, filtrando directamente por "zonas de alto riesgo" o "áreas seguras".
+* La plataforma incluye un sistema de sugerencias que recomienda las rutas o zonas más seguras cercanas al usuario.
+
+> **Búsqueda Avanzada (Filtros Cruzados):**
+* Permite combinar múltiples criterios lógicos; por ejemplo: "Robos" + "Miraflores" + "Durante la noche (20:00 - 06:00)".
+* Los resultados se presentan tanto en los pines del mapa como en una vista de lista organizada por relevancia o proximidad.
+
+> **Búsqueda por Fecha y Hora (Time-lapse):**
+* Deslizadores (Sliders) temporales para buscar incidentes dentro de un rango específico de horas o días.
+* Permite identificar patrones, mostrando información sobre la frecuencia y "horas pico" de incidentes en determinadas zonas.
+
+---
+
+### 3.1.2.5. Navigation Systems
+
+El sistema de navegación de PeaceApp está diseñado para proporcionar una experiencia fluida, permitiendo a los usuarios, incluso en situaciones de pánico, encontrar rápidamente lo que necesitan.
+
+> **Menú Principal (Global Navigation):**
+* Ubicado estratégicamente (barra lateral en web, Tab Bar inferior en móvil) e incluye el imagotipo de la marca. Agrupa los enlaces a las secciones críticas: Mapa, Denuncias, Alertas y Perfil.
+* Cada ítem está acompañado de iconografía universal (Material Design/iOS Icons) y etiquetas claras para facilitar el reconocimiento visual sobre la lectura.
+
+> **Navegación Contextual (Local Navigation):**
+* Dentro de cada módulo, se proporcionan controles contextuales. Por ejemplo, al tocar un incidente en el mapa, se despliega un *Bottom Sheet* (panel inferior) con opciones relacionadas exclusivamente a ese reporte (ver fotos, validar, compartir).
+
+> **Botones de Acción Destacados (CTAs & FABs):**
+* En las vistas de Inicio y Mapa, se emplea un Floating Action Button (FAB) prominente, con el color de acento primario o rojo de alerta, destinado a la acción más importante: **Reportar Incidente**.
+* Están estratégicamente anclados en la zona de fácil alcance del pulgar para asegurar una interacción rápida.
+
+> **Búsqueda y Filtros Visibles:**
+* La barra de búsqueda superior (Search Bar) es persistente y visible en la pantalla del mapa en todo momento.
+* Los chips de filtros rápidos se ubican de forma horizontal debajo del buscador, permitiendo activar o desactivar capas de información con un solo toque.
+
+> **Flujo de Navegación Intuitivo (User Flow):**
+* Se sigue una progresión lógica (Lineal y No-Lineal). Desde abrir la app y ver el entorno inmediato, hasta el flujo de denuncia guiado por pasos.
+* Se utilizan microinteracciones, *snackbars* (mensajes breves) y confirmaciones visuales ("Reporte enviado con éxito") para mantener al usuario informado sobre el estado del sistema en cada transición.
+
 
 El Landing Page de UrbanVoice cubre las historias **US13 (Sección informativa)** y **US14 (Formulario de Alianzas)** del Product Backlog. Su objetivo es comunicar el valor de la plataforma a dos audiencias: ciudadanos visitantes que buscan descargar la app y visitantes institucionales (municipios, ONGs, medios) interesados en alianzas. La narrativa se construye en cinco zonas — Hero con CTA de descarga, Trust strip institucional, Features (cuatro pilares), Cómo funciona (tres pasos), Testimonios y CTA final con Footer — siguiendo un arco "promesa → prueba → acción" propio de un landing de conversión.
 
