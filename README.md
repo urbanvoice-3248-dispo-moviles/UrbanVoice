@@ -2971,7 +2971,7 @@ En nuestra aplicación UrbanVoice, buscamos ofrecer una interfaz interactiva que
 * **Información sobre la Plataforma:** Detalles institucionales sobre UrbanVoice (misión, visión, impacto esperado), además de enlaces de contacto para consultas y asistencia técnica.
 
 > **Mapa de Seguridad (Core Feature):**
-* **Categorías de Riesgo:** División del mapa mediante capas térmicas (Heatmap) categorizadas por niveles de seguridad (alto, medio, bajo) para una rápida identificación de áreas críticas.
+* **Categorías de Riesgo:** División del mapa mediante capas térmicas categorizadas por niveles de seguridad para una rápida identificación de áreas críticas.
 * **Filtros de Búsqueda:** Herramientas dinámicas para segmentar el mapa por tipos de incidentes reportados, rangos de fecha/hora y nivel de gravedad.
 * **Vista Detallada de Incidentes:** Páginas (o modales emergentes) individuales para cada incidente con descripciones completas, ubicación precisa, hora exacta y opciones para visualizar evidencias adjuntas.
 
@@ -2991,16 +2991,16 @@ En nuestra aplicación UrbanVoice, buscamos ofrecer una interfaz interactiva que
 El sistema de organización se centrará en proporcionar la mejor experiencia al usuario en cuanto a la navegación y uso de las funcionalidades en momentos críticos. Nuestra plataforma está diseñada estructuralmente para evitar la sobrecarga cognitiva.
 
 > **Categorización de la Información:**
-* **Mapa de Seguridad:** Categorizado visualmente por niveles de riesgo (alto, medio, bajo) y agrupado por clústeres de incidentes (robos, agresiones, accidentes, etc.).
+* **Mapa de Seguridad:** Categorizado visualmente por niveles de riesgo (alto, medio, bajo) y agrupado por clústeres de incidentes.
 * **Denuncias y Reportes:** Categorizado por tipología del crimen y nivel de urgencia, facilitando el triage visual y la respuesta rápida de la comunidad.
 
 > **Filtros y Búsqueda:**
-* **Filtros en el Mapa:** Permiten a los usuarios refinar la vista temporal y espacialmente (tipo de crimen, fecha, hora y nivel de riesgo).
+* **Filtros en el Mapa:** Permiten a los usuarios refinar la vista temporal y espacialmente.
 * **Búsqueda Avanzada:** Barra de búsqueda global para encontrar direcciones específicas, zonas críticas o cruzar variables de información.
 
 > **Interfaz de Usuario Intuitiva:**
-* **Menú Principal:** Navegación clara y persistente con acceso a las rutas principales (Mapa, Denunciar, Red de Confianza, Perfil).
-* **Submenús Contextuales:** Opciones secundarias que solo aparecen cuando son necesarias (ej. herramientas de dibujo en el mapa o filtros específicos al abrir la vista de reportes).
+* **Menú Principal:** Navegación clara y persistente con acceso a las rutas principales.
+* **Submenús Contextuales:** Opciones secundarias que solo aparecen cuando son necesarias.
 
 > **Funcionalidades Específicas:**
 * **Información Detallada de Incidentes:** Tarjetas de contenido expansibles que muestran la anatomía completa de un reporte (descripción, validación de la comunidad, ubicación).
@@ -3046,7 +3046,7 @@ El sistema de búsqueda (Search Engine interno) permitirá a los usuarios encont
 * Los usuarios pueden realizar consultas de texto libre como "robos en Miraflores" o "agresiones en San Isidro".
 * Se proporcionan operadores de búsqueda avanzada para filtrar de inmediato por fecha, hora, tipo de crimen y nivel de riesgo asociado.
 
-> **Búsqueda por Ubicación (Geospatial Search):**
+> **Búsqueda por Ubicación :**
 * Consultas basadas en puntos de interés  o direcciones exactas, como "incidentes en el centro de Lima".
 * Integración de geocodificación para centrar el mapa automáticamente en el distrito o calle buscada.
 
@@ -3054,11 +3054,11 @@ El sistema de búsqueda (Search Engine interno) permitirá a los usuarios encont
 * Los usuarios pueden buscar clústeres según su nivel de seguridad, filtrando directamente por "zonas de alto riesgo" o "áreas seguras".
 * La plataforma incluye un sistema de sugerencias que recomienda las rutas o zonas más seguras cercanas al usuario.
 
-> **Búsqueda Avanzada (Filtros Cruzados):**
+> **Búsqueda Avanzada :**
 * Permite combinar múltiples criterios lógicos; por ejemplo: "Robos" + "Miraflores" + "Durante la noche (20:00 - 06:00)".
 * Los resultados se presentan tanto en los pines del mapa como en una vista de lista organizada por relevancia o proximidad.
 
-> **Búsqueda por Fecha y Hora (Time-lapse):**
+> **Búsqueda por Fecha y Hora :**
 * Deslizadores (Sliders) temporales para buscar incidentes dentro de un rango específico de horas o días.
 * Permite identificar patrones, mostrando información sobre la frecuencia y "horas pico" de incidentes en determinadas zonas.
 
@@ -3068,14 +3068,14 @@ El sistema de búsqueda (Search Engine interno) permitirá a los usuarios encont
 
 El sistema de navegación de PeaceApp está diseñado para proporcionar una experiencia fluida, permitiendo a los usuarios, incluso en situaciones de pánico, encontrar rápidamente lo que necesitan.
 
-> **Menú Principal (Global Navigation):**
+> **Menú Principal:**
 * Ubicado estratégicamente (barra lateral en web, Tab Bar inferior en móvil) e incluye el imagotipo de la marca. Agrupa los enlaces a las secciones críticas: Mapa, Denuncias, Alertas y Perfil.
 * Cada ítem está acompañado de iconografía universal (Material Design/iOS Icons) y etiquetas claras para facilitar el reconocimiento visual sobre la lectura.
 
-> **Navegación Contextual (Local Navigation):**
+> **Navegación Contextual:**
 * Dentro de cada módulo, se proporcionan controles contextuales. Por ejemplo, al tocar un incidente en el mapa, se despliega un *Bottom Sheet* (panel inferior) con opciones relacionadas exclusivamente a ese reporte (ver fotos, validar, compartir).
 
-> **Botones de Acción Destacados (CTAs & FABs):**
+> **Botones de Acción Destacados:**
 * En las vistas de Inicio y Mapa, se emplea un Floating Action Button (FAB) prominente, con el color de acento primario o rojo de alerta, destinado a la acción más importante: **Reportar Incidente**.
 * Están estratégicamente anclados en la zona de fácil alcance del pulgar para asegurar una interacción rápida.
 
@@ -3083,7 +3083,7 @@ El sistema de navegación de PeaceApp está diseñado para proporcionar una expe
 * La barra de búsqueda superior (Search Bar) es persistente y visible en la pantalla del mapa en todo momento.
 * Los chips de filtros rápidos se ubican de forma horizontal debajo del buscador, permitiendo activar o desactivar capas de información con un solo toque.
 
-> **Flujo de Navegación Intuitivo (User Flow):**
+> **Flujo de Navegación Intuitivo :**
 * Se sigue una progresión lógica (Lineal y No-Lineal). Desde abrir la app y ver el entorno inmediato, hasta el flujo de denuncia guiado por pasos.
 * Se utilizan microinteracciones, *snackbars* (mensajes breves) y confirmaciones visuales ("Reporte enviado con éxito") para mantener al usuario informado sobre el estado del sistema en cada transición.
 
