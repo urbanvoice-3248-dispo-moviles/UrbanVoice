@@ -3221,3 +3221,192 @@ Cubre la configuración granular de US05. Desde su perfil el usuario accede a la
 </p>
 
 <br>
+
+# Capítulo IV: Product Implementation & Validation
+
+## 4. Product Implementation & Validation
+
+### 4.1. Software Configuration Management
+
+A continuación, presentaremos el proceso por el cual organizamos, gestionamos y controlamos los cambios en el desarrollo de este proyecto.
+
+#### 4.1.1. Software Development Environment Configuration
+
+**Requirements Management**
+
+1. **Trello:** Es una herramienta utilizada para gestionar el flujo de trabajo de proyectos principalmente basados en marcos de trabajo ágiles. Será empleado para visualizar y actualizar el estado actual de las tareas e historias de usuario pertenecientes al sprint a desarrollar.  
+   Ruta de referencia: https://trello.com/es
+
+**Product UX/UI Design**
+
+1. **Figma:** Plataforma de elaboración de prototipos y edición gráfica, principalmente utilizada para el diseño digital. En el caso del proyecto, será utilizada para el prototipado de la aplicación móvil UrbanVoice y sus versiones de wireframes y mockups.  
+   Ruta de referencia: https://www.figma.com/login
+
+2. **Miro:** Herramienta colaborativa de pizarra digital empleada para el modelado del EventStorming, Domain Message Flows y Bounded Context Canvases del diseño estratégico del sistema.  
+   Ruta de referencia: https://miro.com/
+
+**Software Development**
+
+1. **Android Studio:** Entorno de desarrollo integrado oficial para el desarrollo de aplicaciones Android nativas. Será empleado para la construcción de la aplicación móvil de UrbanVoice en Kotlin.  
+   Ruta de referencia: https://developer.android.com/studio
+
+2. **IntelliJ IDEA / Spring Boot:** Framework de desarrollo backend basado en Java. Se utilizará para construir los servicios RESTful que soportan la lógica de negocio de los bounded contexts definidos en el diseño táctico.  
+   Ruta de referencia: https://spring.io/projects/spring-boot
+
+3. **Kotlin:** Lenguaje de programación moderno para Android, utilizado para el desarrollo de la aplicación móvil nativa.  
+   Ruta de referencia: https://kotlinlang.org/
+
+4. **Java:** Lenguaje de programación principal para el desarrollo del backend con Spring Boot.  
+   Ruta de referencia: https://www.java.com/
+
+5. **PostgreSQL:** Sistema de gestión de bases de datos relacional utilizado para la persistencia de los datos de cada bounded context bajo el principio de database-per-service.  
+   Ruta de referencia: https://www.postgresql.org/
+
+6. **Git:** Herramienta de control de versiones que facilita el registro y la gestión de las distintas versiones del programa. Su propósito es mantener un historial de cambios y simplificar la corrección de errores.  
+   Ruta de referencia: https://git-scm.com/
+
+**Software Documentation and Project Management**
+
+7. **GitHub:** Plataforma en la nube que hospedará los repositorios de código del proyecto. Permitirá la colaboración en tiempo real y la revisión de contribuciones de cada miembro del equipo.  
+   Ruta de referencia: https://github.com/
+
+**Software Deployment**
+
+1. **GitHub Pages:** Servicio de alojamiento web estático utilizado para publicar el Landing Page de UrbanVoice directamente desde el repositorio de GitHub.  
+   Ruta de referencia: https://pages.github.com/
+
+2. **Firebase App Distribution:** Plataforma de distribución de aplicaciones móviles de Google, utilizada para compartir builds de la app UrbanVoice en formato `.apk` con testers y usuarios de validación.  
+   Ruta de referencia: https://firebase.google.com/products/app-distribution
+
+---
+
+#### 4.1.2. Source Code Management
+
+El proyecto seguirá las convenciones del flujo de trabajo establecido por el modelo **GitFlow** para el control de versiones, empleando GitHub como plataforma y sistema de control de versiones.
+
+**Repositorios de GitHub:**
+
+- **Organización:** https://github.com/urbanvoice-3248-dispo-moviles
+- **Repositorio del Reporte:** https://github.com/urbanvoice-3248-dispo-moviles/UrbanVoice
+- **Repositorio del Landing Page:** https://github.com/urbanvoice-3248-dispo-moviles/Landing-Page
+- **Repositorio del Backend:** https://github.com/urbanvoice-3248-dispo-moviles/Backend-UrbanVoice
+<!-- - **Repositorio de la App Móvil:** -->
+
+**Flujo de trabajo GitFlow**
+
+El flujo de trabajo implementado para el desarrollo del proyecto se basará en el modelo propuesto por Vincent Driessen en *"A successful Git branching model"*.
+
+**Estructura de branches (Ramas):**
+
+1. **Main branch (Rama principal):** Esta rama servirá como la principal para la aplicación, alojando versiones estables y finales del desarrollo. Únicamente se aceptarán cambios que hayan sido previamente probados y verificados en las ramas de feature y develop.
+
+2. **Develop branch (Rama de desarrollo):** El propósito de esta rama es facilitar los avances del proyecto en equipo y mantener los archivos centrales del desarrollo continuo.
+
+3. **Feature branch (Ramas de funcionalidad):** Cada funcionalidad o bounded context desarrollado por el equipo tendrá su propia rama. Una vez que una funcionalidad esté completamente trabajada, se fusionará con la rama de desarrollo del proyecto. Las convenciones para nombrar las ramas de funcionalidad seguirán un patrón descriptivo y único, por ejemplo, `feature/notification-management` o `feature/report-module`.
+
+---
+
+#### 4.1.3. Source Code Style Guide & Conventions
+
+**Kotlin (Android)**
+
+Algunas de las prácticas que deben seguirse para alcanzar un código coherente, sostenible y ordenado son las siguientes:
+
+1. Utilizar nombres de variables y funciones en **camelCase** y clases en **PascalCase**.
+2. Declarar las propiedades inmutables con `val` y solo usar `var` cuando sea estrictamente necesario.
+3. Preferir funciones de extensión para mejorar la legibilidad del código.
+4. Seguir las convenciones de paquetes por capas: `data`, `domain`, `presentation`, `ui`.
+5. Utilizar comentarios descriptivos en funciones complejas y documentar con KDoc las interfaces públicas.
+6. Mantener las funciones cortas y con una única responsabilidad.
+
+Referencia: [Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html)
+
+**Java / Spring Boot (Backend)**
+
+Entre las prácticas empleadas se mencionan:
+
+1. Seguir la convención de nombres estándar de Java: clases en **PascalCase**, métodos y variables en **camelCase**, constantes en **UPPER_SNAKE_CASE**.
+2. Organizar el código por bounded contexts con paquetes que reflejen las cuatro capas del DDD: `domain`, `application`, `infrastructure`, `interfaces`.
+3. Documentar las interfaces y clases públicas con Javadoc.
+4. Usar anotaciones de Spring de forma explícita: `@Service`, `@Repository`, `@Component`, `@RestController`.
+5. Mantener los controllers delgados (thin controllers): solo reciben el request y delegan en el Application Layer.
+6. Escribir pruebas unitarias para los Command Handlers y Domain Services.
+
+Referencia: [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
+
+**SQL / PostgreSQL**
+
+1. Nombrar las tablas en **snake_case** y en plural (ej. `security_alerts`, `reports`).
+2. Usar `UUID` como tipo de dato para las claves primarias.
+3. Definir restricciones `CHECK` para columnas con valores acotados.
+4. Crear índices sobre columnas de búsqueda frecuente (`author_id`, `status`, `recipient_id`).
+5. Documentar cada tabla con comentarios en el script de creación.
+
+**HTML / CSS (Landing Page)**
+
+1. Cerrar todos los elementos HTML correctamente.
+2. Declarar el tipo de documento `<!DOCTYPE html>` en la primera línea.
+3. Utilizar clases semánticas y significativas en CSS.
+4. Mantener el código en minúsculas y con sangría de 2 espacios.
+5. Eliminar espacios en blanco innecesarios y mantener comentarios explicativos.
+
+Referencia: [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
+
+---
+
+#### 4.1.4. Software Deployment Configuration
+
+**Landing Page Deployment**
+
+El Landing Page del proyecto será desplegado utilizando **GitHub Pages**, lo que permite alojar el sitio web de manera gratuita directamente desde el repositorio de GitHub, configurando la rama `main` como fuente de publicación.
+
+**Backend Deployment**
+
+El backend desarrollado en Spring Boot será desplegado en un entorno cloud. Se utilizará **Railway** o **Render** como plataforma de hosting, conectado a una instancia de **PostgreSQL** como base de datos principal. Cada bounded context mantendrá su propia base de datos bajo el principio de database-per-service.
+
+**Mobile Application Deployment**
+
+La aplicación móvil Android será distribuida durante las fases de validación a través de **Firebase App Distribution**, permitiendo a los testers descargar el `.apk` directamente. Para producción, se publicará en **Google Play Store**.
+
+---
+
+### 4.2. Landing Page & Mobile Application Implementation
+
+#### 4.2.1. Sprint 1
+
+##### 4.2.1.1. Sprint Planning 1
+
+Para este primer sprint el equipo se enfocará en los tasks para la elaboración de los productos base del proyecto: el Landing Page informativo y los primeros módulos de la aplicación móvil. Se dividirán entre los integrantes las tareas identificadas para el sprint, priorizando las historias de usuario de mayor valor para los ciudadanos.
+
+| Sprint # | Sprint 1 |
+|---|---|
+| **Sprint Planning Background** | |
+| **Date** | 22/04/2026 |
+| **Time** | 07:00 PM |
+| **Location** | Servidor de Discord del Equipo |
+| **Prepared By** | Billy Jake Ruiz Madrid |
+| **Attendees (to planning meeting)** | Ivan La Madrid / Jeremy Quijada / Billy Ruiz / Santiago Gordillo / Giorgio Awad |
+| **Sprint 1 Review Summary** | En esta primera sección se planteó el desarrollo base del proyecto UrbanVoice: Landing Page informativo y los primeros flujos de la aplicación móvil (autenticación, mapa de riesgo y reporte de incidentes). |
+| **Sprint 1 Retrospective Summary** | Todos los integrantes acordaron priorizar la calidad del diseño del Landing Page y asegurar que la arquitectura del backend soporte el patrón DDD establecido en el diseño táctico. |
+| **Sprint Goal & User Stories** | |
+| **Sprint 1 Goal** | Desarrollar y desplegar el Landing Page de UrbanVoice, implementar los endpoints base del backend (autenticación y gestión de reportes), y construir las pantallas iniciales de la app móvil (onboarding, login, registro y mapa). El éxito se logrará cuando el Landing Page esté publicado, el backend responda a los endpoints definidos y la app móvil muestre el mapa con datos simulados. |
+| **Sprint 1 Velocity** | 36 Velocity |
+| **Sum of Story Points** | 36 Story Points |
+
+---
+
+##### 4.2.1.2. Sprint Backlog 1
+
+| # Orden | User Story ID | Título | Descripción | Story Points | Estimation (hours) | Assigned To | Status |
+|:---:|:---:|---|---|:---:|:---:|---|:---:|
+| 1 | US13 | Sección informativa en Landing Page | Como visitante, deseo ver las funciones de UrbanVoice para conocer su valor y decidir si la descargo. | 2 | 4 | Santiago Gordillo | Done |
+| 2 | US14 | Formulario de Alianzas | Como visitante institucional, deseo enviar una solicitud de contacto para proponer alianzas con UrbanVoice. | 1 | 2 | Santiago Gordillo | Done |
+| 3 | TS01 | Endpoints de REST API | Como desarrollador, deseo crear los servicios web para el manejo de incidentes con respuestas correctas (201, 400, 404). | 3 | 6 | Ivan La Madrid | Done |
+| 4 | TS02 | Integración de Seguridad JWT | Como desarrollador, deseo implementar autenticación basada en tokens JWT para proteger los endpoints de la API. | 3 | 5 | Ivan La Madrid | Done |
+| 5 | US01 | Visualización de mapa de riesgo | Como ciudadano, deseo visualizar un mapa con zonas de riesgo para evitar transitar por lugares peligrosos. | 5 | 8 | Billy Ruiz | In Progress |
+| 6 | US02 | Registro de incidente | Como ciudadano, deseo reportar un incidente de inseguridad con mi ubicación para alertar a otros. | 5 | 8 | Billy Ruiz | In Progress |
+| 7 | US03 | Evidencia multimedia | Como ciudadano, deseo adjuntar evidencia (foto, audio o video) para dar credibilidad al reporte. | 5 | 6 | Giorgio Awad | In Progress |
+| 8 | US04 | Reporte anónimo | Como ciudadano, deseo realizar reportes de forma anónima para proteger mi identidad. | 3 | 4 | Giorgio Awad | Done |
+| 9 | US13 (Auth) | Pantallas de Onboarding y Login | Como ciudadano nuevo, deseo pasar por un flujo de bienvenida y luego iniciar sesión o registrarme fácilmente. | 5 | 8 | Jeremy Quijada | Done |
+| 10 | US14 (Auth) | Pantalla de Registro de cuenta | Como ciudadano, deseo crear una cuenta en UrbanVoice para acceder a todas las funcionalidades de la app. | 3 | 5 | Jeremy Quijada | Done |
+| 11 | US06 | Consulta de rutas seguras | Como ciudadano, deseo consultar rutas entre dos puntos para reducir mi exposición a zonas de riesgo. | 5 | 8 | Ivan La Madrid | To Do |
