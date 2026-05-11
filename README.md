@@ -3262,6 +3262,11 @@ Cubre la configuración granular de US05. Desde su perfil el usuario accede a la
 ### Atención de alerta
 <img src="assets/flows/03-atencion-de-alerta.png"/><br/>
 
+#### 3.1.4.5. Mobile Applications Prototyping 
+
+El prototipo de la aplicación móvil de UrbanVoice fue desarrollado a partir de las pantallas diseñadas previamente. Su propósito es mostrar cómo sería la navegación principal de la aplicación antes de iniciar la implementación.
+
+Enlace del prototipo: [[UrbanVoice](https://stitch.withgoogle.com/preview/14344472304506913570?node-id=41b9a44fbe08432b91e33a1f16d047ba)]
 
 # Capítulo IV: Product Implementation & Validation
 
