@@ -23,7 +23,7 @@
   <p> Nombre del Producto: UrbanVoice </p>
   <br>
   <p> Relación de Integrantes: </p>
-  <p>  - Ivan La Madrid - (u). </p>
+  <p>  - Ivan La Madrid - (u202113432). </p>
   <p>  - Quijada Magro, Jeremy Alexander (u202219657). </p>
   <p>  - Ruiz Madrid, Billy Jake (u202116401) </p>
   <p>  - Gordillo Ramos, Santiago Alonso (u202215160) </p>
@@ -301,11 +301,6 @@ Además, UrbamVoice ofrece una función adicional: compartir la ubicación en ti
 <col style="width: 34%" />
 </colgroup>
 <thead>
-<tr class="even">
-<td><p><strong>Nombre:</strong> Integrante</p>
-<p><strong> Contenido </strong></p></td>
-<td><img src="assets/"/></td>
-</tr>
 <tr class="even">
 <td><p><strong>Nombre:</strong> Jeremy Quijada Magro (U202219657)</p>
 <p><strong> Mi nombre es Jeremy, me gusta el analisis de sistemas  y me gustaria especializarme en el area de calidad. </strong></p></td>
@@ -749,25 +744,7 @@ Para el registro inicial y perfilamiento del entrevistado, se solicitarán los s
 
 ### 2.2.2. Registro de entrevistas 
 
-**URL de todas las entrevistas:** 
-
 **Entrevista N°1:**
-
-
-**Timing:** 
-
-**Nombre:** 
-
-**Edad:** 
-
-**Pasatiempos:** 
-
-**Ocupación:** 
-
-Resumen . 
-
-
-**Entrevista N°2:**
 
 ![Entrevista3](assets/Entrevista3.png)
 
@@ -787,7 +764,7 @@ La entrevistada no se siente segura en lugares donde no hay mucha iluminación y
 
 A continuación, se presenta la síntesis de los datos obtenidos durante la fase de entrevistas, categorizando las preocupaciones principales, los factores del entorno y las funcionalidades priorizadas por el segmento objetivo.
 
-#### Cuadro 1: Factores de Inseguridad Identificados
+#### Factores de Inseguridad Identificados
 | Categoría | Hallazgo del Usuario | Impacto en la Percepción |
 | :--- | :--- | :--- |
 | **Zonas Críticas** | Áreas cercanas a universidades y parques públicos. | Alta sensación de vulnerabilidad en trayectos cotidianos. |
@@ -795,7 +772,7 @@ A continuación, se presenta la síntesis de los datos obtenidos durante la fase
 | **Vigilancia** | Escasa presencia de autoridades o seguridad privada. | Sensación de abandono ante posibles incidentes. |
 | **Experiencia Social** | Alta frecuencia como testigos de actos delictivos en su entorno. | Necesidad apremiante de soluciones tecnológicas de mitigación. |
 
-#### Cuadro 2: Requerimientos y Funcionalidades Prioritarias
+#### Requerimientos y Funcionalidades Prioritarias
 | Requerimiento | Descripción Técnica / Interés del Usuario | Valor Agregado Identificado |
 | :--- | :--- | :--- |
 | **Reportes en Tiempo Real** | Capacidad de registrar incidencias de forma inmediata y sencilla. | Mecanismo de alerta ciudadana y facilitador para autoridades. |
@@ -803,7 +780,7 @@ A continuación, se presenta la síntesis de los datos obtenidos durante la fase
 | **Seguimiento en Vivo** |Compartir ubicación en tiempo real con red de contactos. | Incremento de la tranquilidad durante desplazamientos críticos. |
 | **Privacidad / Anonimato** | Opción de reportar y compartir ubicación sin revelar identidad. | Mitigación de temor a represalias y protección de datos. |
 
-#### Cuadro 3: Disposición Tecnológica y Barreras
+#### Disposición Tecnológica y Barreras
 | Dimensión | Estado Actual | Observación de los Entrevistados |
 | :--- | :--- | :--- |
 | **Confianza Digital** | Media / Alta. | Los usuarios ya utilizan apps de mapas para informarse (tráfico/accidentes). |
@@ -3266,6 +3243,8 @@ Cubre la configuración granular de US05. Desde su perfil el usuario accede a la
 
 El prototipo de la aplicación móvil de UrbanVoice fue desarrollado a partir de las pantallas diseñadas previamente. Su propósito es mostrar cómo sería la navegación principal de la aplicación antes de iniciar la implementación.
 
+<img src="assets/Prototipo.png"/><br/>
+
 Enlace del prototipo: [[UrbanVoice](https://stitch.withgoogle.com/preview/14344472304506913570?node-id=41b9a44fbe08432b91e33a1f16d047ba)]
 
 # Capítulo IV: Product Implementation & Validation
@@ -3448,11 +3427,89 @@ Para este primer sprint el equipo se enfocará en los tasks para la elaboración
 | 1 | US13 | Sección informativa en Landing Page | Como visitante, deseo ver las funciones de UrbanVoice para conocer su valor y decidir si la descargo. | 2 | 4 | Santiago Gordillo | Done |
 | 2 | US14 | Formulario de Alianzas | Como visitante institucional, deseo enviar una solicitud de contacto para proponer alianzas con UrbanVoice. | 1 | 2 | Santiago Gordillo | Done |
 | 3 | TS01 | Endpoints de REST API | Como desarrollador, deseo crear los servicios web para el manejo de incidentes con respuestas correctas (201, 400, 404). | 3 | 6 | Ivan La Madrid | Done |
-| 4 | TS02 | Integración de Seguridad JWT | Como desarrollador, deseo implementar autenticación basada en tokens JWT para proteger los endpoints de la API. | 3 | 5 | Ivan La Madrid | Done |
-| 5 | US01 | Visualización de mapa de riesgo | Como ciudadano, deseo visualizar un mapa con zonas de riesgo para evitar transitar por lugares peligrosos. | 5 | 8 | Billy Ruiz | In Progress |
-| 6 | US02 | Registro de incidente | Como ciudadano, deseo reportar un incidente de inseguridad con mi ubicación para alertar a otros. | 5 | 8 | Billy Ruiz | In Progress |
-| 7 | US03 | Evidencia multimedia | Como ciudadano, deseo adjuntar evidencia (foto, audio o video) para dar credibilidad al reporte. | 5 | 6 | Giorgio Awad | In Progress |
-| 8 | US04 | Reporte anónimo | Como ciudadano, deseo realizar reportes de forma anónima para proteger mi identidad. | 3 | 4 | Giorgio Awad | Done |
-| 9 | US13 (Auth) | Pantallas de Onboarding y Login | Como ciudadano nuevo, deseo pasar por un flujo de bienvenida y luego iniciar sesión o registrarme fácilmente. | 5 | 8 | Jeremy Quijada | Done |
-| 10 | US14 (Auth) | Pantalla de Registro de cuenta | Como ciudadano, deseo crear una cuenta en UrbanVoice para acceder a todas las funcionalidades de la app. | 3 | 5 | Jeremy Quijada | Done |
-| 11 | US06 | Consulta de rutas seguras | Como ciudadano, deseo consultar rutas entre dos puntos para reducir mi exposición a zonas de riesgo. | 5 | 8 | Ivan La Madrid | To Do |
+| 4 | US01 | Visualización de mapa de riesgo | Como ciudadano, deseo visualizar un mapa con zonas de riesgo para evitar transitar por lugares peligrosos. | 5 | 8 | Billy Ruiz | In Progress |
+| 5 | US02 | Registro de incidente | Como ciudadano, deseo reportar un incidente de inseguridad con mi ubicación para alertar a otros. | 5 | 8 | Billy Ruiz | In Progress |
+| 6 | US03 | Evidencia multimedia | Como ciudadano, deseo adjuntar evidencia (foto, audio o video) para dar credibilidad al reporte. | 5 | 6 | Giorgio Awad | In Progress |
+| 7 | US04 | Reporte anónimo | Como ciudadano, deseo realizar reportes de forma anónima para proteger mi identidad. | 3 | 4 | Giorgio Awad | Done |
+| 8 | US06 | Consulta de rutas seguras | Como ciudadano, deseo consultar rutas entre dos puntos para reducir mi exposición a zonas de riesgo. | 5 | 8 | Ivan La Madrid | To Do |
+
+
+##### 4.2.1.3. Development Evidence for Sprint Review 
+
+Durante este Sprint, se lograron avances significativos en la implementación de la landing page UrbanVoice, destacando la creación del frontend usando HTML, un diseño responsivo y estilizado con CSS, y la incorporación de funcionalidades dinámicas mediante JavaScript. Realizado en el periado de 11 de Abril al 11 de Mayo.
+
+| Repository | Branch | CommitID | Commit Message | Commit On |
+|------------|--------|----------|----------------|-----------|
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 9b667eb | Add mobile applications prototyping | 09/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | b6478a2 | Add files via upload | 09/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | f19c5d6 | Add mobile applications user flow diagrams | 09/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | f5e2f49 | Update mockup image filenames | 09/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 54be945 | Add mobile applications mock-ups section | 09/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 81ebbfa | Add files via upload | 09/05/2026 |
+| BillyJakeRuizMadrid/urbanvoice-3248-dispo-moviles | main | 1ec89c8 | docs(chapter4): add sprint 1. | 08/05/2026 |
+| SantiagoGR14/urbanvoice-3248-dispo-moviles | main | f324044 | Refine descriptions in README for clarity | 07/05/2026 |
+| SantiagoGR14/urbanvoice-3248-dispo-moviles | main | 7a04155 | Update README with style guidelines and architecture | 07/05/2026 |
+| GiorgioAwad/urbanvoice-3248-dispo-moviles | main | 696a122 | Capitulo III: Landing Page UI Design, Wirefram, mock-up, UX/UI design, wireframes, wireflow diagrams | 06/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | e0a6a7a | Merge pull request #6 feat/-correcciones-avance-1 | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | 1b72c54 | fix: 5w 2 h | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | a933bc5 | Merge pull request #5 feat/-correcciones-avance-1 | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | 576fa1f | fix: Corrigiendo user stories / product backlog | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | c86cc51 | On Avance-1: !!GitHub_Desktop<Avance-1> | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | 0dad32e | index on Avance-1: 731120d feat/ Location-managment | 05/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 23cd78e | Revise spike stories for clarity and focus | 04/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 800c489 | Remove prioritization section for Spike Stories | 04/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 0cce7b6 | Add Spike Stories for UrbanVoice development | 04/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | 0671e4c | Merge pull request #4 Avance-1 | 20/04/2026 |
+
+##### 4.2.1.4. Testing Suite Evidence for Sprint Review 
+
+
+##### 4.2.1.5. Execution Evidence for Sprint Review 
+
+En este sprint, la Landing Page logró cubrir de manera completa las funcionalidades básicas de navegación, búsqueda y presentación de información, cumpliendo con los criterios definidos en el backlog. Además, se avanzo con el backend a un 70% de la funcionalidad requerida, lo que permitió obtener un gran avance en la implementación de los endpoints.
+
+Enlace de la Landing Page desplegada: 
+
+###### Capturas de la Landing Page:
+
+**Presentacion:**
+<img src="assets/LandingPage-1.png"/><br/>
+
+**Funcionalidades:**
+<img src="assets/LandingPage-2.png"/><br/>
+
+**Footer:**
+<img src="assets/LandingPage-3.png"/><br/>
+
+###### Capturas del backend:
+
+
+
+##### 4.2.1.6. Services Documentation Evidence for Sprint Review 
+
+##### 4.2.1.7. Software Deployment Evidence for Sprint Review 
+
+
+
+##### 4.2.1.8. Team Collaboration Insights during Sprint 
+
+
+## Conclusiones
+
+### Conclusiones y recomendaciones
+
+## Anexo
+
+**Repositorio Report:**  https://github.com/urbanvoice-3248-dispo-moviles/UrbanVoice
+
+**Repositorio Landing Page:** https://github.com/urbanvoice-3248-dispo-moviles/Landing-Page
+
+**Repositorio BackEnd:** https://github.com/urbanvoice-3248-dispo-moviles/Backend-UrbanVoice
+
+**Enlace Deploy Landing Page:** 
+
+**Enlace Deploy Backend:**  
+
+
+
+
