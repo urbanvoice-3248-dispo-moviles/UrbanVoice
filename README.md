@@ -3251,6 +3251,18 @@ Cubre la configuración granular de US05. Desde su perfil el usuario accede a la
   </tr>
 </table>
 
+#### 3.1.4.4. Mobile Applications User Flow Diagrams 
+
+### Primer acceso del usuario
+<img src="assets/flows/01-primer-acceso.png"/><br/>
+
+### Reporte ciudadano
+<img src="assets/flows/02-reporte-ciudadano.png"/><br/>
+
+### Atención de alerta
+<img src="assets/flows/03-atencion-de-alerta.png"/><br/>
+
+
 # Capítulo IV: Product Implementation & Validation
 
 ## 4. Product Implementation & Validation
