@@ -23,7 +23,7 @@
   <p> Nombre del Producto: UrbanVoice </p>
   <br>
   <p> Relación de Integrantes: </p>
-  <p>  - Ivan La Madrid - (u). </p>
+  <p>  - Ivan La Madrid - (u202113432). </p>
   <p>  - Quijada Magro, Jeremy Alexander (u202219657). </p>
   <p>  - Ruiz Madrid, Billy Jake (u202116401) </p>
   <p>  - Gordillo Ramos, Santiago Alonso (u202215160) </p>
@@ -301,11 +301,6 @@ Además, UrbamVoice ofrece una función adicional: compartir la ubicación en ti
 <col style="width: 34%" />
 </colgroup>
 <thead>
-<tr class="even">
-<td><p><strong>Nombre:</strong> Integrante</p>
-<p><strong> Contenido </strong></p></td>
-<td><img src="assets/"/></td>
-</tr>
 <tr class="even">
 <td><p><strong>Nombre:</strong> Jeremy Quijada Magro (U202219657)</p>
 <p><strong> Mi nombre es Jeremy, me gusta el analisis de sistemas  y me gustaria especializarme en el area de calidad. </strong></p></td>
@@ -749,25 +744,7 @@ Para el registro inicial y perfilamiento del entrevistado, se solicitarán los s
 
 ### 2.2.2. Registro de entrevistas 
 
-**URL de todas las entrevistas:** 
-
 **Entrevista N°1:**
-
-
-**Timing:** 
-
-**Nombre:** 
-
-**Edad:** 
-
-**Pasatiempos:** 
-
-**Ocupación:** 
-
-Resumen . 
-
-
-**Entrevista N°2:**
 
 ![Entrevista3](assets/Entrevista3.png)
 
@@ -787,7 +764,7 @@ La entrevistada no se siente segura en lugares donde no hay mucha iluminación y
 
 A continuación, se presenta la síntesis de los datos obtenidos durante la fase de entrevistas, categorizando las preocupaciones principales, los factores del entorno y las funcionalidades priorizadas por el segmento objetivo.
 
-#### Cuadro 1: Factores de Inseguridad Identificados
+#### Factores de Inseguridad Identificados
 | Categoría | Hallazgo del Usuario | Impacto en la Percepción |
 | :--- | :--- | :--- |
 | **Zonas Críticas** | Áreas cercanas a universidades y parques públicos. | Alta sensación de vulnerabilidad en trayectos cotidianos. |
@@ -795,7 +772,7 @@ A continuación, se presenta la síntesis de los datos obtenidos durante la fase
 | **Vigilancia** | Escasa presencia de autoridades o seguridad privada. | Sensación de abandono ante posibles incidentes. |
 | **Experiencia Social** | Alta frecuencia como testigos de actos delictivos en su entorno. | Necesidad apremiante de soluciones tecnológicas de mitigación. |
 
-#### Cuadro 2: Requerimientos y Funcionalidades Prioritarias
+#### Requerimientos y Funcionalidades Prioritarias
 | Requerimiento | Descripción Técnica / Interés del Usuario | Valor Agregado Identificado |
 | :--- | :--- | :--- |
 | **Reportes en Tiempo Real** | Capacidad de registrar incidencias de forma inmediata y sencilla. | Mecanismo de alerta ciudadana y facilitador para autoridades. |
@@ -803,7 +780,7 @@ A continuación, se presenta la síntesis de los datos obtenidos durante la fase
 | **Seguimiento en Vivo** |Compartir ubicación en tiempo real con red de contactos. | Incremento de la tranquilidad durante desplazamientos críticos. |
 | **Privacidad / Anonimato** | Opción de reportar y compartir ubicación sin revelar identidad. | Mitigación de temor a represalias y protección de datos. |
 
-#### Cuadro 3: Disposición Tecnológica y Barreras
+#### Disposición Tecnológica y Barreras
 | Dimensión | Estado Actual | Observación de los Entrevistados |
 | :--- | :--- | :--- |
 | **Confianza Digital** | Media / Alta. | Los usuarios ya utilizan apps de mapas para informarse (tráfico/accidentes). |
@@ -2936,3 +2913,700 @@ Por otro lado, la tabla `location_share_sessions` persiste los datos de tracking
   <td><img src="assets/Data-Base-Notification-Managment.jpeg"/></td>
 </p>
 <br>
+
+# Capítulo III: Solution UX/UI Design
+
+## 3.1. Style Guidelines
+
+UrbanVoice es una plataforma de seguridad ciudadana para Lima Metropolitana, por lo que la identidad visual prioriza **confianza institucional** y **claridad operativa**. La paleta se construye sobre un azul institucional (`#0062FF`) que comunica seriedad y respaldo, complementado por una escala funcional de alertas: rojo (`#DC2626`) para riesgo alto, ámbar (`#F59E0B`) para advertencias y verde (`#10B981`) para zonas seguras y confirmaciones positivas. La tipografía combina Geist (headings, geométrica y técnica), Inter (body, alta legibilidad) y Geist Mono (datos y metadatos), todas sans-serif modernas. Los componentes usan radios suaves (8–20 px) para tarjetas y forma píldora para acciones primarias, con elevación sutil mediante sombras de baja intensidad.
+
+A continuación se muestra el design system base con los tokens de color y los nueve componentes reutilizables (StatusBar, TabBar, BtnPrimary, BtnSecondary, Input, IncidentCard, AlertBanner, FAB, Chip) que se aplican a todas las pantallas de la app móvil:
+
+<p align="center">
+  <img src="assets/ui/overview/00-design-system.png" alt="UrbanVoice — Design System" width="900"/>
+</p>
+
+### 3.1.1.1. General Style Guidelines 
+
+* **Branding:** Nuestro logo refleja de manera sencilla y memorable el espíritu de UrbanVoice. Buscamos que sea un distintivo fácil de recordar, que transmita la misma seguridad que ofrecemos en cada trayecto.
+* **Typography:** La jerarquía tipográfica está dividida funcionalmente:
+    * **Lora:** Utilizada para nuestro logotipo y encabezados principales (Headings). Es una fuente serif que refleja un estilo elegante, simple y moderno, promoviendo una atmósfera de innovación y seriedad.
+    * **Poppins:** Utilizada para el cuerpo de texto (Body), botones y el resto de la interfaz (UI). Es una fuente sans-serif geométrica que garantiza una alta legibilidad en pantallas móviles y web, facilitando la interacción rápida en momentos de estrés o urgencia.
+* **Colors:** Continuando con el objetivo de brindar una imagen que influya principalmente confianza y seguridad, hemos optado por una paleta de colores que transmite calma, estabilidad y profesionalismo.
+    * **Primary (Azules Institucionales):** Tonos de azul profundo hasta llegar a variantes más claras o blanco. Esta combinación manifiesta el objetivo de nuestro proyecto y crea una atmósfera de serenidad y sofisticación.
+    * **Semantic / Alerts:** Para el mapa y los incidentes, se integran colores funcionales universales: Rojo (Riesgo alto/Denuncias graves), Ámbar (Precaución/Zonas medias) y Verde (Zonas seguras/Acciones exitosas).
+
+---
+
+## 3.1.2. Information Architecture
+
+En nuestra aplicación UrbanVoice, buscamos ofrecer una interfaz interactiva que inspire confianza y seguridad a nuestros usuarios. Teniendo como enfoque principal la seguridad ciudadana del Perú, esta prioridad debe estar presente en cada paso de la experiencia de usuario. Una parte esencial es la correcta administración de la arquitectura de la información, estructurada de la siguiente manera:
+
+> **Página de Inicio (Home / Landing):**
+* **Mapa Interactivo:** Sección central que muestra un mapa con los niveles de seguridad en diferentes zonas, permitiendo a los usuarios identificar áreas seguras e inseguras a un solo vistazo.
+* **Opciones de Denuncia (CTA):** Enlace y acceso rápido a la funcionalidad de reporte, donde los usuarios pueden registrar crímenes o incidentes de manera pública o anónima.
+* **Información sobre la Plataforma:** Detalles institucionales sobre UrbanVoice (misión, visión, impacto esperado), además de enlaces de contacto para consultas y asistencia técnica.
+
+> **Mapa de Seguridad (Core Feature):**
+* **Categorías de Riesgo:** División del mapa mediante capas térmicas categorizadas por niveles de seguridad para una rápida identificación de áreas críticas.
+* **Filtros de Búsqueda:** Herramientas dinámicas para segmentar el mapa por tipos de incidentes reportados, rangos de fecha/hora y nivel de gravedad.
+* **Vista Detallada de Incidentes:** Páginas (o modales emergentes) individuales para cada incidente con descripciones completas, ubicación precisa, hora exacta y opciones para visualizar evidencias adjuntas.
+
+> **Denuncia de Crímenes (Reporting Flow):**
+* **Herramienta de Denuncia:** Interfaz intuitiva y guiada paso a paso para reportar incidentes. Permite seleccionar la categoría, adjuntar evidencia multimedia (fotos, videos, audios) y elegir la visibilidad.
+* **Vista Previa en Tiempo Real:** Pantalla de confirmación para previsualizar el reporte y validar que los datos y ubicación sean correctos antes de la publicación final.
+* **Geolocalización Automática:** Selección asistida de la ubicación del incidente mediante el GPS del dispositivo o marcación manual en el mapa interactivo.
+
+> **Registro y Perfil (User Onboarding):**
+* **Registro de Usuarios:** Formulario de fricción mínima para la creación de cuentas (nombre, correo electrónico, número de teléfono y contraseña).
+* **Registro de Contactos de Confianza:** Opción vital para que los usuarios vinculen a familiares o amigos con quienes compartirán su ubicación en tiempo real ante situaciones de riesgo.
+
+---
+
+### 3.1.2.1. Organization Systems 
+
+El sistema de organización se centrará en proporcionar la mejor experiencia al usuario en cuanto a la navegación y uso de las funcionalidades en momentos críticos. Nuestra plataforma está diseñada estructuralmente para evitar la sobrecarga cognitiva.
+
+> **Categorización de la Información:**
+* **Mapa de Seguridad:** Categorizado visualmente por niveles de riesgo (alto, medio, bajo) y agrupado por clústeres de incidentes.
+* **Denuncias y Reportes:** Categorizado por tipología del crimen y nivel de urgencia, facilitando el triage visual y la respuesta rápida de la comunidad.
+
+> **Filtros y Búsqueda:**
+* **Filtros en el Mapa:** Permiten a los usuarios refinar la vista temporal y espacialmente.
+* **Búsqueda Avanzada:** Barra de búsqueda global para encontrar direcciones específicas, zonas críticas o cruzar variables de información.
+
+> **Interfaz de Usuario Intuitiva:**
+* **Menú Principal:** Navegación clara y persistente con acceso a las rutas principales.
+* **Submenús Contextuales:** Opciones secundarias que solo aparecen cuando son necesarias.
+
+> **Funcionalidades Específicas:**
+* **Información Detallada de Incidentes:** Tarjetas de contenido expansibles que muestran la anatomía completa de un reporte (descripción, validación de la comunidad, ubicación).
+
+---
+
+### 3.1.2.2. Labelling Systems 
+
+Consideramos que la mejor opción para reducir la curva de aprendizaje es a través de un sistema de etiquetado claro, universal y libre de ambigüedades. Utilizaremos etiquetas concisas para describir cada funcionalidad.
+
+Ejemplos de etiquetas clave incluirán:
+* **Mapa de zonas de riesgo** 
+* **Reportar Incidente** 
+* **Detalle del Reporte** 
+* **Mi Red de Confianza** 
+* **Compartir mi ubicación** 
+
+---
+
+### 3.1.2.3. SEO Tags and Meta Tags 
+
+Nuestros SEO Tags y Meta Tags están optimizados para el posicionamiento orgánico, asegurando que los ciudadanos encuentren la plataforma cuando busquen herramientas de seguridad en el Perú.
+
+> **Landing Page:**
+* **Title:** UrbanVoice — Tu ciudad más segura en tiempo real
+* **Description:** Descubre UrbanVoice, la red ciudadana que te permite visualizar mapas de riesgo, reportar incidentes y proteger a los tuyos con tu red de confianza.
+* **Keywords:** Seguridad ciudadana, Mapa de calor, Incidentes, Policía, Prevención, App de seguridad, Perú.
+* **Authors:** UrbanVoice Team
+
+> **Web Application:**
+* **Title:** UrbanVoice | Mapa de Seguridad
+* **Description:** Plataforma oficial de UrbanVoice. Monitorea alertas geolocalizadas y reportes ciudadanos en tiempo real para planificar rutas seguras.
+* **Keywords:** Mapa interactivo, Zonas seguras, Accidentes, Denuncias anónimas, Lima, Seguridad.
+* **Authors:** UrbanVoice Team
+
+---
+
+### 3.1.2.4. Searching Systems 
+
+El sistema de búsqueda (Search Engine interno) permitirá a los usuarios encontrar y filtrar información relevante de manera granular, adaptándose a diferentes escenarios de uso:
+
+> **Búsqueda por Incidente:**
+* Los usuarios pueden realizar consultas de texto libre como "robos en Miraflores" o "agresiones en San Isidro".
+* Se proporcionan operadores de búsqueda avanzada para filtrar de inmediato por fecha, hora, tipo de crimen y nivel de riesgo asociado.
+
+> **Búsqueda por Ubicación :**
+* Consultas basadas en puntos de interés  o direcciones exactas, como "incidentes en el centro de Lima".
+* Integración de geocodificación para centrar el mapa automáticamente en el distrito o calle buscada.
+
+> **Búsqueda por Nivel de Seguridad:**
+* Los usuarios pueden buscar clústeres según su nivel de seguridad, filtrando directamente por "zonas de alto riesgo" o "áreas seguras".
+* La plataforma incluye un sistema de sugerencias que recomienda las rutas o zonas más seguras cercanas al usuario.
+
+> **Búsqueda Avanzada :**
+* Permite combinar múltiples criterios lógicos; por ejemplo: "Robos" + "Miraflores" + "Durante la noche (20:00 - 06:00)".
+* Los resultados se presentan tanto en los pines del mapa como en una vista de lista organizada por relevancia o proximidad.
+
+> **Búsqueda por Fecha y Hora :**
+* Deslizadores (Sliders) temporales para buscar incidentes dentro de un rango específico de horas o días.
+* Permite identificar patrones, mostrando información sobre la frecuencia y "horas pico" de incidentes en determinadas zonas.
+
+---
+
+### 3.1.2.5. Navigation Systems
+
+El sistema de navegación de PeaceApp está diseñado para proporcionar una experiencia fluida, permitiendo a los usuarios, incluso en situaciones de pánico, encontrar rápidamente lo que necesitan.
+
+> **Menú Principal:**
+* Ubicado estratégicamente (barra lateral en web, Tab Bar inferior en móvil) e incluye el imagotipo de la marca. Agrupa los enlaces a las secciones críticas: Mapa, Denuncias, Alertas y Perfil.
+* Cada ítem está acompañado de iconografía universal (Material Design/iOS Icons) y etiquetas claras para facilitar el reconocimiento visual sobre la lectura.
+
+> **Navegación Contextual:**
+* Dentro de cada módulo, se proporcionan controles contextuales. Por ejemplo, al tocar un incidente en el mapa, se despliega un *Bottom Sheet* (panel inferior) con opciones relacionadas exclusivamente a ese reporte (ver fotos, validar, compartir).
+
+> **Botones de Acción Destacados:**
+* En las vistas de Inicio y Mapa, se emplea un Floating Action Button (FAB) prominente, con el color de acento primario o rojo de alerta, destinado a la acción más importante: **Reportar Incidente**.
+* Están estratégicamente anclados en la zona de fácil alcance del pulgar para asegurar una interacción rápida.
+
+> **Búsqueda y Filtros Visibles:**
+* La barra de búsqueda superior (Search Bar) es persistente y visible en la pantalla del mapa en todo momento.
+* Los chips de filtros rápidos se ubican de forma horizontal debajo del buscador, permitiendo activar o desactivar capas de información con un solo toque.
+
+> **Flujo de Navegación Intuitivo :**
+* Se sigue una progresión lógica (Lineal y No-Lineal). Desde abrir la app y ver el entorno inmediato, hasta el flujo de denuncia guiado por pasos.
+* Se utilizan microinteracciones, *snackbars* (mensajes breves) y confirmaciones visuales ("Reporte enviado con éxito") para mantener al usuario informado sobre el estado del sistema en cada transición.
+
+
+El Landing Page de UrbanVoice cubre las historias **US13 (Sección informativa)** y **US14 (Formulario de Alianzas)** del Product Backlog. Su objetivo es comunicar el valor de la plataforma a dos audiencias: ciudadanos visitantes que buscan descargar la app y visitantes institucionales (municipios, ONGs, medios) interesados en alianzas. La narrativa se construye en cinco zonas — Hero con CTA de descarga, Trust strip institucional, Features (cuatro pilares), Cómo funciona (tres pasos), Testimonios y CTA final con Footer — siguiendo un arco "promesa → prueba → acción" propio de un landing de conversión.
+
+#### 3.1.3.1. Landing Page Wireframe
+
+El wireframe en baja fidelidad (lo-fi) define la jerarquía estructural del landing antes de aplicar la identidad visual. Se decidieron las proporciones del hero (texto a la izquierda, mockup de app a la derecha), la grilla de features 2×2 para mostrar las cuatro funcionalidades clave (Mapa de riesgo, Reporte ciudadano, Alertas geolocalizadas, Red de confianza), la disposición horizontal de los tres pasos del flujo de uso, y el patrón de tres testimonios en línea. El footer agrupa enlaces en columnas estándar y termina con el CTA dual de descarga (App Store + Google Play).
+
+<p align="center">
+  <img src="assets/ui/landing/landing-lofi.png" alt="UrbanVoice Landing Page — Wireframe (Lo-fi)" width="900"/>
+</p>
+
+#### 3.1.3.2. Landing Page Mock-up
+
+El mockup en alta fidelidad (hi-fi) materializa el wireframe con la identidad visual completa de UrbanVoice. El hero usa un gradiente azul institucional profundo (`#0A1430` → `#1E40AF`) que evoca seriedad y respaldo cívico, contraste contra el cual la pill "En vivo · 1,247 reportes hoy" con punto rojo pulsante refuerza la sensación de plataforma activa en tiempo real. El mockup de la app a la derecha muestra el heatmap real con pins de incidente y un alert banner, comunicando inmediatamente qué hace el producto. Las cuatro tarjetas bento alternan superficies oscuras institucionales y claras tonales para crear ritmo visual; cada una incorpora un mini-componente de UI extraído de la app (banner de alerta, toggle de anonimato, avatares de la red) como prueba de funcionalidad. Los testimonios incluyen una tarjeta destacada en azul institucional, y el bloque CTA final cierra con descarga + tres tags de confianza (datos cifrados, modo anónimo, sin venta de datos).
+
+<p align="center">
+  <img src="assets/ui/landing/landing-hifi.jpeg" alt="UrbanVoice Landing Page — Mock-up (Hi-fi)" width="900"/>
+</p>
+
+### 3.1.4. Mobile Applications UX/UI Design
+
+La aplicación móvil cubre el flujo completo del ciudadano y del contacto de confianza para las historias **US01–US10**. Se diseñaron 15 pantallas organizadas en cuatro agrupaciones funcionales: **Onboarding y Autenticación** (Splash, 3 slides de walkthrough, Login, Registro, Recuperación de contraseña), **Núcleo Operativo** (Home con mapa de zonas de riesgo, Crear Reporte con evidencia multimedia, Detalle de Incidente con votación comunitaria), y **Configuración Personal** (Perfil, Edición de Perfil, Configuración de Alertas de Proximidad, Red de Confianza, Notificaciones). Todas las pantallas siguen las pautas de Material/iOS — status bar de 62 px, contenido en wrapper único con padding consistente y, donde aplique, una pill-style Tab Bar de 4 destinos como barra inferior persistente.
+
+#### 3.1.4.1. Mobile Applications Wireframes
+
+Los wireframes en baja fidelidad establecen estructura, jerarquía y zonas táctiles antes de aplicar la identidad visual. Cada pantalla se diseñó con un device frame de 320 × 680 px usando placeholders grises para áreas dinámicas y etiquetas monoespaciadas describiendo cada bloque. Los siguientes son los 15 wireframes agrupados por flujo:
+
+**Onboarding y Autenticación**
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-wireframes/01-splash.png" width="180"/><br/><sub>01 · Splash</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/02-onboarding-1.png" width="180"/><br/><sub>02 · Onboarding 1/3</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/03-onboarding-2.png" width="180"/><br/><sub>03 · Onboarding 2/3</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/04-onboarding-3.png" width="180"/><br/><sub>04 · Onboarding 3/3</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-wireframes/05-login.png" width="180"/><br/><sub>05 · Login</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/06-register.png" width="180"/><br/><sub>06 · Registro</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/07-recover.png" width="180"/><br/><sub>07 · Recuperar contraseña</sub></td>
+    <td align="center"></td>
+  </tr>
+</table>
+
+**Núcleo Operativo**
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-wireframes/08-home-map.png" width="180"/><br/><sub>08 · Home (Mapa de riesgo)</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/09-create-report.png" width="180"/><br/><sub>09 · Crear Reporte</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/10-incident-detail.png" width="180"/><br/><sub>10 · Detalle de Incidente</sub></td>
+  </tr>
+</table>
+
+**Configuración Personal**
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-wireframes/11-profile.png" width="180"/><br/><sub>11 · Perfil</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/12-edit-profile.png" width="180"/><br/><sub>12 · Editar Perfil</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/13-alerts-config.png" width="180"/><br/><sub>13 · Configurar Alertas</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/14-trust-network.png" width="180"/><br/><sub>14 · Red de Confianza</sub></td>
+    <td align="center"><img src="assets/ui/mobile-wireframes/15-notifications.png" width="180"/><br/><sub>15 · Notificaciones</sub></td>
+  </tr>
+</table>
+
+**Mock-ups en alta fidelidad**
+
+A continuación se presentan las mismas 15 pantallas con la identidad visual completa aplicada (azul institucional, escala de alertas, tipografía Geist/Inter y componentes finales). Los mock-ups muestran detalles que en lo-fi quedan abstractos: el heatmap simulado en el Home con capas radiales de gradiente rojo/ámbar superpuestas a la cuadrícula vial, los pins diferenciados por color según tipo de incidente, el alert banner rojo de proximidad con micro-tipografía y la barra de votos comunitarios en el detalle de incidente.
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-mockups/01-splash.png" width="180"/><br/><sub>01 · Splash</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/02-onboarding-1.png" width="180"/><br/><sub>02 · Onboarding 1/3</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/03-onboarding-2.png" width="180"/><br/><sub>03 · Onboarding 2/3</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/04-onboarding-3.png" width="180"/><br/><sub>04 · Onboarding 3/3</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-mockups/05-login.png" width="180"/><br/><sub>05 · Login</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/06-register.png" width="180"/><br/><sub>06 · Registro</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/07-recover.png" width="180"/><br/><sub>07 · Recuperar contraseña</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/08-home-map.png" width="180"/><br/><sub>08 · Home (Mapa)</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-mockups/09-create-report.png" width="180"/><br/><sub>09 · Crear Reporte</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/10-incident-detail.png" width="180"/><br/><sub>10 · Detalle Incidente</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/11-profile.png" width="180"/><br/><sub>11 · Perfil</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/12-edit-profile.png" width="180"/><br/><sub>12 · Editar Perfil</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/ui/mobile-mockups/13-alerts-config.png" width="180"/><br/><sub>13 · Config. Alertas</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/14-trust-network.png" width="180"/><br/><sub>14 · Red de Confianza</sub></td>
+    <td align="center"><img src="assets/ui/mobile-mockups/15-notifications.png" width="180"/><br/><sub>15 · Notificaciones</sub></td>
+    <td align="center"></td>
+  </tr>
+</table>
+
+#### 3.1.4.2. Mobile Applications Wireflow Diagrams
+
+Los Wireflow Diagrams documentan los cuatro flujos críticos de UrbanVoice mostrando la secuencia de pantallas que el usuario recorre, con anotaciones sobre los gestos o eventos que disparan cada transición (tap en FAB, submit de formulario, push notification, etc.). Cada nodo es una mini-representación de la pantalla involucrada y las flechas se codifican por color según el tipo de flujo: azul institucional para alta neutral, rojo para reporte de incidente, ámbar para alertas y verde para confirmaciones de configuración.
+
+**Flow 1 — Registro → Onboarding → Home**
+
+El nuevo ciudadano descarga la app, completa su registro, recorre el walkthrough de tres slides, otorga el permiso de ubicación y aterriza en el mapa de su zona. El flujo prioriza fricción mínima (registro de tres campos) y educación visual antes de pedir permisos sensibles.
+
+<p align="center">
+  <img src="assets/ui/wireflows/flow-1-registro-onboarding-home.png" alt="Flow 1 · Registro → Onboarding → Home" width="900"/>
+</p>
+
+**Flow 2 — Home → Reportar incidente → Confirmación**
+
+Cubre la historia US02 (Registro de incidente) y US03 (Evidencia multimedia). El ciudadano detecta un incidente, abre el formulario desde el FAB rojo del mapa, selecciona tipo, adjunta evidencia (foto/audio/video), confirma el modo anónimo (US04) y publica. El sistema valida la evidencia, encripta y muestra confirmación con CTA de "ver en mapa".
+
+<p align="center">
+  <img src="assets/ui/wireflows/flow-2-home-reportar-confirmacion.png" alt="Flow 2 · Home → Reportar → Confirmación" width="900"/>
+</p>
+
+**Flow 3 — Notificación de alerta → Detalle → Compartir con red**
+
+Cubre la historia US05 (Alertas geolocalizadas) y US07 (Compartir ubicación). El sistema detecta proximidad a un incidente reportado y emite push notification visible incluso desde lockscreen. Al abrirla, el ciudadano accede al detalle completo (mini-mapa, evidencia, votos comunitarios) y puede compartir la información y su ubicación con uno o varios contactos de su red de confianza.
+
+<p align="center">
+  <img src="assets/ui/wireflows/flow-3-alerta-detalle-compartir.png" alt="Flow 3 · Alerta → Detalle → Compartir" width="900"/>
+</p>
+
+**Flow 4 — Perfil → Configurar alertas → Guardar**
+
+Cubre la configuración granular de US05. Desde su perfil el usuario accede a la configuración de alertas, ajusta el radio de proximidad mediante slider visual (100m–2km), activa/desactiva tipos de incidente que le interesan (robos, acoso, vehículos sospechosos, emergencias) y guarda. La pantalla de éxito confirma la configuración aplicada y devuelve al perfil.
+
+<p align="center">
+  <img src="assets/ui/wireflows/flow-4-perfil-alertas-guardar.png" alt="Flow 4 · Perfil → Alertas → Guardar" width="900"/>
+</p>
+
+<br>
+
+#### 3.1.4.3. Mobile Applications Mock-ups
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/mockups/01._splash_screen.png" width="180"/><br/><sub>01 · Splash</sub></td>
+    <td align="center"><img src="assets/mockups/02._onboarding_1_3.png" width="180"/><br/><sub>02 · Onboarding 1/3</sub></td>
+    <td align="center"><img src="assets/mockups/03._onboarding_2_3.png" width="180"/><br/><sub>03 · Onboarding 2/3</sub></td>
+    <td align="center"><img src="assets/mockups/04._onboarding_3_3.png" width="180"/><br/><sub>04 · Onboarding 3/3</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/mockups/05._login.png" width="180"/><br/><sub>05 · Login</sub></td>
+    <td align="center"><img src="assets/mockups/06._registro.png" width="180"/><br/><sub>06 · Registro</sub></td>
+    <td align="center"><img src="assets/mockups/07._recuperar_contrase_a.png" width="180"/><br/><sub>07 · Recuperar contraseña</sub></td>
+    <td align="center"><img src="assets/mockups/08._home_mapa_de_riesgo.png" width="180"/><br/><sub>08 · Home (Mapa de riesgo)</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/mockups/09._crear_reporte_de_incidente.png" width="180"/><br/><sub>09 · Crear Reporte</sub></td>
+    <td align="center"><img src="assets/mockups/10._detalle_de_incidente.png" width="180"/><br/><sub>10 · Detalle de Incidente</sub></td>
+    <td align="center"><img src="assets/mockups/11._perfil.png" width="180"/><br/><sub>11 · Perfil</sub></td>
+    <td align="center"><img src="assets/mockups/12._editar_perfil.png" width="180"/><br/><sub>12 · Editar Perfil</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/mockups/13._configurar_alertas.png" width="180"/><br/><sub>13 · Config. Alertas</sub></td>
+    <td align="center"><img src="assets/mockups/14._red_de_confianza.png" width="180"/><br/><sub>14 · Red de Confianza</sub></td>
+    <td align="center"><img src="assets/mockups/15._notificaciones.png" width="180"/><br/><sub>15 · Notificaciones</sub></td>
+    <td align="center"></td>
+  </tr>
+</table>
+
+#### 3.1.4.4. Mobile Applications User Flow Diagrams 
+
+### Primer acceso del usuario
+<img src="assets/flows/01-primer-acceso.png"/><br/>
+
+### Reporte ciudadano
+<img src="assets/flows/02-reporte-ciudadano.png"/><br/>
+
+### Atención de alerta
+<img src="assets/flows/03-atencion-de-alerta.png"/><br/>
+
+#### 3.1.4.5. Mobile Applications Prototyping 
+
+El prototipo de la aplicación móvil de UrbanVoice fue desarrollado a partir de las pantallas diseñadas previamente. Su propósito es mostrar cómo sería la navegación principal de la aplicación antes de iniciar la implementación.
+
+<img src="assets/Prototipo.png"/><br/>
+
+Enlace del prototipo: [[UrbanVoice](https://stitch.withgoogle.com/preview/14344472304506913570?node-id=41b9a44fbe08432b91e33a1f16d047ba)]
+
+# Capítulo IV: Product Implementation & Validation
+
+## 4. Product Implementation & Validation
+
+### 4.1. Software Configuration Management
+
+A continuación, presentaremos el proceso por el cual organizamos, gestionamos y controlamos los cambios en el desarrollo de este proyecto.
+
+#### 4.1.1. Software Development Environment Configuration
+
+**Requirements Management**
+
+1. **Trello:** Es una herramienta utilizada para gestionar el flujo de trabajo de proyectos principalmente basados en marcos de trabajo ágiles. Será empleado para visualizar y actualizar el estado actual de las tareas e historias de usuario pertenecientes al sprint a desarrollar.  
+   Ruta de referencia: https://trello.com/es
+
+**Product UX/UI Design**
+
+1. **Figma:** Plataforma de elaboración de prototipos y edición gráfica, principalmente utilizada para el diseño digital. En el caso del proyecto, será utilizada para el prototipado de la aplicación móvil UrbanVoice y sus versiones de wireframes y mockups.  
+   Ruta de referencia: https://www.figma.com/login
+
+2. **Miro:** Herramienta colaborativa de pizarra digital empleada para el modelado del EventStorming, Domain Message Flows y Bounded Context Canvases del diseño estratégico del sistema.  
+   Ruta de referencia: https://miro.com/
+
+**Software Development**
+
+1. **Android Studio:** Entorno de desarrollo integrado oficial para el desarrollo de aplicaciones Android nativas. Será empleado para la construcción de la aplicación móvil de UrbanVoice en Kotlin.  
+   Ruta de referencia: https://developer.android.com/studio
+
+2. **IntelliJ IDEA / Spring Boot:** Framework de desarrollo backend basado en Java. Se utilizará para construir los servicios RESTful que soportan la lógica de negocio de los bounded contexts definidos en el diseño táctico.  
+   Ruta de referencia: https://spring.io/projects/spring-boot
+
+3. **Kotlin:** Lenguaje de programación moderno para Android, utilizado para el desarrollo de la aplicación móvil nativa.  
+   Ruta de referencia: https://kotlinlang.org/
+
+4. **Java:** Lenguaje de programación principal para el desarrollo del backend con Spring Boot.  
+   Ruta de referencia: https://www.java.com/
+
+5. **PostgreSQL:** Sistema de gestión de bases de datos relacional utilizado para la persistencia de los datos de cada bounded context bajo el principio de database-per-service.  
+   Ruta de referencia: https://www.postgresql.org/
+
+6. **Git:** Herramienta de control de versiones que facilita el registro y la gestión de las distintas versiones del programa. Su propósito es mantener un historial de cambios y simplificar la corrección de errores.  
+   Ruta de referencia: https://git-scm.com/
+
+**Software Documentation and Project Management**
+
+7. **GitHub:** Plataforma en la nube que hospedará los repositorios de código del proyecto. Permitirá la colaboración en tiempo real y la revisión de contribuciones de cada miembro del equipo.  
+   Ruta de referencia: https://github.com/
+
+**Software Deployment**
+
+1. **GitHub Pages:** Servicio de alojamiento web estático utilizado para publicar el Landing Page de UrbanVoice directamente desde el repositorio de GitHub.  
+   Ruta de referencia: https://pages.github.com/
+
+2. **Firebase App Distribution:** Plataforma de distribución de aplicaciones móviles de Google, utilizada para compartir builds de la app UrbanVoice en formato `.apk` con testers y usuarios de validación.  
+   Ruta de referencia: https://firebase.google.com/products/app-distribution
+
+---
+
+#### 4.1.2. Source Code Management
+
+El proyecto seguirá las convenciones del flujo de trabajo establecido por el modelo **GitFlow** para el control de versiones, empleando GitHub como plataforma y sistema de control de versiones.
+
+**Repositorios de GitHub:**
+
+- **Organización:** https://github.com/urbanvoice-3248-dispo-moviles
+- **Repositorio del Reporte:** https://github.com/urbanvoice-3248-dispo-moviles/UrbanVoice
+- **Repositorio del Landing Page:** https://github.com/urbanvoice-3248-dispo-moviles/Landing-Page
+- **Repositorio del Backend:** https://github.com/urbanvoice-3248-dispo-moviles/Backend-UrbanVoice
+<!-- - **Repositorio de la App Móvil:** -->
+
+**Flujo de trabajo GitFlow**
+
+El flujo de trabajo implementado para el desarrollo del proyecto se basará en el modelo propuesto por Vincent Driessen en *"A successful Git branching model"*.
+
+**Estructura de branches (Ramas):**
+
+1. **Main branch (Rama principal):** Esta rama servirá como la principal para la aplicación, alojando versiones estables y finales del desarrollo. Únicamente se aceptarán cambios que hayan sido previamente probados y verificados en las ramas de feature y develop.
+
+2. **Develop branch (Rama de desarrollo):** El propósito de esta rama es facilitar los avances del proyecto en equipo y mantener los archivos centrales del desarrollo continuo.
+
+3. **Feature branch (Ramas de funcionalidad):** Cada funcionalidad o bounded context desarrollado por el equipo tendrá su propia rama. Una vez que una funcionalidad esté completamente trabajada, se fusionará con la rama de desarrollo del proyecto. Las convenciones para nombrar las ramas de funcionalidad seguirán un patrón descriptivo y único, por ejemplo, `feature/notification-management` o `feature/report-module`.
+
+---
+
+#### 4.1.3. Source Code Style Guide & Conventions
+
+**Kotlin (Android)**
+
+Algunas de las prácticas que deben seguirse para alcanzar un código coherente, sostenible y ordenado son las siguientes:
+
+1. Utilizar nombres de variables y funciones en **camelCase** y clases en **PascalCase**.
+2. Declarar las propiedades inmutables con `val` y solo usar `var` cuando sea estrictamente necesario.
+3. Preferir funciones de extensión para mejorar la legibilidad del código.
+4. Seguir las convenciones de paquetes por capas: `data`, `domain`, `presentation`, `ui`.
+5. Utilizar comentarios descriptivos en funciones complejas y documentar con KDoc las interfaces públicas.
+6. Mantener las funciones cortas y con una única responsabilidad.
+
+Referencia: [Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html)
+
+**Java / Spring Boot (Backend)**
+
+Entre las prácticas empleadas se mencionan:
+
+1. Seguir la convención de nombres estándar de Java: clases en **PascalCase**, métodos y variables en **camelCase**, constantes en **UPPER_SNAKE_CASE**.
+2. Organizar el código por bounded contexts con paquetes que reflejen las cuatro capas del DDD: `domain`, `application`, `infrastructure`, `interfaces`.
+3. Documentar las interfaces y clases públicas con Javadoc.
+4. Usar anotaciones de Spring de forma explícita: `@Service`, `@Repository`, `@Component`, `@RestController`.
+5. Mantener los controllers delgados (thin controllers): solo reciben el request y delegan en el Application Layer.
+6. Escribir pruebas unitarias para los Command Handlers y Domain Services.
+
+Referencia: [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
+
+**SQL / PostgreSQL**
+
+1. Nombrar las tablas en **snake_case** y en plural (ej. `security_alerts`, `reports`).
+2. Usar `UUID` como tipo de dato para las claves primarias.
+3. Definir restricciones `CHECK` para columnas con valores acotados.
+4. Crear índices sobre columnas de búsqueda frecuente (`author_id`, `status`, `recipient_id`).
+5. Documentar cada tabla con comentarios en el script de creación.
+
+**HTML / CSS (Landing Page)**
+
+1. Cerrar todos los elementos HTML correctamente.
+2. Declarar el tipo de documento `<!DOCTYPE html>` en la primera línea.
+3. Utilizar clases semánticas y significativas en CSS.
+4. Mantener el código en minúsculas y con sangría de 2 espacios.
+5. Eliminar espacios en blanco innecesarios y mantener comentarios explicativos.
+
+Referencia: [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
+
+---
+
+#### 4.1.4. Software Deployment Configuration
+
+**Landing Page Deployment**
+
+El Landing Page del proyecto será desplegado utilizando **GitHub Pages**, lo que permite alojar el sitio web de manera gratuita directamente desde el repositorio de GitHub, configurando la rama `main` como fuente de publicación.
+
+**Backend Deployment**
+
+El backend desarrollado en Spring Boot será desplegado en un entorno cloud. Se utilizará **Railway** o **Render** como plataforma de hosting, conectado a una instancia de **PostgreSQL** como base de datos principal. Cada bounded context mantendrá su propia base de datos bajo el principio de database-per-service.
+
+**Mobile Application Deployment**
+
+La aplicación móvil Android será distribuida durante las fases de validación a través de **Firebase App Distribution**, permitiendo a los testers descargar el `.apk` directamente. Para producción, se publicará en **Google Play Store**.
+
+---
+
+### 4.2. Landing Page & Mobile Application Implementation
+
+#### 4.2.1. Sprint 1
+
+##### 4.2.1.1. Sprint Planning 1
+
+Para este primer sprint el equipo se enfocará en los tasks para la elaboración de los productos base del proyecto: el Landing Page informativo y los primeros módulos de la aplicación móvil. Se dividirán entre los integrantes las tareas identificadas para el sprint, priorizando las historias de usuario de mayor valor para los ciudadanos.
+
+| Sprint # | Sprint 1 |
+|---|---|
+| **Sprint Planning Background** | |
+| **Date** | 22/04/2026 |
+| **Time** | 07:00 PM |
+| **Location** | Servidor de Discord del Equipo |
+| **Prepared By** | Billy Jake Ruiz Madrid |
+| **Attendees (to planning meeting)** | Ivan La Madrid / Jeremy Quijada / Billy Ruiz / Santiago Gordillo / Giorgio Awad |
+| **Sprint 1 Review Summary** | En esta primera sección se planteó el desarrollo base del proyecto UrbanVoice: Landing Page informativo y los primeros flujos de la aplicación móvil (autenticación, mapa de riesgo y reporte de incidentes). |
+| **Sprint 1 Retrospective Summary** | Todos los integrantes acordaron priorizar la calidad del diseño del Landing Page y asegurar que la arquitectura del backend soporte el patrón DDD establecido en el diseño táctico. |
+| **Sprint Goal & User Stories** | |
+| **Sprint 1 Goal** | Desarrollar y desplegar el Landing Page de UrbanVoice, implementar los endpoints base del backend (autenticación y gestión de reportes), y construir las pantallas iniciales de la app móvil (onboarding, login, registro y mapa). El éxito se logrará cuando el Landing Page esté publicado, el backend responda a los endpoints definidos y la app móvil muestre el mapa con datos simulados. |
+| **Sprint 1 Velocity** | 36 Velocity |
+| **Sum of Story Points** | 36 Story Points |
+
+---
+
+##### 4.2.1.2. Sprint Backlog 1
+
+| # Orden | User Story ID | Título | Descripción | Story Points | Estimation (hours) | Assigned To | Status |
+|:---:|:---:|---|---|:---:|:---:|---|:---:|
+| 1 | US13 | Sección informativa en Landing Page | Como visitante, deseo ver las funciones de UrbanVoice para conocer su valor y decidir si la descargo. | 2 | 4 | Santiago Gordillo | Done |
+| 2 | US14 | Formulario de Alianzas | Como visitante institucional, deseo enviar una solicitud de contacto para proponer alianzas con UrbanVoice. | 1 | 2 | Santiago Gordillo | Done |
+| 3 | TS01 | Endpoints de REST API | Como desarrollador, deseo crear los servicios web para el manejo de incidentes con respuestas correctas (201, 400, 404). | 3 | 6 | Ivan La Madrid | Done |
+| 4 | US01 | Visualización de mapa de riesgo | Como ciudadano, deseo visualizar un mapa con zonas de riesgo para evitar transitar por lugares peligrosos. | 5 | 8 | Billy Ruiz | In Progress |
+| 5 | US02 | Registro de incidente | Como ciudadano, deseo reportar un incidente de inseguridad con mi ubicación para alertar a otros. | 5 | 8 | Billy Ruiz | In Progress |
+| 6 | US03 | Evidencia multimedia | Como ciudadano, deseo adjuntar evidencia (foto, audio o video) para dar credibilidad al reporte. | 5 | 6 | Giorgio Awad | In Progress |
+| 7 | US04 | Reporte anónimo | Como ciudadano, deseo realizar reportes de forma anónima para proteger mi identidad. | 3 | 4 | Giorgio Awad | Done |
+| 8 | US06 | Consulta de rutas seguras | Como ciudadano, deseo consultar rutas entre dos puntos para reducir mi exposición a zonas de riesgo. | 5 | 8 | Ivan La Madrid | To Do |
+
+
+##### 4.2.1.3. Development Evidence for Sprint Review 
+
+Durante este Sprint, se lograron avances significativos en la implementación de la landing page UrbanVoice, destacando la creación del frontend usando HTML, un diseño responsivo y estilizado con CSS, y la incorporación de funcionalidades dinámicas mediante JavaScript. Realizado en el periado de 11 de Abril al 11 de Mayo.
+
+| Repository | Branch | CommitID | Commit Message | Commit On |
+|------------|--------|----------|----------------|-----------|
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 9b667eb | Add mobile applications prototyping | 09/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | b6478a2 | Add files via upload | 09/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | f19c5d6 | Add mobile applications user flow diagrams | 09/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | f5e2f49 | Update mockup image filenames | 09/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 54be945 | Add mobile applications mock-ups section | 09/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 81ebbfa | Add files via upload | 09/05/2026 |
+| BillyJakeRuizMadrid/urbanvoice-3248-dispo-moviles | main | 1ec89c8 | docs(chapter4): add sprint 1. | 08/05/2026 |
+| SantiagoGR14/urbanvoice-3248-dispo-moviles | main | f324044 | Refine descriptions in README for clarity | 07/05/2026 |
+| SantiagoGR14/urbanvoice-3248-dispo-moviles | main | 7a04155 | Update README with style guidelines and architecture | 07/05/2026 |
+| GiorgioAwad/urbanvoice-3248-dispo-moviles | main | 696a122 | Capitulo III: Landing Page UI Design, Wirefram, mock-up, UX/UI design, wireframes, wireflow diagrams | 06/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | e0a6a7a | Merge pull request #6 feat/-correcciones-avance-1 | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | 1b72c54 | fix: 5w 2 h | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | a933bc5 | Merge pull request #5 feat/-correcciones-avance-1 | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | 576fa1f | fix: Corrigiendo user stories / product backlog | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | c86cc51 | On Avance-1: !!GitHub_Desktop<Avance-1> | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | 0dad32e | index on Avance-1: 731120d feat/ Location-managment | 05/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 23cd78e | Revise spike stories for clarity and focus | 04/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 800c489 | Remove prioritization section for Spike Stories | 04/05/2026 |
+| IvanLaMadrid/urbanvoice-3248-dispo-moviles | main | 0cce7b6 | Add Spike Stories for UrbanVoice development | 04/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | 0671e4c | Merge pull request #4 Avance-1 | 20/04/2026 |
+
+##### 4.2.1.4. Testing Suite Evidence for Sprint Review 
+En este Sprint se implementaron pruebas automatizadas bajo el enfoque BDD (Behavior Driven Development), elaborando archivos .feature en lenguaje Gherkin y sus correspondientes archivos Steps en el lenguaje de programación del proyecto.
+
+**Feature:**
+<img src="assets/Features.png"/><br/>
+
+**Steps:**
+<img src="assets/Steps.png"/><br/>
+
+| Repository | Branch | CommitID | Commit Message | Commit On |
+|------------|--------|----------|----------------|-----------|
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | a933bc5 | feat: Version Final | 11/05/2026 | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | 576fa1f | feat: Steps and Feature | 11/05/2026 |
+
+##### 4.2.1.5. Execution Evidence for Sprint Review 
+
+En este sprint, la Landing Page logró cubrir de manera completa las funcionalidades básicas de navegación, búsqueda y presentación de información, cumpliendo con los criterios definidos en el backlog. Además, se avanzo con el backend a un 70% de la funcionalidad requerida, lo que permitió obtener un gran avance en la implementación de los endpoints.
+
+###### Capturas de la Landing Page:
+
+**Presentacion:**
+<img src="assets/LandingPage-1.png"/><br/>
+
+**Funcionalidades:**
+<img src="assets/LandingPage-2.png"/><br/>
+
+**Footer:**
+<img src="assets/LandingPage-3.png"/><br/>
+
+###### Capturas del backend:
+
+<img src="assets/BackEnd.png"/><br/>
+
+##### 4.2.1.6. Services Documentation Evidence for Sprint Review 
+
+En este Sprint se consolidó la documentación de Web Services mediante OpenAPI/Swagger UI, asegurando que cada módulo tenga sus endpoints descritos con acciones, parámetros y ejemplos de respuesta. Esto facilita la validación de servicios RESTful y la trazabilidad de cambios en el repositorio. 
+
+##  Locations  
+API para gestionar ubicaciones y zonas de riesgo.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener todas las ubicaciones | GET | `/api/v1/locations` | Ninguno | `[{"id":1,"name":"Parque Central","district":"Surco"}]` |
+| Crear nueva ubicación | POST | `/api/v1/locations` | Body: `{ "name":"Plaza Norte","district":"Independencia" }` | `{ "id":2,"name":"Plaza Norte","district":"Independencia" }` |
+| Obtener ubicación por ID | GET | `/api/v1/locations/{id}` | Path: `id` | `{ "id":1,"name":"Parque Central","district":"Surco" }` |
+| Eliminar ubicación | DELETE | `/api/v1/locations/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Obtener ubicaciones cercanas | GET | `/api/v1/locations/nearby` | Query: `lat,long` | `[{"id":3,"name":"Plaza Mayor"}]` |
+| Obtener ubicaciones por distrito | GET | `/api/v1/locations/district/{district}` | Path: `district` | `[{"id":4,"name":"Plaza Norte"}]` |
+| Obtener ubicaciones peligrosas | GET | `/api/v1/locations/dangerous` | Ninguno | `[{"id":5,"name":"Zona Roja"}]` |
+
+---
+
+##  User Profiles  
+API para gestionar perfiles de usuario.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener perfil por ID | GET | `/api/v1/profiles/{id}` | Path: `id` | `{ "id":5,"email":"user@mail.com" }` |
+| Actualizar perfil | PUT | `/api/v1/profiles/{id}` | Path: `id`, Body: `{ "email":"new@mail.com" }` | `{ "id":5,"email":"new@mail.com","status":"updated" }` |
+| Eliminar perfil | DELETE | `/api/v1/profiles/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Crear nuevo perfil | POST | `/api/v1/profiles` | Body: `{ "email":"user@mail.com","name":"Juan" }` | `{ "id":6,"status":"created" }` |
+| Obtener perfil por email | GET | `/api/v1/profiles/email/{email}` | Path: `email` | `{ "id":6,"email":"user@mail.com" }` |
+
+---
+
+##  Incident Reports  
+API para gestionar reportes de incidentes.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener reporte por ID | GET | `/api/v1/reports/{id}` | Path: `id` | `{ "id":10,"description":"Accidente en Av. Primavera" }` |
+| Actualizar reporte | PUT | `/api/v1/reports/{id}` | Path: `id`, Body: `{ "description":"Actualización del reporte" }` | `{ "id":10,"status":"updated" }` |
+| Eliminar reporte | DELETE | `/api/v1/reports/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Crear nuevo reporte | POST | `/api/v1/reports` | Body: `{ "userId":5,"description":"Accidente en Av. Primavera" }` | `{ "id":10,"status":"created" }` |
+| Obtener reportes de un usuario | GET | `/api/v1/reports/user/{userId}` | Path: `userId` | `[{"id":11,"description":"Caída en Av. Benavides"}]` |
+| Obtener reportes cercanos | GET | `/api/v1/reports/nearby` | Query: `lat,long` | `[{"id":12,"description":"Incidente en Parque Kennedy"}]` |
+
+---
+
+##  Alerts  
+API para gestionar alertas y notificaciones.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener todas las alertas | GET | `/api/v1/alerts` | Ninguno | `[{"id":1,"message":"Zona peligrosa detectada"}]` |
+| Crear nueva alerta | POST | `/api/v1/alerts` | Body: `{ "message":"Nueva alerta" }` | `{ "id":2,"status":"created" }` |
+| Eliminar todas las alertas | DELETE | `/api/v1/alerts` | Ninguno | `{ "status":"deleted_all" }` |
+| Obtener alerta por ID | GET | `/api/v1/alerts/{id}` | Path: `id` | `{ "id":2,"message":"Nueva alerta" }` |
+| Eliminar alerta por ID | DELETE | `/api/v1/alerts/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Obtener alertas por usuario | GET | `/api/v1/alerts/user/{userId}` | Path: `userId` | `[{"id":3,"message":"Alerta personalizada"}]` |
+
+
+##### 4.2.1.7. Software Deployment Evidence for Sprint Review 
+En este Sprint se realizó el despliegue inicial de un producto digital: una Landing Page. El despliegue se efectuó mediante GitHub Pages, aprovechando la infraestructura gratuita de GitHub para alojar sitios estáticos.
+Este proceso la activación de GitHub Pages y la verificación del resultado.
+
+**Paso 1:** Estar en el repositorio de la Landing Page e ir a Settings 
+
+<img src="assets/Paso1.png"/><br/>
+
+**Paso 2:** Ir a Pages
+
+<img src="assets/Paso2.png"/><br/>
+
+**Paso 3:** Seleccionar rama main y carpeta /root
+y guardar informacion
+
+<img src="assets/Paso3.png"/><br/>
+
+**Paso 4:** Verificar despliegue público
+
+<img src="assets/despliegue landing.png"/><br/>
+
+Acceder al enlace https://urbanvoice-3248-dispo-moviles.github.io/Landing-Page/
+
+##### 4.2.1.8. Team Collaboration Insights during Sprint 
+Para este Sprint, las tareas de diseño, implementación y documentación de la landing page se distribuyeron entre los integrantes del equipo. La implementación y despliegue de la landing page fue llevado a cabo por todo el equipo, siguiendo un enfoque colaborativo que involucró diversas etapas bien definidas. Además del desarrollo del backend.
+
+<img src="assets/Evidence Sprint Review.png"/><br/>
+
+<img src="assets/Network.png"/><br/>
+
+Las actividades de implementación se desarrollaron mediante un flujo de trabajo ágil. El proceso comenzó con la planificación inicial, donde se asignaron roles específicos para cada fase. Esto incluyó el diseño de la estructura HTML y los estilos CSS, que se iniciaron con commits iniciales para establecer la base del proyecto.
+
+
+### Conclusiones
+
+*  Como equipo, logramos dar el salto de una idea social a un modelo técnico sólido. El uso de **EventStorming y el Modelo C4** nos permitió visualizar no solo cómo se ve la app, sino cómo fluye la información entre los módulos de reportes y geolocalización, asegurando que la arquitectura soporte el tráfico de datos en tiempo real que planeamos para Lima.
+* Mediante las entrevistas y el proceso de **Needfinding**, confirmamos que nuestra propuesta de valor es acertada. Identificamos que el usuario no solo quiere ver el peligro, sino sentirse acompañado; por ello, la inclusión del "Círculo de Confianza" y las alertas de proximidad se convirtieron en pilares fundamentales que diferencian a UrbanVoice de otras apps de mapas convencionales.
+
+### Recomendaciones
+
+* Recomendamos enfocarnos de inmediato en los "Spikes" de integración con Google Maps y Firebase. Como el mapa de calor es el corazón de nuestra solución, necesitamos asegurar cuanto antes que el renderizado de múltiples puntos de riesgo no afecte el rendimiento del celular, especialmente en dispositivos de gama media que usa gran parte de nuestro segmento objetivo.
+* Sugerimos profundizar en el diseño del "Panel de Moderación" para administradores. Para mantener la confianza de la comunidad, es vital establecer filtros automáticos o procesos de validación comunitaria (votos) que eviten que reportes maliciosos o falsos ensucien el mapa de riesgo, algo que identificamos como una debilidad potencial en el análisis de competidores.
+
+## Anexo
+
+**Repositorio Report:**  https://github.com/urbanvoice-3248-dispo-moviles/UrbanVoice
+
+**Repositorio Landing Page:** https://github.com/urbanvoice-3248-dispo-moviles/Landing-Page
+
+**Repositorio BackEnd:** https://github.com/urbanvoice-3248-dispo-moviles/Backend-UrbanVoice
+
+**Enlace Deploy Landing Page:** https://urbanvoice-3248-dispo-moviles.github.io/Landing-Page/
+
+
+
+
+
