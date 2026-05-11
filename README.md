@@ -3468,8 +3468,6 @@ Durante este Sprint, se lograron avances significativos en la implementación de
 
 En este sprint, la Landing Page logró cubrir de manera completa las funcionalidades básicas de navegación, búsqueda y presentación de información, cumpliendo con los criterios definidos en el backlog. Además, se avanzo con el backend a un 70% de la funcionalidad requerida, lo que permitió obtener un gran avance en la implementación de los endpoints.
 
-Enlace de la Landing Page desplegada: 
-
 ###### Capturas de la Landing Page:
 
 **Presentacion:**
@@ -3487,16 +3485,50 @@ Enlace de la Landing Page desplegada:
 
 ##### 4.2.1.6. Services Documentation Evidence for Sprint Review 
 
+
+
 ##### 4.2.1.7. Software Deployment Evidence for Sprint Review 
+En este Sprint se realizó el despliegue inicial de un producto digital: una Landing Page. El despliegue se efectuó mediante GitHub Pages, aprovechando la infraestructura gratuita de GitHub para alojar sitios estáticos.
+Este proceso la activación de GitHub Pages y la verificación del resultado.
 
+**Paso 1:** Estar en el repositorio de la Landing Page e ir a Settings 
 
+<img src="assets/Paso1.png"/><br/>
+
+**Paso 2:** Ir a Pages
+
+<img src="assets/Paso2.png"/><br/>
+
+**Paso 3:** Seleccionar rama main y carpeta /root
+y guardar informacion
+
+<img src="assets/Paso3.png"/><br/>
+
+**Paso 4:** Verificar despliegue público
+
+<img src="assets/despliegue landing.png"/><br/>
+
+Acceder al enlace https://urbanvoice-3248-dispo-moviles.github.io/Landing-Page/
 
 ##### 4.2.1.8. Team Collaboration Insights during Sprint 
+Para este Sprint, las tareas de diseño, implementación y documentación de la landing page se distribuyeron entre los integrantes del equipo. La implementación y despliegue de la landing page fue llevado a cabo por todo el equipo, siguiendo un enfoque colaborativo que involucró diversas etapas bien definidas. Además del desarrollo del backend.
+
+<img src="assets/Evidence Sprint Review.png"/><br/>
+
+<img src="assets/Network.png"/><br/>
+
+Las actividades de implementación se desarrollaron mediante un flujo de trabajo ágil. El proceso comenzó con la planificación inicial, donde se asignaron roles específicos para cada fase. Esto incluyó el diseño de la estructura HTML y los estilos CSS, que se iniciaron con commits iniciales para establecer la base del proyecto.
 
 
-## Conclusiones
+### Conclusiones
 
-### Conclusiones y recomendaciones
+*  Como equipo, logramos dar el salto de una idea social a un modelo técnico sólido. El uso de **EventStorming y el Modelo C4** nos permitió visualizar no solo cómo se ve la app, sino cómo fluye la información entre los módulos de reportes y geolocalización, asegurando que la arquitectura soporte el tráfico de datos en tiempo real que planeamos para Lima.
+* Mediante las entrevistas y el proceso de **Needfinding**, confirmamos que nuestra propuesta de valor es acertada. Identificamos que el usuario no solo quiere ver el peligro, sino sentirse acompañado; por ello, la inclusión del "Círculo de Confianza" y las alertas de proximidad se convirtieron en pilares fundamentales que diferencian a UrbanVoice de otras apps de mapas convencionales.
+
+### Recomendaciones
+
+* Recomendamos enfocarnos de inmediato en los "Spikes" de integración con Google Maps y Firebase. Como el mapa de calor es el corazón de nuestra solución, necesitamos asegurar cuanto antes que el renderizado de múltiples puntos de riesgo no afecte el rendimiento del celular, especialmente en dispositivos de gama media que usa gran parte de nuestro segmento objetivo.
+* Sugerimos profundizar en el diseño del "Panel de Moderación" para administradores. Para mantener la confianza de la comunidad, es vital establecer filtros automáticos o procesos de validación comunitaria (votos) que eviten que reportes maliciosos o falsos ensucien el mapa de riesgo, algo que identificamos como una debilidad potencial en el análisis de competidores.
 
 ## Anexo
 
@@ -3506,9 +3538,8 @@ Enlace de la Landing Page desplegada:
 
 **Repositorio BackEnd:** https://github.com/urbanvoice-3248-dispo-moviles/Backend-UrbanVoice
 
-**Enlace Deploy Landing Page:** 
+**Enlace Deploy Landing Page:** https://urbanvoice-3248-dispo-moviles.github.io/Landing-Page/
 
-**Enlace Deploy Backend:**  
 
 
 
