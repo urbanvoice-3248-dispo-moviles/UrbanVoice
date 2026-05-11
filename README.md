@@ -3226,27 +3226,27 @@ Cubre la configuración granular de US05. Desde su perfil el usuario accede a la
 
 <table>
   <tr>
-    <td align="center"><img src="assets/mockups/01_splash_screen.png" width="180"/><br/><sub>01 · Splash</sub></td>
-    <td align="center"><img src="assets/mockups/02_onboarding_1_3.png" width="180"/><br/><sub>02 · Onboarding 1/3</sub></td>
-    <td align="center"><img src="assets/mockups/03_onboarding_2_3.png" width="180"/><br/><sub>03 · Onboarding 2/3</sub></td>
-    <td align="center"><img src="assets/mockups/04_onboarding_3_3.png" width="180"/><br/><sub>04 · Onboarding 3/3</sub></td>
+    <td align="center"><img src="assets/mockups/01._splash_screen.png" width="180"/><br/><sub>01 · Splash</sub></td>
+    <td align="center"><img src="assets/mockups/02._onboarding_1_3.png" width="180"/><br/><sub>02 · Onboarding 1/3</sub></td>
+    <td align="center"><img src="assets/mockups/03._onboarding_2_3.png" width="180"/><br/><sub>03 · Onboarding 2/3</sub></td>
+    <td align="center"><img src="assets/mockups/04._onboarding_3_3.png" width="180"/><br/><sub>04 · Onboarding 3/3</sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="assets/mockups/05_login.png" width="180"/><br/><sub>05 · Login</sub></td>
-    <td align="center"><img src="assets/mockups/06_registro.png" width="180"/><br/><sub>06 · Registro</sub></td>
-    <td align="center"><img src="assets/mockups/07_recuperar_contrase_a.png" width="180"/><br/><sub>07 · Recuperar contraseña</sub></td>
-    <td align="center"><img src="assets/mockups/08_home_mapa_de_riesgo.png" width="180"/><br/><sub>08 · Home (Mapa de riesgo)</sub></td>
+    <td align="center"><img src="assets/mockups/05._login.png" width="180"/><br/><sub>05 · Login</sub></td>
+    <td align="center"><img src="assets/mockups/06._registro.png" width="180"/><br/><sub>06 · Registro</sub></td>
+    <td align="center"><img src="assets/mockups/07._recuperar_contrase_a.png" width="180"/><br/><sub>07 · Recuperar contraseña</sub></td>
+    <td align="center"><img src="assets/mockups/08._home_mapa_de_riesgo.png" width="180"/><br/><sub>08 · Home (Mapa de riesgo)</sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="assets/mockups/09_crear_reporte_de_incidente.png" width="180"/><br/><sub>09 · Crear Reporte</sub></td>
-    <td align="center"><img src="assets/mockups/10_detalle_de_incidente.png" width="180"/><br/><sub>10 · Detalle de Incidente</sub></td>
-    <td align="center"><img src="assets/mockups/11_perfil.png" width="180"/><br/><sub>11 · Perfil</sub></td>
-    <td align="center"><img src="assets/mockups/12_editar_perfil.png" width="180"/><br/><sub>12 · Editar Perfil</sub></td>
+    <td align="center"><img src="assets/mockups/09._crear_reporte_de_incidente.png" width="180"/><br/><sub>09 · Crear Reporte</sub></td>
+    <td align="center"><img src="assets/mockups/10._detalle_de_incidente.png" width="180"/><br/><sub>10 · Detalle de Incidente</sub></td>
+    <td align="center"><img src="assets/mockups/11._perfil.png" width="180"/><br/><sub>11 · Perfil</sub></td>
+    <td align="center"><img src="assets/mockups/12._editar_perfil.png" width="180"/><br/><sub>12 · Editar Perfil</sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="assets/mockups/13_configurar_alertas.png" width="180"/><br/><sub>13 · Config. Alertas</sub></td>
-    <td align="center"><img src="assets/mockups/14_red_de_confianza.png" width="180"/><br/><sub>14 · Red de Confianza</sub></td>
-    <td align="center"><img src="assets/mockups/15_notificaciones.png" width="180"/><br/><sub>15 · Notificaciones</sub></td>
+    <td align="center"><img src="assets/mockups/13._configurar_alertas.png" width="180"/><br/><sub>13 · Config. Alertas</sub></td>
+    <td align="center"><img src="assets/mockups/14._red_de_confianza.png" width="180"/><br/><sub>14 · Red de Confianza</sub></td>
+    <td align="center"><img src="assets/mockups/15._notificaciones.png" width="180"/><br/><sub>15 · Notificaciones</sub></td>
     <td align="center"></td>
   </tr>
 </table>
