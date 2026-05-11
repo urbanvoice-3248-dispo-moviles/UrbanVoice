@@ -3462,7 +3462,18 @@ Durante este Sprint, se lograron avances significativos en la implementación de
 | JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | 0671e4c | Merge pull request #4 Avance-1 | 20/04/2026 |
 
 ##### 4.2.1.4. Testing Suite Evidence for Sprint Review 
+En este Sprint se implementaron pruebas automatizadas bajo el enfoque BDD (Behavior Driven Development), elaborando archivos .feature en lenguaje Gherkin y sus correspondientes archivos Steps en el lenguaje de programación del proyecto.
 
+**Feature:**
+<img src="assets/Features.png"/><br/>
+
+**Steps:**
+<img src="assets/Steps.png"/><br/>
+
+| Repository | Branch | CommitID | Commit Message | Commit On |
+|------------|--------|----------|----------------|-----------|
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | a933bc5 | feat: Version Final | 11/05/2026 | 05/05/2026 |
+| JeremyQuijadaMagro/urbanvoice-3248-dispo-moviles | main | 576fa1f | feat: Steps and Feature | 11/05/2026 |
 
 ##### 4.2.1.5. Execution Evidence for Sprint Review 
 
@@ -3481,10 +3492,65 @@ En este sprint, la Landing Page logró cubrir de manera completa las funcionalid
 
 ###### Capturas del backend:
 
-
+<img src="assets/BackEnd.png"/><br/>
 
 ##### 4.2.1.6. Services Documentation Evidence for Sprint Review 
 
+En este Sprint se consolidó la documentación de Web Services mediante OpenAPI/Swagger UI, asegurando que cada módulo tenga sus endpoints descritos con acciones, parámetros y ejemplos de respuesta. Esto facilita la validación de servicios RESTful y la trazabilidad de cambios en el repositorio. 
+
+##  Locations  
+API para gestionar ubicaciones y zonas de riesgo.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener todas las ubicaciones | GET | `/api/v1/locations` | Ninguno | `[{"id":1,"name":"Parque Central","district":"Surco"}]` |
+| Crear nueva ubicación | POST | `/api/v1/locations` | Body: `{ "name":"Plaza Norte","district":"Independencia" }` | `{ "id":2,"name":"Plaza Norte","district":"Independencia" }` |
+| Obtener ubicación por ID | GET | `/api/v1/locations/{id}` | Path: `id` | `{ "id":1,"name":"Parque Central","district":"Surco" }` |
+| Eliminar ubicación | DELETE | `/api/v1/locations/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Obtener ubicaciones cercanas | GET | `/api/v1/locations/nearby` | Query: `lat,long` | `[{"id":3,"name":"Plaza Mayor"}]` |
+| Obtener ubicaciones por distrito | GET | `/api/v1/locations/district/{district}` | Path: `district` | `[{"id":4,"name":"Plaza Norte"}]` |
+| Obtener ubicaciones peligrosas | GET | `/api/v1/locations/dangerous` | Ninguno | `[{"id":5,"name":"Zona Roja"}]` |
+
+---
+
+##  User Profiles  
+API para gestionar perfiles de usuario.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener perfil por ID | GET | `/api/v1/profiles/{id}` | Path: `id` | `{ "id":5,"email":"user@mail.com" }` |
+| Actualizar perfil | PUT | `/api/v1/profiles/{id}` | Path: `id`, Body: `{ "email":"new@mail.com" }` | `{ "id":5,"email":"new@mail.com","status":"updated" }` |
+| Eliminar perfil | DELETE | `/api/v1/profiles/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Crear nuevo perfil | POST | `/api/v1/profiles` | Body: `{ "email":"user@mail.com","name":"Juan" }` | `{ "id":6,"status":"created" }` |
+| Obtener perfil por email | GET | `/api/v1/profiles/email/{email}` | Path: `email` | `{ "id":6,"email":"user@mail.com" }` |
+
+---
+
+##  Incident Reports  
+API para gestionar reportes de incidentes.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener reporte por ID | GET | `/api/v1/reports/{id}` | Path: `id` | `{ "id":10,"description":"Accidente en Av. Primavera" }` |
+| Actualizar reporte | PUT | `/api/v1/reports/{id}` | Path: `id`, Body: `{ "description":"Actualización del reporte" }` | `{ "id":10,"status":"updated" }` |
+| Eliminar reporte | DELETE | `/api/v1/reports/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Crear nuevo reporte | POST | `/api/v1/reports` | Body: `{ "userId":5,"description":"Accidente en Av. Primavera" }` | `{ "id":10,"status":"created" }` |
+| Obtener reportes de un usuario | GET | `/api/v1/reports/user/{userId}` | Path: `userId` | `[{"id":11,"description":"Caída en Av. Benavides"}]` |
+| Obtener reportes cercanos | GET | `/api/v1/reports/nearby` | Query: `lat,long` | `[{"id":12,"description":"Incidente en Parque Kennedy"}]` |
+
+---
+
+##  Alerts  
+API para gestionar alertas y notificaciones.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener todas las alertas | GET | `/api/v1/alerts` | Ninguno | `[{"id":1,"message":"Zona peligrosa detectada"}]` |
+| Crear nueva alerta | POST | `/api/v1/alerts` | Body: `{ "message":"Nueva alerta" }` | `{ "id":2,"status":"created" }` |
+| Eliminar todas las alertas | DELETE | `/api/v1/alerts` | Ninguno | `{ "status":"deleted_all" }` |
+| Obtener alerta por ID | GET | `/api/v1/alerts/{id}` | Path: `id` | `{ "id":2,"message":"Nueva alerta" }` |
+| Eliminar alerta por ID | DELETE | `/api/v1/alerts/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Obtener alertas por usuario | GET | `/api/v1/alerts/user/{userId}` | Path: `userId` | `[{"id":3,"message":"Alerta personalizada"}]` |
 
 
 ##### 4.2.1.7. Software Deployment Evidence for Sprint Review 
