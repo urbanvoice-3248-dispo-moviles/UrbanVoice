@@ -1648,7 +1648,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
   </tr>
   <tr>
     <td align="center">9</td>
-    <td align="center">3</td>
+    <td align="center">2</td>
     <td align="center">US07</td>
     <td>Compartir ubicación en tiempo real</td>
     <td align="center">8</td>
@@ -1656,7 +1656,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
   </tr>
   <tr>
     <td align="center">10</td>
-    <td align="center">3</td>
+    <td align="center">2</td>
     <td align="center">US09</td>
     <td>Visualizar detalle de incidentes registrados</td>
     <td align="center">3</td>
@@ -1664,7 +1664,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
   </tr>
   <tr>
     <td align="center">11</td>
-    <td align="center">4</td>
+    <td align="center">3</td>
     <td align="center">US11</td>
     <td>Moderar incidentes desde panel administrador</td>
     <td align="center">5</td>
@@ -1672,7 +1672,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
   </tr>
   <tr>
     <td align="center">12</td>
-    <td align="center">4</td>
+    <td align="center">3</td>
     <td align="center">US06</td>
     <td>Trazar y consultar rutas seguras</td>
     <td align="center">8</td>
@@ -1680,7 +1680,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
   </tr>
   <tr>
     <td align="center">13</td>
-    <td align="center">4</td>
+    <td align="center">3</td>
     <td align="center">US10</td>
     <td>Filtrar búsquedas de forma avanzada</td>
     <td align="center">3</td>
@@ -1688,7 +1688,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
   </tr>
   <tr>
     <td align="center">14</td>
-    <td align="center">4</td>
+    <td align="center">3</td>
     <td align="center">US08</td>
     <td>Vincular contactos de confianza para monitoreo</td>
     <td align="center">5</td>
@@ -1696,7 +1696,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
   </tr>
   <tr>
     <td align="center">15</td>
-    <td align="center">4</td>
+    <td align="center">3</td>
     <td align="center">US12</td>
     <td>Gestionar categorías de riesgo del sistema</td>
     <td align="center">2</td>
@@ -1704,7 +1704,7 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
   </tr>
     <tr>
     <td align="center">16</td>
-    <td align="center">4</td>
+    <td align="center">3</td>
     <td align="center">TS02</td>
     <td>Configurar Servicio de Autenticación JWT</td>
     <td align="center">3</td>
