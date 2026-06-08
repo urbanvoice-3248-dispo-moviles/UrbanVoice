@@ -4,7 +4,7 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/UPC_logo_transparente.png" alt="Logo UPC">
 </div>
 
-### <p align="center"> Informe Entrega 1 </p>
+### <p align="center"> Informe Trabajo Parcial </p>
 
 <br>
 <div align="center">
@@ -44,22 +44,16 @@
     <th style="text-align:center;">Descripción de la modificación</th>
   </tr>
   <tr>
-    <td align="center">TB1</td>
+    <td align="center">Avance 1</td>
     <td>22/04/2026</td>
     <td> Giorgio Marzouk Awad Vargas <br> Quijada Magro Jeremy <br> Billy Ruiz <br> Santiago Gordillo <br> Ivan La Madrid </td>
     <td> Hemos avanzado bastante en la estructuración del proyecto: ya tengo definidos los capítulos con la introducción de la startup, el perfil de la solución, los segmentos objetivo y un análisis completo de requerimientos. También incluimos entrevistas, user personas, mapas de tareas y journey maps, además de aplicar Lean UX y Domain-Driven Design en niveles estratégico y táctico. En resumen, logramos darle forma clara y ordenada al documento, con bases conceptuales y técnicas que sostienen el desarrollo. </td>
   </tr>
   <tr>
-    <td align="center">TB2</td>
-    <td>//2026</td>
-    <td> Giorgio Marzouk Awad Vargas <br> Quijada Magro Jeremy <br> Billy Ruiz <br> Santiago Gordillo <br> Ivan La Madrid </td>
-    <td> descripción </td>
-  </tr>
-  <tr>
     <td align="center">TP1</td>
-    <td>//2026</td>
+    <td>13/05/2026</td>
     <td> Giorgio Marzouk Awad Vargas <br> Quijada Magro Jeremy <br> Billy Ruiz <br> Santiago Gordillo <br> Ivan La Madrid </td>
-    <td> descripción </td>
+    <td> Consolidación final del informe para el Trabajo Parcial. Se completó el diseño detallado de la arquitectura de software (Diagramas de Componentes y Base de Datos por Bounded Context) y el diseño de interfaz de alta fidelidad (Mockups y Wireflows) para los flujos críticos. Se integró la sección de Software Configuration Management detallando el flujo de GitFlow y despliegue. Asimismo, se incluyó la evidencia de ejecución del Sprint 1, el despliegue del Landing Page en GitHub Pages y la documentación de Web Services mediante Swagger/OpenAPI. </td>
   </tr>
 </table>
 
@@ -67,8 +61,6 @@
 
 # Tabla de contenidos
 
-- [ Universidad Peruana de Ciencias Aplicadas ](#-universidad-peruana-de-ciencias-aplicadas-)
-    - [ Informe de Trabajo Final ](#-informe-de-trabajo-final-)
 - [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
 - [Tabla de contenidos](#tabla-de-contenidos)
 - [Student Outcome](#student-outcome)
@@ -162,6 +154,44 @@
             - [2.6.5.6.1. Bounded Context Domain Layer Class Diagrams](#26561-bounded-context-domain-layer-class-diagrams)
             - [2.6.5.6.2. Bounded Context Database Design Diagram](#26562-bounded-context-database-design-diagram)
 
+- [Capítulo III: Solution UI/UX Design](#capítulo-iii-solution-uiux-design)
+  - [3.1. Product design](#31-product-design)
+    - [3.1.1. Style Guidelines](#311-style-guidelines)
+      - [3.1.1.1. General Style Guidelines](#3111-general-style-guidelines)
+    - [3.1.2. Information Architecture](#312-information-architecture)   
+      - [3.1.2.1. Organization Systems](#3121-organization-systems)
+      - [3.1.2.2. Labelling Systems](#3122-labelling-systems)
+      - [3.1.2.3. SEO Tags and Meta Tags](#3123-seo-tags-and-meta-tags)
+      - [3.1.2.4. Searching Systems](#3124-searching-systems)
+      - [3.1.2.5. Navigation Systems](#3125-navigation-systems)
+    - [3.1.3. Landing Page UI Design](#313-landing-page-ui-design)
+      - [3.1.3.1. Landing Page Wireframe](#3131-landing-page-wireframe)
+      - [3.1.3.2. Landing Page Mock-up](#3132-landing-page-mock-up)
+    - [3.1.4. Mobile Applications UX/UI Design](#314-mobile-applications-uxui-design)
+      - [3.1.4.1. Mobile Applications Wireframes](#3141-mobile-applications-wireframes)
+      - [3.1.4.2. Mobile Applications Wireflow Diagrams](#3142-mobile-applications-wireflow-diagrams)
+      - [3.1.4.3. Mobile Applications Mock-ups](#3143-mobile-applications-mock-ups)
+      - [3.1.4.4. Mobile Applications User Flow Diagrams](#3144-mobile-applications-user-flow-diagrams)
+      - [3.1.4.5. Mobile Applications Prototyping](#3145-mobile-applications-prototyping)
+
+- [Capítulo IV: Product Implementation & Validation](#capítulo-iv-product-implementation--validation)
+  - [4. Product Implementation & Validation](#4-product-implementation--validation)
+    - [4.1. Software Configuration Management](#41-software-configuration-management)
+      - [4.1.1. Software Development Environment Configuration](#411-software-development-environment-configuration)
+      - [4.1.2. Source Code Management](#412-source-code-management)
+      - [4.1.3. Source Code Style Guide & Conventions](#413-source-code-style-guide--conventions)
+      - [4.1.4. Software Deployment Configuration](#414-software-deployment-configuration)
+    - [4.2. Landing Page & Mobile Application Implementation](#42-landing-page--mobile-application-implementation)
+      - [4.2.1. Sprint 1](#421-sprint-1)
+        - [4.2.1.1. Sprint Planning 1](#4211-sprint-planning-1)
+        - [4.2.1.2. Sprint Backlog 1](#4212-sprint-backlog-1)
+        - [4.2.1.3. Development Evidence for Sprint Review](#4213-development-evidence-for-sprint-review)  
+        - [4.2.1.4. Testing Suite Evidence for Sprint Review](#4214-testing-suite-evidence-for-sprint-review)  
+        - [4.2.1.5. Execution Evidence for Sprint Review](#4215-execution-evidence-for-sprint-review)  
+        - [4.2.1.6. Services Documentation Evidence for Sprint Review](#4216-services-documentation-evidence-for-sprint-review)  
+        - [4.2.1.7. Software Deployment Evidence for Sprint Review](#4217-software-deployment-evidence-for-sprint-review)  
+        - [4.2.1.8. Team Collaboration Insights during Sprint](#4218-team-collaboration-insights-during-sprint)
+
 ---
 
 # Project Report Collaboration Insights
@@ -202,35 +232,29 @@ desarrollo profesional y en especial
 para su proyecto en soluciones de
 software.</td>
 <td>
-            <strong>Giorgio Marzouk Awad Vargas</strong> <br>
-            TB1 <br> Durante la fase de la entrega TB1, el equipo llevó a cabo la investigación y delimitación de la problemática de inseguridad ciudadana en Lima Metropolitana mediante la aplicación de la técnica 5W2H y el marco de trabajo Lean UX, lo que permitió definir una solución centrada en el ciudadano. Se desarrollaron sesiones de diseño estratégico aplicando la metodología EventStorming para identificar los Bounded Contexts y el lenguaje ubicuo del sistema, complementando esta labor con el modelado de la arquitectura de software utilizando el modelo C4 en sus niveles de contexto y contenedor. <br>
-            TB2 <br> Contenido <br>
-            TP1 <br> Contenido <br>
-            <strong> Giorgio Marzouk Awad Vargas</strong> <br>
-            TB1 <br> Durante la fase de la entrega TB1, el equipo llevó a cabo la investigación y delimitación de la problemática de inseguridad ciudadana en Lima Metropolitana mediante la aplicación de la técnica 5W2H y el marco de trabajo Lean UX, lo que permitió definir una solución centrada en el ciudadano. Se desarrollaron sesiones de diseño estratégico aplicando la metodología EventStorming para identificar los Bounded Contexts y el lenguaje ubicuo del sistema, complementando esta labor con el modelado de la arquitectura de software utilizando el modelo C4 en sus niveles de contexto y contenedor. <br>
-            TB2 <br> Contenido <br>
-            TP1 <br> Contenido <br>
             <strong>Ruiz Madrid, Billy Jake</strong> <br>
-            TB1 <br> Durante la fase de la entrega TB1, el equipo llevó a cabo la investigación y delimitación de la problemática de inseguridad ciudadana en Lima Metropolitana mediante la aplicación de la técnica 5W2H y el marco de trabajo Lean UX, lo que permitió definir una solución centrada en el ciudadano. Se desarrollaron sesiones de diseño estratégico aplicando la metodología EventStorming para identificar los Bounded Contexts y el lenguaje ubicuo del sistema, complementando esta labor con el modelado de la arquitectura de software utilizando el modelo C4 en sus niveles de contexto y contenedor. <br>
-            TB2 <br> Contenido <br>
-            TP1 <br> Contenido <br>         
+            Avance 1: Aprendió a utilizar Structurizr DSL para generar diagramas de arquitectura como código, optimizando la documentación técnica del equipo. <br>
+            TP: Exploró algoritmos de agrupamiento espacial (clustering) para optimizar el rendimiento del renderizado de capas de calor en dispositivos móviles. <br><br>
             <strong>Gordillo Ramos, Santiago Alonso</strong> <br>
-            TB1 <br> Durante la fase de la entrega TB1, el equipo llevó a cabo la investigación y delimitación de la problemática de inseguridad ciudadana en Lima Metropolitana mediante la aplicación de la técnica 5W2H y el marco de trabajo Lean UX, lo que permitió definir una solución centrada en el ciudadano. Se desarrollaron sesiones de diseño estratégico aplicando la metodología EventStorming para identificar los Bounded Contexts y el lenguaje ubicuo del sistema, complementando esta labor con el modelado de la arquitectura de software utilizando el modelo C4 en sus niveles de contexto y contenedor. <br>
-            TB2 <br> Contenido <br>
-            TP1 <br> Contenido <br>
-            <strong>Quijada Magro, Jeremy</strong> <br>
-            TB1 <br> Durante la fase de la entrega TB1, el equipo llevó a cabo la investigación y delimitación de la problemática de inseguridad ciudadana en Lima Metropolitana mediante la aplicación de la técnica 5W2H y el marco de trabajo Lean UX, lo que permitió definir una solución centrada en el ciudadano. Se desarrollaron sesiones de diseño estratégico aplicando la metodología EventStorming para identificar los Bounded Contexts y el lenguaje ubicuo del sistema, complementando esta labor con el modelado de la arquitectura de software utilizando el modelo C4 en sus niveles de contexto y contenedor. <br>
-            TB2 <br> Contenido <br>
-            TP1 <br> Contenido <br>
+            Avance 1: Estudió pautas de accesibilidad universal (a11y) y Material Design para aplicarlas en la experiencia de usuario de las aplicaciones del proyecto. <br>
+            TP: Investigó técnicas de optimización SEO y Meta Tags para mejorar el posicionamiento orgánico y visibilidad del Landing Page en buscadores. <br><br>
+            <strong>La Madrid Lozano, Ivan Jeanpierre</strong> <br>
+            Avance 1: Profundizó en el uso de contenedores y despliegue en la nube para asegurar entornos de ejecución consistentes en el backend del proyecto. <br>
+            TP: Investigó la implementación de protocolos de seguridad JWT para proteger las comunicaciones sensibles entre la aplicación móvil y los microservicios. <br><br>
+            <strong>Awad Vargas, Giorgio Marzouk</strong> <br>
+            Avance 1: Identificó la necesidad de aprender nuevas herramientas de modelado arquitectónico para representar correctamente los componentes de UrbanVoice. <br>
+            TP: Investigó estándares de almacenamiento de archivos en la nube para gestionar eficientemente la evidencia multimedia de los reportes ciudadanos.
+            <strong>Quijada Magro, Jeremy Alexander</strong> <br>
+            Avance 1: <br> Lideró la fase de investigación de usuarios y la construcción de arquetipos (User Personas) para alinear los requisitos con las necesidades de seguridad en Lima Metropolitana[cite: 351, 354]. <br>
+            TP: <br> Implementó el Testing Suite bajo el enfoque BDD utilizando Gherkin para validar los criterios de aceptación del núcleo operativo de la aplicación móvil[cite: 694, 697]. <br>
 </td>
 <td>
-<em><strong>TB1</strong></em>
-<br>El desarrollo de esta entrega permitió al equipo adquirir y aplicar conocimientos avanzados en diseño orientado al dominio (DDD) y patrones arquitectónicos modernos, validando la capacidad de aprendizaje autónomo para integrar herramientas de geolocalización y servicios en la nube.
-<br>
+<em><strong>Avance 1</strong></em>
+<br>El equipo logró consolidar una base metodológica sólida mediante Lean UX y DDD, lo que permitió transformar percepciones subjetivas de inseguridad en requerimientos técnicos accionables y bien estructurados.
+<br><br>
+<em><strong>TP1</strong></em>
+<br>Se validó que la integración de pruebas automatizadas y el diseño de arquitectura táctica son esenciales para garantizar que el producto final sea escalable y cumpla con los estándares de calidad exigidos.
 
-<em><strong>TB2</strong></em>
-<br>Contenido
-<br>
 </td>
 </tr>
 <tr class="even">
@@ -240,34 +264,28 @@ desempeño profesional y el
 desarrollo de proyectos en
 soluciones de software.</td>
 <td>
-            <strong>Giorgio Marzouk Awad Vargas</strong> <br>
-            TB1 <br> Identificó la necesidad de aprender nuevas herramientas de modelado y documentación arquitectónica para representar correctamente los bounded contexts, diagramas de componentes, dominio y base de datos de UrbanVoice. <br>
-            TB2 <br> Contenido <br>
-            TP1 <br> Contenido <br>
-            <strong>Giorgio Marzouk Awad Vargas</strong> <br>
-            TB1 <br> Identificó la necesidad de aprender nuevas herramientas de modelado y documentación arquitectónica para representar correctamente los bounded contexts, diagramas de componentes, dominio y base de datos de UrbanVoice. <br>
-            TB2 <br> Contenido <br>
-            TP1 <br> Contenido <br>
             <strong>Ruiz Madrid, Billy Jake</strong> <br>
-            TB1 <br> Identificó la necesidad de aprender nuevas herramientas de modelado y documentación arquitectónica para representar correctamente los bounded contexts, diagramas de componentes, dominio y base de datos de UrbanVoice. <br>
-            TB2 <br> Contenido <br>
-            TP1 <br> Contenido <br>
+            Avance 1: Aprendió a utilizar Structurizr DSL para generar diagramas de arquitectura como código, optimizando la documentación técnica del equipo. <br>
+            TP: Exploró algoritmos de agrupamiento espacial (clustering) para optimizar el rendimiento del renderizado de capas de calor en dispositivos móviles. <br><br>
             <strong>Gordillo Ramos, Santiago Alonso</strong> <br>
-            TB1 <br> Identificó la necesidad de aprender nuevas herramientas de modelado y documentación arquitectónica para representar correctamente los bounded contexts, diagramas de componentes, dominio y base de datos de UrbanVoice. <br>
-            TB2 <br> Contenido <br>
-            TP1 <br> Contenido <br>
+            Avance 1: Estudió pautas de accesibilidad universal (a11y) y Material Design para aplicarlas en la experiencia de usuario de las aplicaciones del proyecto. <br>
+            TP: Investigó técnicas de optimización SEO y Meta Tags para mejorar el posicionamiento orgánico y visibilidad del Landing Page en buscadores. <br><br>
+            <strong>La Madrid Lozano, Ivan Jeanpierre</strong> <br>
+            Avance 1: Profundizó en el uso de contenedores y despliegue en la nube para asegurar entornos de ejecución consistentes en el backend del proyecto. <br>
+            TP: Investigó la implementación de protocolos de seguridad JWT para proteger las comunicaciones sensibles entre la aplicación móvil y los microservicios. <br><br>
+            <strong>Awad Vargas, Giorgio Marzouk</strong> <br>
+            Avance 1: Identificó la necesidad de aprender nuevas herramientas de modelado arquitectónico para representar correctamente los componentes de UrbanVoice. <br>
+            TP: Investigó estándares de almacenamiento de archivos en la nube para gestionar eficientemente la evidencia multimedia de los reportes ciudadanos.
             <strong>Quijada Magro, Jeremy Alexander</strong> <br>
-            TB1 <br> Identificó la necesidad de aprender nuevas herramientas de modelado y documentación arquitectónica para representar correctamente los bounded contexts, diagramas de componentes, dominio y base de datos de UrbanVoice. <br>
-            TB2 <br> Contenido <br>
-            TP1 <br> Contenido <br>
+            Avance 1: <br> Lideró la fase de investigación de usuarios y la construcción de arquetipos (User Personas) para alinear los requisitos con las necesidades de seguridad en Lima Metropolitana[cite: 351, 354]. <br>
+            TP: <br> Implementó el Testing Suite bajo el enfoque BDD utilizando Gherkin para validar los criterios de aceptación del núcleo operativo de la aplicación móvil[cite: 694, 697]. <br>
 </td>
 <td>
-<em><strong>TB1</strong></em>
-<br>Durante TB1 se evidenció que el aprendizaje continuo es clave para adoptar herramientas como Structurizr y PlantUML y traducir requerimientos del dominio en artefactos técnicos claros.<br>
-<br>
-<em><strong>TB2</strong></em>
-<br>Contenido<br>
-<br>
+<em><strong>Avance 1</strong></em>
+<br>Se evidenció que la adopción de herramientas de modelado como código y la investigación autónoma de metodologías ágiles son fundamentales para el éxito del diseño inicial del proyecto.
+<br><br>
+<em><strong>TP1</strong></em>
+<br>El aprendizaje de herramientas de CI/CD y automatización demostró ser clave para optimizar los tiempos de entrega, reforzando la idea de que la actualización tecnológica constante es una ventaja competitiva en el desarrollo de software.
 </td>
 
 </tr>
@@ -3329,7 +3347,11 @@ El flujo de trabajo implementado para el desarrollo del proyecto se basará en e
 
 3. **Feature branch (Ramas de funcionalidad):** Cada funcionalidad o bounded context desarrollado por el equipo tendrá su propia rama. Una vez que una funcionalidad esté completamente trabajada, se fusionará con la rama de desarrollo del proyecto. Las convenciones para nombrar las ramas de funcionalidad seguirán un patrón descriptivo y único, por ejemplo, `feature/notification-management` o `feature/report-module`.
 
----
+4. **Convenciones de Ramas (GitFlow):**
+  * **Main:** Versiones estables para producción (v1.0.0).
+  * **Develop:** Integración de nuevas funcionalidades.
+  * **Feature:** `feature/US-ID-descripcion` (Ej. `feature/US02-registro-incidente`).
+  * **Fix:** `hotfix/descripcion-error` para correcciones críticas en Main.
 
 #### 4.1.3. Source Code Style Guide & Conventions
 
@@ -3607,6 +3629,14 @@ Las actividades de implementación se desarrollaron mediante un flujo de trabajo
 **Enlace Deploy Landing Page:** https://urbanvoice-3248-dispo-moviles.github.io/Landing-Page/
 
 
+# Glosario
 
+* **Bounded Context:** Límite explícito dentro del cual vive un modelo de dominio específico y su lenguaje ubicuo.
+* **C4 Model:** Marco de trabajo para documentar arquitecturas de software mediante niveles (Contexto, Contenedor, Componente y Código).
+* **FCM (Firebase Cloud Messaging):** Servicio utilizado para el envío de notificaciones push geolocalizadas.
+* **Geofencing:** Perímetro virtual para un área geográfica real que dispara alertas cuando un dispositivo entra o sale.
+* **Heatmap (Mapa de Calor):** Representación gráfica de datos donde los valores se denotan por colores para mostrar la densidad de incidentes.
+* **JWT (JSON Web Token):** Estándar para la transmisión segura de información entre partes como un objeto JSON, usado para autenticación.
+* **Lean UX:** Metodología que se enfoca en la experiencia de usuario y la validación rápida de hipótesis mediante productos mínimos viables.
 
 
