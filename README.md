@@ -3607,6 +3607,295 @@ Para este Sprint, las tareas de diseño, implementación y documentación de la 
 
 Las actividades de implementación se desarrollaron mediante un flujo de trabajo ágil. El proceso comenzó con la planificación inicial, donde se asignaron roles específicos para cada fase. Esto incluyó el diseño de la estructura HTML y los estilos CSS, que se iniciaron con commits iniciales para establecer la base del proyecto.
 
+#### 4.2.2. Sprint 2
+
+Durante el Sprint 2, el equipo enfocó el desarrollo en la implementación de la aplicación móvil de UrbanVoice utilizando Flutter. A diferencia del Sprint 1, donde el avance principal se concentró en el Landing Page, backend y documentación inicial de servicios, este Sprint permitió construir una primera versión funcional del frontend móvil, integrando pantallas de autenticación, registro de usuario, mapa de riesgos, reportes ciudadanos, alertas, perfil, detalle de incidentes y consulta de reportes propios.
+
+La aplicación móvil fue organizada bajo una estructura por capas, separando responsabilidades en `core`, `data`, `domain` y `presentation`. Esta distribución permitió mantener una arquitectura alineada con los principios de Domain-Driven Design, facilitando la conexión con servicios RESTful mediante `Dio`, la gestión de estados mediante `BLoC`, la inyección de dependencias con `GetIt` y la representación geográfica mediante `Google Maps`.
+
+##### 4.2.2.1. Sprint Planning 2
+
+El Sprint Planning 2 se realizó con el objetivo de avanzar desde una base documental y de servicios hacia una experiencia móvil funcional. Para ello, el equipo priorizó las historias de usuario relacionadas con la visualización del mapa de riesgo, registro de incidentes, reporte anónimo, evidencia fotográfica, visualización de detalles, alertas y gestión básica del perfil del ciudadano.
+
+| Sprint #                            | Sprint 2                                                                                                                                                                                                                                                                                                                                        |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Sprint Planning Background**      |                                                                                                                                                                                                                                                                                                                                                 |
+| **Date**                            | 16/06/2026                                                                                                                                                                                                                                                                                                                                      |
+| **Time**                            | 07:00 PM                                                                                                                                                                                                                                                                                                                                        |
+| **Location**                        | Reunión virtual mediante Discord                                                                                                                                                                                                                                                                                                                |
+| **Prepared By**                     | Ruiz Madrid, Billy Jake                                                                                                                                                                                                                                                                                                                         |
+| **Attendees (to planning meeting)** | Ivan La Madrid / Jeremy Quijada / Billy Ruiz / Santiago Gordillo / Giorgio Awad                                                                                                                                                                                                                                                                 |
+| **Sprint 1 Review Summary**         | En el Sprint 1 se logró implementar y desplegar la Landing Page, documentar servicios iniciales mediante Swagger/OpenAPI y definir el avance inicial de las funcionalidades principales de UrbanVoice. También se avanzó en el backend y se dejaron historias móviles en estado inicial o en progreso.                                          |
+| **Sprint 1 Retrospective Summary**  | El equipo identificó como aciertos la división por módulos, el uso de GitHub para evidenciar avances y la documentación de servicios. Como oportunidad de mejora, se acordó separar claramente el repositorio del frontend móvil, registrar commits específicos por funcionalidad y presentar evidencias visuales de ejecución de la app móvil. |
+| **Sprint Goal & User Stories**      |                                                                                                                                                                                                                                                                                                                                                 |
+| **Sprint 2 Goal**                   | Implementar una primera versión funcional de la aplicación móvil UrbanVoice que permita al ciudadano iniciar sesión, registrarse, visualizar un mapa de riesgo, consultar incidentes cercanos, registrar reportes con ubicación, adjuntar evidencia fotográfica, enviar reportes anónimos, revisar alertas y visualizar detalles de incidentes. |
+| **Sprint 2 Velocity**               | 34 Story Points                                                                                                                                                                                                                                                                                                                                 |
+| **Sum of Story Points**             | 34 Story Points                                                                                                                                                                                                                                                                                                                                 |
+
+##### 4.2.2.2. Sprint Backlog 2
+
+| # Orden | User Story ID | Título                                | Descripción                                                                                                                          | Story Points | Estimation (hours) | Assigned To       |    Status   |
+| :-----: | :-----------: | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | :----------: | :----------------: | ----------------- | :---------: |
+|    1    |      US01     | Visualización de mapa de riesgo       | Como ciudadano, deseo visualizar un mapa con zonas de riesgo para evitar transitar por lugares peligrosos.                           |       5      |          8         | Billy Ruiz        |     Done    |
+|    2    |      US02     | Registro de incidente                 | Como ciudadano, deseo reportar un incidente de inseguridad con mi ubicación para alertar a otros usuarios.                           |       5      |          8         | Jeremy Quijada    |     Done    |
+|    3    |      US03     | Evidencia multimedia                  | Como ciudadano, deseo adjuntar evidencia para dar credibilidad al reporte realizado.                                                 |       5      |          6         | Giorgio Awad      | In Progress |
+|    4    |      US04     | Reporte anónimo                       | Como ciudadano, deseo realizar reportes de forma anónima para proteger mi identidad.                                                 |       3      |          4         | Giorgio Awad      |     Done    |
+|    5    |      US05     | Consulta de alertas                   | Como ciudadano, deseo recibir y revisar alertas de seguridad para tomar precauciones ante incidentes cercanos.                       |       5      |          6         | Santiago Gordillo |     Done    |
+|    6    |      US09     | Visualización de detalle de incidente | Como ciudadano, deseo visualizar el detalle de un incidente reportado para conocer su ubicación, descripción y evidencia disponible. |       3      |          5         | Santiago Gordillo |     Done    |
+|    7    |      US10     | Gestión de perfil de usuario          | Como ciudadano, deseo visualizar mi perfil para revisar mi información personal registrada en la aplicación.                         |       3      |          4         | Ivan La Madrid    |     Done    |
+|    8    |      US11     | Consulta de mis reportes              | Como ciudadano, deseo visualizar mis reportes realizados para hacer seguimiento de los incidentes registrados.                       |       5      |          7         | Jeremy Quijada        |     Done    |
+
+##### 4.2.2.3. Development Evidence for Sprint Review
+
+Durante el Sprint 2 se implementó el repositorio `Front-End`, correspondiente a la aplicación móvil de UrbanVoice. Esta aplicación fue desarrollada en Flutter y organizada en capas para separar la lógica de presentación, dominio, datos y configuración base del sistema.
+
+La estructura principal del frontend se organizó de la siguiente manera:
+
+| Carpeta / Archivo       | Propósito                                                                                 |
+| ----------------------- | ----------------------------------------------------------------------------------------- |
+| `lib/main.dart`         | Punto de entrada de la aplicación. Inicializa dependencias y define los BLoC principales. |
+| `lib/core`              | Configuración base, constantes, cliente HTTP, tema visual e inyección de dependencias.    |
+| `lib/data`              | Datasources remotos, modelos y repositorios concretos para consumir la API REST.          |
+| `lib/domain`            | Entidades, contratos de repositorio y casos de uso del dominio.                           |
+| `lib/presentation`      | Pantallas, widgets y BLoC usados por la interfaz móvil.                                   |
+| `test/widget_test.dart` | Prueba base tipo smoke test para validar configuración inicial de testing.                |
+
+Las funcionalidades desarrolladas incluyen:
+
+* Pantalla de inicio de sesión.
+* Pantalla de registro de usuario.
+* Mapa principal con `GoogleMap`.
+* Marcadores para zonas de riesgo e incidentes reportados.
+* Formulario para reportar incidentes.
+* Captura de ubicación actual mediante GPS.
+* Adjuntar evidencia fotográfica mediante cámara.
+* Opción de reporte anónimo.
+* Pantalla de alertas.
+* Pantalla de mis reportes.
+* Pantalla de perfil de usuario.
+* Pantalla de detalle de incidente con mapa y datos del reporte.
+
+| Repository                              | Branch | Commit ID | Commit Message    | Commit Message Body                                                                                                                      | Committed on |
+| --------------------------------------- | ------ | --------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| urbanvoice-3248-dispo-moviles/Front-End | main   | a36f050   | Initial commit    | Se creó la base del proyecto Flutter para la aplicación móvil UrbanVoice, incluyendo estructura multiplataforma y configuración inicial. | 16/06/2026   |
+| urbanvoice-3248-dispo-moviles/Front-End | main   | 8508cea   | feat/app-version1 | Se implementó la primera versión funcional de la app móvil con pantallas de autenticación, registro, mapa, reportes, alertas y perfil.   | 16/06/2026   |
+| urbanvoice-3248-dispo-moviles/Front-End | main   | 97837f9   | fix/ mapa riesgos | Se corrigió la visualización del mapa de riesgos y la representación de marcadores de ubicaciones e incidentes.                          | 16/06/2026   |
+
+##### 4.2.2.4. Testing Suite Evidence for Sprint Review
+
+Para este Sprint se consideraron pruebas orientadas a validar el correcto funcionamiento de los flujos principales de la aplicación móvil. En el repositorio del frontend se cuenta con una prueba base tipo smoke test ubicada en `test/widget_test.dart`, la cual permite confirmar que el entorno de pruebas de Flutter se encuentra configurado correctamente.
+
+Además, se definieron escenarios de prueba funcional para validar los flujos vinculados a las historias de usuario implementadas durante el Sprint.
+
+| Test ID   | Tipo de prueba   | User Story relacionada | Objetivo                                                                                       | Resultado esperado                                                         | Estado      |
+| --------- | ---------------- | ---------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ----------- |
+| TST-FE-00 | Smoke Test       | Configuración base     | Validar que el entorno de pruebas de Flutter ejecute correctamente.                            | La prueba base retorna resultado exitoso.                                  | Implemented |
+| TST-FE-01 | Widget Test      | US01                   | Validar que la pantalla principal cargue el mapa de UrbanVoice.                                | El usuario visualiza el mapa principal con controles de ubicación.         | Designed    |
+| TST-FE-02 | Widget Test      | US02                   | Validar que el formulario de reporte permita ingresar título, descripción y tipo de incidente. | El formulario acepta datos válidos y permite enviar el reporte.            | Designed    |
+| TST-FE-03 | Integration Test | US03                   | Validar que el usuario pueda adjuntar evidencia desde la cámara.                               | La aplicación registra la ruta del archivo capturado como evidencia.       | Designed    |
+| TST-FE-04 | Widget Test      | US04                   | Validar que el switch de reporte anónimo cambie correctamente de estado.                       | El reporte se marca como anónimo antes de ser enviado.                     | Designed    |
+| TST-FE-05 | Widget Test      | US05                   | Validar que la pantalla de alertas muestre alertas disponibles o estado vacío.                 | El usuario visualiza la lista de alertas o el mensaje “No tienes alertas”. | Designed    |
+| TST-FE-06 | Widget Test      | US09                   | Validar que el detalle del incidente muestre título, descripción, fecha, ubicación y mapa.     | El usuario visualiza la información completa del incidente seleccionado.   | Designed    |
+| TST-FE-07 | Widget Test      | US10                   | Validar que el perfil muestre nombres, apellidos, edad, correo, teléfono y fecha de creación.  | El usuario visualiza su información personal correctamente.                | Designed    |
+
+**Código base de prueba implementado en el frontend:**
+
+```dart
+import 'package:flutter_test/flutter_test.dart';
+
+void main() {
+  testWidgets('App smoke test', (WidgetTester tester) async {
+    // Basic smoke test placeholder
+    expect(true, isTrue);
+  });
+}
+```
+
+**Feature file propuesto para validar los flujos principales del Sprint 2:**
+
+```gherkin
+Feature: Gestión móvil de incidentes y zonas de riesgo en UrbanVoice
+
+  Scenario: Visualizar mapa de riesgo
+    Given que el ciudadano inició sesión en UrbanVoice
+    When accede a la pantalla principal
+    Then el sistema muestra el mapa con zonas de riesgo e incidentes cercanos
+
+  Scenario: Registrar un incidente ciudadano
+    Given que el ciudadano se encuentra en la pantalla de reporte
+    When completa el tipo, título y descripción del incidente
+    And el sistema obtiene su ubicación actual
+    Then el ciudadano puede enviar el reporte correctamente
+
+  Scenario: Adjuntar evidencia fotográfica
+    Given que el ciudadano está registrando un incidente
+    When selecciona la opción "Agregar evidencia"
+    Then el sistema abre la cámara y adjunta la imagen capturada
+
+  Scenario: Enviar reporte anónimo
+    Given que el ciudadano está registrando un incidente
+    When activa la opción "Reporte anónimo"
+    Then el sistema oculta su identidad en el reporte
+
+  Scenario: Consultar detalle de incidente
+    Given que el ciudadano selecciona un marcador de incidente en el mapa
+    When accede al detalle del incidente
+    Then el sistema muestra ubicación, tipo, descripción, fecha y evidencia disponible
+```
+
+| Repository                              | Branch | Commit ID | Commit Message    | Commit Message Body                                                                                                                             | Committed on |
+| --------------------------------------- | ------ | --------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| urbanvoice-3248-dispo-moviles/Front-End | main   | a36f050   | Initial commit    | Se incluyó la estructura base de testing del proyecto Flutter mediante `widget_test.dart`.                                                      | 16/06/2026   |
+| urbanvoice-3248-dispo-moviles/Front-End | main   | 8508cea   | feat/app-version1 | Se dejaron implementadas las pantallas necesarias para ejecutar pruebas funcionales de mapa, reportes, alertas, perfil y detalle de incidentes. | 16/06/2026   |
+
+##### 4.2.2.5. Execution Evidence for Sprint Review
+
+En este Sprint se logró ejecutar una primera versión funcional de la aplicación móvil UrbanVoice. La app permite que el ciudadano acceda mediante login, cree una cuenta, consulte el mapa de riesgo, registre incidentes, adjunte evidencia fotográfica, marque reportes como anónimos, visualice alertas, revise sus reportes y consulte el detalle de incidentes registrados.
+
+**Pantalla de inicio de sesión**
+
+<img src="assets/sprint2-frontend-login.png" alt="Pantalla de inicio de sesión de UrbanVoice"/><br/>
+
+**Pantalla de registro de usuario**
+
+<img src="assets/sprint2-frontend-register.png" alt="Pantalla de registro de usuario de UrbanVoice"/><br/>
+
+**Mapa principal de riesgo**
+
+<img src="assets/sprint2-frontend-home-map.png" alt="Mapa principal con zonas de riesgo e incidentes"/><br/>
+
+**Formulario de reporte de incidente**
+
+<img src="assets/sprint2-frontend-report-incident.png" alt="Formulario para registrar incidente ciudadano"/><br/>
+
+**Adjuntar evidencia fotográfica**
+
+<img src="assets/sprint2-frontend-evidence.png" alt="Captura de evidencia fotográfica en reporte ciudadano"/><br/>
+
+**Detalle del incidente**
+
+<img src="assets/sprint2-frontend-incident-detail.png" alt="Pantalla de detalle de incidente reportado"/><br/>
+
+**Pantalla de alertas**
+
+<img src="assets/sprint2-frontend-alerts.png" alt="Pantalla de alertas de seguridad"/><br/>
+
+**Pantalla de mis reportes**
+
+<img src="assets/sprint2-frontend-my-reports.png" alt="Pantalla de mis reportes realizados"/><br/>
+
+**Pantalla de perfil**
+
+<img src="assets/sprint2-frontend-profile.png" alt="Pantalla de perfil del usuario"/><br/>
+
+##### 4.2.2.6. Services Documentation Evidence for Sprint Review
+
+Durante el Sprint 2 se conectó el frontend móvil con los endpoints definidos para los bounded contexts principales de UrbanVoice. La aplicación utiliza un cliente HTTP basado en `Dio` y centraliza las rutas de consumo en `ApiConstants`, apuntando al backend local mediante `/api/v1`.
+
+La configuración considera dos escenarios:
+
+* Para web o plataformas distintas de Android: `http://localhost:8080/api/v1`
+* Para emulador Android: `http://10.0.2.2:8080/api/v1`
+
+###### Profiles
+
+| Acción                   | Verbo HTTP | Sintaxis                         | Parámetros                                                    | Uso en frontend     |
+| ------------------------ | ---------- | -------------------------------- | ------------------------------------------------------------- | ------------------- |
+| Crear perfil             | POST       | `/api/v1/profiles`               | Body con nombre, apellido, edad, email, teléfono y contraseña | Registro de usuario |
+| Obtener perfil por ID    | GET        | `/api/v1/profiles/{id}`          | Path: `id`                                                    | Pantalla de perfil  |
+| Obtener perfil por email | GET        | `/api/v1/profiles/email/{email}` | Path: `email`                                                 | Inicio de sesión    |
+| Actualizar perfil        | PUT        | `/api/v1/profiles/{id}`          | Path: `id`, body con datos actualizados                       | Gestión de perfil   |
+| Eliminar perfil          | DELETE     | `/api/v1/profiles/{id}`          | Path: `id`                                                    | Gestión de cuenta   |
+
+###### Reports
+
+| Acción                       | Verbo HTTP | Sintaxis                        | Parámetros                                                                            | Uso en frontend                     |
+| ---------------------------- | ---------- | ------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------- |
+| Crear reporte                | POST       | `/api/v1/reports`               | Body con usuario, título, descripción, tipo, latitud, longitud, evidencia y anonimato | Formulario de reporte de incidente  |
+| Obtener reporte por ID       | GET        | `/api/v1/reports/{id}`          | Path: `id`                                                                            | Detalle de incidente                |
+| Obtener reportes por usuario | GET        | `/api/v1/reports/user/{userId}` | Path: `userId`                                                                        | Pantalla “Mis Reportes”             |
+| Obtener reportes cercanos    | GET        | `/api/v1/reports/nearby`        | Query: `latitude`, `longitude`                                                        | Marcadores de incidentes en el mapa |
+| Eliminar reporte             | DELETE     | `/api/v1/reports/{id}`          | Path: `id`                                                                            | Gestión de reportes                 |
+
+###### Locations
+
+| Acción                           | Verbo HTTP | Sintaxis                                | Parámetros                       | Uso en frontend                         |
+| -------------------------------- | ---------- | --------------------------------------- | -------------------------------- | --------------------------------------- |
+| Listar ubicaciones               | GET        | `/api/v1/locations`                     | Ninguno                          | Carga de zonas de riesgo en el mapa     |
+| Obtener ubicaciones cercanas     | GET        | `/api/v1/locations/nearby`              | Query: latitud, longitud y radio | Consulta de zonas cercanas              |
+| Obtener ubicaciones por distrito | GET        | `/api/v1/locations/district/{district}` | Path: `district`                 | Filtro por distrito                     |
+| Obtener ubicaciones peligrosas   | GET        | `/api/v1/locations/dangerous`           | Ninguno                          | Visualización de zonas con mayor riesgo |
+
+###### Alerts
+
+| Acción                      | Verbo HTTP | Sintaxis                       | Parámetros     | Uso en frontend                    |
+| --------------------------- | ---------- | ------------------------------ | -------------- | ---------------------------------- |
+| Obtener todas las alertas   | GET        | `/api/v1/alerts`               | Ninguno        | Pantalla de alertas general        |
+| Obtener alertas por usuario | GET        | `/api/v1/alerts/user/{userId}` | Path: `userId` | Pantalla de alertas personalizadas |
+
+**URL local de documentación Swagger/OpenAPI:**
+`http://localhost:8080/swagger-ui/index.html`
+
+##### 4.2.2.7. Software Deployment Evidence for Sprint Review
+
+Para este Sprint, el despliegue relacionado con el frontend móvil corresponde a la ejecución local y generación de build de la aplicación Flutter. El repositorio aún no cuenta con un release publicado, por lo que la evidencia de despliegue se presenta mediante la ejecución en emulador Android y la preparación del APK.
+
+###### Mobile Application Deployment
+
+| Producto                | Plataforma                 | Evidencia                                     | Estado          |
+| ----------------------- | -------------------------- | --------------------------------------------- | --------------- |
+| UrbanVoice Mobile App   | Flutter / Android Emulator | Ejecución local mediante `flutter run`        | Done            |
+| UrbanVoice Mobile App   | Flutter APK                | Build generado mediante `flutter build apk`   | In Progress     |
+| UrbanVoice Mobile App   | GitHub Releases            | No release publicado aún                      | Pending         |
+| Backend UrbanVoice      | Localhost / Swagger        | `http://localhost:8080/swagger-ui/index.html` | Local execution |
+| Landing Page UrbanVoice | GitHub Pages               | Landing Page publicada en GitHub Pages        | Deployed        |
+
+**Comandos usados para la ejecución local del frontend:**
+
+```bash
+flutter pub get
+flutter run
+```
+
+**Comando sugerido para generar APK:**
+
+```bash
+flutter build apk --release
+```
+
+**Evidencia de ejecución en emulador Android**
+
+<img src="assets/sprint2-frontend-emulator-run.png" alt="Ejecución de UrbanVoice Mobile App en emulador Android"/><br/>
+
+**Evidencia de build APK**
+
+<img src="assets/sprint2-frontend-apk-build.png" alt="Build APK de UrbanVoice Mobile App"/><br/>
+
+**Evidencia del repositorio Front-End**
+
+<img src="assets/sprint2-frontend-repository.png" alt="Repositorio Front-End de UrbanVoice en GitHub"/><br/>
+
+##### 4.2.2.8. Team Collaboration Insights during Sprint
+
+Durante el Sprint 2, el equipo concentró sus esfuerzos en transformar las funcionalidades priorizadas del Product Backlog en pantallas móviles funcionales. La colaboración se organizó alrededor del repositorio `Front-End`, donde se implementó la primera versión de la app móvil y se corrigió la visualización del mapa de riesgos.
+
+| Integrante                        | Actividades realizadas durante el Sprint 2                                                                                                                         |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Ruiz Madrid, Billy Jake           | Apoyo en la documentación del Sprint 2, revisión de la trazabilidad entre historias de usuario y funcionalidades móviles, y validación del flujo de mapa/reportes. |
+| Quijada Magro, Jeremy Alexander   | Implementación principal del frontend móvil, commits de la primera versión de la app y corrección del mapa de riesgos.                                             |
+| La Madrid Lozano, Ivan Jeanpierre | Apoyo en la integración de servicios RESTful, endpoints de perfiles, reportes, ubicaciones y alertas.                                                              |
+| Gordillo Ramos, Santiago Alonso   | Revisión de pantallas móviles, soporte en experiencia visual y organización de evidencias de ejecución.                                                            |
+| Awad Vargas, Giorgio Marzouk      | Apoyo en la funcionalidad de evidencia fotográfica, revisión de reporte anónimo y documentación de funcionalidades del Sprint.                                     |
+
+**Evidencias de colaboración en GitHub:**
+
+<img src="assets/sprint2-frontend-commits.png" alt="Commits del repositorio Front-End durante Sprint 2"/><br/>
+
+<img src="assets/sprint2-frontend-contributors.png" alt="Evidencia de colaboración en el repositorio Front-End"/><br/>
+
+**Resumen de colaboración:**
+
+El equipo logró avanzar de manera significativa en la construcción de la aplicación móvil de UrbanVoice. El repositorio `Front-End` permitió evidenciar una primera versión funcional del producto móvil, integrando autenticación, mapa, reportes, alertas y perfil. Como oportunidad de mejora, se identificó la necesidad de incrementar la cantidad de commits por integrante, aplicar mensajes bajo Conventional Commits de forma más estricta, agregar pruebas automatizadas más completas y publicar un release APK para facilitar la validación externa de la app.
 
 ### Conclusiones
 
