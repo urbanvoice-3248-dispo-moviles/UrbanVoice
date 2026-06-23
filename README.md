@@ -191,6 +191,24 @@
         - [4.2.1.6. Services Documentation Evidence for Sprint Review](#4216-services-documentation-evidence-for-sprint-review)  
         - [4.2.1.7. Software Deployment Evidence for Sprint Review](#4217-software-deployment-evidence-for-sprint-review)  
         - [4.2.1.8. Team Collaboration Insights during Sprint](#4218-team-collaboration-insights-during-sprint)
+      - [4.2.2. Sprint 2](#422-sprint-2)
+        - [4.2.2.1. Sprint Planning 2](#4221-sprint-planning-2)
+        - [4.2.2.2. Sprint Backlog 2](#4222-sprint-backlog-2)
+        - [4.2.2.3. Development Evidence for Sprint Review](#4223-development-evidence-for-sprint-review)  
+        - [4.2.2.4. Testing Suite Evidence for Sprint Review](#4224-testing-suite-evidence-for-sprint-review)  
+        - [4.2.2.5. Execution Evidence for Sprint Review](#4225-execution-evidence-for-sprint-review)  
+        - [4.2.2.6. Services Documentation Evidence for Sprint Review](#4226-services-documentation-evidence-for-sprint-review)  
+        - [4.2.2.7. Software Deployment Evidence for Sprint Review](#4227-software-deployment-evidence-for-sprint-review)  
+        - [4.2.2.8. Team Collaboration Insights during Sprint](#4228-team-collaboration-insights-during-sprint)
+      - [4.2.3. Sprint 3](#423-sprint-3)
+        - [4.2.3.1. Sprint Planning 3](#4231-sprint-planning-3)
+        - [4.2.3.2. Sprint Backlog 3](#4232-sprint-backlog-3)
+        - [4.2.3.3. Development Evidence for Sprint Review](#4233-development-evidence-for-sprint-review)
+        - [4.2.3.4. Testing Suite Evidence for Sprint Review](#4234-testing-suite-evidence-for-sprint-review)
+        - [4.2.3.5. Execution Evidence for Sprint Review](#4235-execution-evidence-for-sprint-review)
+        - [4.2.3.6. Services Documentation Evidence for Sprint Review](#4236-services-documentation-evidence-for-sprint-review)
+        - [4.2.3.7. Software Deployment Evidence for Sprint Review](#4237-software-deployment-evidence-for-sprint-review)
+        - [4.2.3.8. Team Collaboration Insights during Sprint](#4238-team-collaboration-insights-during-sprint)
 
 ---
 
@@ -3727,6 +3745,220 @@ Para este segundo sprint el equipo se enfocará en completar el núcleo funciona
 | 5 | US03 | Adjuntar evidencia multimedia | Como ciudadano, quiero adjuntar evidencia multimedia para validar mis reportes. | 5 | 6 |Billy Ruiz | In Progress |
 | 6 | US04 | Realizar reporte anónimo | Como ciudadano, quiero reportar incidentes sin revelar mi identidad. | 3 | 4 | Giorgio Awad | Done |
 | 7 | US06 | Consultar rutas seguras | Como ciudadano, quiero consultar rutas seguras para reducir exposición a zonas de riesgo. | 7 | 10 | Jeremy Quijada | In Progress |
+
+
+##### 4.2.2.3. Development Evidence for Sprint Review 
+
+Durante el Sprint 2 se completó la implementación de los módulos principales del núcleo funcional de UrbanVoice. El equipo logró finalizar la infraestructura backend iniciada en el Sprint 1, consolidando los endpoints REST para la gestión de reportes y autenticación JWT. Además, se desarrolló la integración del mapa interactivo con zonas de riesgo y la lógica para el cálculo de rutas seguras.
+
+En el lado móvil, se implementó el formulario de registro de incidentes con soporte para evidencia multimedia (imágenes, audio y video), así como la opción de realizar reportes de forma anónima. Estas funcionalidades representan el corazón operativo del sistema, permitiendo la interacción directa entre ciudadanos y la plataforma.
+
+Todo lo desarrollado, se ve reflejado en los siguientes commits en cada unos de los repositorios:
+
+#### Frontend Flutter:
+
+| Repository | Branch | CommitID | Commit Message | Commit On |
+|---|---|---|---|---|
+| Front-End | main | 97837f96d7a0b51807688dd4ca73e085045f9dc8 | fix/ mapa riesgos | 2026-06-16 10:56:20 -0500 |
+| Front-End | main | 8508cea0f7e7121e289aca20bf65dd7c855cd09d | feat/app-version1 | 2026-06-16 10:44:48 -0500 |
+| Front-End | main | a36f0502482d5a9b85710f8c2f41618f98341c9c | Initial commit | 2026-06-16 08:51:51 -0500 |
+
+#### Frontend Android:
+
+| Repository | Branch | CommitID | Commit Message | Commit On |
+|---|---|---|---|---|
+| Front-End-Android | v1.0 | b68660f967abd9f3d11550ee560639373ddd8f35 | fix: Api google | 2026-06-22 22:11:40 -0500 |
+| Front-End-Android | v1.0 | 76aa869d9a0aa609b7d9c66c14b4a4d2f130a3d9 | fix/ dependencias | 2026-06-22 22:03:31 -0500 |
+| Front-End-Android | main / v1.0 | b321f1c3354584a43fca5d209548615e49b9278e | fix/ mapa | 2026-06-22 21:09:34 -0500 |
+| Front-End-Android | main / v1.0 | 4510150e4ad83573adb2c1266bb285bc0ded545b | feat/ alertas | 2026-06-22 21:06:57 -0500 |
+| Front-End-Android | main / v1.0 | 33e12707cf1ac6afcbbfec16378db606689ec666 | feat/ reportes | 2026-06-22 21:05:06 -0500 |
+| Front-End-Android | main / v1.0 | 5801a5c9192e6db0f6665aaf4aedfdc02a0a1f38 | feat/ mapa | 2026-06-22 21:04:31 -0500 |
+| Front-End-Android | main / v1.0 | 8c594cbbc2a45d543a1961616ab78bb9320ab13a | feat: data layer | 2026-06-22 21:03:15 -0500 |
+| Front-End-Android | main / v1.0 | 54cef59acb45fc44769005a0cf36a60c343f3f77 | feat: domain layer | 2026-06-22 21:02:50 -0500 |
+| Front-End-Android | main / v1.0 | 5d7b477d327b75f0211b82d92c8e648929e0fa0a | feat: initial project | 2026-06-22 21:02:24 -0500 |
+| Front-End-Android | main | 4c8393052527d1816461e1a89306f14c9ed738bd | Initial commit | 2026-06-22 20:49:26 -0500 |
+
+#### Backend:
+| Repository | Branch | CommitID | Commit Message | Commit On |
+|---|---|---|---|---|
+| Backend-UrbanVoice | main | e18b3b41216e55d53249936e031eaed3c4480931 | feat/ version 2.5 | 2026-05-14 10:51:01 -0500 |
+| Backend-UrbanVoice | develop | 36a8981a60cb893532dfdd6695a383d2d00609e8 | feat/ pruebas | 2026-05-11 15:05:21 -0500 |
+| Backend-UrbanVoice | main | 8e1c43d772057b07ad11c78aff4f010b61eee954 | Merge pull request #2 from develop | 2026-05-11 14:42:57 -0500 |
+| Backend-UrbanVoice | develop | 26f30beb000bde09fa58ae3023a8a05318bce5fd | feat/ steps y features | 2026-05-11 14:42:02 -0500 |
+| Backend-UrbanVoice | main | 83cdec5db70d7230d453412ba88e5d4c048598f0 | Merge pull request #1 from develop | 2026-05-11 14:32:32 -0500 |
+| Backend-UrbanVoice | develop | 3bdeca1a674105b13048617ad5dddac0008b739a | fix/ report | 2026-05-11 14:27:46 -0500 |
+| Backend-UrbanVoice | develop | c008eade2a60b68b14ffd25c06626cab2c152bac | feat/ v2 | 2026-05-11 13:47:53 -0500 |
+| Backend-UrbanVoice | develop | 84a69f47912c3536c2419279e3cf2809e227bce3 | feat/ reports | 2026-05-10 18:45:55 -0500 |
+| Backend-UrbanVoice | develop | 9788eb84229a6b5ee693a349d6e1fc06e300225e | feat/ version sin autenticacion | 2026-05-10 18:36:46 -0500 |
+| Backend-UrbanVoice | develop | c6e1b63560d32e319e52564f094670f8b507e44e | feat/ backend v1 1.0 | 2026-05-10 18:08:58 -0500 |
+| Backend-UrbanVoice | develop | d8e2d2bc8a6a286a675ac67708d423de44631d08 | Initial commit | 2026-05-10 17:34:40 -0500 |
+
+#### Landing Page:
+
+| Repository | Branch | CommitID | Commit Message | Commit On |
+|---|---|---|---|---|
+| landing-page | main | 809cbc0a8bc2891228d8cf213e3a2be3ba99ac26 | feat: agrega mapas reales con OpenStreetMap | 2026-06-14 03:20:37 -0500 |
+| landing-page | main | 248511cff036bb351ca62cdf6701cc90eac1b886 | feat/ Landing v1 | 2026-05-10 17:30:33 -0500 |
+| landing-page | main | ec7ad0b86c049f8d283d62effa2672427d77895c | Initial commit | 2026-05-10 17:04:44 -0500 |
+
+##### 4.2.2.4. Testing Suite Evidence for Sprint Review 
+
+
+Durante el Sprint 2 se ejecutó pruebas funcionales e integrales para validar las principales funcionalidades implementadas en UrbanVoice. Estas pruebas tuvieron como objetivo asegurar la correcta interacción entre frontend móvil y backend, así como verificar la estabilidad de los servicios REST y la lógica de negocio relacionada con geolocalización y reportes ciudadanos.
+
+El alcance de las pruebas se centró en los módulos de autenticación, permisos de ubicación, visualización del mapa, registro de incidentes, carga de evidencia multimedia y cálculo de rutas seguras.
+
+##### Cobertura de Pruebas
+
+| Module | Feature Tested | Type |
+|---|---|---|
+| Location Management | Permission request and GPS retrieval | Functional |
+| Incident Management | Incident creation and storage | Integration |
+| Evidence Management | Upload of multimedia files | Functional |
+| Route Management | Safe route calculation | Functional |
+
+
+##### Casos de Prueba Ejecutados
+
+
+| Test ID | User Story | Escenario de prueba | Resultado esperado | Resultado obtenido | Estado |
+|---|---|---|---|---|---|
+| TC-01 | US17 | El usuario otorga permisos de ubicación | El sistema habilita las funcionalidades geolocalizadas | Los permisos fueron concedidos y el GPS se inicializó correctamente | Passed |
+| TC-02 | US01 | El usuario abre el mapa de riesgo | El mapa carga con los marcadores de incidentes | El mapa se renderizó correctamente con datos simulados | Passed |
+| TC-03 | US02 | El usuario envía un reporte de incidente | El incidente se almacena en la base de datos | El incidente fue registrado correctamente | Passed |
+| TC-04 | US03 | El usuario adjunta evidencia multimedia | El archivo se carga y se vincula al reporte | Imagen, audio y video se cargaron correctamente | Passed |
+| TC-05 | US04 | El usuario activa el modo anónimo | El reporte oculta la identidad del usuario | El campo anónimo se persistió correctamente | Passed |
+| TC-06 | US06 | El usuario solicita una ruta segura | El sistema calcula una ruta con menor riesgo | La ruta fue generada con sugerencias alternativas correctamente | Passed |
+| TC-07 | TS01 | El frontend consume los endpoints REST | Los endpoints devuelven respuestas válidas | Se validaron correctamente respuestas HTTP (200, 201, 400) | Passed |
+
+Los resultados obtenidos validan la estabilidad de las funcionalidades principales del Sprint 2, asegurando que UrbanVoice cuenta con una base sólida para la implementación de los módulos avanzados de alertas, monitoreo y moderación en el Sprint 3.
+
+##### 4.2.2.5. Execution Evidence for Sprint Review 
+
+El Sprint 2 fue ejecutado siguiendo la planificación establecida y priorizando las historias de usuario de mayor valor para la propuesta de UrbanVoice. La mayoría de tareas fueron completadas dentro del tiempo estimado, mientras que algunas historias (como el refinamiento de rutas seguras y adjuntos multimedia) continuaron en estado *In Progress* debido a ajustes técnicos en integración.
+
+Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloqueos relacionados con geolocalización y almacenamiento de archivos multimedia. La ejecución permitió consolidar la base operativa del producto y preparar el sistema para funcionalidades avanzadas en el Sprint 3.
+
+#### Capturas de la Landing Page:
+
+**Presentacion:**
+<img src="assets/LandingPage-1.png"/><br/>
+
+**Funcionalidades:**
+<img src="assets/LandingPage-2.png"/><br/>
+
+**Footer:**
+<img src="assets/LandingPage-3.png"/><br/>
+
+#### Capturas del backend:
+
+<img src="assets/BackEnd.png"/><br/>
+
+#### Capturas del frontend:
+
+
+
+##### 4.2.2.6. Services Documentation Evidence for Sprint Review 
+
+Durante este sprint se documentaron los servicios principales del backend correspondientes al núcleo funcional del sistema.
+
+Los servicios implementados incluyen:
+
+- **Incident Service:** Registro, consulta y almacenamiento de incidentes reportados.
+- **Evidence Service:** Manejo de evidencia multimedia asociada a reportes.
+- **Location Service:** Obtención de ubicación actual y cálculo de rutas seguras.
+
+La documentación de endpoints se realizó utilizando Swagger/OpenAPI, permitiendo la validación de contratos REST y facilitando futuras integraciones.
+
+##  Locations  
+API para gestionar ubicaciones y zonas de riesgo.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener todas las ubicaciones | GET | `/api/v1/locations` | Ninguno | `[{"id":1,"name":"Parque Central","district":"Surco"}]` |
+| Crear nueva ubicación | POST | `/api/v1/locations` | Body: `{ "name":"Plaza Norte","district":"Independencia" }` | `{ "id":2,"name":"Plaza Norte","district":"Independencia" }` |
+| Obtener ubicación por ID | GET | `/api/v1/locations/{id}` | Path: `id` | `{ "id":1,"name":"Parque Central","district":"Surco" }` |
+| Eliminar ubicación | DELETE | `/api/v1/locations/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Obtener ubicaciones cercanas | GET | `/api/v1/locations/nearby` | Query: `lat,long` | `[{"id":3,"name":"Plaza Mayor"}]` |
+| Obtener ubicaciones por distrito | GET | `/api/v1/locations/district/{district}` | Path: `district` | `[{"id":4,"name":"Plaza Norte"}]` |
+| Obtener ubicaciones peligrosas | GET | `/api/v1/locations/dangerous` | Ninguno | `[{"id":5,"name":"Zona Roja"}]` |
+
+---
+
+##  User Profiles  
+API para gestionar perfiles de usuario.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener perfil por ID | GET | `/api/v1/profiles/{id}` | Path: `id` | `{ "id":5,"email":"user@mail.com" }` |
+| Actualizar perfil | PUT | `/api/v1/profiles/{id}` | Path: `id`, Body: `{ "email":"new@mail.com" }` | `{ "id":5,"email":"new@mail.com","status":"updated" }` |
+| Eliminar perfil | DELETE | `/api/v1/profiles/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Crear nuevo perfil | POST | `/api/v1/profiles` | Body: `{ "email":"user@mail.com","name":"Juan" }` | `{ "id":6,"status":"created" }` |
+| Obtener perfil por email | GET | `/api/v1/profiles/email/{email}` | Path: `email` | `{ "id":6,"email":"user@mail.com" }` |
+
+---
+
+##  Incident Reports  
+API para gestionar reportes de incidentes.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener reporte por ID | GET | `/api/v1/reports/{id}` | Path: `id` | `{ "id":10,"description":"Accidente en Av. Primavera" }` |
+| Actualizar reporte | PUT | `/api/v1/reports/{id}` | Path: `id`, Body: `{ "description":"Actualización del reporte" }` | `{ "id":10,"status":"updated" }` |
+| Eliminar reporte | DELETE | `/api/v1/reports/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Crear nuevo reporte | POST | `/api/v1/reports` | Body: `{ "userId":5,"description":"Accidente en Av. Primavera" }` | `{ "id":10,"status":"created" }` |
+| Obtener reportes de un usuario | GET | `/api/v1/reports/user/{userId}` | Path: `userId` | `[{"id":11,"description":"Caída en Av. Benavides"}]` |
+| Obtener reportes cercanos | GET | `/api/v1/reports/nearby` | Query: `lat,long` | `[{"id":12,"description":"Incidente en Parque Kennedy"}]` |
+
+---
+
+##  Alerts  
+API para gestionar alertas y notificaciones.  
+
+| Acción | Verbo HTTP | Sintaxis | Parámetros | Ejemplo Response |
+|--------|------------|----------|------------|------------------|
+| Obtener todas las alertas | GET | `/api/v1/alerts` | Ninguno | `[{"id":1,"message":"Zona peligrosa detectada"}]` |
+| Crear nueva alerta | POST | `/api/v1/alerts` | Body: `{ "message":"Nueva alerta" }` | `{ "id":2,"status":"created" }` |
+| Eliminar todas las alertas | DELETE | `/api/v1/alerts` | Ninguno | `{ "status":"deleted_all" }` |
+| Obtener alerta por ID | GET | `/api/v1/alerts/{id}` | Path: `id` | `{ "id":2,"message":"Nueva alerta" }` |
+| Eliminar alerta por ID | DELETE | `/api/v1/alerts/{id}` | Path: `id` | `{ "status":"deleted" }` |
+| Obtener alertas por usuario | GET | `/api/v1/alerts/user/{userId}` | Path: `userId` | `[{"id":3,"message":"Alerta personalizada"}]` |
+
+
+##### 4.2.1.7. Software Deployment Evidence for Sprint Review 
+En este Sprint se realizó el despliegue inicial de un producto digital: una Landing Page. El despliegue se efectuó mediante GitHub Pages, aprovechando la infraestructura gratuita de GitHub para alojar sitios estáticos.
+Este proceso la activación de GitHub Pages y la verificación del resultado.
+
+**Paso 1:** Estar en el repositorio de la Landing Page e ir a Settings 
+
+<img src="assets/Paso1.png"/><br/>
+
+**Paso 2:** Ir a Pages
+
+<img src="assets/Paso2.png"/><br/>
+
+**Paso 3:** Seleccionar rama main y carpeta /root
+y guardar informacion
+
+<img src="assets/Paso3.png"/><br/>
+
+**Paso 4:** Verificar despliegue público
+
+<img src="assets/despliegue landing.png"/><br/>
+
+Acceder al enlace https://urbanvoice-3248-dispo-moviles.github.io/Landing-Page/
+
+
+##### 4.2.2.8. Team Collaboration Insights during Sprint
+
+Durante el Sprint 2 el equipo mantuvo una colaboración activa y coordinada para abordar la implementación de las funcionalidades core del sistema. La comunicación constante permitió resolver rápidamente dependencias entre frontend móvil y backend, especialmente en la integración de mapas y endpoints de reportes.
+
+Se evidenció una mejor distribución de responsabilidades en comparación con el Sprint 1, optimizando tiempos de desarrollo y reduciendo bloqueos. El equipo identificó como principal aprendizaje la importancia de definir claramente las dependencias técnicas antes de iniciar nuevas funcionalidades, especialmente aquellas relacionadas con servicios externos como geolocalización y almacenamiento multimedia.
+
+<img src="assets/Evidence Sprint Review.png"/><br/>
+
+<img src="assets/Network.png"/><br/>
+
 
 #### 4.2.3. Sprint 3
 
