@@ -4,7 +4,7 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/UPC_logo_transparente.png" alt="Logo UPC">
 </div>
 
-### <p align="center"> Informe Trabajo Parcial </p>
+### <p align="center"> Informe Trabajo Final </p>
 
 <br>
 <div align="center">
@@ -78,7 +78,7 @@
             - [1.2.3.4. Lean UX Canvas](#1234-lean-ux-canvas)
     - [1.3. Segmentos Objetivo](#13-segmentos-objetivo)
 
-- [Capítulo II: Requirements & Analysis](#capítulo-ii-requirements--analysis)
+- [Capítulo II: Requirements Development and Software Solution Design](#capítulo-ii-requirements-development-and-software-solution-design)
    - [2.1. Competidores](#21-competidores)
    - [2.1.1 Analisis competitivo](#211-analisis-competitivo)
    - [2.1.2 Estrategias y tacticas frente a competidores](#212-estrategias-y-tacticas-frente-a-competidores)
@@ -291,6 +291,51 @@ soluciones de software.</td>
 </tr>
 </tbody>
 </table>
+
+# Student Outcome
+
+Perfecto. Como el PDF exige **mínimo 2 objetivos SMART por integrante** y enfocados en el desarrollo profesional post-carrera , te propongo estos alineados a los perfiles del equipo y al proyecto:
+
+# Objetivos SMART
+
+### Jeremy Quijada Magro
+
+Fortalecer mis competencias en **Quality Assurance y Testing Automation**, completando al menos **3 certificaciones especializadas** (ISTQB, Selenium y Cypress) durante los próximos **12 meses**, para especializarme profesionalmente en aseguramiento de calidad de software.
+
+Implementar y documentar al menos **5 suites de pruebas automatizadas** en proyectos académicos o personales antes de finalizar el próximo ciclo académico, con el objetivo de consolidar experiencia práctica en testing funcional y BDD.
+
+---
+
+### Billy Jake Ruiz Madrid
+
+Mejorar mis habilidades en **Data Structures y Performance Optimization**, desarrollando al menos **4 proyectos avanzados en C++ y Python** en un plazo de **10 meses**, orientados a optimización algorítmica.
+
+Obtener experiencia profesional en desarrollo backend postulando a **mínimo 15 oportunidades laborales o prácticas** durante los próximos **8 meses**, fortaleciendo su perfil técnico.
+
+---
+
+### Santiago Alonso Gordillo Ramos
+
+Especializarme en **Frontend Development y UX Engineering**, dominando **Vue, Angular y React** mediante la creación de **3 aplicaciones completas** en un periodo de **12 meses**.
+
+Iniciar formación en **Ciberseguridad**, obteniendo una certificación inicial (como Security+ o equivalente) en los próximos **18 meses** para complementar mi perfil como desarrollador.
+
+---
+
+### Ivan Jeanpierre La Madrid Lozano
+
+Profundizar en el ecosistema **.NET y arquitectura backend**, construyendo al menos **3 APIs escalables con microservicios** antes de finalizar el año 2027.
+
+Adquirir experiencia en **Cloud Computing** obteniendo una certificación en **Azure Fundamentals o AWS Cloud Practitioner** dentro de los próximos **12 meses**.
+
+---
+
+### Giorgio Marzouk Awad Vargas
+
+
+Especializarme en **Análisis de Datos**, completando al menos **2 certificaciones en Power BI y Machine Learning** durante los próximos **12 meses**.
+
+Desarrollar al menos **3 soluciones de análisis de datos para casos empresariales reales** antes de graduarme, aplicando conocimientos de software engineering y business intelligence.
 
 # Capítulo I: Introducción
 
@@ -528,7 +573,7 @@ Nuestro público objetivo son personas de 18 a 65 años que residen o trabajan e
 </tbody>
 </table>
 
-# Capítulo II: Requirements Elicitation & Analysis
+# Capítulo II Requirements Development and Software Solution Design
 
 ## 2.1. Competidores
 
@@ -876,9 +921,6 @@ En esta sección se definen los términos clave del dominio de negocio. Estas de
 ### 2.4.1. User Stories
 A continuación se detalla la especificación de requisitos del sistema dividida en Épicas, Historias de Usuario y Criterios de Aceptación por escenarios .
 
-
-### 2.4.1. User Stories & Technical Stories
-
 <table>
   <tr>
     <th style="text-align:center;">Story ID</th>
@@ -894,13 +936,13 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Visualización de mapa de riesgo</td>
+    <td colspan="3">Consultar mapa de riesgo</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, deseo visualizar un mapa con zonas de riesgo para evitar transitar por lugares peligrosos.</td>
+    <td colspan="4">Como ciudadano, quiero consultar un mapa con zonas de riesgo para planificar rutas más seguras y evitar incidentes.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
@@ -936,13 +978,13 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Registro de incidente</td>
+    <td colspan="3">Registrar incidente</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, deseo reportar un incidente de inseguridad con mi ubicación para alertar a otros.</td>
+    <td colspan="4">Como ciudadano, quiero registrar un incidente de inseguridad con evidencia multimedia para alertar a otros usuarios y fortalecer la seguridad colaborativa.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
@@ -978,7 +1020,7 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Evidencia multimedia</td>
+    <td colspan="3">Adjuntar evidencia multimedia</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
@@ -1020,7 +1062,7 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Reporte anónimo</td>
+    <td colspan="3">Realizar un reporte anónimo</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
@@ -1058,13 +1100,13 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Alertas geolocalizadas</td>
+    <td colspan="3">Recibir alertas geolocalizadas</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, deseo recibir alertas de incidentes cercanos para tomar decisiones preventivas.</td>
+    <td colspan="4">Como ciudadano, quiero recibir alertas geolocalizadas sobre incidentes cercanos para tomar decisiones preventivas.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
@@ -1096,13 +1138,13 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Consulta de rutas seguras</td>
+    <td colspan="3">Consultar rutas seguras</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, deseo consultar rutas entre dos puntos para reducir exposición a riesgos.</td>
+    <td colspan="4">Como ciudadano, quiero consultar rutas entre dos puntos para reducir mi exposición a zonas de riesgo.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
@@ -1134,13 +1176,13 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Compartir ubicación real</td>
+    <td colspan="3">Compartir ubicación en tiempo real</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, deseo compartir mi ubicación con contactos de confianza para sentirme seguro.</td>
+    <td colspan="4">Como ciudadano, quiero compartir mi ubicación en tiempo real con contactos de confianza para mejorar mi seguridad durante mis desplazamientos.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
@@ -1173,13 +1215,13 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Vista para contacto</td>
+    <td colspan="3">Monitorear ubicación compartida</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como contacto de confianza, deseo recibir la ubicación real de un usuario para monitorearlo.</td>
+    <td colspan="4">Como contacto de confianza, quiero monitorear la ubicación compartida de un usuario para acompañarlo durante su trayecto.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
@@ -1211,7 +1253,7 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Detalle de incidentes</td>
+    <td colspan="3">Consultar detalle de incidentes</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
@@ -1249,7 +1291,7 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Filtros de búsqueda</td>
+    <td colspan="3">Filtrar incidentes</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
@@ -1287,7 +1329,7 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Panel de moderación</td>
+    <td colspan="3">Moderar reportes</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
@@ -1325,7 +1367,7 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Gestión de categorías</td>
+    <td colspan="3">Gestionar categorías de incidentes</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
@@ -1363,13 +1405,13 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Sección informativa en Landing Page</td>
+    <td colspan="3">Explorar información del producto</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como visitante del Landing Page, deseo ver las funciones de UrbanVoice para conocer su valor.</td>
+    <td colspan="4">Como visitante, quiero explorar información del producto para conocer sus funcionalidades y beneficios.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
@@ -1403,7 +1445,7 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Formulario de Alianzas</td>
+    <td colspan="3">Enviar solicitud de alianza</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
@@ -1426,6 +1468,46 @@ A continuación se detalla la especificación de requisitos del sistema dividida
 
 <br>
 
+
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US15</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Alta</td>
+    <td align="center">EP06</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Registrarse en el sistema</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como nuevo ciudadano, quiero registrarme en la plataforma para acceder a las funcionalidades de UrbanVoice.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Registro exitoso.</b><br>
+      <b>Given</b> que el usuario ingresa sus datos correctamente,<br>
+      <b>When</b> completa el formulario de registro,<br>
+      <b>Then</b> el sistema crea su cuenta exitosamente.
+    </td>
+  </tr>
+</table>
+
+<br>
+
 <table>
   <tr>
     <th style="text-align:center;">Story ID</th>
@@ -1441,7 +1523,7 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Endpoints de REST API</td>
+    <td colspan="3">Implementar endpoints REST API</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
@@ -1479,7 +1561,7 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Integración de Seguridad JWT</td>
+    <td colspan="3">Implementar autenticación JWT</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
@@ -1500,7 +1582,7 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
 </table>
 
-### 2.4.3. Spike Stories
+### Spike Stories
 
 #### **Spike 1: Investigación de Integración con Google Maps y Geolocalización**
 
@@ -1568,14 +1650,13 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
 - Los hallazgos se utilizan para refinar la User Story US05 en el Product Backlog.
 - El informe se comparte y revisa en la sesión de equipo.
 
-### 2.4.3. Impact Mapping
+### 2.4.2. Impact Mapping
 <td><img src="assets/impact-mapping.png"/></td>
 
-### 2.4.4. Product Backlog
+### 2.4.3. Product Backlog
 
 <table>
   <tr>
-    <th style="text-align:center;"># Orden</th>
     <th style="text-align:center;">Sprint</th>
     <th style="text-align:center;">User Story ID</th>
     <th style="text-align:center;">Título</th>
@@ -1584,70 +1665,68 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
   </tr>
   <tr>
     <td align="center">1</td>
-    <td align="center">1</td>
     <td align="center">US13</td>
-    <td>Implementar Landing Page Informativo</td>
-    <td align="center">2</td>
-    <td align="center">Alta</td>
-  </tr>
-  <tr>
-    <td align="center">2</td>
+    <td>Explorar información del producto</td>
     <td align="center">1</td>
-    <td align="center">TS01</td>
-    <td>Desarrollar Endpoints de RESTful API</td>
-    <td align="center">3</td>
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">3</td>
     <td align="center">1</td>
     <td align="center">US14</td>
-    <td>Habilitar enlaces de descarga en Landing Page</td>
+    <td>Enviar solicitud de alianza</td>
+    <td align="center">3</td>
+    <td align="center">Alta</td>
+  </tr>
+    <tr>
     <td align="center">1</td>
+    <td align="center">US15</td>
+    <td>Registrarse en el sistema</td>
+    <td align="center">5</td>
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">4</td>
+    <td align="center">1</td>
+    <td align="center">TS01</td>
+    <td>Implementar endpoints REST AP</td>
+    <td align="center">5</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
     <td align="center">2</td>
     <td align="center">US01</td>
-    <td>Visualizar mapa de riesgo interactivo</td>
+    <td>Consultar mapa de riesgo</td>
     <td align="center">5</td>
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">5</td>
     <td align="center">2</td>
     <td align="center">US02</td>
-    <td>Registrar incidentes ciudadanos</td>
+    <td>Registrar incidente</td>
     <td align="center">5</td>
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">6</td>
     <td align="center">2</td>
     <td align="center">US03</td>
-    <td>Gestionar evidencia multimedia en reportes</td>
+    <td>Adjuntar evidencia multimedia</td>
     <td align="center">5</td>
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">7</td>
     <td align="center">2</td>
     <td align="center">US04</td>
-    <td>Permitir el envío de reportes anónimos</td>
+    <td>Realizar reporte anónimo</td>
     <td align="center">3</td>
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">8</td>
     <td align="center">3</td>
     <td align="center">US05</td>
-    <td>Emitir alertas geolocalizadas mediante Push</td>
+    <td>Recibir alertas geolocalizadas</td>
     <td align="center">8</td>
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">9</td>
     <td align="center">3</td>
     <td align="center">US07</td>
     <td>Compartir ubicación en tiempo real</td>
@@ -1655,58 +1734,51 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Media</td>
   </tr>
   <tr>
-    <td align="center">10</td>
     <td align="center">3</td>
     <td align="center">US09</td>
-    <td>Visualizar detalle de incidentes registrados</td>
+    <td>Consultar detalle de incidentes</td>
     <td align="center">3</td>
     <td align="center">Media</td>
   </tr>
   <tr>
-    <td align="center">11</td>
     <td align="center">4</td>
     <td align="center">US11</td>
-    <td>Moderar incidentes desde panel administrador</td>
+    <td>Moderar reportes</td>
     <td align="center">5</td>
     <td align="center">Media</td>
   </tr>
   <tr>
-    <td align="center">12</td>
     <td align="center">4</td>
     <td align="center">US06</td>
-    <td>Trazar y consultar rutas seguras</td>
+    <td>Consultar rutas seguras</td>
     <td align="center">8</td>
     <td align="center">Baja</td>
   </tr>
   <tr>
-    <td align="center">13</td>
     <td align="center">4</td>
     <td align="center">US10</td>
-    <td>Filtrar búsquedas de forma avanzada</td>
+    <td>Filtrar incidentes</td>
     <td align="center">3</td>
     <td align="center">Baja</td>
   </tr>
   <tr>
-    <td align="center">14</td>
     <td align="center">4</td>
     <td align="center">US08</td>
-    <td>Vincular contactos de confianza para monitoreo</td>
+    <td>Monitorear ubicación compartida</td>
     <td align="center">5</td>
     <td align="center">Baja</td>
   </tr>
   <tr>
-    <td align="center">15</td>
     <td align="center">4</td>
     <td align="center">US12</td>
     <td>Gestionar categorías de riesgo del sistema</td>
-    <td align="center">2</td>
+    <td align="center">3</td>
     <td align="center">Baja</td>
   </tr>
     <tr>
-    <td align="center">16</td>
     <td align="center">4</td>
     <td align="center">TS02</td>
-    <td>Configurar Servicio de Autenticación JWT</td>
+    <td>Implementar autenticación JWT</td>
     <td align="center">3</td>
     <td align="center">Alta</td>
   </tr>
@@ -3248,14 +3320,32 @@ Cubre la configuración granular de US05. Desde su perfil el usuario accede a la
 
 #### 3.1.4.4. Mobile Applications User Flow Diagrams 
 
-### Primer acceso del usuario
-<img src="assets/flows/01-primer-acceso.png"/><br/>
+Los siguientes User Flow Diagrams representan la secuencia lógica de acciones y decisiones que realizan los usuarios dentro de UrbanVoice. A diferencia de los wireflows, estos diagramas modelan el comportamiento funcional del sistema y su trazabilidad con las User Stories definidas en el Product Backlog. Cada flujo cubre funcionalidades críticas del producto y permite validar la coherencia entre requisitos, backlog y desarrollo iterativo.
 
-### Reporte ciudadano
-<img src="assets/flows/02-reporte-ciudadano.png"/><br/>
+##### Flow 1 — Registro y acceso inicial
 
-### Atención de alerta
-<img src="assets/flows/03-atencion-de-alerta.png"/><br/>
+<img src="assets/flows/Flow-1.png"/><br/>
+
+##### Flow 2 — Consultar mapa y rutas seguras
+<img src="assets/flows/Flow-2.png"/><br/>
+
+
+##### Flow 3 — Registrar incidente
+<img src="assets/flows/Flow-3.png"/><br/>
+
+
+##### Flow 4 — Recibir alertas
+<img src="assets/flows/Flow-4.png"/><br/>
+
+
+##### Flow 5 — Compartir ubicación
+<img src="assets/flows/Flow-5.png"/><br/>
+
+
+##### Flow 6 — Moderación de incidentes
+<img src="assets/flows/Flow-6.png"/><br/>
+
+
 
 #### 3.1.4.5. Mobile Applications Prototyping 
 
