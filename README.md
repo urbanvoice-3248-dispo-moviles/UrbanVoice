@@ -3513,7 +3513,7 @@ La aplicación móvil Android será distribuida durante las fases de validación
 
 ##### 4.2.1.1. Sprint Planning 1
 
-Para este primer sprint el equipo se enfocará en los tasks para la elaboración de los productos base del proyecto: el Landing Page informativo y los primeros módulos de la aplicación móvil. Se dividirán entre los integrantes las tareas identificadas para el sprint, priorizando las historias de usuario de mayor valor para los ciudadanos.
+Para este primer sprint el equipo se enfocará en la construcción de la base del proyecto UrbanVoice: el Landing Page informativo, la arquitectura inicial del backend y los primeros módulos de acceso de la aplicación móvil. Se iniciará la implementación de los endpoints REST y la autenticación JWT como base para soportar las funcionalidades principales que serán completadas en el siguiente sprint.
 
 | Sprint # | Sprint 1 |
 |---|---|
@@ -3523,12 +3523,12 @@ Para este primer sprint el equipo se enfocará en los tasks para la elaboración
 | **Location** | Servidor de Discord del Equipo |
 | **Prepared By** | Billy Jake Ruiz Madrid |
 | **Attendees (to planning meeting)** | Ivan La Madrid / Jeremy Quijada / Billy Ruiz / Santiago Gordillo / Giorgio Awad |
-| **Sprint 1 Review Summary** | En esta primera sección se planteó el desarrollo base del proyecto UrbanVoice: Landing Page informativo y los primeros flujos de la aplicación móvil (autenticación, mapa de riesgo y reporte de incidentes). |
-| **Sprint 1 Retrospective Summary** | Todos los integrantes acordaron priorizar la calidad del diseño del Landing Page y asegurar que la arquitectura del backend soporte el patrón DDD establecido en el diseño táctico. |
+| **Sprint 1 Review Summary** | En esta primera sesión se definió la base estructural del proyecto UrbanVoice, incluyendo el Landing Page, registro de usuarios, onboarding inicial y la arquitectura base del backend. |
+| **Sprint 1 Retrospective Summary** | El equipo acordó priorizar la estabilidad de la arquitectura DDD y comenzar los endpoints críticos y autenticación para permitir la escalabilidad funcional en los siguientes sprints. |
 | **Sprint Goal & User Stories** | |
-| **Sprint 1 Goal** | Desarrollar y desplegar el Landing Page de UrbanVoice, implementar los endpoints base del backend (autenticación y gestión de reportes), y construir las pantallas iniciales de la app móvil (onboarding, login, registro y mapa). El éxito se logrará cuando el Landing Page esté publicado, el backend responda a los endpoints definidos y la app móvil muestre el mapa con datos simulados. |
-| **Sprint 1 Velocity** | 36 Velocity |
-| **Sum of Story Points** | 36 Story Points |
+| **Sprint 1 Goal** | Desarrollar y desplegar el Landing Page de UrbanVoice, construir los flujos iniciales de acceso de la app móvil (registro y onboarding), e iniciar la implementación del backend base con autenticación y endpoints iniciales. El éxito se logrará cuando la plataforma permita nuevos registros y la base del backend esté funcionalmente preparada para expandirse. |
+| **Sprint 1 Velocity** | 22 Velocity |
+| **Sum of Story Points** | 22 Story Points |
 
 ---
 
@@ -3536,15 +3536,11 @@ Para este primer sprint el equipo se enfocará en los tasks para la elaboración
 
 | # Orden | User Story ID | Título | Descripción | Story Points | Estimation (hours) | Assigned To | Status |
 |:---:|:---:|---|---|:---:|:---:|---|:---:|
-| 1 | US13 | Sección informativa en Landing Page | Como visitante, deseo ver las funciones de UrbanVoice para conocer su valor y decidir si la descargo. | 2 | 4 | Santiago Gordillo | Done |
-| 2 | US14 | Formulario de Alianzas | Como visitante institucional, deseo enviar una solicitud de contacto para proponer alianzas con UrbanVoice. | 1 | 2 | Santiago Gordillo | Done |
-| 3 | TS01 | Endpoints de REST API | Como desarrollador, deseo crear los servicios web para el manejo de incidentes con respuestas correctas (201, 400, 404). | 3 | 6 | Ivan La Madrid | Done |
-| 4 | US01 | Visualización de mapa de riesgo | Como ciudadano, deseo visualizar un mapa con zonas de riesgo para evitar transitar por lugares peligrosos. | 5 | 8 | Billy Ruiz | In Progress |
-| 5 | US02 | Registro de incidente | Como ciudadano, deseo reportar un incidente de inseguridad con mi ubicación para alertar a otros. | 5 | 8 | Billy Ruiz | In Progress |
-| 6 | US03 | Evidencia multimedia | Como ciudadano, deseo adjuntar evidencia (foto, audio o video) para dar credibilidad al reporte. | 5 | 6 | Giorgio Awad | In Progress |
-| 7 | US04 | Reporte anónimo | Como ciudadano, deseo realizar reportes de forma anónima para proteger mi identidad. | 3 | 4 | Giorgio Awad | Done |
-| 8 | US06 | Consulta de rutas seguras | Como ciudadano, deseo consultar rutas entre dos puntos para reducir mi exposición a zonas de riesgo. | 5 | 8 | Ivan La Madrid | To Do |
-
+| 1 | US13 | Explorar información del producto | Como visitante, quiero explorar la información del producto para conocer las funcionalidades y beneficios de UrbanVoice. | 2 | 4 | Santiago Gordillo | Done |
+| 2 | US14 | Enviar solicitud de alianza | Como visitante institucional, quiero enviar una solicitud de alianza para establecer colaboración con UrbanVoice. | 1 | 2 | Jeremy Quijada | Done |
+| 3 | US15 | Registrarse en el sistema | Como nuevo ciudadano, quiero registrarme en la plataforma para acceder a las funcionalidades de UrbanVoice. | 5 | 8 | Billy Ruiz | Done |
+| 4 | TS01 | Implementar endpoints REST API | Como desarrollador, quiero iniciar la construcción de endpoints base para soportar autenticación y reportes. | 5 | 8 | Ivan La Madrid | In Progress |
+| 5 | TS02 | Implementar autenticación JWT | Como desarrollador, quiero iniciar la integración de autenticación JWT para proteger el acceso al sistema. | 6 | 8 | Giorgio Awad | In Progress |
 
 ##### 4.2.1.3. Development Evidence for Sprint Review 
 
@@ -3696,6 +3692,76 @@ Para este Sprint, las tareas de diseño, implementación y documentación de la 
 <img src="assets/Network.png"/><br/>
 
 Las actividades de implementación se desarrollaron mediante un flujo de trabajo ágil. El proceso comenzó con la planificación inicial, donde se asignaron roles específicos para cada fase. Esto incluyó el diseño de la estructura HTML y los estilos CSS, que se iniciaron con commits iniciales para establecer la base del proyecto.
+
+#### 4.2.2. Sprint 2
+
+##### 4.2.2.1. Sprint Planning 2
+
+Para este segundo sprint el equipo se enfocará en completar el núcleo funcional de UrbanVoice. Se finalizarán los endpoints REST y la autenticación JWT iniciados en el sprint anterior, además de implementar las funcionalidades principales de geolocalización, visualización de mapas, reportes de incidentes y rutas seguras.
+
+| Sprint # | Sprint 2 |
+|---|---|
+| **Sprint Planning Background** | |
+| **Date** | 06/05/2026 |
+| **Time** | 07:00 PM |
+| **Location** | Servidor de Discord del Equipo |
+| **Prepared By** | Billy Jake Ruiz Madrid |
+| **Attendees (to planning meeting)** | Ivan La Madrid / Jeremy Quijada / Billy Ruiz / Santiago Gordillo / Giorgio Awad |
+| **Sprint 2 Review Summary** | En esta sesión se priorizó la implementación de las funcionalidades core del sistema, centradas en geolocalización, reportes ciudadanos y visualización del mapa de riesgo. |
+| **Sprint 2 Retrospective Summary** | El equipo decidió finalizar completamente el backend iniciado en Sprint 1 para garantizar estabilidad antes de desplegar funcionalidades dependientes como reportes y rutas seguras. |
+| **Sprint Goal & User Stories** | |
+| **Sprint 2 Goal** | Completar la infraestructura backend de UrbanVoice e implementar las funcionalidades principales de mapas, rutas y reportes. El éxito se logrará cuando el sistema permita visualizar zonas de riesgo, reportar incidentes y calcular rutas seguras con endpoints totalmente operativos. |
+| **Sprint 2 Velocity** | 36 Velocity |
+| **Sum of Story Points** | 36 Story Points |
+
+---
+
+##### 4.2.2.2. Sprint Backlog 2
+
+| # Orden | User Story ID | Título | Descripción | Story Points | Estimation (hours) | Assigned To | Status |
+|:---:|:---:|---|---|:---:|:---:|---|:---:|
+| 1 | TS01 | Implementar endpoints REST API | Como desarrollador, quiero finalizar la implementación de los endpoints para soportar reportes y geolocalización. | 4 | 6 | Jeremy Quijada| Done |
+| 2 | TS02 | Implementar autenticación JWT | Como desarrollador, quiero finalizar la integración JWT para asegurar el acceso completo al sistema. | 4 | 6 | Ivan La Madrid | Doing |
+| 3 | US01 | Consultar mapa de riesgo | Como ciudadano, quiero consultar zonas de riesgo para planificar rutas seguras. | 5 | 8 | Billy Ruiz | Done |
+| 4 | US02 | Registrar incidente | Como ciudadano, quiero registrar incidentes de inseguridad para alertar a otros usuarios. | 5 | 8 | Santiago Gordillo | In Progress |
+| 5 | US03 | Adjuntar evidencia multimedia | Como ciudadano, quiero adjuntar evidencia multimedia para validar mis reportes. | 5 | 6 |Billy Ruiz | In Progress |
+| 6 | US04 | Realizar reporte anónimo | Como ciudadano, quiero reportar incidentes sin revelar mi identidad. | 3 | 4 | Giorgio Awad | Done |
+| 7 | US06 | Consultar rutas seguras | Como ciudadano, quiero consultar rutas seguras para reducir exposición a zonas de riesgo. | 7 | 10 | Jeremy Quijada | In Progress |
+
+#### 4.2.3. Sprint 3
+
+##### 4.2.3.1. Sprint Planning 3
+
+Para este tercer sprint el equipo se enfocará en consolidar las funcionalidades avanzadas de interacción social y seguridad colaborativa de UrbanVoice. Se implementarán los sistemas de alertas geolocalizadas, compartición de ubicación en tiempo real, monitoreo entre contactos y el panel de moderación administrativa para validar incidentes y gestionar categorías.
+
+| Sprint # | Sprint 3 |
+|---|---|
+| **Sprint Planning Background** | |
+| **Date** | 20/05/2026 |
+| **Time** | 07:00 PM |
+| **Location** | Servidor de Discord del Equipo |
+| **Prepared By** | Billy Jake Ruiz Madrid |
+| **Attendees (to planning meeting)** | Ivan La Madrid / Jeremy Quijada / Billy Ruiz / Santiago Gordillo / Giorgio Awad |
+| **Sprint 3 Review Summary** | En esta sesión se definió la implementación de las funcionalidades colaborativas y administrativas del sistema, incluyendo alertas, monitoreo y moderación de incidentes. |
+| **Sprint 3 Retrospective Summary** | El equipo acordó priorizar la estabilidad de las notificaciones y la correcta moderación de contenido para fortalecer la confiabilidad de UrbanVoice. |
+| **Sprint Goal & User Stories** | |
+| **Sprint 3 Goal** | Implementar el ecosistema de interacción colaborativa y moderación de UrbanVoice, asegurando que los ciudadanos puedan recibir alertas, compartir su ubicación y que el sistema mantenga la calidad de la información mediante moderación. El éxito se logrará cuando las notificaciones funcionen correctamente y el panel administrativo permita gestionar incidentes y categorías. |
+| **Sprint 3 Velocity** | 34 Velocity |
+| **Sum of Story Points** | 34 Story Points |
+
+---
+
+##### 4.2.3.2. Sprint Backlog 3
+
+| # Orden | User Story ID | Título | Descripción | Story Points | Estimation (hours) | Assigned To | Status |
+|:---:|:---:|---|---|:---:|:---:|---|:---:|
+| 1 | US05 | Recibir alertas geolocalizadas | Como ciudadano, quiero recibir alertas geolocalizadas sobre incidentes cercanos para tomar decisiones preventivas. | 5 | 8 | Billy Ruiz | Done |
+| 2 | US07 | Compartir ubicación en tiempo real | Como ciudadano, quiero compartir mi ubicación en tiempo real con contactos de confianza para mejorar mi seguridad durante mis desplazamientos. | 5 | 8 | Billy Ruiz | Done |
+| 3 | US08 | Monitorear ubicación compartida | Como contacto de confianza, quiero monitorear la ubicación compartida de un usuario para acompañarlo durante su trayecto. | 5 | 8 | Giorgio Awad | Done |
+| 4 | US09 | Consultar detalle de incidentes | Como ciudadano, quiero consultar el detalle de un incidente para conocer evidencia y contexto antes de tomar decisiones. | 3 | 4 | Santiago Gordillo | Done |
+| 5 | US10 | Filtrar incidentes | Como ciudadano, quiero filtrar incidentes según categoría y ubicación para encontrar información relevante. | 3 | 4 | Santiago Gordillo | Done |
+| 6 | US11 | Moderar reportes | Como administrador, quiero revisar y moderar reportes ciudadanos para asegurar la calidad y veracidad de la información publicada. | 5 | 8 | Jeremy Quijada | In Progress |
+| 7 | US12 | Gestionar categorías de incidentes | Como administrador, quiero gestionar categorías de incidentes para mantener organizada la clasificación de reportes. | 5 | 8 | Jeremy Quijada | In Progress |
 
 
 ### Conclusiones
