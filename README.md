@@ -1737,7 +1737,14 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">3</td>
     <td align="center">Alta</td>
   </tr>
-  <tr>
+    <tr>
+    <td align="center">2</td>
+    <td align="center">US06</td>
+    <td>Consultar rutas seguras</td>
+    <td align="center">8</td>
+    <td align="center">Baja</td>
+  </tr>
+    <tr>
     <td align="center">3</td>
     <td align="center">US05</td>
     <td>Recibir alertas geolocalizadas</td>
@@ -1759,42 +1766,35 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
     <td align="center">Media</td>
   </tr>
   <tr>
-    <td align="center">4</td>
+    <td align="center">3</td>
     <td align="center">US11</td>
     <td>Moderar reportes</td>
     <td align="center">5</td>
     <td align="center">Media</td>
   </tr>
   <tr>
-    <td align="center">4</td>
-    <td align="center">US06</td>
-    <td>Consultar rutas seguras</td>
-    <td align="center">8</td>
-    <td align="center">Baja</td>
-  </tr>
-  <tr>
-    <td align="center">4</td>
+    <td align="center">3</td>
     <td align="center">US10</td>
     <td>Filtrar incidentes</td>
     <td align="center">3</td>
     <td align="center">Baja</td>
   </tr>
   <tr>
-    <td align="center">4</td>
+    <td align="center">3</td>
     <td align="center">US08</td>
     <td>Monitorear ubicación compartida</td>
     <td align="center">5</td>
     <td align="center">Baja</td>
   </tr>
   <tr>
-    <td align="center">4</td>
+    <td align="center">3</td>
     <td align="center">US12</td>
     <td>Gestionar categorías de riesgo del sistema</td>
     <td align="center">3</td>
     <td align="center">Baja</td>
   </tr>
     <tr>
-    <td align="center">4</td>
+    <td align="center">3</td>
     <td align="center">TS02</td>
     <td>Implementar autenticación JWT</td>
     <td align="center">3</td>
