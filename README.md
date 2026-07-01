@@ -4024,6 +4024,8 @@ Para este tercer sprint el equipo se enfocará en consolidar las funcionalidades
 
 *  Como equipo, logramos dar el salto de una idea social a un modelo técnico sólido. El uso de **EventStorming y el Modelo C4** nos permitió visualizar no solo cómo se ve la app, sino cómo fluye la información entre los módulos de reportes y geolocalización, asegurando que la arquitectura soporte el tráfico de datos en tiempo real que planeamos para Lima.
 * Mediante las entrevistas y el proceso de **Needfinding**, confirmamos que nuestra propuesta de valor es acertada. Identificamos que el usuario no solo quiere ver el peligro, sino sentirse acompañado; por ello, la inclusión del "Círculo de Confianza" y las alertas de proximidad se convirtieron en pilares fundamentales que diferencian a UrbanVoice de otras apps de mapas convencionales.
+* About the product:
+https://youtu.be/6mvartzCzNk 
 
 ### Recomendaciones
 
