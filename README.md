@@ -947,8 +947,9 @@ En esta sección se definen los términos clave del dominio de negocio. Estas de
 
 ## 2.4. Requirements specification
 ### 2.4.1. User Stories
-A continuación se detalla la especificación de requisitos del sistema dividida en Épicas, Historias de Usuario y Criterios de Aceptación por escenarios .
+A continuación se detalla la especificación de requisitos del sistema dividida en Épicas, Historias de Usuario y Criterios de Aceptación por escenarios.
 
+  
 <table>
   <tr>
     <th style="text-align:center;">Story ID</th>
@@ -958,33 +959,33 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td align="center">US01</td>
-    <td align="center">Ciudadano</td>
+    <td align="center">Visitante</td>
     <td align="center">Alta</td>
-    <td align="center">EP03</td>
+    <td align="center">EP01</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Consultar mapa de riesgo</td>
+    <td colspan="3">Registrarse en la plataforma</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, quiero consultar un mapa con zonas de riesgo para planificar rutas más seguras y evitar incidentes.</td>
+    <td colspan="4">Como visitante, quiero registrarme en UrbanVoice proporcionando mis datos básicos para acceder a las funcionalidades de la plataforma.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Carga de mapa con incidentes.</b><br>
-      <b>Given</b> que el ciudadano se encuentra en la vista principal,<br>
-      <b>When</b> el sistema identifica reportes en la base de datos,<br>
-      <b>Then</b> el sistema renderiza capas de calor sobre las coordenadas afectadas.<br><br>
-      <b>Escenario 2: Actualización dinámica.</b><br>
-      <b>Given</b> que el usuario desplaza el mapa a un nuevo distrito,<br>
-      <b>When</b> el sistema detecta el cambio de coordenadas,<br>
-      <b>Then</b> el sistema actualiza dinámicamente los puntos críticos de esa zona.
+      <b>Escenario 1: Registro exitoso.</b><br>
+      <b>Given</b> que el visitante ingresa nombre, correo y contraseña válidos,<br>
+      <b>When</b> envía el formulario de registro,<br>
+      <b>Then</b> el sistema crea la cuenta y redirige al inicio de sesión.<br><br>
+      <b>Escenario 2: Correo duplicado.</b><br>
+      <b>Given</b> que el correo ya está registrado,<br>
+      <b>When</b> el visitante intenta registrarse,<br>
+      <b>Then</b> el sistema muestra un mensaje de error indicando que el correo ya existe.
     </td>
   </tr>
 </table>
@@ -1002,31 +1003,31 @@ A continuación se detalla la especificación de requisitos del sistema dividida
     <td align="center">US02</td>
     <td align="center">Ciudadano</td>
     <td align="center">Alta</td>
-    <td align="center">EP02</td>
+    <td align="center">EP01</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Registrar incidente</td>
+    <td colspan="3">Iniciar sesión en la plataforma</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, quiero registrar un incidente de inseguridad con evidencia multimedia para alertar a otros usuarios y fortalecer la seguridad colaborativa.</td>
+    <td colspan="4">Como ciudadano registrado, quiero iniciar sesión con mis credenciales para acceder a las funcionalidades de UrbanVoice.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Envío con GPS activo.</b><br>
-      <b>Given</b> que el ciudadano completa los campos del reporte,<br>
-      <b>When</b> selecciona la opción de publicar,<br>
-      <b>Then</b> el sistema almacena el incidente con su geolocalización precisa.<br><br>
-      <b>Escenario 2: Intento sin permisos de GPS.</b><br>
-      <b>Given</b> que el ciudadano intenta realizar un reporte,<br>
-      <b>When</b> el sistema detecta que el GPS está desactivado,<br>
-      <b>Then</b> el sistema muestra un mensaje solicitando habilitar la ubicación.
+      <b>Escenario 1: Inicio de sesión exitoso.</b><br>
+      <b>Given</b> que el ciudadano ingresa correo y contraseña correctos,<br>
+      <b>When</b> presiona el botón de iniciar sesión,<br>
+      <b>Then</b> el sistema autentica al usuario y muestra el mapa principal.<br><br>
+      <b>Escenario 2: Credenciales inválidas.</b><br>
+      <b>Given</b> que el ciudadano ingresa una contraseña incorrecta,<br>
+      <b>When</b> intenta iniciar sesión,<br>
+      <b>Then</b> el sistema muestra un mensaje de error y no concede el acceso.
     </td>
   </tr>
 </table>
@@ -1043,32 +1044,32 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   <tr>
     <td align="center">US03</td>
     <td align="center">Ciudadano</td>
-    <td align="center">Alta</td>
-    <td align="center">EP02</td>
+    <td align="center">Media</td>
+    <td align="center">EP01</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Adjuntar evidencia multimedia</td>
+    <td colspan="3">Recuperar contraseña olvidada</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, deseo adjuntar evidencia (foto, audio o video) para dar credibilidad al reporte.</td>
+    <td colspan="4">Como ciudadano, quiero recuperar mi contraseña mediante mi correo electrónico para restablecer el acceso a mi cuenta.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Carga desde cámara.</b><br>
-      <b>Given</b> que el usuario está en el formulario de reporte,<br>
-      <b>When</b> captura una fotografía mediante la cámara,<br>
-      <b>Then</b> el sistema adjunta el archivo al registro del incidente.<br><br>
-      <b>Escenario 2: Límite de tamaño.</b><br>
-      <b>Given</b> que el ciudadano intenta subir un video pesado,<br>
-      <b>When</b> el archivo excede los 10 MB permitidos,<br>
-      <b>Then</b> el sistema notifica que el tamaño máximo ha sido superado.
+      <b>Escenario 1: Envío de correo de recuperación.</b><br>
+      <b>Given</b> que el ciudadano solicita restablecer su contraseña,<br>
+      <b>When</b> ingresa su correo registrado,<br>
+      <b>Then</b> el sistema envía un enlace de recuperación al correo.<br><br>
+      <b>Escenario 2: Correo no registrado.</b><br>
+      <b>Given</b> que el ciudadano ingresa un correo no registrado,<br>
+      <b>When</b> solicita la recuperación,<br>
+      <b>Then</b> el sistema muestra un mensaje indicando que el correo no existe.
     </td>
   </tr>
 </table>
@@ -1090,23 +1091,27 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Realizar un reporte anónimo</td>
+    <td colspan="3">Visualizar mapa de incidentes</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, deseo realizar reportes de forma anónima para proteger mi identidad.</td>
+    <td colspan="4">Como ciudadano, quiero visualizar un mapa con los incidentes reportados cerca de mi ubicación para estar informado sobre la situación de seguridad en mi zona.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Publicación en modo anónimo.</b><br>
-      <b>Given</b> que el ciudadano activa el switch de anonimato,<br>
-      <b>When</b> envía el reporte al sistema,<br>
-      <b>Then</b> el sistema oculta el nombre del autor en el mapa público.
+      <b>Escenario 1: Carga inicial del mapa.</b><br>
+      <b>Given</b> que el ciudadano accede a la pantalla principal,<br>
+      <b>When</b> el mapa se carga,<br>
+      <b>Then</b> el sistema muestra marcadores de incidentes en un radio de 5 km.<br><br>
+      <b>Escenario 2: Sin incidentes cercanos.</b><br>
+      <b>Given</b> que no hay reportes en la zona,<br>
+      <b>When</b> el mapa se renderiza,<br>
+      <b>Then</b> el sistema muestra un mensaje indicando que no hay incidentes cercanos.
     </td>
   </tr>
 </table>
@@ -1124,27 +1129,31 @@ A continuación se detalla la especificación de requisitos del sistema dividida
     <td align="center">US05</td>
     <td align="center">Ciudadano</td>
     <td align="center">Alta</td>
-    <td align="center">EP04</td>
+    <td align="center">EP02</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Recibir alertas geolocalizadas</td>
+    <td colspan="3">Registrar incidente en el mapa</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, quiero recibir alertas geolocalizadas sobre incidentes cercanos para tomar decisiones preventivas.</td>
+    <td colspan="4">Como ciudadano, quiero registrar un incidente de inseguridad seleccionando su ubicación en el mapa para alertar a otros usuarios.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Alerta en radio de proximidad.</b><br>
-      <b>Given</b> que el sistema registra un nuevo incidente,<br>
-      <b>When</b> el usuario se encuentra en un radio de cercanía,<br>
-      <b>Then</b> el sistema envía una notificación push de advertencia inmediata.
+      <b>Escenario 1: Registro con geolocalización.</b><br>
+      <b>Given</b> que el ciudadano completa los datos del reporte,<br>
+      <b>When</b> selecciona publicar,<br>
+      <b>Then</b> el sistema almacena el incidente con su ubicación GPS.<br><br>
+      <b>Escenario 2: GPS desactivado.</b><br>
+      <b>Given</b> que el GPS está desactivado,<br>
+      <b>When</b> el ciudadano intenta reportar,<br>
+      <b>Then</b> el sistema solicita habilitar la ubicación antes de continuar.
     </td>
   </tr>
 </table>
@@ -1162,27 +1171,31 @@ A continuación se detalla la especificación de requisitos del sistema dividida
     <td align="center">US06</td>
     <td align="center">Ciudadano</td>
     <td align="center">Alta</td>
-    <td align="center">EP03</td>
+    <td align="center">EP02</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Consultar rutas seguras</td>
+    <td colspan="3">Adjuntar evidencia multimedia al reporte</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, quiero consultar rutas entre dos puntos para reducir mi exposición a zonas de riesgo.</td>
+    <td colspan="4">Como ciudadano, quiero adjuntar fotos o videos al reporte de incidente para proporcionar evidencia visual del suceso.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Evadir hotspots de riesgo.</b><br>
-      <b>Given</b> que el ciudadano ingresa un destino,<br>
-      <b>When</b> solicita el trazado de la ruta,<br>
-      <b>Then</b> el sistema propone trayectos priorizando calles con menor nivel de incidentes.
+      <b>Escenario 1: Adjuntar desde galería.</b><br>
+      <b>Given</b> que el ciudadano está creando un reporte,<br>
+      <b>When</b> selecciona una imagen de la galería,<br>
+      <b>Then</b> el sistema la adjunta y muestra una vista previa.<br><br>
+      <b>Escenario 2: Archivo muy pesado.</b><br>
+      <b>Given</b> que el ciudadano intenta subir un archivo de más de 10 MB,<br>
+      <b>When</b> el sistema valida el tamaño,<br>
+      <b>Then</b> muestra un mensaje indicando que el tamaño máximo es 10 MB.
     </td>
   </tr>
 </table>
@@ -1199,34 +1212,33 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   <tr>
     <td align="center">US07</td>
     <td align="center">Ciudadano</td>
-    <td align="center">Alta</td>
-    <td align="center">EP04</td>
+    <td align="center">Media</td>
+    <td align="center">EP02</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Compartir ubicación en tiempo real</td>
+    <td colspan="3">Visualizar detalle de un incidente</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, quiero compartir mi ubicación en tiempo real con contactos de confianza para mejorar mi seguridad durante mis desplazamientos.</td>
+    <td colspan="4">Como ciudadano, quiero ver el detalle de un incidente específico para conocer tipo, fecha, descripción y evidencia disponible.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Envío de seguimiento.</b><br>
-      <b>Given</b> que el ciudadano selecciona un contacto de su lista,<br>
-      <b>When</b> activa el seguimiento en tiempo real,<br>
-      <b>Then</b> el sistema genera un enlace de monitoreo compartido.
+      <b>Escenario 1: Visualización de información completa.</b><br>
+      <b>Given</b> que el ciudadano selecciona un marcador en el mapa,<br>
+      <b>When</b> presiona "Ver detalle",<br>
+      <b>Then</b> el sistema muestra tipo, fecha, descripción, evidencia y estado del incidente.
     </td>
   </tr>
 </table>
 
 <br>
-
 
 <table>
   <tr>
@@ -1237,29 +1249,29 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td align="center">US08</td>
-    <td align="center">Contacto</td>
-    <td align="center">Media</td>
-    <td align="center">EP04</td>
+    <td align="center">Visitante</td>
+    <td align="center">Baja</td>
+    <td align="center">EP06</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Monitorear ubicación compartida</td>
+    <td colspan="3">Explorar landing page informativa</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como contacto de confianza, quiero monitorear la ubicación compartida de un usuario para acompañarlo durante su trayecto.</td>
+    <td colspan="4">Como visitante, quiero explorar la landing page de UrbanVoice para conocer las funcionalidades y beneficios de la plataforma.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Monitoreo en tiempo real.</b><br>
-      <b>Given</b> que el contacto recibe acceso a la ubicación del usuario,<br>
-      <b>When</b> el usuario se desplaza por la ciudad,<br>
-      <b>Then</b> el sistema muestra el marcador de posición moviéndose en tiempo real sobre el mapa.
+      <b>Escenario 1: Navegación por secciones.</b><br>
+      <b>Given</b> que el visitante ingresa a la URL de UrbanVoice,<br>
+      <b>When</b> se desplaza por la página,<br>
+      <b>Then</b> el sistema muestra las secciones de funcionalidades, beneficios y contacto.
     </td>
   </tr>
 </table>
@@ -1275,29 +1287,33 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td align="center">US09</td>
-    <td align="center">Ciudadano</td>
+    <td align="center">Visitante institucional</td>
     <td align="center">Media</td>
-    <td align="center">EP02</td>
+    <td align="center">EP06</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Consultar detalle de incidentes</td>
+    <td colspan="3">Registrar solicitud de alianza institucional</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, deseo visualizar el detalle de los incidentes reportados en una zona.</td>
+    <td colspan="4">Como visitante institucional, quiero enviar una solicitud de contacto desde la landing page para proponer alianzas con UrbanVoice.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Visualización ampliada.</b><br>
-      <b>Given</b> que el usuario selecciona un punto crítico en el mapa,<br>
-      <b>When</b> solicita ver más información,<br>
-      <b>Then</b> el sistema permite visualizar tipo, fecha y evidencia disponible del incidente.
+      <b>Escenario 1: Envío exitoso.</b><br>
+      <b>Given</b> que el visitante completa el formulario de contacto,<br>
+      <b>When</b> presiona enviar,<br>
+      <b>Then</b> el sistema muestra un mensaje de confirmación y notifica al equipo.<br><br>
+      <b>Escenario 2: Campos obligatorios vacíos.</b><br>
+      <b>Given</b> que el visitante deja campos requeridos sin completar,<br>
+      <b>When</b> intenta enviar,<br>
+      <b>Then</b> el sistema resalta los campos faltantes y no envía el formulario.
     </td>
   </tr>
 </table>
@@ -1313,29 +1329,29 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td align="center">US10</td>
-    <td align="center">Ciudadano</td>
-    <td align="center">Media</td>
-    <td align="center">EP02</td>
+    <td align="center">Visitante</td>
+    <td align="center">Baja</td>
+    <td align="center">EP06</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Filtrar incidentes</td>
+    <td colspan="3">Consultar información de contacto y redes sociales</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como ciudadano, deseo filtrar incidentes por tipo o fecha para mi consulta.</td>
+    <td colspan="4">Como visitante, quiero consultar la información de contacto y redes sociales de UrbanVoice para seguir la plataforma y comunicarme con el equipo.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Filtrado personalizado.</b><br>
-      <b>Given</b> que el usuario accede a la lista de reportes,<br>
-      <b>When</b> aplica filtros de categoría o fecha,<br>
-      <b>Then</b> el sistema actualiza los resultados mostrados en el mapa según la selección realizada.
+      <b>Escenario 1: Visualización de contacto.</b><br>
+      <b>Given</b> que el visitante se encuentra en la landing page,<br>
+      <b>When</b> se desplaza a la sección de contacto,<br>
+      <b>Then</b> el sistema muestra correo, redes sociales y enlaces funcionales.
     </td>
   </tr>
 </table>
@@ -1351,29 +1367,33 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td align="center">US11</td>
-    <td align="center">Admin</td>
+    <td align="center">Ciudadano</td>
     <td align="center">Alta</td>
-    <td align="center">EP05</td>
+    <td align="center">EP02</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Moderar reportes</td>
+    <td colspan="3">Realizar reporte anónimo</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como administrador, deseo moderar los reportes para evitar información falsa u ofensiva.</td>
+    <td colspan="4">Como ciudadano, quiero realizar un reporte de incidente de forma anónima para proteger mi identidad mientras contribuyo a la seguridad ciudadana.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Rechazo de reporte malicioso.</b><br>
-      <b>Given</b> que el administrador detecta un reporte malicioso,<br>
-      <b>When</b> selecciona la opción de eliminar,<br>
-      <b>Then</b> el sistema retira el incidente de la plataforma pública.
+      <b>Escenario 1: Publicación anónima.</b><br>
+      <b>Given</b> que el ciudadano activa el modo anónimo en el formulario,<br>
+      <b>When</b> envía el reporte,<br>
+      <b>Then</b> el sistema oculta el nombre del autor en el mapa público.<br><br>
+      <b>Escenario 2: Desactivación de anonimato.</b><br>
+      <b>Given</b> que el ciudadano desactiva el modo anónimo,<br>
+      <b>When</b> envía el reporte,<br>
+      <b>Then</b> el sistema muestra su nombre de usuario como autor.
     </td>
   </tr>
 </table>
@@ -1389,29 +1409,33 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td align="center">US12</td>
-    <td align="center">Admin</td>
+    <td align="center">Ciudadano</td>
     <td align="center">Media</td>
-    <td align="center">EP05</td>
+    <td align="center">EP02</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Gestionar categorías de incidentes</td>
+    <td colspan="3">Filtrar incidentes por tipo y fecha</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como administrador, deseo gestionar categorías de incidentes para organizar el registro.</td>
+    <td colspan="4">Como ciudadano, quiero filtrar los incidentes en el mapa por tipo y rango de fechas para enfocarme en la información relevante.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Creación de nueva categoría.</b><br>
-      <b>Given</b> que se requiere una nueva tipología de riesgo,<br>
-      <b>When</b> el administrador registra los datos correspondientes,<br>
-      <b>Then</b> el sistema permite crear y activar la nueva categoría.
+      <b>Escenario 1: Filtro por categoría.</b><br>
+      <b>Given</b> que el ciudadano abre el panel de filtros,<br>
+      <b>When</b> selecciona una categoría específica,<br>
+      <b>Then</b> el mapa actualiza los marcadores mostrando solo los de esa categoría.<br><br>
+      <b>Escenario 2: Filtro por rango de fechas.</b><br>
+      <b>Given</b> que el ciudadano define una fecha inicio y fin,<br>
+      <b>When</b> aplica el filtro,<br>
+      <b>Then</b> el mapa muestra solo los incidentes dentro de ese período.
     </td>
   </tr>
 </table>
@@ -1427,36 +1451,38 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td align="center">US13</td>
-    <td align="center">Visitante</td>
-    <td align="center">Baja</td>
-    <td align="center">EP06</td>
+    <td align="center">Administrador</td>
+    <td align="center">Alta</td>
+    <td align="center">EP05</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Explorar información del producto</td>
+    <td colspan="3">Moderar reportes ciudadanos</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como visitante, quiero explorar información del producto para conocer sus funcionalidades y beneficios.</td>
+    <td colspan="4">Como administrador, quiero moderar los reportes de incidentes para aprobar o rechazar contenido inapropiado o falso.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Navegación por beneficios.</b><br>
-      <b>Given</b> que el visitante carga la URL principal,<br>
-      <b>When</b> se desplaza a la sección de funcionalidades,<br>
-      <b>Then</b> el sistema muestra tarjetas informativas sobre seguridad urbana.
+      <b>Escenario 1: Aprobación de reporte.</b><br>
+      <b>Given</b> que el administrador revisa un reporte pendiente,<br>
+      <b>When</b> selecciona aprobar,<br>
+      <b>Then</b> el reporte se publica en el mapa público.<br><br>
+      <b>Escenario 2: Rechazo de reporte.</b><br>
+      <b>Given</b> que el administrador detecta un reporte falso,<br>
+      <b>When</b> selecciona rechazar,<br>
+      <b>Then</b> el reporte se elimina y el usuario recibe una notificación.
     </td>
   </tr>
 </table>
 
-
 <br>
-
 
 <table>
   <tr>
@@ -1467,36 +1493,38 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td align="center">US14</td>
-    <td align="center">Visitante institucional</td>
+    <td align="center">Administrador</td>
     <td align="center">Media</td>
-    <td align="center">EP06</td>
+    <td align="center">EP05</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Enviar solicitud de alianza</td>
+    <td colspan="3">Gestionar categorías de incidentes</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como visitante institucional, deseo enviar una solicitud de contacto para proponer alianzas.</td>
+    <td colspan="4">Como administrador, quiero gestionar las categorías de incidentes (crear, editar, desactivar) para mantener actualizada la taxonomía de reportes.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Envío exitoso de solicitud.</b><br>
-      <b>Given</b> que el visitante completa el formulario web,<br>
-      <b>When</b> presiona el botón de enviar,<br>
-      <b>Then</b> el sistema confirma la recepción del mensaje al equipo de soporte.
+      <b>Escenario 1: Crear nueva categoría.</b><br>
+      <b>Given</b> que el administrador accede al panel de categorías,<br>
+      <b>When</b> completa el formulario de nueva categoría,<br>
+      <b>Then</b> la categoría se agrega a la lista disponible.<br><br>
+      <b>Escenario 2: Desactivar categoría.</b><br>
+      <b>Given</b> que una categoría ya no es relevante,<br>
+      <b>When</b> el administrador la desactiva,<br>
+      <b>Then</b> la categoría deja de aparecer en el formulario de reportes.
     </td>
   </tr>
 </table>
 
 <br>
-
-
 
 <table>
   <tr>
@@ -1509,27 +1537,531 @@ A continuación se detalla la especificación de requisitos del sistema dividida
     <td align="center">US15</td>
     <td align="center">Ciudadano</td>
     <td align="center">Alta</td>
-    <td align="center">EP06</td>
+    <td align="center">EP04</td>
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Registrarse en el sistema</td>
+    <td colspan="3">Recibir notificaciones de incidentes cercanos</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como nuevo ciudadano, quiero registrarme en la plataforma para acceder a las funcionalidades de UrbanVoice.</td>
+    <td colspan="4">Como ciudadano, quiero recibir notificaciones push cuando ocurra un incidente cerca de mi ubicación para tomar precauciones inmediatas.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Registro exitoso.</b><br>
-      <b>Given</b> que el usuario ingresa sus datos correctamente,<br>
-      <b>When</b> completa el formulario de registro,<br>
-      <b>Then</b> el sistema crea su cuenta exitosamente.
+      <b>Escenario 1: Notificación por proximidad.</b><br>
+      <b>Given</b> que el sistema registra un nuevo incidente,<br>
+      <b>When</b> el ciudadano se encuentra en un radio de 1 km,<br>
+      <b>Then</b> el sistema envía una notificación push con los detalles del incidente.<br><br>
+      <b>Escenario 2: Notificación con app en segundo plano.</b><br>
+      <b>Given</b> que la aplicación está en segundo plano,<br>
+      <b>When</b> ocurre un incidente cercano,<br>
+      <b>Then</b> el sistema muestra la notificación en la barra de estado del dispositivo.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US16</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Alta</td>
+    <td align="center">EP04</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Compartir ubicación en tiempo real</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, quiero compartir mi ubicación en tiempo real con contactos de confianza para que puedan monitorear mi desplazamiento.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Inicio de compartición.</b><br>
+      <b>Given</b> que el ciudadano selecciona un contacto de confianza,<br>
+      <b>When</b> activa el seguimiento en tiempo real,<br>
+      <b>Then</b> el sistema genera un enlace de monitoreo y lo envía al contacto.<br><br>
+      <b>Escenario 2: Detener compartición.</b><br>
+      <b>Given</b> que el ciudadano tiene la compartición activa,<br>
+      <b>When</b> presiona "Detener",<br>
+      <b>Then</b> el sistema finaliza el seguimiento y notifica al contacto.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US17</td>
+    <td align="center">Contacto de confianza</td>
+    <td align="center">Media</td>
+    <td align="center">EP04</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Monitorear ubicación de un contacto</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como contacto de confianza, quiero monitorear la ubicación en tiempo real de un ciudadano que comparte su trayecto para velar por su seguridad.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Visualización en mapa.</b><br>
+      <b>Given</b> que el contacto accede al enlace de monitoreo,<br>
+      <b>When</b> el ciudadano se desplaza,<br>
+      <b>Then</b> el mapa muestra la posición actualizada en tiempo real.<br><br>
+      <b>Escenario 2: Contacto desconectado.</b><br>
+      <b>Given</b> que el ciudadano detiene la compartición,<br>
+      <b>When</b> el contacto intenta ver la ubicación,<br>
+      <b>Then</b> el sistema muestra un mensaje indicando que el seguimiento terminó.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US18</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Media</td>
+    <td align="center">EP04</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Activar o desactivar alertas por zona geográfica</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, quiero activar o desactivar las alertas de incidentes cercanos para ciertas zonas geográficas para personalizar mi experiencia.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Desactivar alertas en una zona.</b><br>
+      <b>Given</b> que el ciudadano configura sus preferencias,<br>
+      <b>When</b> desactiva las alertas para una zona específica,<br>
+      <b>Then</b> el sistema deja de notificar incidentes en esa zona.<br><br>
+      <b>Escenario 2: Reactivar alertas.</b><br>
+      <b>Given</b> que las alertas estaban desactivadas,<br>
+      <b>When</b> el ciudadano las reactiva,<br>
+      <b>Then</b> el sistema reanuda el envío de notificaciones de esa zona.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US19</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Baja</td>
+    <td align="center">EP01</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Editar perfil de usuario</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, quiero editar mi perfil (nombre, foto, preferencias) para mantener mis datos actualizados.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Actualización exitosa.</b><br>
+      <b>Given</b> que el ciudadano accede a su perfil,<br>
+      <b>When</b> modifica sus datos y guarda,<br>
+      <b>Then</b> el sistema actualiza la información y muestra confirmación.<br><br>
+      <b>Escenario 2: Foto de perfil inválida.</b><br>
+      <b>Given</b> que el ciudadano intenta subir una foto en formato no soportado,<br>
+      <b>When</b> el sistema valida el archivo,<br>
+      <b>Then</b> muestra un mensaje indicando los formatos aceptados (JPG, PNG).
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US20</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Baja</td>
+    <td align="center">EP01</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Cerrar sesión</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, quiero cerrar sesión en la aplicación para proteger mi cuenta en dispositivos compartidos.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Cierre de sesión exitoso.</b><br>
+      <b>Given</b> que el ciudadano está autenticado,<br>
+      <b>When</b> selecciona "Cerrar sesión",<br>
+      <b>Then</b> el sistema invalida el token y redirige a la pantalla de inicio de sesión.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US21</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Media</td>
+    <td align="center">EP04</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Gestionar contactos de confianza</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, quiero gestionar mi lista de contactos de confianza (agregar, eliminar) para compartir mi ubicación con personas de confianza.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Agregar contacto.</b><br>
+      <b>Given</b> que el ciudadano accede a sus contactos,<br>
+      <b>When</b> ingresa el correo de un usuario registrado,<br>
+      <b>Then</b> el sistema agrega el contacto a la lista.<br><br>
+      <b>Escenario 2: Eliminar contacto.</b><br>
+      <b>Given</b> que el ciudadano selecciona un contacto existente,<br>
+      <b>When</b> confirma la eliminación,<br>
+      <b>Then</b> el sistema remueve el contacto de la lista.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US22</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Media</td>
+    <td align="center">EP02</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Visualizar heatmap de zonas de riesgo</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, quiero visualizar un heatmap (mapa de calor) sobre el mapa para identificar las zonas con mayor concentración de incidentes.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Activación de heatmap.</b><br>
+      <b>Given</b> que el ciudadano está en el mapa,<br>
+      <b>When</b> activa la capa de heatmap,<br>
+      <b>Then</b> el sistema superpone un gradiente de color según la densidad de incidentes.<br><br>
+      <b>Escenario 2: Desactivación de heatmap.</b><br>
+      <b>Given</b> que el heatmap está activo,<br>
+      <b>When</b> el ciudadano desactiva la capa,<br>
+      <b>Then</b> el mapa vuelve a la vista de marcadores normal.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US23</td>
+    <td align="center">Administrador</td>
+    <td align="center">Media</td>
+    <td align="center">EP05</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Generar reporte estadístico de incidentes</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como administrador, quiero generar reportes estadísticos de incidentes por período, zona y categoría para analizar tendencias de seguridad.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Generación de reporte.</b><br>
+      <b>Given</b> que el administrador selecciona filtros de fecha y zona,<br>
+      <b>When</b> solicita generar reporte,<br>
+      <b>Then</b> el sistema muestra gráficos y tablas con los datos agregados.<br><br>
+      <b>Escenario 2: Exportación de reporte.</b><br>
+      <b>Given</b> que el reporte está generado,<br>
+      <b>When</b> el administrador selecciona exportar,<br>
+      <b>Then</b> el sistema descarga el reporte en formato PDF o CSV.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US24</td>
+    <td align="center">Administrador</td>
+    <td align="center">Baja</td>
+    <td align="center">EP05</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Enviar notificaciones masivas desde administración</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como administrador, quiero enviar notificaciones push masivas a los usuarios para comunicar alertas generales o información importante.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Envío masivo exitoso.</b><br>
+      <b>Given</b> que el administrador redacta un mensaje,<br>
+      <b>When</b> selecciona "Enviar a todos",<br>
+      <b>Then</b> el sistema envía la notificación push a todos los usuarios registrados.<br><br>
+      <b>Escenario 2: Confirmación de envío.</b><br>
+      <b>Given</b> que el administrador envió una notificación masiva,<br>
+      <b>When</b> el proceso finaliza,<br>
+      <b>Then</b> el sistema muestra el número de usuarios notificados exitosamente.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US25</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Baja</td>
+    <td align="center">EP02</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Visualizar historial de incidentes reportados</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, quiero ver el historial de todos los incidentes que he reportado para darles seguimiento.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Listado de mis reportes.</b><br>
+      <b>Given</b> que el ciudadano accede a "Mis reportes",<br>
+      <b>When</b> la lista se carga,<br>
+      <b>Then</b> el sistema muestra todos sus incidentes con estado, fecha y tipo.<br><br>
+      <b>Escenario 2: Historial vacío.</b><br>
+      <b>Given</b> que el ciudadano nunca ha reportado,<br>
+      <b>When</b> accede a "Mis reportes",<br>
+      <b>Then</b> el sistema muestra un mensaje indicando que no tiene reportes registrados.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US26</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Baja</td>
+    <td align="center">EP02</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Recibir confirmación de reporte procesado</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, quiero recibir una confirmación cuando mi reporte sea procesado por un administrador para saber su estado.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Reporte aprobado.</b><br>
+      <b>Given</b> que el administrador aprueba el reporte,<br>
+      <b>When</b> el estado cambia a "aprobado",<br>
+      <b>Then</b> el sistema notifica al ciudadano que su reporte fue publicado.<br><br>
+      <b>Escenario 2: Reporte rechazado.</b><br>
+      <b>Given</b> que el administrador rechaza el reporte,<br>
+      <b>When</b> el estado cambia a "rechazado",<br>
+      <b>Then</b> el sistema notifica al ciudadano con el motivo del rechazo.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">US27</td>
+    <td align="center">Ciudadano</td>
+    <td align="center">Baja</td>
+    <td align="center">EP02</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Valorar utilidad de reportes de otros usuarios</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como ciudadano, quiero valorar (like/dislike) los reportes de otros usuarios para destacar la información útil.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Votar reporte.</b><br>
+      <b>Given</b> que el ciudadano ve el detalle de un incidente,<br>
+      <b>When</b> presiona el botón "Útil",<br>
+      <b>Then</b> el sistema registra el voto y actualiza el contador.<br><br>
+      <b>Escenario 2: Cambiar voto.</b><br>
+      <b>Given</b> que el ciudadano ya votó un reporte,<br>
+      <b>When</b> presiona nuevamente,<br>
+      <b>Then</b> el sistema revierte el voto anterior.
     </td>
   </tr>
 </table>
@@ -1551,23 +2083,27 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Implementar endpoints REST API</td>
+    <td colspan="3">Configurar infraestructura cloud y pipeline CI/CD</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como desarrollador, deseo crear los servicios web para el manejo de incidentes.</td>
+    <td colspan="4">Como developer, quiero configurar la infraestructura en la nube y el pipeline de integración continua para automatizar el despliegue del backend.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Request de creación exitoso.</b><br>
-      <b>Given</b> que el cliente móvil envía un JSON válido,<br>
-      <b>When</b> el servidor procesa la solicitud POST,<br>
-      <b>Then</b> el sistema retorna un código 201 (Created) con el ID del reporte.
+      <b>Escenario 1: Pipeline de build exitoso.</b><br>
+      <b>Given</b> que se realiza un push a la rama principal,<br>
+      <b>When</b> el pipeline se ejecuta,<br>
+      <b>Then</b> el sistema compila, ejecuta pruebas y despliega automáticamente.<br><br>
+      <b>Escenario 2: Falla en pruebas.</b><br>
+      <b>Given</b> que el pipeline encuentra pruebas fallidas,<br>
+      <b>When</b> se ejecuta la etapa de tests,<br>
+      <b>Then</b> el pipeline se detiene y notifica al equipo del error.
     </td>
   </tr>
 </table>
@@ -1589,23 +2125,321 @@ A continuación se detalla la especificación de requisitos del sistema dividida
   </tr>
   <tr>
     <td><b>Title</b></td>
-    <td colspan="3">Implementar autenticación JWT</td>
+    <td colspan="3">Implementar autenticación JWT en el backend</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Description</b></td>
   </tr>
   <tr>
-    <td colspan="4">Como desarrollador, deseo implementar autenticación basada en tokens JWT.</td>
+    <td colspan="4">Como developer, quiero implementar autenticación basada en tokens JWT en el backend para asegurar los endpoints de la API.</td>
   </tr>
   <tr>
     <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
   </tr>
   <tr>
     <td colspan="4">
-      <b>Escenario 1: Validación de token JWT.</b><br>
-      <b>Given</b> que un request llega a un endpoint protegido,<br>
-      <b>When</b> el middleware valida la firma del token,<br>
-      <b>Then</b> el sistema permite el acceso al recurso solicitado.
+      <b>Escenario 1: Generación de token.</b><br>
+      <b>Given</b> que el usuario inicia sesión correctamente,<br>
+      <b>When</b> el servidor valida las credenciales,<br>
+      <b>Then</b> el sistema retorna un token JWT con tiempo de expiración.<br><br>
+      <b>Escenario 2: Token expirado.</b><br>
+      <b>Given</b> que un request usa un token vencido,<br>
+      <b>When</b> el middleware valida,<br>
+      <b>Then</b> el sistema retorna código 401 (Unauthorized).
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">TS03</td>
+    <td align="center">Developer</td>
+    <td align="center">Alta</td>
+    <td align="center">EP07</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Implementar API REST de incidentes</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como developer, quiero implementar los endpoints REST para el módulo de incidentes (CRUD y consultas geolocalizadas).</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Creación de incidente.</b><br>
+      <b>Given</b> que el cliente envía un JSON con datos válidos,<br>
+      <b>When</b> se realiza un POST a /api/incidents,<br>
+      <b>Then</b> el sistema retorna código 201 con el ID del incidente creado.<br><br>
+      <b>Escenario 2: Consulta por radio.</b><br>
+      <b>Given</b> que el cliente envía coordenadas y radio,<br>
+      <b>When</b> se realiza un GET a /api/incidents/nearby,<br>
+      <b>Then</b> el sistema retorna los incidentes dentro del área especificada.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">TS04</td>
+    <td align="center">Developer</td>
+    <td align="center">Alta</td>
+    <td align="center">EP07</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Implementar API REST de alertas y geolocalización</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como developer, quiero implementar los endpoints para el módulo de alertas, compartición de ubicación y notificaciones push.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Registro de suscripción a alertas.</b><br>
+      <b>Given</b> que el cliente envía un token FCM válido,<br>
+      <b>When</b> se realiza un POST a /api/alerts/subscribe,<br>
+      <b>Then</b> el sistema registra el dispositivo para recibir notificaciones.<br><br>
+      <b>Escenario 2: Compartición de ubicación.</b><br>
+      <b>Given</b> que el ciudadano inicia el seguimiento,<br>
+      <b>When</b> el cliente envía coordenadas periódicamente,<br>
+      <b>Then</b> el sistema actualiza la ubicación y la pone disponible para el contacto.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">TS05</td>
+    <td align="center">Developer</td>
+    <td align="center">Alta</td>
+    <td align="center">EP07</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Integrar Google Maps SDK en aplicaciones móviles</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como developer, quiero integrar el SDK de Google Maps en las apps Android y Flutter para mostrar el mapa de incidentes con marcadores y heatmap.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Mapa con marcadores.</b><br>
+      <b>Given</b> que la app se inicializa,<br>
+      <b>When</b> el mapa se carga con datos de la API,<br>
+      <b>Then</b> los marcadores de incidentes se renderizan en las coordenadas correctas.<br><br>
+      <b>Escenario 2: Heatmap funcional.</b><br>
+      <b>Given</b> que se activa la capa de heatmap,<br>
+      <b>When</b> los datos se procesan,<br>
+      <b>Then</b> el mapa muestra el gradiente de densidad de incidentes.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">TS06</td>
+    <td align="center">Developer</td>
+    <td align="center">Alta</td>
+    <td align="center">EP08</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Implementar pruebas unitarias y de integración</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como developer, quiero implementar pruebas unitarias y de integración para garantizar la calidad del backend y detectar regresiones.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Pruebas unitarias pasan.</b><br>
+      <b>Given</b> que se ejecuta el suite de pruebas,<br>
+      <b>When</b> todas las pruebas unitarias se completan,<br>
+      <b>Then</b> el sistema reporta 100% de pruebas pasadas en los servicios core.<br><br>
+      <b>Escenario 2: Cobertura mínima.</b><br>
+      <b>Given</b> que se mide la cobertura de código,<br>
+      <b>When</b> se ejecuta el reporte de cobertura,<br>
+      <b>Then</b> el sistema verifica que la cobertura sea al menos del 70%.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">TS07</td>
+    <td align="center">Developer</td>
+    <td align="center">Media</td>
+    <td align="center">EP07</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Implementar WebSockets para actualizaciones en tiempo real</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como developer, quiero implementar WebSockets en el backend para notificar cambios en tiempo real a los clientes conectados.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Conexión WebSocket exitosa.</b><br>
+      <b>Given</b> que el cliente se suscribe al canal de incidentes,<br>
+      <b>When</b> se establece la conexión WebSocket,<br>
+      <b>Then</b> el cliente recibe eventos en tiempo real.<br><br>
+      <b>Escenario 2: Reconexión automática.</b><br>
+      <b>Given</b> que la conexión se pierde,<br>
+      <b>When</b> el cliente detecta la desconexión,<br>
+      <b>Then</b> el sistema intenta reconectarse automáticamente cada 3 segundos.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">TS08</td>
+    <td align="center">Developer</td>
+    <td align="center">Media</td>
+    <td align="center">EP07</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Implementar sistema de caché y optimización de consultas</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como developer, quiero implementar un sistema de caché (Redis) para optimizar las consultas geolocalizadas y reducir la latencia.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Datos en caché.</b><br>
+      <b>Given</b> que una consulta ya fue realizada antes,<br>
+      <b>When</b> se repite la misma consulta,<br>
+      <b>Then</b> el sistema retorna los datos desde caché en menos de 50 ms.<br><br>
+      <b>Escenario 2: Invalidación de caché.</b><br>
+      <b>Given</b> que se crea un nuevo incidente,<br>
+      <b>When</b> el incidente se almacena,<br>
+      <b>Then</b> el sistema invalida la caché de consultas cercanas.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th style="text-align:center;">Story ID</th>
+    <th style="text-align:center;">User</th>
+    <th style="text-align:center;">Priority</th>
+    <th style="text-align:center;">Epic</th>
+  </tr>
+  <tr>
+    <td align="center">TS09</td>
+    <td align="center">Developer</td>
+    <td align="center">Alta</td>
+    <td align="center">EP08</td>
+  </tr>
+  <tr>
+    <td><b>Title</b></td>
+    <td colspan="3">Realizar pruebas de seguridad y penetración</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">Como developer, quiero realizar pruebas de seguridad y penetración en la API para identificar y corregir vulnerabilidades antes del despliegue final.</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center"><b>Acceptance Criteria</b></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <b>Escenario 1: Prueba de inyección SQL.</b><br>
+      <b>Given</b> que se envía un payload malicioso en los parámetros,<br>
+      <b>When</b> el endpoint procesa la solicitud,<br>
+      <b>Then</b> el sistema rechaza la entrada y retorna código 400.<br><br>
+      <b>Escenario 2: Prueba de autenticación.</b><br>
+      <b>Given</b> que se intenta acceder a un endpoint protegido sin token,<br>
+      <b>When</b> se realiza la solicitud,<br>
+      <b>Then</b> el sistema retorna código 401 y bloquea el acceso.
     </td>
   </tr>
 </table>
