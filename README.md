@@ -2527,122 +2527,271 @@ para que podamos asegurar que los ciudadanos reciban advertencias de peligro opo
   </tr>
   <tr>
     <td align="center">1</td>
-    <td align="center">US13</td>
-    <td>Explorar información del producto</td>
-    <td align="center">1</td>
+    <td align="center">US01</td>
+    <td>Registrarse en la plataforma</td>
+    <td align="center">3</td>
     <td align="center">Alta</td>
   </tr>
   <tr>
     <td align="center">1</td>
-    <td align="center">US14</td>
-    <td>Enviar solicitud de alianza</td>
+    <td align="center">US02</td>
+    <td>Iniciar sesión en la plataforma</td>
     <td align="center">3</td>
     <td align="center">Alta</td>
   </tr>
-    <tr>
+  <tr>
     <td align="center">1</td>
-    <td align="center">US15</td>
-    <td>Registrarse en el sistema</td>
+    <td align="center">US04</td>
+    <td>Visualizar mapa de incidentes</td>
     <td align="center">5</td>
     <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">1</td>
+    <td align="center">US05</td>
+    <td>Registrar incidente en el mapa</td>
+    <td align="center">5</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">1</td>
+    <td align="center">US06</td>
+    <td>Adjuntar evidencia multimedia al reporte</td>
+    <td align="center">5</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">1</td>
+    <td align="center">US08</td>
+    <td>Explorar landing page informativa</td>
+    <td align="center">1</td>
+    <td align="center">Baja</td>
+  </tr>
+  <tr>
+    <td align="center">1</td>
+    <td align="center">US09</td>
+    <td>Registrar solicitud de alianza institucional</td>
+    <td align="center">3</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">1</td>
+    <td align="center">US10</td>
+    <td>Consultar información de contacto y redes sociales</td>
+    <td align="center">1</td>
+    <td align="center">Baja</td>
   </tr>
   <tr>
     <td align="center">1</td>
     <td align="center">TS01</td>
-    <td>Implementar endpoints REST AP</td>
+    <td>Configurar infraestructura cloud y pipeline CI/CD</td>
     <td align="center">5</td>
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">2</td>
-    <td align="center">US01</td>
-    <td>Consultar mapa de riesgo</td>
+    <td align="center">1</td>
+    <td align="center">TS02</td>
+    <td>Implementar autenticación JWT en el backend</td>
     <td align="center">5</td>
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">2</td>
-    <td align="center">US02</td>
-    <td>Registrar incidente</td>
-    <td align="center">5</td>
+    <td align="center">1</td>
+    <td align="center">TS03</td>
+    <td>Implementar API REST de incidentes</td>
+    <td align="center">8</td>
     <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center" style="background-color: #e8f5e9;">1</td>
+    <td align="center" style="background-color: #e8f5e9;" colspan="4"><b>Total Sprint 1: 44 SP</b></td>
   </tr>
   <tr>
     <td align="center">2</td>
     <td align="center">US03</td>
-    <td>Adjuntar evidencia multimedia</td>
-    <td align="center">5</td>
-    <td align="center">Alta</td>
+    <td>Recuperar contraseña olvidada</td>
+    <td align="center">2</td>
+    <td align="center">Media</td>
   </tr>
   <tr>
     <td align="center">2</td>
-    <td align="center">US04</td>
+    <td align="center">US07</td>
+    <td>Visualizar detalle de un incidente</td>
+    <td align="center">2</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">US11</td>
     <td>Realizar reporte anónimo</td>
     <td align="center">3</td>
     <td align="center">Alta</td>
   </tr>
-    <tr>
+  <tr>
     <td align="center">2</td>
-    <td align="center">US06</td>
-    <td>Consultar rutas seguras</td>
-    <td align="center">8</td>
-    <td align="center">Baja</td>
-  </tr>
-    <tr>
+    <td align="center">US12</td>
+    <td>Filtrar incidentes por tipo y fecha</td>
     <td align="center">3</td>
-    <td align="center">US05</td>
-    <td>Recibir alertas geolocalizadas</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">US13</td>
+    <td>Moderar reportes ciudadanos</td>
+    <td align="center">5</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">US14</td>
+    <td>Gestionar categorías de incidentes</td>
+    <td align="center">3</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">US15</td>
+    <td>Recibir notificaciones de incidentes cercanos</td>
     <td align="center">8</td>
     <td align="center">Alta</td>
   </tr>
   <tr>
-    <td align="center">3</td>
-    <td align="center">US07</td>
+    <td align="center">2</td>
+    <td align="center">US16</td>
     <td>Compartir ubicación en tiempo real</td>
     <td align="center">8</td>
-    <td align="center">Media</td>
-  </tr>
-  <tr>
-    <td align="center">3</td>
-    <td align="center">US09</td>
-    <td>Consultar detalle de incidentes</td>
-    <td align="center">3</td>
-    <td align="center">Media</td>
-  </tr>
-  <tr>
-    <td align="center">3</td>
-    <td align="center">US11</td>
-    <td>Moderar reportes</td>
-    <td align="center">5</td>
-    <td align="center">Media</td>
-  </tr>
-  <tr>
-    <td align="center">3</td>
-    <td align="center">US10</td>
-    <td>Filtrar incidentes</td>
-    <td align="center">3</td>
-    <td align="center">Baja</td>
-  </tr>
-  <tr>
-    <td align="center">3</td>
-    <td align="center">US08</td>
-    <td>Monitorear ubicación compartida</td>
-    <td align="center">5</td>
-    <td align="center">Baja</td>
-  </tr>
-  <tr>
-    <td align="center">3</td>
-    <td align="center">US12</td>
-    <td>Gestionar categorías de riesgo del sistema</td>
-    <td align="center">3</td>
-    <td align="center">Baja</td>
-  </tr>
-    <tr>
-    <td align="center">3</td>
-    <td align="center">TS02</td>
-    <td>Implementar autenticación JWT</td>
-    <td align="center">3</td>
     <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">US17</td>
+    <td>Monitorear ubicación de un contacto</td>
+    <td align="center">5</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">US19</td>
+    <td>Editar perfil de usuario</td>
+    <td align="center">2</td>
+    <td align="center">Baja</td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">US20</td>
+    <td>Cerrar sesión</td>
+    <td align="center">1</td>
+    <td align="center">Baja</td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">US22</td>
+    <td>Visualizar heatmap de zonas de riesgo</td>
+    <td align="center">5</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">TS04</td>
+    <td>Implementar API REST de alertas y geolocalización</td>
+    <td align="center">8</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">2</td>
+    <td align="center">TS05</td>
+    <td>Integrar Google Maps SDK en aplicaciones móviles</td>
+    <td align="center">8</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center" style="background-color: #e3f2fd;">2</td>
+    <td align="center" style="background-color: #e3f2fd;" colspan="4"><b>Total Sprint 2: 63 SP</b></td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">US18</td>
+    <td>Activar o desactivar alertas por zona geográfica</td>
+    <td align="center">3</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">US21</td>
+    <td>Gestionar contactos de confianza</td>
+    <td align="center">3</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">US23</td>
+    <td>Generar reporte estadístico de incidentes</td>
+    <td align="center">5</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">US24</td>
+    <td>Enviar notificaciones masivas desde administración</td>
+    <td align="center">3</td>
+    <td align="center">Baja</td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">US25</td>
+    <td>Visualizar historial de incidentes reportados</td>
+    <td align="center">3</td>
+    <td align="center">Baja</td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">US26</td>
+    <td>Recibir confirmación de reporte procesado</td>
+    <td align="center">2</td>
+    <td align="center">Baja</td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">US27</td>
+    <td>Valorar utilidad de reportes de otros usuarios</td>
+    <td align="center">2</td>
+    <td align="center">Baja</td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">TS06</td>
+    <td>Implementar pruebas unitarias y de integración</td>
+    <td align="center">8</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">TS07</td>
+    <td>Implementar WebSockets para actualizaciones en tiempo real</td>
+    <td align="center">5</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">TS08</td>
+    <td>Implementar sistema de caché y optimización de consultas</td>
+    <td align="center">5</td>
+    <td align="center">Media</td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td align="center">TS09</td>
+    <td>Realizar pruebas de seguridad y penetración</td>
+    <td align="center">8</td>
+    <td align="center">Alta</td>
+  </tr>
+  <tr>
+    <td align="center" style="background-color: #fff3e0;">3</td>
+    <td align="center" style="background-color: #fff3e0;" colspan="4"><b>Total Sprint 3: 47 SP</b></td>
+  </tr>
+  <tr>
+    <td align="center" style="background-color: #f5f5f5;" colspan="2"><b>Total general</b></td>
+    <td align="center" style="background-color: #f5f5f5;" colspan="3"><b>154 SP</b></td>
   </tr>
 </table>
 
