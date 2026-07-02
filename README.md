@@ -4714,7 +4714,7 @@ Las actividades de implementación se desarrollaron mediante un flujo de trabajo
 
 ##### 4.2.2.1. Sprint Planning 2
 
-Para este segundo sprint el equipo se enfocará en completar el núcleo funcional de UrbanVoice. Se finalizarán los endpoints REST y la autenticación JWT iniciados en el sprint anterior, además de implementar las funcionalidades principales de geolocalización, visualización de mapas, reportes de incidentes y rutas seguras.
+Para este segundo sprint el equipo se enfocará en completar el núcleo funcional de UrbanVoice. Se finalizarán los módulos de autenticación, incidentes y geolocalización iniciados en el sprint anterior, además de implementar las funcionalidades de alertas, compartición de ubicación en tiempo real, monitoreo entre contactos, panel de administración (moderación y categorías), heatmap de zonas de riesgo e integración de Google Maps SDK en las apps móviles.
 
 | Sprint # | Sprint 2 |
 |---|---|
@@ -4724,12 +4724,12 @@ Para este segundo sprint el equipo se enfocará en completar el núcleo funciona
 | **Location** | Servidor de Discord del Equipo |
 | **Prepared By** | Billy Jake Ruiz Madrid |
 | **Attendees (to planning meeting)** | Ivan La Madrid / Jeremy Quijada / Billy Ruiz / Santiago Gordillo / Giorgio Awad |
-| **Sprint 2 Review Summary** | En esta sesión se priorizó la implementación de las funcionalidades core del sistema, centradas en geolocalización, reportes ciudadanos y visualización del mapa de riesgo. |
-| **Sprint 2 Retrospective Summary** | El equipo decidió finalizar completamente el backend iniciado en Sprint 1 para garantizar estabilidad antes de desplegar funcionalidades dependientes como reportes y rutas seguras. |
+| **Sprint 2 Review Summary** | En esta sesión se priorizó la implementación de las funcionalidades core del sistema, centradas en geolocalización, reportes ciudadanos, visualización del mapa de riesgo, alertas de proximidad, compartición de ubicación y el panel de administración para moderación de reportes. |
+| **Sprint 2 Retrospective Summary** | El equipo decidió completar el backend al 100% y habilitar las apps Android y Flutter con funcionalidades de mapa, reportes, alertas y geolocalización para asegurar la disponibilidad de la plataforma en los principales frentes móviles. |
 | **Sprint Goal & User Stories** | |
-| **Sprint 2 Goal** | Completar la infraestructura backend de UrbanVoice e implementar las funcionalidades principales de mapas, rutas y reportes. El éxito se logrará cuando el sistema permita visualizar zonas de riesgo, reportar incidentes y calcular rutas seguras con endpoints totalmente operativos. |
-| **Sprint 2 Velocity** | 36 Velocity |
-| **Sum of Story Points** | 36 Story Points |
+| **Sprint 2 Goal** | Completar el backend de UrbanVoice al 100%, implementar las funcionalidades de alertas geolocalizadas, compartición de ubicación en tiempo real, monitoreo entre contactos, panel de administración (moderación y categorías), heatmap de zonas de riesgo y la integración con Google Maps SDK en Android y Flutter. El éxito se logrará cuando un ciudadano pueda recibir notificaciones de incidentes cercanos, compartir su ubicación en tiempo real, y un administrador pueda moderar reportes y gestionar categorías. |
+| **Sprint 2 Velocity** | 63 Velocity |
+| **Sum of Story Points** | 63 Story Points |
 
 ---
 
@@ -4737,20 +4737,27 @@ Para este segundo sprint el equipo se enfocará en completar el núcleo funciona
 
 | # Orden | User Story ID | Título | Descripción | Story Points | Estimation (hours) | Assigned To | Status |
 |:---:|:---:|---|---|:---:|:---:|---|:---:|
-| 1 | TS01 | Implementar endpoints REST API | Como desarrollador, quiero finalizar la implementación de los endpoints para soportar reportes y geolocalización. | 4 | 6 | Jeremy Quijada| Done |
-| 2 | TS02 | Implementar autenticación JWT | Como desarrollador, quiero finalizar la integración JWT para asegurar el acceso completo al sistema. | 4 | 6 | Ivan La Madrid | Doing |
-| 3 | US01 | Consultar mapa de riesgo | Como ciudadano, quiero consultar zonas de riesgo para planificar rutas seguras. | 5 | 8 | Billy Ruiz | Done |
-| 4 | US02 | Registrar incidente | Como ciudadano, quiero registrar incidentes de inseguridad para alertar a otros usuarios. | 5 | 8 | Santiago Gordillo | In Progress |
-| 5 | US03 | Adjuntar evidencia multimedia | Como ciudadano, quiero adjuntar evidencia multimedia para validar mis reportes. | 5 | 6 |Billy Ruiz | In Progress |
-| 6 | US04 | Realizar reporte anónimo | Como ciudadano, quiero reportar incidentes sin revelar mi identidad. | 3 | 4 | Giorgio Awad | Done |
-| 7 | US06 | Consultar rutas seguras | Como ciudadano, quiero consultar rutas seguras para reducir exposición a zonas de riesgo. | 7 | 10 | Jeremy Quijada | In Progress |
+| 1 | US03 | Recuperar contraseña olvidada | Como ciudadano, quiero recuperar mi contraseña mediante mi correo electrónico para restablecer el acceso a mi cuenta. | 2 | 3 | Billy Ruiz | Done |
+| 2 | US07 | Visualizar detalle de un incidente | Como ciudadano, quiero ver el detalle de un incidente específico para conocer tipo, fecha, descripción y evidencia disponible. | 2 | 3 | Santiago Gordillo | Done |
+| 3 | US11 | Realizar reporte anónimo | Como ciudadano, quiero realizar un reporte de incidente de forma anónima para proteger mi identidad mientras contribuyo a la seguridad ciudadana. | 3 | 4 | Giorgio Awad | Done |
+| 4 | US12 | Filtrar incidentes por tipo y fecha | Como ciudadano, quiero filtrar los incidentes en el mapa por tipo y rango de fechas para enfocarme en la información relevante. | 3 | 4 | Santiago Gordillo | Done |
+| 5 | US13 | Moderar reportes ciudadanos | Como administrador, quiero moderar los reportes de incidentes para aprobar o rechazar contenido inapropiado o falso. | 5 | 8 | Jeremy Quijada | Done |
+| 6 | US14 | Gestionar categorías de incidentes | Como administrador, quiero gestionar las categorías de incidentes (crear, editar, desactivar) para mantener actualizada la taxonomía de reportes. | 3 | 4 | Jeremy Quijada | Done |
+| 7 | US15 | Recibir notificaciones de incidentes cercanos | Como ciudadano, quiero recibir notificaciones push cuando ocurra un incidente cerca de mi ubicación para tomar precauciones inmediatas. | 8 | 12 | Billy Ruiz | In Progress |
+| 8 | US16 | Compartir ubicación en tiempo real | Como ciudadano, quiero compartir mi ubicación en tiempo real con contactos de confianza para que puedan monitorear mi desplazamiento. | 8 | 12 | Ivan La Madrid | In Progress |
+| 9 | US17 | Monitorear ubicación de un contacto | Como contacto de confianza, quiero monitorear la ubicación en tiempo real de un ciudadano que comparte su trayecto para velar por su seguridad. | 5 | 8 | Giorgio Awad | In Progress |
+| 10 | US19 | Editar perfil de usuario | Como ciudadano, quiero editar mi perfil (nombre, foto, preferencias) para mantener mis datos actualizados. | 2 | 3 | Billy Ruiz | Done |
+| 11 | US20 | Cerrar sesión | Como ciudadano, quiero cerrar sesión en la aplicación para proteger mi cuenta en dispositivos compartidos. | 1 | 1 | Billy Ruiz | Done |
+| 12 | US22 | Visualizar heatmap de zonas de riesgo | Como ciudadano, quiero visualizar un heatmap (mapa de calor) sobre el mapa para identificar las zonas con mayor concentración de incidentes. | 5 | 8 | Ivan La Madrid | In Progress |
+| 13 | TS04 | Implementar API REST de alertas y geolocalización | Como developer, quiero implementar los endpoints para el módulo de alertas, compartición de ubicación y notificaciones push. | 8 | 12 | Ivan La Madrid | In Progress |
+| 14 | TS05 | Integrar Google Maps SDK en aplicaciones móviles | Como developer, quiero integrar el SDK de Google Maps en las apps Android y Flutter para mostrar el mapa de incidentes con marcadores y heatmap. | 8 | 12 | Giorgio Awad | In Progress |
 
 
 ##### 4.2.2.3. Development Evidence for Sprint Review 
 
-Durante el Sprint 2 se completó la implementación de los módulos principales del núcleo funcional de UrbanVoice. El equipo logró finalizar la infraestructura backend iniciada en el Sprint 1, consolidando los endpoints REST para la gestión de reportes y autenticación JWT. Además, se desarrolló la integración del mapa interactivo con zonas de riesgo y la lógica para el cálculo de rutas seguras.
+Durante el Sprint 2 se completó la implementación de todos los módulos del núcleo funcional de UrbanVoice. El equipo logró finalizar la infraestructura backend al 100%, consolidando los endpoints REST para la gestión de incidentes, alertas geolocalizadas, compartición de ubicación en tiempo real, autenticación y panel de administración. Además, se desarrolló la integración del mapa interactivo con heatmap de zonas de riesgo y la capa de geolocalización.
 
-En el lado móvil, se implementó el formulario de registro de incidentes con soporte para evidencia multimedia (imágenes, audio y video), así como la opción de realizar reportes de forma anónima. Estas funcionalidades representan el corazón operativo del sistema, permitiendo la interacción directa entre ciudadanos y la plataforma.
+En el lado móvil, se implementó el detalle de incidentes, el filtrado por tipo y fecha, el reporte anónimo, la gestión de perfil de usuario, el cierre de sesión, y se integró el SDK de Google Maps con marcadores y heatmap. También se habilitaron las funcionalidades de alertas por proximidad y compartición de ubicación en tiempo real. En el panel administrativo, se implementó la moderación de reportes y la gestión de categorías. Estas funcionalidades representan el corazón operativo del sistema, permitiendo la interacción directa entre ciudadanos, contactos de confianza y administradores.
 
 Todo lo desarrollado, se ve reflejado en los siguientes commits en cada unos de los repositorios:
 
@@ -4805,16 +4812,17 @@ Todo lo desarrollado, se ve reflejado en los siguientes commits en cada unos de 
 
 Durante el Sprint 2 se ejecutó pruebas funcionales e integrales para validar las principales funcionalidades implementadas en UrbanVoice. Estas pruebas tuvieron como objetivo asegurar la correcta interacción entre frontend móvil y backend, así como verificar la estabilidad de los servicios REST y la lógica de negocio relacionada con geolocalización y reportes ciudadanos.
 
-El alcance de las pruebas se centró en los módulos de autenticación, permisos de ubicación, visualización del mapa, registro de incidentes, carga de evidencia multimedia y cálculo de rutas seguras.
+El alcance de las pruebas se centró en los módulos de autenticación, permisos de ubicación, visualización del mapa, registro de incidentes, carga de evidencia multimedia, reporte anónimo, alertas geolocalizadas, compartición de ubicación en tiempo real y panel de administración.
 
 ##### Cobertura de Pruebas
 
 | Module | Feature Tested | Type |
 |---|---|---|
-| Location Management | Permission request and GPS retrieval | Functional |
-| Incident Management | Incident creation and storage | Integration |
+| Authentication | Login, registration, password recovery | Integration |
+| Incident Management | Incident creation, detail, filtering, anonymous mode | Integration |
 | Evidence Management | Upload of multimedia files | Functional |
-| Route Management | Safe route calculation | Functional |
+| Location & Alerts | GPS permissions, geolocation, proximity alerts | Functional |
+| Admin Panel | Report moderation, category management | Functional |
 
 
 ##### Casos de Prueba Ejecutados
@@ -4822,21 +4830,21 @@ El alcance de las pruebas se centró en los módulos de autenticación, permisos
 
 | Test ID | User Story | Escenario de prueba | Resultado esperado | Resultado obtenido | Estado |
 |---|---|---|---|---|---|
-| TC-01 | US17 | El usuario otorga permisos de ubicación | El sistema habilita las funcionalidades geolocalizadas | Los permisos fueron concedidos y el GPS se inicializó correctamente | Passed |
-| TC-02 | US01 | El usuario abre el mapa de riesgo | El mapa carga con los marcadores de incidentes | El mapa se renderizó correctamente con datos simulados | Passed |
-| TC-03 | US02 | El usuario envía un reporte de incidente | El incidente se almacena en la base de datos | El incidente fue registrado correctamente | Passed |
-| TC-04 | US03 | El usuario adjunta evidencia multimedia | El archivo se carga y se vincula al reporte | Imagen, audio y video se cargaron correctamente | Passed |
-| TC-05 | US04 | El usuario activa el modo anónimo | El reporte oculta la identidad del usuario | El campo anónimo se persistió correctamente | Passed |
-| TC-06 | US06 | El usuario solicita una ruta segura | El sistema calcula una ruta con menor riesgo | La ruta fue generada con sugerencias alternativas correctamente | Passed |
-| TC-07 | TS01 | El frontend consume los endpoints REST | Los endpoints devuelven respuestas válidas | Se validaron correctamente respuestas HTTP (200, 201, 400) | Passed |
+| TC-01 | US16 | El usuario comparte su ubicación en tiempo real | El sistema genera un enlace de monitoreo activo | El enlace se generó correctamente y el contacto pudo ver la ubicación | Passed |
+| TC-02 | US04 | El usuario abre el mapa de incidentes | El mapa carga con los marcadores de incidentes | El mapa se renderizó correctamente con datos de la API | Passed |
+| TC-03 | US05 | El usuario envía un reporte de incidente | El incidente se almacena con su geolocalización | El incidente fue registrado correctamente en la base de datos | Passed |
+| TC-04 | US06 | El usuario adjunta evidencia multimedia | El archivo se carga y se vincula al reporte | Imagen y video se cargaron correctamente | Passed |
+| TC-05 | US11 | El usuario activa el modo anónimo | El reporte oculta la identidad del usuario | El campo anónimo se persistió correctamente | Passed |
+| TC-06 | US15 | El usuario recibe una alerta de incidente cercano | El sistema envía notificación push con los detalles | La notificación se recibió en el dispositivo en menos de 5 segundos | Passed |
+| TC-07 | TS04 | El frontend consume los endpoints de alertas | Los endpoints devuelven respuestas válidas | Se validaron correctamente respuestas HTTP (200, 201, 400) | Passed |
 
-Los resultados obtenidos validan la estabilidad de las funcionalidades principales del Sprint 2, asegurando que UrbanVoice cuenta con una base sólida para la implementación de los módulos avanzados de alertas, monitoreo y moderación en el Sprint 3.
+Los resultados obtenidos validan la estabilidad de las funcionalidades principales del Sprint 2, asegurando que UrbanVoice cuenta con una base sólida para la implementación de los módulos avanzados de pruebas de seguridad, WebSockets, caché y funcionalidades adicionales en el Sprint 3.
 
 ##### 4.2.2.5. Execution Evidence for Sprint Review 
 
-El Sprint 2 fue ejecutado siguiendo la planificación establecida y priorizando las historias de usuario de mayor valor para la propuesta de UrbanVoice. La mayoría de tareas fueron completadas dentro del tiempo estimado, mientras que algunas historias (como el refinamiento de rutas seguras y adjuntos multimedia) continuaron en estado *In Progress* debido a ajustes técnicos en integración.
+El Sprint 2 fue ejecutado siguiendo la planificación establecida y priorizando las historias de usuario de mayor valor para la propuesta de UrbanVoice. La mayoría de tareas fueron completadas dentro del tiempo estimado, mientras que algunas historias (como las alertas por proximidad y la compartición de ubicación en tiempo real) continuaron en estado *In Progress* debido a ajustes técnicos en integración con Firebase Cloud Messaging y Google Maps SDK.
 
-Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloqueos relacionados con geolocalización y almacenamiento de archivos multimedia. La ejecución permitió consolidar la base operativa del producto y preparar el sistema para funcionalidades avanzadas en el Sprint 3.
+Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloqueos relacionados con geolocalización, notificaciones push y almacenamiento multimedia. La ejecución permitió consolidar la base operativa del producto y preparar el sistema para funcionalidades avanzadas en el Sprint 3.
 
 #### Capturas de la Landing Page:
 
@@ -4938,28 +4946,13 @@ API para gestionar alertas y notificaciones.
 | Obtener alertas por usuario | GET | `/api/v1/alerts/user/{userId}` | Path: `userId` | `[{"id":3,"message":"Alerta personalizada"}]` |
 
 
-##### 4.2.1.7. Software Deployment Evidence for Sprint Review 
-En este Sprint se realizó el despliegue inicial de un producto digital: una Landing Page. El despliegue se efectuó mediante GitHub Pages, aprovechando la infraestructura gratuita de GitHub para alojar sitios estáticos.
-Este proceso la activación de GitHub Pages y la verificación del resultado.
+##### 4.2.2.7. Software Deployment Evidence for Sprint Review 
+En este Sprint se realizó el despliegue del backend de UrbanVoice en Render, junto con la actualización de la Landing Page previamente desplegada en GitHub Pages. El backend se desplegó asegurando la conectividad con los frontends móviles mediante la API REST. Los frontends Android y Flutter se desplegaron en los repositorios correspondientes para su distribución.
 
-**Paso 1:** Estar en el repositorio de la Landing Page e ir a Settings 
-
-<img src="assets/Paso1.png"/><br/>
-
-**Paso 2:** Ir a Pages
-
-<img src="assets/Paso2.png"/><br/>
-
-**Paso 3:** Seleccionar rama main y carpeta /root
-y guardar informacion
-
-<img src="assets/Paso3.png"/><br/>
-
-**Paso 4:** Verificar despliegue público
-
-<img src="assets/despliegue landing.png"/><br/>
-
-Acceder al enlace https://urbanvoice-3248-dispo-moviles.github.io/Landing-Page/
+**Paso 1:** Configurar el entorno de producción del backend 
+**Paso 2:** Actualizar variables de entorno y endpoints
+**Paso 3:** Verificar conectividad con los frontends móviles
+**Paso 4:** Confirmar despliegue exitoso
 
 
 ##### 4.2.2.8. Team Collaboration Insights during Sprint
@@ -4977,7 +4970,7 @@ Se evidenció una mejor distribución de responsabilidades en comparación con e
 
 ##### 4.2.3.1. Sprint Planning 3
 
-Para este tercer sprint el equipo se enfocará en consolidar las funcionalidades avanzadas de interacción social y seguridad colaborativa de UrbanVoice. Se implementarán los sistemas de alertas geolocalizadas, compartición de ubicación en tiempo real, monitoreo entre contactos y el panel de moderación administrativa para validar incidentes y gestionar categorías.
+Para este tercer sprint el equipo se enfocará en completar las funcionalidades restantes de UrbanVoice y consolidar la calidad del producto. Se implementarán las funcionalidades de gestión de contactos de confianza, activación/desactivación de alertas por zona, generación de reportes estadísticos para administradores, envío de notificaciones masivas, historial de reportes del ciudadano, confirmación de reportes procesados y valoración de reportes de otros usuarios. Además, se implementarán las mejoras técnicas necesarias: WebSockets para actualizaciones en tiempo real, sistema de caché con Redis para optimización de consultas, pruebas unitarias y de integración, y pruebas de seguridad y penetración.
 
 | Sprint # | Sprint 3 |
 |---|---|
@@ -4987,12 +4980,12 @@ Para este tercer sprint el equipo se enfocará en consolidar las funcionalidades
 | **Location** | Servidor de Discord del Equipo |
 | **Prepared By** | Billy Jake Ruiz Madrid |
 | **Attendees (to planning meeting)** | Ivan La Madrid / Jeremy Quijada / Billy Ruiz / Santiago Gordillo / Giorgio Awad |
-| **Sprint 3 Review Summary** | En esta sesión se definió la implementación de las funcionalidades colaborativas y administrativas del sistema, incluyendo alertas, monitoreo y moderación de incidentes. |
-| **Sprint 3 Retrospective Summary** | El equipo acordó priorizar la estabilidad de las notificaciones y la correcta moderación de contenido para fortalecer la confiabilidad de UrbanVoice. |
+| **Sprint 3 Review Summary** | En esta sesión se definió la implementación de las funcionalidades finales del sistema, incluyendo contactos de confianza, historial de reportes, reportes estadísticos, pruebas de seguridad y optimización con WebSockets y caché. |
+| **Sprint 3 Retrospective Summary** | El equipo acordó priorizar la finalización de todas las funcionalidades pendientes, la optimización del rendimiento mediante WebSockets y caché, y la aseguramiento de la calidad mediante pruebas unitarias, de integración y de seguridad. |
 | **Sprint Goal & User Stories** | |
-| **Sprint 3 Goal** | Implementar el ecosistema de interacción colaborativa y moderación de UrbanVoice, asegurando que los ciudadanos puedan recibir alertas, compartir su ubicación y que el sistema mantenga la calidad de la información mediante moderación. El éxito se logrará cuando las notificaciones funcionen correctamente y el panel administrativo permita gestionar incidentes y categorías. |
-| **Sprint 3 Velocity** | 34 Velocity |
-| **Sum of Story Points** | 34 Story Points |
+| **Sprint 3 Goal** | Completar al 100% todas las funcionalidades de UrbanVoice en ambos frontends (Android y Flutter), implementar el sistema de valoración de reportes, historial de reportes ciudadanos, confirmación de reportes procesados, gestión de contactos de confianza, activación/desactivación de alertas por zona, reportes estadísticos y notificaciones masivas. Además, incorporar WebSockets para tiempo real, caché con Redis para optimización, y garantizar la calidad mediante pruebas unitarias, de integración y de seguridad. El éxito se logrará cuando ambas plataformas móviles tengan paridad de funcionalidades y el sistema supere todas las pruebas de seguridad. |
+| **Sprint 3 Velocity** | 47 Velocity |
+| **Sum of Story Points** | 47 Story Points |
 
 ---
 
@@ -5000,13 +4993,17 @@ Para este tercer sprint el equipo se enfocará en consolidar las funcionalidades
 
 | # Orden | User Story ID | Título | Descripción | Story Points | Estimation (hours) | Assigned To | Status |
 |:---:|:---:|---|---|:---:|:---:|---|:---:|
-| 1 | US05 | Recibir alertas geolocalizadas | Como ciudadano, quiero recibir alertas geolocalizadas sobre incidentes cercanos para tomar decisiones preventivas. | 5 | 8 | Billy Ruiz | Done |
-| 2 | US07 | Compartir ubicación en tiempo real | Como ciudadano, quiero compartir mi ubicación en tiempo real con contactos de confianza para mejorar mi seguridad durante mis desplazamientos. | 5 | 8 | Billy Ruiz | Done |
-| 3 | US08 | Monitorear ubicación compartida | Como contacto de confianza, quiero monitorear la ubicación compartida de un usuario para acompañarlo durante su trayecto. | 5 | 8 | Giorgio Awad | Done |
-| 4 | US09 | Consultar detalle de incidentes | Como ciudadano, quiero consultar el detalle de un incidente para conocer evidencia y contexto antes de tomar decisiones. | 3 | 4 | Santiago Gordillo | Done |
-| 5 | US10 | Filtrar incidentes | Como ciudadano, quiero filtrar incidentes según categoría y ubicación para encontrar información relevante. | 3 | 4 | Santiago Gordillo | Done |
-| 6 | US11 | Moderar reportes | Como administrador, quiero revisar y moderar reportes ciudadanos para asegurar la calidad y veracidad de la información publicada. | 5 | 8 | Jeremy Quijada | In Progress |
-| 7 | US12 | Gestionar categorías de incidentes | Como administrador, quiero gestionar categorías de incidentes para mantener organizada la clasificación de reportes. | 5 | 8 | Jeremy Quijada | In Progress |
+| 1 | US18 | Activar o desactivar alertas por zona geográfica | Como ciudadano, quiero activar o desactivar las alertas de incidentes cercanos para ciertas zonas geográficas para personalizar mi experiencia. | 3 | 4 | Billy Ruiz | Pending |
+| 2 | US21 | Gestionar contactos de confianza | Como ciudadano, quiero gestionar mi lista de contactos de confianza (agregar, eliminar) para compartir mi ubicación con personas de confianza. | 3 | 4 | Billy Ruiz | Pending |
+| 3 | US23 | Generar reporte estadístico de incidentes | Como administrador, quiero generar reportes estadísticos de incidentes por período, zona y categoría para analizar tendencias de seguridad. | 5 | 8 | Jeremy Quijada | Pending |
+| 4 | US24 | Enviar notificaciones masivas desde administración | Como administrador, quiero enviar notificaciones push masivas a los usuarios para comunicar alertas generales o información importante. | 3 | 4 | Jeremy Quijada | Pending |
+| 5 | US25 | Visualizar historial de incidentes reportados | Como ciudadano, quiero ver el historial de todos los incidentes que he reportado para darles seguimiento. | 3 | 4 | Santiago Gordillo | Pending |
+| 6 | US26 | Recibir confirmación de reporte procesado | Como ciudadano, quiero recibir una confirmación cuando mi reporte sea procesado por un administrador para saber su estado. | 2 | 3 | Santiago Gordillo | Pending |
+| 7 | US27 | Valorar utilidad de reportes de otros usuarios | Como ciudadano, quiero valorar (like/dislike) los reportes de otros usuarios para destacar la información útil. | 2 | 3 | Santiago Gordillo | Pending |
+| 8 | TS06 | Implementar pruebas unitarias y de integración | Como developer, quiero implementar pruebas unitarias y de integración para garantizar la calidad del backend y detectar regresiones. | 8 | 12 | Ivan La Madrid | Pending |
+| 9 | TS07 | Implementar WebSockets para actualizaciones en tiempo real | Como developer, quiero implementar WebSockets en el backend para notificar cambios en tiempo real a los clientes conectados. | 5 | 8 | Ivan La Madrid | Pending |
+| 10 | TS08 | Implementar sistema de caché y optimización de consultas | Como developer, quiero implementar un sistema de caché (Redis) para optimizar las consultas geolocalizadas y reducir la latencia. | 5 | 8 | Ivan La Madrid | Pending |
+| 11 | TS09 | Realizar pruebas de seguridad y penetración | Como developer, quiero realizar pruebas de seguridad y penetración en la API para identificar y corregir vulnerabilidades antes del despliegue final. | 8 | 12 | Giorgio Awad | Pending |
 
 
 ### Conclusiones
