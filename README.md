@@ -4524,7 +4524,7 @@ La aplicación móvil Android será distribuida durante las fases de validación
 
 ##### 4.2.1.1. Sprint Planning 1
 
-Para este primer sprint el equipo se enfocará en la construcción de la base del proyecto UrbanVoice: el Landing Page informativo, la arquitectura inicial del backend y los primeros módulos de acceso de la aplicación móvil. Se iniciará la implementación de los endpoints REST y la autenticación JWT como base para soportar las funcionalidades principales que serán completadas en el siguiente sprint.
+Para este primer sprint el equipo se enfocará en la construcción de la base del proyecto UrbanVoice: el Landing Page informativo completo, la arquitectura inicial del backend y los módulos de autenticación e incidentes. Se implementarán los endpoints REST de incidentes, la autenticación JWT y la infraestructura CI/CD como base para soportar las funcionalidades principales que serán completadas en los siguientes sprints.
 
 | Sprint # | Sprint 1 |
 |---|---|
@@ -4534,12 +4534,12 @@ Para este primer sprint el equipo se enfocará en la construcción de la base de
 | **Location** | Servidor de Discord del Equipo |
 | **Prepared By** | Billy Jake Ruiz Madrid |
 | **Attendees (to planning meeting)** | Ivan La Madrid / Jeremy Quijada / Billy Ruiz / Santiago Gordillo / Giorgio Awad |
-| **Sprint 1 Review Summary** | En esta primera sesión se definió la base estructural del proyecto UrbanVoice, incluyendo el Landing Page, registro de usuarios, onboarding inicial y la arquitectura base del backend. |
-| **Sprint 1 Retrospective Summary** | El equipo acordó priorizar la estabilidad de la arquitectura DDD y comenzar los endpoints críticos y autenticación para permitir la escalabilidad funcional en los siguientes sprints. |
+| **Sprint 1 Review Summary** | En esta primera sesión se definió la base estructural del proyecto UrbanVoice, incluyendo el Landing Page completo, registro e inicio de sesión de usuarios, el módulo de visualización y registro de incidentes en el mapa, y la arquitectura base del backend con autenticación JWT. |
+| **Sprint 1 Retrospective Summary** | El equipo acordó priorizar la estabilidad de la arquitectura DDD, completar la Landing Page al 100% y alcanzar un 70% del backend con los endpoints críticos de incidentes y autenticación para permitir la escalabilidad funcional en los siguientes sprints. |
 | **Sprint Goal & User Stories** | |
-| **Sprint 1 Goal** | Desarrollar y desplegar el Landing Page de UrbanVoice, construir los flujos iniciales de acceso de la app móvil (registro y onboarding), e iniciar la implementación del backend base con autenticación y endpoints iniciales. El éxito se logrará cuando la plataforma permita nuevos registros y la base del backend esté funcionalmente preparada para expandirse. |
-| **Sprint 1 Velocity** | 22 Velocity |
-| **Sum of Story Points** | 22 Story Points |
+| **Sprint 1 Goal** | Desarrollar y desplegar el Landing Page de UrbanVoice al 100%, implementar el flujo completo de registro e inicio de sesión, construir el módulo de incidentes (visualización en mapa, registro y adjunto de evidencia), e iniciar la infraestructura backend con autenticación JWT, API REST de incidentes y pipeline CI/CD. El éxito se logrará cuando un ciudadano pueda registrarse, iniciar sesión, visualizar el mapa de incidentes y reportar un nuevo incidente con evidencia multimedia. |
+| **Sprint 1 Velocity** | 44 Velocity |
+| **Sum of Story Points** | 44 Story Points |
 
 ---
 
@@ -4547,11 +4547,17 @@ Para este primer sprint el equipo se enfocará en la construcción de la base de
 
 | # Orden | User Story ID | Título | Descripción | Story Points | Estimation (hours) | Assigned To | Status |
 |:---:|:---:|---|---|:---:|:---:|---|:---:|
-| 1 | US13 | Explorar información del producto | Como visitante, quiero explorar la información del producto para conocer las funcionalidades y beneficios de UrbanVoice. | 2 | 4 | Santiago Gordillo | Done |
-| 2 | US14 | Enviar solicitud de alianza | Como visitante institucional, quiero enviar una solicitud de alianza para establecer colaboración con UrbanVoice. | 1 | 2 | Jeremy Quijada | Done |
-| 3 | US15 | Registrarse en el sistema | Como nuevo ciudadano, quiero registrarme en la plataforma para acceder a las funcionalidades de UrbanVoice. | 5 | 8 | Billy Ruiz | Done |
-| 4 | TS01 | Implementar endpoints REST API | Como desarrollador, quiero iniciar la construcción de endpoints base para soportar autenticación y reportes. | 5 | 8 | Ivan La Madrid | In Progress |
-| 5 | TS02 | Implementar autenticación JWT | Como desarrollador, quiero iniciar la integración de autenticación JWT para proteger el acceso al sistema. | 6 | 8 | Giorgio Awad | In Progress |
+| 1 | US01 | Registrarse en la plataforma | Como visitante, quiero registrarme en UrbanVoice proporcionando mis datos básicos para acceder a las funcionalidades de la plataforma. | 3 | 5 | Billy Ruiz | Done |
+| 2 | US02 | Iniciar sesión en la plataforma | Como ciudadano registrado, quiero iniciar sesión con mis credenciales para acceder a las funcionalidades de UrbanVoice. | 3 | 5 | Billy Ruiz | Done |
+| 3 | US04 | Visualizar mapa de incidentes | Como ciudadano, quiero visualizar un mapa con los incidentes reportados cerca de mi ubicación para estar informado sobre la situación de seguridad en mi zona. | 5 | 8 | Ivan La Madrid | In Progress |
+| 4 | US05 | Registrar incidente en el mapa | Como ciudadano, quiero registrar un incidente de inseguridad seleccionando su ubicación en el mapa para alertar a otros usuarios. | 5 | 8 | Ivan La Madrid | In Progress |
+| 5 | US06 | Adjuntar evidencia multimedia al reporte | Como ciudadano, quiero adjuntar fotos o videos al reporte de incidente para proporcionar evidencia visual del suceso. | 5 | 8 | Giorgio Awad | In Progress |
+| 6 | US08 | Explorar landing page informativa | Como visitante, quiero explorar la landing page de UrbanVoice para conocer las funcionalidades y beneficios de la plataforma. | 1 | 2 | Santiago Gordillo | Done |
+| 7 | US09 | Registrar solicitud de alianza institucional | Como visitante institucional, quiero enviar una solicitud de contacto desde la landing page para proponer alianzas con UrbanVoice. | 3 | 4 | Jeremy Quijada | Done |
+| 8 | US10 | Consultar información de contacto y redes sociales | Como visitante, quiero consultar la información de contacto y redes sociales de UrbanVoice para seguir la plataforma. | 1 | 2 | Santiago Gordillo | Done |
+| 9 | TS01 | Configurar infraestructura cloud y pipeline CI/CD | Como developer, quiero configurar la infraestructura en la nube y el pipeline de integración continua para automatizar el despliegue del backend. | 5 | 8 | Ivan La Madrid | In Progress |
+| 10 | TS02 | Implementar autenticación JWT en el backend | Como developer, quiero implementar autenticación basada en tokens JWT en el backend para asegurar los endpoints de la API. | 5 | 8 | Giorgio Awad | In Progress |
+| 11 | TS03 | Implementar API REST de incidentes | Como developer, quiero implementar los endpoints REST para el módulo de incidentes (CRUD y consultas geolocalizadas). | 8 | 12 | Ivan La Madrid | In Progress |
 
 ##### 4.2.1.3. Development Evidence for Sprint Review 
 
