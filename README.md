@@ -3754,39 +3754,39 @@ En este Sprint se logró ejecutar una primera versión funcional de la aplicaci�
 
 **Pantalla de inicio de sesión**
 
-<img src="assets/sprint2-frontend-login.png" alt="Pantalla de inicio de sesión de UrbanVoice"/><br/>
+<img src="assets/Pantalla de inicio de sesión de UrbanVoice.png" alt="Pantalla de inicio de sesión de UrbanVoice"/><br/>
 
 **Pantalla de registro de usuario**
 
-<img src="assets/sprint2-frontend-register.png" alt="Pantalla de registro de usuario de UrbanVoice"/><br/>
+<img src="assets/Pantalla de registro de usuario de UrbanVoice.png" alt="Pantalla de registro de usuario de UrbanVoice"/><br/>
 
 **Mapa principal de riesgo**
 
-<img src="assets/sprint2-frontend-home-map.png" alt="Mapa principal con zonas de riesgo e incidentes"/><br/>
+<img src="assets/Mapa principal con zonas de riesgo e incidentes" alt="Mapa principal con zonas de riesgo e incidentes"/><br/>
 
 **Formulario de reporte de incidente**
 
-<img src="assets/sprint2-frontend-report-incident.png" alt="Formulario para registrar incidente ciudadano"/><br/>
+<img src="assets/Formulario para registrar incidente ciudadano" alt="Formulario para registrar incidente ciudadano"/><br/>
 
 **Adjuntar evidencia fotográfica**
 
-<img src="assets/sprint2-frontend-evidence.png" alt="Captura de evidencia fotográfica en reporte ciudadano"/><br/>
+<img src="assets/Captura de evidencia fotográfica en reporte ciudadano.png" alt="Captura de evidencia fotográfica en reporte ciudadano"/><br/>
 
 **Detalle del incidente**
 
-<img src="assets/sprint2-frontend-incident-detail.png" alt="Pantalla de detalle de incidente reportado"/><br/>
+<img src="assets/Pantalla de detalle de incidente reportado.png" alt="Pantalla de detalle de incidente reportado"/><br/>
 
 **Pantalla de alertas**
 
-<img src="assets/sprint2-frontend-alerts.png" alt="Pantalla de alertas de seguridad"/><br/>
+<img src="assets/Pantalla de alertas de seguridad.png" alt="Pantalla de alertas de seguridad"/><br/>
 
 **Pantalla de mis reportes**
 
-<img src="assets/sprint2-frontend-my-reports.png" alt="Pantalla de mis reportes realizados"/><br/>
+<img src="assets/Pantalla de mis reportes realizados.png" alt="Pantalla de mis reportes realizados"/><br/>
 
 **Pantalla de perfil**
 
-<img src="assets/sprint2-frontend-profile.png" alt="Pantalla de perfil del usuario"/><br/>
+<img src="assets/Pantalla de perfil del usuario.png" alt="Pantalla de perfil del usuario"/><br/>
 
 ##### 4.2.2.6. Services Documentation Evidence for Sprint Review
 
