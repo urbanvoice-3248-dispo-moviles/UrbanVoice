@@ -5012,7 +5012,13 @@ Para este tercer sprint el equipo se enfocará en completar las funcionalidades 
 | 11 | TS09 | Realizar pruebas de seguridad y penetración | Como developer, quiero realizar pruebas de seguridad y penetración en la API para identificar y corregir vulnerabilidades antes del despliegue final. | 8 | 12 | Giorgio Awad | Pending |
 
 ---
+##### 4.2.3.3. Development Evidence for Sprint Review 
 
+---
+
+##### 4.2.3.4. Testing Suite Evidence for Sprint Review 
+
+---
 ##### 4.2.3.5. Execution Evidence for Sprint Review 
 
 El Sprint 2 fue ejecutado siguiendo la planificación establecida y priorizando las historias de usuario de mayor valor para la propuesta de UrbanVoice. La mayoría de tareas fueron completadas dentro del tiempo estimado, mientras que algunas historias (como las alertas por proximidad y la compartición de ubicación en tiempo real) continuaron en estado *In Progress* debido a ajustes técnicos en integración con Firebase Cloud Messaging y Google Maps SDK.
@@ -5075,6 +5081,16 @@ Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloq
 <img src="assets/front-end/Ubicacion.png"/><br/>
 
 <img src="assets/Ubicacion2.png" alt="Ubicacion"/><br/>
+
+---
+##### 4.2.3.6. Services Documentation Evidence for Sprint Review 
+
+---
+##### 4.2.3.7. Software Deployment Evidence for Sprint Review 
+
+---
+##### 4.2.3.8. Team Collaboration Insights during Sprint
+
 
 ### Conclusiones
 
