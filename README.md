@@ -4866,6 +4866,12 @@ Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloq
 ##### Inicio de sesión:
 <img src="assets/front-end/Front-End-1.png"/><br/>
 
+<img src="assets/Pantalla de inicio de sesión de UrbanVoice.png" alt="Pantalla de inicio de sesión de UrbanVoice"/><br/>
+
+##### Pantalla de registro de usuario
+
+<img src="assets/Pantalla de registro de usuario de UrbanVoice.png" alt="Pantalla de registro de usuario de UrbanVoice"/><br/>
+
 ##### Navbar:
 <img src="assets/front-end/Front-End-2.png"/><br/>
 
@@ -5004,6 +5010,65 @@ Para este tercer sprint el equipo se enfocará en completar las funcionalidades 
 | 9 | TS07 | Implementar WebSockets para actualizaciones en tiempo real | Como developer, quiero implementar WebSockets en el backend para notificar cambios en tiempo real a los clientes conectados. | 5 | 8 | Ivan La Madrid | Pending |
 | 10 | TS08 | Implementar sistema de caché y optimización de consultas | Como developer, quiero implementar un sistema de caché (Redis) para optimizar las consultas geolocalizadas y reducir la latencia. | 5 | 8 | Ivan La Madrid | Pending |
 | 11 | TS09 | Realizar pruebas de seguridad y penetración | Como developer, quiero realizar pruebas de seguridad y penetración en la API para identificar y corregir vulnerabilidades antes del despliegue final. | 8 | 12 | Giorgio Awad | Pending |
+
+---
+
+##### 4.2.3.5. Execution Evidence for Sprint Review 
+
+El Sprint 2 fue ejecutado siguiendo la planificación establecida y priorizando las historias de usuario de mayor valor para la propuesta de UrbanVoice. La mayoría de tareas fueron completadas dentro del tiempo estimado, mientras que algunas historias (como las alertas por proximidad y la compartición de ubicación en tiempo real) continuaron en estado *In Progress* debido a ajustes técnicos en integración con Firebase Cloud Messaging y Google Maps SDK.
+
+Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloqueos relacionados con geolocalización, notificaciones push y almacenamiento multimedia. La ejecución permitió consolidar la base operativa del producto y preparar el sistema para funcionalidades avanzadas en el Sprint 3.
+
+#### Capturas de la Landing Page:
+
+**Presentacion:**
+<img src="assets/LandingPage-1.png"/><br/>
+
+**Funcionalidades:**
+<img src="assets/LandingPage-2.png"/><br/>
+
+**Footer:**
+<img src="assets/LandingPage-3.png"/><br/>
+
+#### Capturas del backend:
+
+<img src="assets/BackEnd.png"/><br/>
+
+#### Capturas del frontend:
+
+##### Inicio de sesión:
+<img src="assets/front-end/Front-End-1.png"/><br/>
+
+<img src="assets/Pantalla de inicio de sesión de UrbanVoice.png" alt="Pantalla de inicio de sesión de UrbanVoice"/><br/>
+
+##### Pantalla de registro de usuario
+
+<img src="assets/Pantalla de registro de usuario de UrbanVoice.png" alt="Pantalla de registro de usuario de UrbanVoice"/><br/>
+
+##### Mapa principal de riesgo
+
+<img src="assets/front-end/Front-End-3.png"/><br/>
+
+<img src="assets/Mapa principal con zonas de riesgo e incidentes" alt="Mapa principal con zonas de riesgo e incidentes"/><br/>
+
+##### Detalle del incidente
+
+<img src="assets/Pantalla de detalle de incidente reportado.png" alt="Pantalla de detalle de incidente reportado"/><br/>
+
+##### Pantalla de mis reportes
+
+<img src="assets/front-end/Front-End-5.png"/><br/>
+
+<img src="assets/Pantalla de mis reportes realizados.png" alt="Pantalla de mis reportes realizados"/><br/>
+
+##### Navbar:
+<img src="assets/front-end/Front-End-2.png"/><br/>
+
+##### Perfil de usuario:
+
+<img src="assets/front-end/Front-End-4.png"/><br/>
+
+<img src="assets/Pantalla de perfil del usuario.png" alt="Pantalla de perfil del usuario"/><br/>
 
 
 ### Conclusiones
