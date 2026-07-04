@@ -5022,13 +5022,13 @@ Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloq
 #### Capturas de la Landing Page:
 
 **Presentacion:**
-<img src="assets/LandingPage-1.png"/><br/>
+<img src="assets/landing1.png"/><br/>
 
 **Funcionalidades:**
-<img src="assets/LandingPage-2.png"/><br/>
+<img src="assets/funcionalidades2.png"/><br/>
 
 **Footer:**
-<img src="assets/LandingPage-3.png"/><br/>
+<img src="assets/final1.png"/><br/>
 
 #### Capturas del backend:
 
@@ -5048,8 +5048,6 @@ Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloq
 ##### Mapa principal de riesgo
 
 <img src="assets/front-end/Front-End-3.png"/><br/>
-
-<img src="assets/Mapa principal con zonas de riesgo e incidentes.png" alt="Mapa principal con zonas de riesgo e incidentes"/><br/>
 
 ##### Pantalla de mis reportes
 
