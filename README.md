@@ -5049,11 +5049,7 @@ Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloq
 
 <img src="assets/front-end/Front-End-3.png"/><br/>
 
-<img src="assets/Mapa principal con zonas de riesgo e incidentes" alt="Mapa principal con zonas de riesgo e incidentes"/><br/>
-
-##### Detalle del incidente
-
-<img src="assets/Pantalla de detalle de incidente reportado.png" alt="Pantalla de detalle de incidente reportado"/><br/>
+<img src="assets/Mapa principal con zonas de riesgo e incidentes.png" alt="Mapa principal con zonas de riesgo e incidentes"/><br/>
 
 ##### Pantalla de mis reportes
 
@@ -5074,13 +5070,13 @@ Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloq
 
 <img src="assets/front-end/RutaSegura.png"/><br/>
 
-<img src="assets/RutaSegura.png" alt="RutaSegura"/><br/>
+<img src="assets/RutaSegura1.png" alt="RutaSegura"/><br/>
 
 ##### Compartir Ubicacion:
 
 <img src="assets/front-end/Ubicacion.png"/><br/>
 
-<img src="assets/Ubicacion.png" alt="Ubicacion"/><br/>
+<img src="assets/Ubicacion2.png" alt="Ubicacion"/><br/>
 
 ### Conclusiones
 
