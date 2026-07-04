@@ -5062,14 +5062,25 @@ Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloq
 <img src="assets/Pantalla de mis reportes realizados.png" alt="Pantalla de mis reportes realizados"/><br/>
 
 ##### Navbar:
-<img src="assets/front-end/Front-End-2.png"/><br/>
+<img src="assets/front-end/Navbar.png"/><br/>
 
 ##### Perfil de usuario:
 
-<img src="assets/front-end/Front-End-4.png"/><br/>
+<img src="assets/front-end/Perfil.png"/><br/>
 
 <img src="assets/Pantalla de perfil del usuario.png" alt="Pantalla de perfil del usuario"/><br/>
 
+##### Ruta Segura:
+
+<img src="assets/front-end/RutaSegura.png"/><br/>
+
+<img src="assets/RutaSegura.png" alt="RutaSegura"/><br/>
+
+##### Compartir Ubicacion:
+
+<img src="assets/front-end/Ubicacion.png"/><br/>
+
+<img src="assets/Ubicacion.png" alt="Ubicacion"/><br/>
 
 ### Conclusiones
 
