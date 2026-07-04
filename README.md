@@ -5021,9 +5021,7 @@ Para este tercer sprint el equipo se enfocará en completar las funcionalidades 
 ---
 ##### 4.2.3.5. Execution Evidence for Sprint Review 
 
-El Sprint 2 fue ejecutado siguiendo la planificación establecida y priorizando las historias de usuario de mayor valor para la propuesta de UrbanVoice. La mayoría de tareas fueron completadas dentro del tiempo estimado, mientras que algunas historias (como las alertas por proximidad y la compartición de ubicación en tiempo real) continuaron en estado *In Progress* debido a ajustes técnicos en integración con Firebase Cloud Messaging y Google Maps SDK.
-
-Se realizaron reuniones de seguimiento para monitorear el avance y resolver bloqueos relacionados con geolocalización, notificaciones push y almacenamiento multimedia. La ejecución permitió consolidar la base operativa del producto y preparar el sistema para funcionalidades avanzadas en el Sprint 3.
+El Sprint 3 fue ejecutado siguiendo la planificación establecida y priorizando las historias de usuario de mayor valor para la propuesta de UrbanVoice. La mayoría de tareas fueron completadas dentro del tiempo estimado, y las historias pendientes del sprint 2 fueron completadas.
 
 #### Capturas de la Landing Page:
 
