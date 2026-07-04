@@ -5018,6 +5018,54 @@ Para este tercer sprint el equipo se enfocará en completar las funcionalidades 
 
 ##### 4.2.3.4. Testing Suite Evidence for Sprint Review 
 
+Durante el Sprint 3 se continuó con la validación de las funcionalidades principales de UrbanVoice, enfocándonos principalmente en los servicios del backend relacionados con reportes ciudadanos, perfiles de usuario, ubicaciones de riesgo y alertas. Para esta etapa se utilizó un enfoque de pruebas BDD, elaborando escenarios en lenguaje Gherkin mediante archivos `.feature` y conectándolos con archivos `Steps` desarrollados en Java. Estas pruebas permiten validar que los Web Services respondan correctamente según los criterios de aceptación definidos para las historias de usuario del sprint.
+
+Las pruebas automatizadas se ubicaron dentro del repositorio del backend, en la carpeta `src/test`, separando los escenarios BDD en `src/test/resources/features` y las definiciones de pasos en `src/test/java/com/upc/pre/urbanvoiceapp/bdd/steps`. Además, se configuró un runner de Cucumber para ejecutar la suite de pruebas y una configuración de Spring Boot para levantar el contexto de la aplicación durante la validación.
+
+### Relación de pruebas diseñadas
+
+| Test ID | User Story relacionada | Tipo de prueba | Feature File | Steps File | Escenarios validados | Estado |
+|---|---|---|---|---|---|---|
+| TS01 | Como ciudadano, quiero reportar incidentes para informar a otros usuarios sobre amenazas de seguridad. | Acceptance Test / BDD | `IncidentReporting.feature` | `IncidentReportingSteps.java` | Crear reporte, registrar ubicación, reporte anónimo, actualizar reporte, obtener por ID, listar por usuario, eliminar reporte y validar tipo de incidente inválido. | Completed |
+| TS02 | Como usuario, quiero gestionar mi perfil para poder usar las funcionalidades de UrbanVoice. | Acceptance Test / BDD | `UserProfiles.feature` | `UserProfileSteps.java` | Crear perfil, validar email duplicado, actualizar datos, buscar por email, manejar perfil inexistente y eliminar perfil. | Completed |
+| TS03 | Como ciudadano, quiero consultar zonas de riesgo para evitar lugares peligrosos. | Acceptance Test / BDD | `LocationRiskAnalysis.feature` | `LocationRiskAnalysisSteps.java` | Identificar riesgo bajo, medio, alto y crítico; buscar incidentes cercanos; obtener zonas por nivel de riesgo y validar coordenadas inválidas. | Completed |
+| TS04 | Como ciudadano, quiero recibir alertas sobre incidentes cercanos para mantenerme informado. | Acceptance Test / BDD | `AlertNotifications.feature` | `AlertNotificationsSteps.java` | Recibir alerta por incidente cercano, alerta por zona crítica, evitar alertas por incidentes lejanos, notificación push, email, lectura de alerta, archivo de alertas y desactivación temporal. | Completed |
+
+### Descripción de los archivos de pruebas
+
+| Archivo | Ubicación | Descripción |
+|---|---|---|
+| `IncidentReporting.feature` | `src/test/resources/features` | Define los escenarios BDD para validar el flujo de reportes de incidentes ciudadanos. |
+| `UserProfiles.feature` | `src/test/resources/features` | Define los escenarios BDD para validar la creación, consulta, actualización y eliminación de perfiles. |
+| `LocationRiskAnalysis.feature` | `src/test/resources/features` | Define los escenarios para validar el análisis de riesgo por ubicación y la búsqueda de incidentes cercanos. |
+| `AlertNotifications.feature` | `src/test/resources/features` | Define los escenarios para validar el sistema de alertas y notificaciones. |
+| `IncidentReportingSteps.java` | `src/test/java/com/upc/pre/urbanvoiceapp/bdd/steps` | Implementa los pasos de prueba para los escenarios de reportes. |
+| `UserProfileSteps.java` | `src/test/java/com/upc/pre/urbanvoiceapp/bdd/steps` | Implementa los pasos de prueba para los escenarios de perfiles de usuario. |
+| `LocationRiskAnalysisSteps.java` | `src/test/java/com/upc/pre/urbanvoiceapp/bdd/steps` | Implementa los pasos de prueba para los escenarios de riesgo por ubicación. |
+| `AlertNotificationsSteps.java` | `src/test/java/com/upc/pre/urbanvoiceapp/bdd/steps` | Implementa los pasos de prueba para los escenarios de alertas y notificaciones. |
+| `RunCucumberTest.java` | `src/test/java/com/upc/pre/urbanvoiceapp/bdd` | Runner encargado de ejecutar la suite de pruebas BDD con Cucumber. |
+| `CucumberSpringConfiguration.java` | `src/test/java/com/upc/pre/urbanvoiceapp/bdd` | Configuración para integrar Cucumber con el contexto de Spring Boot. |
+
+### Evidencia de commits relacionados con Testing
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on |
+|---|---|---|---|---|---|
+| `urbanvoice-3248-dispo-moviles/Backend-UrbanVoice` | `main` | `26f30be` | `feat/ steps y features` | Se agregaron los archivos `.feature`, los Steps de Cucumber, el runner de pruebas y la configuración BDD para validar perfiles, reportes, ubicaciones y alertas. | 11/05/2026 |
+| `urbanvoice-3248-dispo-moviles/Backend-UrbanVoice` | `main` | `e18b3b4` | `feat/ version 2.5` | Se actualizaron dependencias y ajustes de configuración del backend, incluyendo dependencias de testing para Cucumber, JUnit Platform y H2. | 14/05/2026 |
+| `urbanvoice-3248-dispo-moviles/UrbanVoice` | `TF` | `c3f668b` | `feat/ Testing Suite Evidence for Sprint Review` | Se agregó al informe la evidencia de Testing Suite, incluyendo capturas de Features, Steps y backend. | 11/05/2026 |
+
+### Evidencia de validación funcional durante el Sprint
+
+Además de las pruebas BDD del backend, durante el Sprint 3 se realizaron validaciones funcionales sobre la aplicación móvil y la API desplegada. Estas validaciones permitieron comprobar que los flujos principales de UrbanVoice funcionaran correctamente desde la interfaz móvil y desde herramientas de prueba como Postman. Entre los flujos revisados se encuentran el registro de reportes, consulta de reportes, validación de perfiles, consulta de ubicaciones y revisión de alertas.
+
+| Repositorio | Validación realizada | Resultado |
+|---|---|---|
+| `Backend-UrbanVoice` | Validación de endpoints para perfiles, reportes, ubicaciones y alertas. | Los endpoints principales respondieron correctamente. |
+| `Front-End-Android` | Validación de navegación, autenticación, perfil, reportes, mapa y alertas. | Se identificaron y corrigieron errores menores de interfaz y flujo. |
+| `Front-End-Flutter` | Validación de pantallas principales, mapa y términos/condiciones. | Se realizaron ajustes de integración y presentación. |
+
+En conclusión, la Testing Suite del Sprint 3 permitió verificar los principales flujos del sistema desde el backend y complementar la validación con pruebas funcionales en las aplicaciones móviles. Esto ayudó a reducir errores antes de la Sprint Review y a confirmar que las funcionalidades principales de UrbanVoice se encontraban listas para ser demostradas.
+
 ---
 ##### 4.2.3.5. Execution Evidence for Sprint Review 
 
