@@ -5291,6 +5291,36 @@ El Sprint 3 fue ejecutado siguiendo la planificación establecida y priorizando 
 ---
 ##### 4.2.3.7. Software Deployment Evidence for Sprint Review 
 
+En este Sprint se realizó el despliegue del backend de UrbanVoice en Render. Se desplegó asegurando la conectividad con los frontends móviles mediante la API REST. Los frontends Android y Flutter se desplegaron en los repositorios correspondientes para su distribución.
+
+**Paso 1:** Configurar el entorno de producción del backend 
+
+<img src="assets/Paso1-Despliegue-Backend.png"/><br/>
+
+**Paso 2:** Crear urbanvoice-db en Render
+
+<img src="assets/Paso2-Despliegue-Backend.png"/><br/>
+
+**Paso 3:** Guardar variables
+
+<img src="assets/Paso3-Despliegue-Backend.png"/><br/>
+
+**Paso 4:** Crear Web Service en Render
+
+<img src="assets/Paso4-Despliegue-Backend.png"/><br/>
+
+**Paso 5:** Desplegar Web Service
+
+<img src="assets/Paso5-Despliegue-Backend.png"/><br/>
+
+**Paso 6:** Probar Web Service desplegado
+
+<img src="assets/Paso6-Despliegue-Backend.png"/><br/>
+
+
+Ademas en este Sprint se realizó el despliegue del frontend de UrbanVoice en Firebase.
+
+
 ---
 ##### 4.2.3.8. Team Collaboration Insights during Sprint
 
