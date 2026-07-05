@@ -5147,7 +5147,7 @@ El Sprint 3 fue ejecutado siguiendo la planificación establecida y priorizando 
 
 UrbanVoice es una aplicación móvil tecnológica y colaborativa enfocada en fortalecer la seguridad ciudadana en Lima Metropolitana. Ante la alarmante cifra de que casi el 90% de los ciudadanos percibe inseguridad en las calles, esta plataforma surge como una herramienta preventiva que no solo informa, sino que conecta a la comunidad para evitar situaciones de riesgo. Si deseas conocer mas sobre la aplicacion te invitamos a ver el siguiente video.
 
-Link: https://youtu.be/Lvl-K2Y__hM 
+Link: https://youtu.be/A50AogNWQn4 
 
 
 ###  About the Team:
