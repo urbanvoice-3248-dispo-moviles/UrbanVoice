@@ -5033,6 +5033,144 @@ Para este tercer sprint el equipo se enfocará en completar las funcionalidades 
 ---
 ##### 4.2.3.3. Development Evidence for Sprint Review 
 
+Durante el Sprint 3 se concreto el funcionamiento de UrbanVoice. El equipo logró finalizar la infraestructura backend al 100%, consolidando los endpoints REST para la gestión de incidentes, alertas geolocalizadas, compartición de ubicación en tiempo real, autenticación y panel de administración. Además, se finalizo el desarrollo de las aplicaciones móviles para Android y Flutter, implementando la funcionalidad de mapas y notificaciones.
+
+Todo lo desarrollado, se ve reflejado en los siguientes commits en cada unos de los repositorios:
+
+##### *Front-End-Flutter*
+
+| Branch | CommitID | Commit Message | Commit On |
+|---|---|---|---|
+| main | ece3963 | fix: Mapa de riesgo | 04/07/2026 |
+| main | dd7b668 | feat/ bakcend deployada | 04/07/2026 |
+| main | 583e55f | fix: Terminos y condiciones | 04/07/2026 |
+| main | cfcc99c | feat/ Tokens | 04/07/2026 |
+| main | 5398b93 | feat/ Maps | 04/07/2026 |
+| feature/location-domain-docs | 254b865 | docs: add Flutter app architecture overview | 01/07/2026 |
+| feature/location-domain-docs | 0973a9a | docs(core): document API and app constants | 01/07/2026 |
+| feature/location-domain-docs | 59fd7d6 | docs(domain): document Location and Alert entity fields | 01/07/2026 |
+| chore/-code-clean-up | 4734021 | Update index.html | 01/07/2026 |
+| chore/-code-clean-up | 3a8aac7 | fixing and update .gitignore | 01/07/2026 |
+| chore/-code-clean-up | 19c31ae | Update main.dart to clean up | 01/07/2026 |
+| location-ui-cleanup | 38aa6b4 | Add model conversion tests | 01/07/2026 |
+| location-ui-cleanup | ff881ad | Improve register form validation | 01/07/2026 |
+| location-ui-cleanup | b6ec676 | Fix incident type dropdown | 01/07/2026 |
+| feature/home-screen | 97837f9 | fix/ mapa riesgos | 16/06/2026 |
+| feature/home-screen | 8508cea | feat/app-version1 | 16/06/2026 |
+
+##### *Front-End-Android*
+
+| Branch | CommitID | Commit Message | Commit On |
+|---|---|---|---|
+| v1.0 | 7fb76c0 | feat/ bakcend deployada | 04/07/2026 |
+| v1.0 | 7660e82 | fix: Terminos y condiciones | 04/07/2026 |
+| v1.0 | 68c0614 | fix: errors | 02/07/2026 |
+| v1.0 | db7e18c | fix: errors | 02/07/2026 |
+| v1.0 | 5cb3b49 | fix: errors | 02/07/2026 |
+| v1.0 | c1b85b1 | fix: preferences | 02/07/2026 |
+| v1.0 | 49f589a | fix: revision | 02/07/2026 |
+| v1.0 | 7c2327c | feat/ Shared location | 01/07/2026 |
+| feature/ui-update | 09a4d45 | Update README.md | 01/07/2026 |
+| feature/ui-update | 89cfc13 | Adding rules to .gitignore | 01/07/2026 |
+| feature/ui-update | 7d4e226 | Update gradle.properties | 01/07/2026 |
+| main | 1204455 | docs: update frontend README. | 01/07/2026 |
+| location-map-polish | 7a97015 | feat(location): show map marker summary | 01/07/2026 |
+| location-map-polish | e734682 | fix(location): show map loading errors | 01/07/2026 |
+| location-map-polish | 1f01ed4 | refactor(location): name map search defaults | 01/07/2026 |
+| v1.0 | 5ef30d9 | feat/ Terminos y Condiciones | 01/07/2026 |
+| v1.0 | c2b92b3 | fix/ Mapa de riesgo | 01/07/2026 |
+| v1.0 | d589143 | fix: token iam | 01/07/2026 |
+| v1.0 | 476a9cd | feat/IAM | 01/07/2026 |
+| v1.0 | 685374e | feat/log In | 01/07/2026 |
+| v1.0 | 90dfde5 | fix(auth): trim email before submit | 01/07/2026 |
+| v1.0 | 2ea4c2c | fix(profile): avoid empty name initials crash | 01/07/2026 |
+| v1.0 | 9dc29d8 | refactor(home): extract default Lima map coordinates | 01/07/2026 |
+| v1.0 | 6e06efc | fix(register): show password mismatch error | 01/07/2026 |
+| v1.0 | 459da93 | fix: gradle | 24/06/2026 |
+| v1.0 | 000d5b6 | fix: map views | 23/06/2026 |
+| fix-v1.0 | b68660f | fix: Api google | 22/06/2026 |
+| v1.0 | 76aa869 | fix/ dependencias | 22/06/2026 |
+| v1.0 | b321f1c | fix/ mapa | 22/06/2026 |
+| v1.0 | 4510150 | feat/ alertas | 22/06/2026 |
+| v1.0 | 33e1270 | feat/ reportes | 22/06/2026 |
+| v1.0 | 5801a5c | feat/ mapa | 22/06/2026 |
+| v1.0 | 8c594cb | feat: data layer | 22/06/2026 |
+| v1.0 | 54cef59 | feat: domain layer | 22/06/2026 |
+| v1.0 | 5d7b477 | feat: initial project | 22/06/2026 |
+
+##### *Backend-UrbanVoice*
+
+| Branch | CommitID | Commit Message | Commit On |
+|---|---|---|---|
+| main | 0937433 | fix: incidents | 02/07/2026 |
+| main | e130714 | fix: dependencies | 02/07/2026 |
+| main | 47d2e74 | feat/ Password | 02/07/2026 |
+| main | b383509 | Merge branch 'main' | 01/07/2026 |
+| main | 68003a3 | feat/ Shared location | 01/07/2026 |
+| feature/report-status | 267b861 | fix(reports): persistence and repository mappings | 01/07/2026 |
+| feature/report-status | a3f14c1 | fix(reports): persistence and repository mappings | 01/07/2026 |
+| feature/report-status | d397ed8 | fix(reports): application service | 01/07/2026 |
+| feature/report-status | 9a5d2e5 | fix(reports): domain model and validation | 01/07/2026 |
+| feature/report-status | 60b95ea | fix(reports): queries | 01/07/2026 |
+| feature/report-status | 59409f1 | fix(reports): commands | 01/07/2026 |
+| feature/report-status | 6cf33ff | Merge branch 'main' into feature/report-status | 01/07/2026 |
+| feature/-clean-and-format-comments-imports | c67a16d | Update Dockerfile | 01/07/2026 |
+| feature/-clean-and-format-comments-imports | 1e10072 | fixing backend .gitignore | 01/07/2026 |
+| feature/locations-notifications-docs | 0644406 | docs: add high-level backend architecture overview | 01/07/2026 |
+| feature/locations-notifications-docs | 2e07823 | docs(iam,districts): bounded context package-info | 01/07/2026 |
+| feature/locations-notifications-docs | 060f06d | docs(notifications): document package layout | 01/07/2026 |
+| feature/locations-notifications-docs | 8594310 | docs(locations): add Javadoc to Location entity | 01/07/2026 |
+| feature/locations-notifications-docs | 8348ae9 | docs(locations): add package-info documentation | 01/07/2026 |
+| main | 6062cbc | Update README.md | 01/07/2026 |
+| main | bca53e6 | docs: update backend README. | 01/07/2026 |
+| feature/iam-docs-cleanup | e7a4d69 | refactor(iam): centralize bearer token prefix | 01/07/2026 |
+| feature/iam-docs-cleanup | 8b4aee1 | docs: list iam and districts contexts | 01/07/2026 |
+| feature/iam-docs-cleanup | 8430985 | docs: align backend stack requirements | 01/07/2026 |
+| main | ddbe07d | Fix Dockerfile: skip test compilation | 01/07/2026 |
+| main | 34309c6 | Add local defaults for env vars | 01/07/2026 |
+| main | a73d027 | Configure env vars for Render deployment | 01/07/2026 |
+| main | 135ed3c | fix/ mensajes de respuesta de los endpoints | 01/07/2026 |
+| main | aadfb23 | feat/Iam | 01/07/2026 |
+| main | ef67c2e | fix: AlertController | 23/06/2026 |
+| main | 9cac218 | fix: indicent managment | 23/06/2026 |
+
+##### *UrbanVoice*
+
+| Branch | CommitID | Commit Message | Commit On |
+|---|---|---|---|
+| TF | 74500e6 | feat/ Software Deployment Evidence for Sprint Review | 04/07/2026 |
+| TF | 67bb106 | Video link in README for About the product | 04/07/2026 |
+| TF | 0d00834 | docs: add testing suite evidence | 04/07/2026 |
+| TF | d7d0657 | Revise Sprint 3 execution evidence in README | 04/07/2026 |
+| TF | dc78f20 | Update README with sprint review sections | 04/07/2026 |
+| TF | b0e883b | Add files via upload | 04/07/2026 |
+| TF | b82500e | Add files via upload | 04/07/2026 |
+| TF | 0e920e0 | Replace old image paths with new ones | 04/07/2026 |
+| TF | 026b9be | Add files via upload | 04/07/2026 |
+| TF | fea9405 | Add files via upload | 04/07/2026 |
+| TF | 3151095 | Update README.md | 04/07/2026 |
+| TF | c88172b | Add files via upload | 04/07/2026 |
+| TF | 6304b23 | Update README with new images and features | 04/07/2026 |
+| TF | 21d4662 | Add files via upload | 04/07/2026 |
+| TF | c56ebfb | Update README Sprint 3 evidence | 04/07/2026 |
+| main | 6f32f6c | Fix image paths in README | 04/07/2026 |
+| main | 84d278e | Add files via upload | 04/07/2026 |
+| TB2 | d1c6c13 | Add team link to README | 02/07/2026 |
+| TB2 | ef9f44e | Enhance product and team information | 02/07/2026 |
+| TB2 | 9631128 | feat/ Sprint 3 | 01/07/2026 |
+| TB2 | 6170613 | fix: Sprint 1 | 01/07/2026 |
+| TB2 | d8219a8 | fix: product backlog | 01/07/2026 |
+| TB2 | cac723f | fix: user stories | 01/07/2026 |
+| TB2 | 38675ce | Add product details and YouTube link | 01/07/2026 |
+| TB2 | 953f9f7 | feat/ Student Outcome | 24/06/2026 |
+| TB2 | d11af4b | fix: product backlog | 24/06/2026 |
+| TB2 | 575eac6 | feat/ Sprint Evidences | 23/06/2026 |
+| TB2 | a91195f | feat/ Sprint 2 y Sprint 3 | 23/06/2026 |
+| TB2 | 184b339 | fix: user flows | 23/06/2026 |
+| TB2 | 98029fb | docs(chapter4): add sprint 2 documentation. | 17/06/2026 |
+| main | e97b60c | Adjust productk backlog | 08/06/2026 |
+| main | 09aebb2 | Merge pull request #8 from .../TP | 08/06/2026 |
+
 ---
 
 ##### 4.2.3.4. Testing Suite Evidence for Sprint Review 
