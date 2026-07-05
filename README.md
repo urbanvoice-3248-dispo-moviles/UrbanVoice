@@ -5324,6 +5324,13 @@ Ademas en este Sprint se realizó el despliegue del frontend de UrbanVoice en Fi
 ---
 ##### 4.2.3.8. Team Collaboration Insights during Sprint
 
+Durante el Sprint 3 el equipo consolidó su dinámica de trabajo colaborativo, logrando coordinar eficientemente los esfuerzos entre los desarrolladores de backend y los dos frentes móviles (Android y Flutter). La comunicación fluida a través de Discord permitió resolver rápidamente incidencias de integración, especialmente en la sincronización de WebSockets y el consumo de los endpoints de reportes y alertas.
+
+Se evidenció una madurez en la distribución de responsabilidades, logrando que ambos frontends avanzaran en paralelo con el backend sin cuellos de botella. El equipo identificó como principal aprendizaje la importancia de mantener una comunicación temprana sobre los cambios en la API y la necesidad de contar con ambientes de prueba sincronizados para evitar desfases entre repositorios. La colaboración constante permitió cumplir con las metas del sprint y entregar un producto funcional en ambas plataformas móviles.
+
+<img src="assets/Evidence Sprint Review.png"/><br/>
+
+<img src="assets/Network.png"/><br/>
 
 ### Conclusiones
 
