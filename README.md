@@ -4956,9 +4956,28 @@ API para gestionar alertas y notificaciones.
 En este Sprint se realizó el despliegue del backend de UrbanVoice en Render, junto con la actualización de la Landing Page previamente desplegada en GitHub Pages. El backend se desplegó asegurando la conectividad con los frontends móviles mediante la API REST. Los frontends Android y Flutter se desplegaron en los repositorios correspondientes para su distribución.
 
 **Paso 1:** Configurar el entorno de producción del backend 
-**Paso 2:** Actualizar variables de entorno y endpoints
-**Paso 3:** Verificar conectividad con los frontends móviles
-**Paso 4:** Confirmar despliegue exitoso
+
+<img src="assets/Paso1-Despliegue-Backend.png"/><br/>
+
+**Paso 2:** Crear urbanvoice-db en Render
+
+<img src="assets/Paso2-Despliegue-Backend.png"/><br/>
+
+**Paso 3:** Guardar variables
+
+<img src="assets/Paso3-Despliegue-Backend.png"/><br/>
+
+**Paso 4:** Crear Web Service en Render
+
+<img src="assets/Paso4-Despliegue-Backend.png"/><br/>
+
+**Paso 5:** Desplegar Web Service
+
+<img src="assets/Paso5-Despliegue-Backend.png"/><br/>
+
+**Paso 6:** Probar Web Service desplegado
+
+<img src="assets/Paso6-Despliegue-Backend.png"/><br/>
 
 
 ##### 4.2.2.8. Team Collaboration Insights during Sprint
@@ -5147,7 +5166,7 @@ El Sprint 3 fue ejecutado siguiendo la planificación establecida y priorizando 
 
 UrbanVoice es una aplicación móvil tecnológica y colaborativa enfocada en fortalecer la seguridad ciudadana en Lima Metropolitana. Ante la alarmante cifra de que casi el 90% de los ciudadanos percibe inseguridad en las calles, esta plataforma surge como una herramienta preventiva que no solo informa, sino que conecta a la comunidad para evitar situaciones de riesgo. Si deseas conocer mas sobre la aplicacion te invitamos a ver el siguiente video.
 
-Link: https://youtu.be/A50AogNWQn4 
+Link: https://youtu.be/Lvl-K2Y__hM 
 
 
 ###  About the Team:
