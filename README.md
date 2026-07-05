@@ -5369,6 +5369,8 @@ Link: https://youtu.be/-vnQ4Qf8-AU
 
 **Enlace Deploy Landing Page:** https://urbanvoice-3248-dispo-moviles.github.io/Landing-Page/
 
+**Enlace Deploy Front-End:** https://backend-urbanvoice.onrender.com/swagger-ui/index.html
+
 
 # Glosario
 
