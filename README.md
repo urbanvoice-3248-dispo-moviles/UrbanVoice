@@ -5439,7 +5439,9 @@ Link: https://youtu.be/Lvl-K2Y__hM
 
 ###  About the Team:
 
-Link: https://youtu.be/-vnQ4Qf8-AU
+Hemos aprendido mucho sobre el manejo de aplicacion en flutter y android. Al desarrollar UrbanVoice, nos hemos encontrado con una gran cantidad de problemas de diseño y optimización de rendimiento. Estos problemas nos han ayudado a mejorar la experiencia de usuario y a lograr un rendimiento más rápido y eficiente. Además, hemos aprendido a trabajar en equipo y a manejar proyectos de gran escala. Estas habilidades nos han permitido lograr nuestro objetivo de crear una aplicación que sea fácil de usar y que pueda ser escalable para diferentes plataformas.
+
+Link: https://youtu.be/mLcxFWLN1Mc
 
 ###  APP Validation:
 
