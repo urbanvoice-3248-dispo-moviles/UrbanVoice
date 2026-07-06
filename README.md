@@ -5301,6 +5301,79 @@ El Sprint 3 fue ejecutado siguiendo la planificación establecida y priorizando 
 
 ---
 ##### 4.2.3.6. Services Documentation Evidence for Sprint Review
+
+Para evidenciar la documentación de servicios implementada durante el Sprint Review, se presenta la interfaz Swagger/OpenAPI del backend de Hairy Paws API v1. Esta documentación permite visualizar los endpoints disponibles, sus métodos HTTP y los módulos funcionales asociados, facilitando la validación técnica de los servicios desarrollados para autenticación, gestión de usuarios, organizaciones, mascotas, solicitudes de adopción, visitas, donaciones, eventos y notificaciones.
+
+| Módulo | Método | Endpoint | Descripción |
+|---|---|---|---|
+| Auth | POST | `/api/v1/auth/register` | Registra un nuevo usuario en la plataforma. |
+| Auth | POST | `/api/v1/auth/login` | Permite iniciar sesión y obtener credenciales de acceso. |
+| Auth | POST | `/api/v1/auth/refresh` | Renueva el token de autenticación. |
+| Auth | GET | `/api/v1/auth/me` | Obtiene la información del usuario autenticado. |
+| Auth | POST | `/api/v1/auth/change-password` | Permite cambiar la contraseña del usuario autenticado. |
+| Auth | POST | `/api/v1/auth/admin-reset-password` | Permite al administrador restablecer la contraseña de un usuario. |
+| Users | GET | `/api/v1/users/me` | Consulta los datos del perfil del usuario autenticado. |
+| Users | PUT | `/api/v1/users/me` | Actualiza la información del perfil del usuario autenticado. |
+| Admin Users | GET | `/api/v1/admin/users` | Lista usuarios desde el panel administrativo. |
+| Admin Users | PATCH | `/api/v1/admin/users/{id}/status` | Actualiza el estado de un usuario. |
+| Admin Users | PATCH | `/api/v1/admin/users/{id}/verify` | Verifica la cuenta de un usuario. |
+| Organizations | POST | `/api/v1/organizations` | Registra una nueva organización. |
+| Organizations | GET | `/api/v1/organizations/me` | Obtiene la organización asociada al usuario autenticado. |
+| Organizations | GET | `/api/v1/organizations/{id}` | Consulta el detalle de una organización. |
+| Organizations | PUT | `/api/v1/organizations/{id}` | Actualiza la información de una organización. |
+| Organizations | POST | `/api/v1/organizations/{id}/logo` | Carga o actualiza el logo de una organización. |
+| Organizations | POST | `/api/v1/organizations/{id}/documents` | Carga documentos de una organización. |
+| Organizations | DELETE | `/api/v1/organizations/{id}/documents/{documentId}` | Elimina un documento asociado a una organización. |
+| Admin Organizations | GET | `/api/v1/admin/organizations/pending-review` | Lista organizaciones pendientes de revisión. |
+| Admin Organizations | POST | `/api/v1/admin/organizations/{id}/verify` | Aprueba o verifica una organización. |
+| Admin Organizations | POST | `/api/v1/admin/organizations/{id}/reject` | Rechaza una organización. |
+| Pets | POST | `/api/v1/pets` | Registra una nueva mascota. |
+| Pets | GET | `/api/v1/pets` | Lista mascotas disponibles. |
+| Pets | GET | `/api/v1/pets/{id}` | Consulta el detalle de una mascota. |
+| Pets | PUT | `/api/v1/pets/{id}` | Actualiza la información de una mascota. |
+| Pets | GET | `/api/v1/pets/mine` | Lista las mascotas registradas por el usuario autenticado. |
+| Pets | POST | `/api/v1/pets/{id}/photos` | Carga fotografías de una mascota. |
+| Pets | DELETE | `/api/v1/pets/{id}/photos/{photoId}` | Elimina una fotografía de una mascota. |
+| Pets | POST | `/api/v1/pets/{id}/publish` | Publica una mascota para adopción. |
+| Adoption Requests | POST | `/api/v1/adoption-requests` | Crea una solicitud de adopción. |
+| Adoption Requests | GET | `/api/v1/adoption-requests/my` | Lista las solicitudes de adopción del usuario autenticado. |
+| Adoption Requests | GET | `/api/v1/adoption-requests/{id}` | Consulta el detalle de una solicitud de adopción. |
+| Adoption Requests | GET | `/api/v1/pets/{petId}/adoption-requests` | Lista solicitudes asociadas a una mascota. |
+| Adoption Requests | POST | `/api/v1/adoption-requests/{id}/start-review` | Inicia la revisión de una solicitud de adopción. |
+| Adoption Requests | POST | `/api/v1/adoption-requests/{id}/approve` | Aprueba una solicitud de adopción. |
+| Adoption Requests | POST | `/api/v1/adoption-requests/{id}/reject` | Rechaza una solicitud de adopción. |
+| Adoption Requests | POST | `/api/v1/adoption-requests/{id}/cancel` | Cancela una solicitud de adopción. |
+| Adoption Requests | POST | `/api/v1/adoption-requests/{id}/complete` | Marca como completada una solicitud de adopción. |
+| Adoption Requests | POST | `/api/v1/adoption-requests/{id}/visits` | Registra una visita asociada a una solicitud. |
+| Adoption Requests | GET | `/api/v1/adoption-requests/{id}/visits` | Lista las visitas asociadas a una solicitud. |
+| Visits | GET | `/api/v1/visits/{id}` | Consulta el detalle de una visita. |
+| Visits | POST | `/api/v1/visits/{id}/approve` | Aprueba una visita. |
+| Visits | POST | `/api/v1/visits/{id}/reject` | Rechaza una visita. |
+| Visits | POST | `/api/v1/visits/{id}/cancel` | Cancela una visita. |
+| Visits | POST | `/api/v1/visits/{id}/complete` | Marca una visita como completada. |
+| Donations | POST | `/api/v1/donations` | Registra una donación. |
+| Donations | GET | `/api/v1/donations/my` | Lista las donaciones realizadas por el usuario autenticado. |
+| Donations | GET | `/api/v1/donations/{id}` | Consulta el detalle de una donación. |
+| Donations | POST | `/api/v1/donations/{id}/receipt` | Adjunta el comprobante de una donación. |
+| Donations | GET | `/api/v1/organizations/me/donations` | Lista las donaciones recibidas por una organización. |
+| Donations | POST | `/api/v1/donations/{id}/confirm` | Confirma una donación. |
+| Donations | POST | `/api/v1/donations/{id}/cancel` | Cancela una donación. |
+| Events | POST | `/api/v1/events` | Crea un evento. |
+| Events | GET | `/api/v1/events` | Lista eventos disponibles. |
+| Events | GET | `/api/v1/events/{id}` | Consulta el detalle de un evento. |
+| Events | PUT | `/api/v1/events/{id}` | Actualiza la información de un evento. |
+| Events | GET | `/api/v1/events/mine` | Lista los eventos creados por el usuario autenticado. |
+| Events | POST | `/api/v1/events/{id}/image` | Carga una imagen asociada al evento. |
+| Events | POST | `/api/v1/events/{id}/publish` | Publica un evento. |
+| Events | POST | `/api/v1/events/{id}/cancel` | Cancela un evento. |
+| Notifications | GET | `/api/v1/notifications` | Lista las notificaciones del usuario. |
+| Notifications | GET | `/api/v1/notifications/unread-count` | Obtiene la cantidad de notificaciones no leídas. |
+| Notifications | POST | `/api/v1/notifications/{id}/read` | Marca una notificación como leída. |
+| Notifications | POST | `/api/v1/notifications/read-all` | Marca todas las notificaciones como leídas. |
+| Documentation | GET | `/` | Endpoint base de documentación o estado inicial de la API. |
+
+Las siguientes capturas evidencian la documentación generada en Swagger, donde se visualizan los servicios agrupados por módulo funcional y los esquemas utilizados por la API.
+
 <img src="assets/endpoint-1.png"/><br/>
 <img src="assets/endpoint-2.png"/><br/>
 <img src="assets/endpoint-3.png"/><br/>
