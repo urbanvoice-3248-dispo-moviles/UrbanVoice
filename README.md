@@ -5286,8 +5286,13 @@ El Sprint 3 fue ejecutado siguiendo la planificación establecida y priorizando 
 <img src="assets/Ubicacion2.png" alt="Ubicacion"/><br/>
 
 ---
-##### 4.2.3.6. Services Documentation Evidence for Sprint Review 
-
+##### 4.2.3.6. Services Documentation Evidence for Sprint Review
+<img src="assets/endpoint-1.png"/><br/>
+<img src="assets/endpoint-2.png"/><br/>
+<img src="assets/endpoint-3.png"/><br/>
+<img src="assets/endpoint-4.png"/><br/>
+<img src="assets/endpoint-5.png"/><br/>
+<img src="assets/endpoint-6.png"/><br/>
 ---
 ##### 4.2.3.7. Software Deployment Evidence for Sprint Review 
 
