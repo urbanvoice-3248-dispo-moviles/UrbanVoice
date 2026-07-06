@@ -55,6 +55,20 @@
     <td> Giorgio Marzouk Awad Vargas <br> Quijada Magro Jeremy <br> Billy Ruiz <br> Santiago Gordillo <br> Ivan La Madrid </td>
     <td> Consolidación final del informe para el Trabajo Parcial. Se completó el diseño detallado de la arquitectura de software (Diagramas de Componentes y Base de Datos por Bounded Context) y el diseño de interfaz de alta fidelidad (Mockups y Wireflows) para los flujos críticos. Se integró la sección de Software Configuration Management detallando el flujo de GitFlow y despliegue. Asimismo, se incluyó la evidencia de ejecución del Sprint 1, el despliegue del Landing Page en GitHub Pages y la documentación de Web Services mediante Swagger/OpenAPI. </td>
   </tr>
+    </tr>
+  <tr>
+    <td align="center">TB2</td>
+    <td>15/06/2026</td>
+    <td> Giorgio Marzouk Awad Vargas <br> Quijada Magro Jeremy <br> Billy Ruiz <br> Santiago Gordillo <br> Ivan La Madrid </td>
+    <td> Se completó el 90% de la aplicación Android, el 100% del backend y despliegue, y el 30% del frontend en Flutter. Se integraron las funcionalidades principales de la aplicación móvil y se documentaron los web services. </td>
+  </tr>
+  <tr>
+    <td align="center">TF</td>
+    <td>06/07/2026</td>
+    <td> Giorgio Marzouk Awad Vargas <br> Quijada Magro Jeremy <br> Billy Ruiz <br> Santiago Gordillo <br> Ivan La Madrid </td>
+    <td> Finalización completa del proyecto al 100%. Se terminó la aplicación Android, el frontend Flutter, el backend y el despliegue. Se realizó la actualización integral del informe con todas las secciones completadas y correcciones finales. </td>
+  </tr>
+
 </table>
 
 ---
@@ -5294,6 +5308,7 @@ El Sprint 3 fue ejecutado siguiendo la planificación establecida y priorizando 
 <img src="assets/endpoint-5.png"/><br/>
 <img src="assets/endpoint-6.png"/><br/>
 ---
+
 ##### 4.2.3.7. Software Deployment Evidence for Sprint Review 
 
 En este Sprint se realizó el despliegue del backend de UrbanVoice en Render. Se desplegó asegurando la conectividad con los frontends móviles mediante la API REST. Los frontends Android y Flutter se desplegaron en los repositorios correspondientes para su distribución.
