@@ -274,50 +274,16 @@ software.</td>
             TP: Exploró algoritmos de agrupamiento espacial (clustering) para optimizar el rendimiento del renderizado de capas de calor en dispositivos móviles.  <br>Avance 2: Desarrolló la visualización del mapa interactivo con marcadores de incidentes y geolocalización del usuario, permitiendo identificar zonas de riesgo cercanas.<br><br>
             <strong>Gordillo Ramos, Santiago Alonso</strong> <br>
             Avance 1: Estudió pautas de accesibilidad universal (a11y) y Material Design para aplicarlas en la experiencia de usuario de las aplicaciones del proyecto. <br>
-            TP: Investigó técnicas de optimización SEO y Meta Tags para mejorar el posicionamiento orgánico y visibilidad del Landing Page en buscadores. <br> Avance 2: Implementó el formulario de reportes ciudadanos, conectándolo con los endpoints del backend para almacenar incidentes con su ubicación. <br>
+            TP: Investigó técnicas de optimización SEO y Meta Tags para mejorar el posicionamiento orgánico y visibilidad del Landing Page en buscadores. <br> Avance 2: Implementó el formulario de reportes ciudadanos, conectándolo con los endpoints del backend para almacenar incidentes con su ubicación. <br>  TF: Desarollo las pruebas funcionales e integrales para la aplicvacion en flutter y la aplicacion en Android. <br>
             <strong>La Madrid Lozano, Ivan Jeanpierre</strong> <br>
             Avance 1: Profundizó en el uso de contenedores y despliegue en la nube para asegurar entornos de ejecución consistentes en el backend del proyecto. <br>
-            TP: Investigó la implementación de protocolos de seguridad JWT para proteger las comunicaciones sensibles entre la aplicación móvil y los microservicios. <br>Avance 2: Integró la carga de imágenes, audios y videos dentro de los reportes, permitiendo adjuntar pruebas al momento de registrar un incidente.<br>
+            TP: Investigó la implementación de protocolos de seguridad JWT para proteger las comunicaciones sensibles entre la aplicación móvil y los microservicios. <br>Avance 2: Integró la carga de imágenes, audios y videos dentro de los reportes, permitiendo adjuntar pruebas al momento de registrar un incidente.<br> TF: Desarollo la documentacion de los endpoints del backend para el sprint 3. <br>
             <strong>Awad Vargas, Giorgio Marzouk</strong> <br>
             Avance 1: Identificó la necesidad de aprender nuevas herramientas de modelado arquitectónico para representar correctamente los componentes de UrbanVoice. <br>
-            TP: Investigó estándares de almacenamiento de archivos en la nube para gestionar eficientemente la evidencia multimedia de los reportes ciudadanos.<br>Avance 2: Añadió la opción de realizar reportes de forma anónima, protegiendo la identidad del usuario y reforzando la privacidad de la plataforma.<br>
+            TP: Investigó estándares de almacenamiento de archivos en la nube para gestionar eficientemente la evidencia multimedia de los reportes ciudadanos.<br>Avance 2: Añadió la opción de realizar reportes de forma anónima, protegiendo la identidad del usuario y reforzando la privacidad de la plataforma.<br> TF: Desarollo el video About the Product, que explica el funcionamiento de UrbanVoice y las características principales del producto.<br>
             <strong>Quijada Magro, Jeremy Alexander</strong> <br>
             Avance 1: <br> Lideró la fase de investigación de usuarios y la construcción de arquetipos (User Personas) para alinear los requisitos con las necesidades de seguridad en Lima Metropolitana. <br>
-            TP: <br> Implementó el Testing Suite bajo el enfoque BDD utilizando Gherkin para validar los criterios de aceptación del núcleo operativo de la aplicación móvil[cite: 694, 697]. <br> Avance 2:Implementó la lógica para calcular rutas seguras entre dos puntos, evaluando zonas de riesgo para sugerir trayectos alternativos.<br>
-</td>
-<td>
-<em><strong>Avance 1</strong></em>
-<br>El equipo logró consolidar una base metodológica sólida mediante Lean UX y DDD, lo que permitió transformar percepciones subjetivas de inseguridad en requerimientos técnicos accionables y bien estructurados.
-<br><br>
-<em><strong>TP1</strong></em>
-<br>Se validó que la integración de pruebas automatizadas y el diseño de arquitectura táctica son esenciales para garantizar que el producto final sea escalable y cumpla con los estándares de calidad exigidos.
-<br><br>
-<em><strong>Avance 2</strong></em>
-<br>Durante este sprint se consolidaron las funcionalidades principales de UrbanVoice: mapa de riesgo, reportes ciudadanos, evidencia multimedia, anonimato y rutas seguras. Además, se completó la infraestructura backend necesaria para soportar estas operaciones.
-</td>
-</tr>
-<tr class="even">
-<td>Reconoce la necesidad del
-aprendizaje permanente para el
-desempeño profesional y el
-desarrollo de proyectos en
-soluciones de software.</td>
-<td>
-            <strong>Ruiz Madrid, Billy Jake</strong> <br>
-            Avance 1: Aprendió a utilizar Structurizr DSL para generar diagramas de arquitectura como código, optimizando la documentación técnica del equipo. <br>
-            TP: Exploró algoritmos de agrupamiento espacial (clustering) para optimizar el rendimiento del renderizado de capas de calor en dispositivos móviles.  <br>Avance 2: Desarrolló la visualización del mapa interactivo con marcadores de incidentes y geolocalización del usuario, permitiendo identificar zonas de riesgo cercanas.<br><br>
-            <strong>Gordillo Ramos, Santiago Alonso</strong> <br>
-            Avance 1: Estudió pautas de accesibilidad universal (a11y) y Material Design para aplicarlas en la experiencia de usuario de las aplicaciones del proyecto. <br>
-            TP: Investigó técnicas de optimización SEO y Meta Tags para mejorar el posicionamiento orgánico y visibilidad del Landing Page en buscadores. <br> Avance 2: Implementó el formulario de reportes ciudadanos, conectándolo con los endpoints del backend para almacenar incidentes con su ubicación. <br>
-            <strong>La Madrid Lozano, Ivan Jeanpierre</strong> <br>
-            Avance 1: Profundizó en el uso de contenedores y despliegue en la nube para asegurar entornos de ejecución consistentes en el backend del proyecto. <br>
-            TP: Investigó la implementación de protocolos de seguridad JWT para proteger las comunicaciones sensibles entre la aplicación móvil y los microservicios. <br>Avance 2: Integró la carga de imágenes, audios y videos dentro de los reportes, permitiendo adjuntar pruebas al momento de registrar un incidente.<br>
-            <strong>Awad Vargas, Giorgio Marzouk</strong> <br>
-            Avance 1: Identificó la necesidad de aprender nuevas herramientas de modelado arquitectónico para representar correctamente los componentes de UrbanVoice. <br>
-            TP: Investigó estándares de almacenamiento de archivos en la nube para gestionar eficientemente la evidencia multimedia de los reportes ciudadanos.<br>Avance 2: Añadió la opción de realizar reportes de forma anónima, protegiendo la identidad del usuario y reforzando la privacidad de la plataforma.<br>
-            <strong>Quijada Magro, Jeremy Alexander</strong> <br>
-            Avance 1: <br> Lideró la fase de investigación de usuarios y la construcción de arquetipos (User Personas) para alinear los requisitos con las necesidades de seguridad en Lima Metropolitana. <br>
-            TP: <br> Implementó el Testing Suite bajo el enfoque BDD utilizando Gherkin para validar los criterios de aceptación del núcleo operativo de la aplicación móvil[cite: 694, 697]. <br> Avance 2:Implementó la lógica para calcular rutas seguras entre dos puntos, evaluando zonas de riesgo para sugerir trayectos alternativos.<br>
+            TP: <br> Implementó el Testing Suite bajo el enfoque BDD utilizando Gherkin para validar los criterios de aceptación del núcleo operativo de la aplicación móvil[cite: 694, 697]. <br> Avance 2:Implementó la lógica para calcular rutas seguras entre dos puntos, evaluando zonas de riesgo para sugerir trayectos alternativos.<br> TF: Desarollo las modficaciones finales de la aplicacion en Flutter y la aplicación en Android.<br>
 </td>
 <td>
 <em><strong>Avance 1</strong></em>
@@ -328,6 +294,46 @@ soluciones de software.</td>
 <br><br>
 <em><strong>Avance 2</strong></em>
 <br>Durante este sprint se consolidaron las funcionalidades principales de UrbanVoice: mapa de riesgo, reportes ciudadanos, evidencia multimedia, anonimato y rutas seguras. Además, se completó la infraestructura backend necesaria para soportar estas operaciones.
+<br><br>
+<em><strong>TF</strong></em>
+<br>Durante este sprint se completaron las tareas de documentación de los endpoints del backend para el sprint 3. Además, se desarrollaron las modificaciones finales de la aplicación en Flutter y la aplicación en Android.
+</td>
+</tr>
+<tr class="even">
+<td>Reconoce la necesidad del
+aprendizaje permanente para el
+desempeño profesional y el
+desarrollo de proyectos en
+soluciones de software.</td>
+<td>
+           <strong>Ruiz Madrid, Billy Jake</strong> <br>
+            Avance 1: Aprendió a utilizar Structurizr DSL para generar diagramas de arquitectura como código, optimizando la documentación técnica del equipo. <br>
+            TP: Exploró algoritmos de agrupamiento espacial (clustering) para optimizar el rendimiento del renderizado de capas de calor en dispositivos móviles.  <br>Avance 2: Desarrolló la visualización del mapa interactivo con marcadores de incidentes y geolocalización del usuario, permitiendo identificar zonas de riesgo cercanas.<br><br>
+            <strong>Gordillo Ramos, Santiago Alonso</strong> <br>
+            Avance 1: Estudió pautas de accesibilidad universal (a11y) y Material Design para aplicarlas en la experiencia de usuario de las aplicaciones del proyecto. <br>
+            TP: Investigó técnicas de optimización SEO y Meta Tags para mejorar el posicionamiento orgánico y visibilidad del Landing Page en buscadores. <br> Avance 2: Implementó el formulario de reportes ciudadanos, conectándolo con los endpoints del backend para almacenar incidentes con su ubicación. <br>  TF: Desarollo las pruebas funcionales e integrales para la aplicvacion en flutter y la aplicacion en Android. <br>
+            <strong>La Madrid Lozano, Ivan Jeanpierre</strong> <br>
+            Avance 1: Profundizó en el uso de contenedores y despliegue en la nube para asegurar entornos de ejecución consistentes en el backend del proyecto. <br>
+            TP: Investigó la implementación de protocolos de seguridad JWT para proteger las comunicaciones sensibles entre la aplicación móvil y los microservicios. <br>Avance 2: Integró la carga de imágenes, audios y videos dentro de los reportes, permitiendo adjuntar pruebas al momento de registrar un incidente.<br> TF: Desarollo la documentacion de los endpoints del backend para el sprint 3. <br>
+            <strong>Awad Vargas, Giorgio Marzouk</strong> <br>
+            Avance 1: Identificó la necesidad de aprender nuevas herramientas de modelado arquitectónico para representar correctamente los componentes de UrbanVoice. <br>
+            TP: Investigó estándares de almacenamiento de archivos en la nube para gestionar eficientemente la evidencia multimedia de los reportes ciudadanos.<br>Avance 2: Añadió la opción de realizar reportes de forma anónima, protegiendo la identidad del usuario y reforzando la privacidad de la plataforma.<br> TF: Desarollo el video About the Product, que explica el funcionamiento de UrbanVoice y las características principales del producto.<br>
+            <strong>Quijada Magro, Jeremy Alexander</strong> <br>
+            Avance 1: <br> Lideró la fase de investigación de usuarios y la construcción de arquetipos (User Personas) para alinear los requisitos con las necesidades de seguridad en Lima Metropolitana. <br>
+            TP: <br> Implementó el Testing Suite bajo el enfoque BDD utilizando Gherkin para validar los criterios de aceptación del núcleo operativo de la aplicación móvil[cite: 694, 697]. <br> Avance 2:Implementó la lógica para calcular rutas seguras entre dos puntos, evaluando zonas de riesgo para sugerir trayectos alternativos.<br> TF: Desarollo las modficaciones finales de la aplicacion en Flutter y la aplicación en Android.<br>
+</td>
+<td>
+<em><strong>Avance 1</strong></em>
+<br>Se evidenció que la adopción de herramientas de modelado como código y la investigación autónoma de metodologías ágiles son fundamentales para el éxito del diseño inicial del proyecto.
+<br><br>
+<em><strong>TP1</strong></em>
+<br>El aprendizaje de herramientas de CI/CD y automatización demostró ser clave para optimizar los tiempos de entrega, reforzando la idea de que la actualización tecnológica constante es una ventaja competitiva en el desarrollo de software.
+<br><br>
+<em><strong>Avance 2</strong></em>
+<br>Durante este sprint se consolidaron las funcionalidades principales de UrbanVoice: mapa de riesgo, reportes ciudadanos, evidencia multimedia, anonimato y rutas seguras. Además, se completó la infraestructura backend necesaria para soportar estas operaciones.
+<br><br>
+<em><strong>TF</strong></em>
+<br>Durante este sprint se completaron las tareas de documentación de los endpoints del backend para el sprint 3. Además, se desarrollaron las modificaciones finales de la aplicación en Flutter y la aplicación en Android.
 </td>
 
 </tr>
