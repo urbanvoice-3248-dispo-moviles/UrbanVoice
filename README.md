@@ -5449,7 +5449,36 @@ Hemos aprendido mucho sobre el manejo de aplicacion en flutter y android. Al des
 
 Link: https://youtu.be/mLcxFWLN1Mc
 
-###  APP Validation:
+###  App Validation:
+
+Para poder realizar la validación de la aplicación, se ha utilizado una herramienta de pruebas de usabilidad llamada **Firebase**. Esta herramienta permite compartir nuestra aplicacion con otros usuarios y obtener feedbacks de los usuarios para mejorar la experiencia de usuario.
+
+Los pasos que se han seguido para realizar la validación de la aplicación son los siguientes:
+
+Crear UrbanVoice en Firebase:
+
+<img src="assets/distribution/App-Distribution-1.png"/><br/>
+
+Crear applicacion mobile en Firebase:
+<img src="assets/distribution/App-Distribution-2.png"/><br/>
+
+Cumplir con los requisitos para agregar firebase a la aplicación:
+<img src="assets/distribution/App-Distribution-3.png"/><br/>
+<img src="assets/distribution/App-Distribution-4.png"/><br/>
+
+Acceder desde la terminal a firebase:
+<img src="assets/distribution/App-Distribution-6.png"/><br/>
+
+Subir la aplicación a firebase:
+<img src="assets/distribution/App-Distribution-7.png"/><br/>
+
+Compartir el link de la aplicación con otros usuarios:
+<img src="assets/distribution/App-Distribution-8.png"/><br/>
+
+
+Link: 
+
+En el video de validación de la aplicación, se puede ver que la aplicación funciona correctamente en diferentes plataformas, como Android y iOS. Además, se puede observar que la aplicación es fácil de usar y que el diseño es atractivo y intuitivo. 
 
 ### Recomendaciones
 
