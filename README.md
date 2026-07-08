@@ -5476,7 +5476,7 @@ Compartir el link de la aplicación con otros usuarios:
 <img src="assets/distribution/App-Distribution-8.png"/><br/>
 
 
-Link: 
+Link: https://youtu.be/SWFD4NwXexw
 
 En el video de validación de la aplicación, se puede ver que la aplicación funciona correctamente en diferentes plataformas, como Android y iOS. Además, se puede observar que la aplicación es fácil de usar y que el diseño es atractivo y intuitivo. 
 
@@ -5499,7 +5499,9 @@ En el video de validación de la aplicación, se puede ver que la aplicación fu
 
 **Enlace Deploy Landing Page:** https://urbanvoice-3248-dispo-moviles.github.io/Landing-Page/
 
-**Enlace Deploy Front-End:** https://backend-urbanvoice.onrender.com/swagger-ui/index.html
+**Enlace Deploy Front-End-Android:** https://appdistribution.firebase.google.com/testerapps/1:183023304961:android:909394991acf0f0bb51b00/releases/5f1vq40n0uslg?utm_source=firebase-console
+
+**Enlace Deploy Back-End-Android:** https://backend-urbanvoice.onrender.com/swagger-ui/index.html
 
 
 # Glosario
